@@ -1,0 +1,31 @@
+$theme-primary-color: #ffffff !default;
+$theme-accent-color: #cccccc !default;
+
+@mixin color {
+
+
+     .primary-color {
+          color: $theme-primary-color;
+     }
+
+    .primary-contrast-color {
+        color: valo-font-color($theme-primary-color, 1.0);
+    }
+
+     .accent-color{
+         color: $theme-accent-color;
+     }
+
+
+    .primary-contrast-background-color {
+       background-color: valo-font-color($theme-primary-color, 1.0) !important;
+    }
+
+    .primary-border-color {
+        border-color: $theme-primary-color ;
+    }
+
+    .accent-border-color{
+        border-color: $theme-accent-color;
+    }
+}

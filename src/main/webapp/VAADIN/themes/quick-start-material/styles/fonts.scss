@@ -1,0 +1,49 @@
+@mixin fonts {
+       .gurps-font{
+           font-family: "gurps", gurps, serif;
+       }
+       .x-small{
+           font-size: x-small;
+       }
+
+        .weight-100 {
+            font-weight: 100;
+        }
+
+        .weight-200 {
+            font-weight: 200;
+        }
+
+        .weight-300 {
+            font-weight: 300;
+        }
+
+       .large{
+           font-size: large;
+       }
+
+       .x-large{
+           font-size: x-large;
+       }
+
+       .xx-large{
+           font-size: xx-large;
+       }
+
+        .uppercase {
+            text-transform: uppercase;
+        }
+
+        .lowercase {
+            text-transform: lowercase;
+        }
+
+        .v-formlayout-row > .v-formlayout-captioncell * {
+            font-size: smaller;
+        }
+
+       .italic {
+           font-style: italic;
+       }
+
+   }

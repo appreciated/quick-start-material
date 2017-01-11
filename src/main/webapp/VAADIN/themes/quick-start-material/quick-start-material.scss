@@ -1,0 +1,21 @@
+@import "styles/color.scss";
+@import "styles/fonts.scss";
+@import "styles/layouts.scss";
+@import "styles/navigation.scss";
+@import "styles/basics.scss";
+@import "styles/tags.scss";
+@import "styles/window.scss";
+@import "styles/material.scss";
+@import "../valo/valo.scss";
+
+
+@mixin quick-start-material {
+    @include valo;
+    @include color;
+    @include basics;
+    @include fonts;
+    @include navigation;
+    @include window;
+    @include material;
+    @include tags;
+}

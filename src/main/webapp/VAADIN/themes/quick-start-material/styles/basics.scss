@@ -1,0 +1,133 @@
+@keyframe expand {
+      0% { height: 300px; }
+    100% { height: 0px; }
+}
+
+@mixin basics {
+
+    .v-upload {
+        pointer: cursor;
+    }
+
+    .gwt-FileUpload {
+        pointer: cursor !important;
+    }
+
+    .transparent{
+        opacity: 0;
+    }
+
+
+    .much-hidden-window {
+        position:absolute !important;
+        top: -200px !important;
+    }
+
+    .impressum-margin{
+        margin-left: 100px;
+        margin-right: 100px;
+        overflow: visible;
+    }
+    .back {
+         position: relative;
+         z-index: -1;
+    }
+
+    .front {
+         position: relative;
+         z-index: 1;
+    }
+
+    .text-shadow {
+        text-shadow: 0 0 10px #fff;
+    }
+
+    .label-break{
+        white-space: normal;
+    }
+    .small-margin{
+        margin:10px;
+    }
+
+    .small-padding{
+        padding:10px;
+    }
+
+    .small-context-button-container {
+        max-height: 500px;
+        transition: all 0.5s;
+        //animation: expand 0.2s;
+        overflow: hidden;
+        margin-bottom: -30px;
+        padding-bottom: 40px;
+        animation-direction:alternate-reverse;
+    }
+
+    .small-context-button-container .display-none {
+        max-height: 0px;
+    }
+
+    .mobile-context-button-container {
+         max-height: 300px;
+         transition: all 1s;
+         overflow:hidden;
+    }
+
+    .desktop-context-button-container  {
+         max-height: 700px;
+         transition: all 0.6s;
+         overflow:hidden;
+    }
+
+    .display-none {
+        max-height: 0px;
+    }
+
+    .display-none {
+        > div > .small-context-button-container > div > .small-context-button {
+            transform: scale(0.0);
+        }
+        > div > .small-context-button {
+            transform: scale(0.0);
+        }
+        > div > .context-button {
+            transform: scale(0.0);
+        }
+    }
+
+    .center{
+        text-align: center;
+    }
+
+    .no-overflow{
+        overflow: hidden;
+    }
+
+    .show-overflow{
+        overflow: visible;
+    }
+
+    .margin-childs > div {
+        margin: 7px;
+    }
+
+    .min-height {
+        min-height: 470px;
+    }
+
+    .flexbox-center > div > div  {
+        overflow: auto;
+        display: flex;
+        & > div  {
+            margin: auto;
+        }
+    }
+
+    .mytheme .v-panel-content {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        width: 100%;
+        height: 100%;
+    }
+}

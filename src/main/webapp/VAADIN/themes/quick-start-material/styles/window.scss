@@ -1,0 +1,27 @@
+
+
+@mixin window {
+
+    .v-window-header {
+        @extend .large;
+        @extend .accent-color;
+        padding: 10px;
+        padding-left: 20px;
+    }
+
+    .v-window-closebox {
+        top: 10px;
+        right: 10px;
+    }
+
+    .content-wrapper{
+        padding: 20px;
+        padding-top: 10px;
+    }
+
+   .v-window-modalitycurtain {
+        background-color: #111;
+        background-image: -webkit-radial-gradient(50% 50%, circle, #111, #0e0e0e);
+        background-image: radial-gradient( circle at 50% 50%, #111, #0e0e0e);
+   }
+}

@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;JAVA_SOURCES_ROOT&quot;:&quot;../GURPS Character Generator/quick-start-material/src/main/java&quot;,&quot;THEME&quot;:&quot;quick-start-material&quot;}">
+  <meta name="vaadin-version" content="7.7.0">
+ </head> 
+ <body> 
+  <vaadin-vertical-layout style-name="login-background" size-full> 
+   <vaadin-horizontal-layout size-full :expand> 
+    <vaadin-vertical-layout style-name="opacity-transition" spacing size-auto :middle :center> 
+     <vaadin-horizontal-layout style-name="login-margin-bottom" spacing :center> 
+      <vaadin-horizontal-layout style-name="login-icon" width="75px" height="75px"></vaadin-horizontal-layout> 
+      <vaadin-label style-name="xx-large accent-color text-shadow weight-100 label-break center" size-auto plain-text _id="title" :middle>
+        My Website Title 
+      </vaadin-label> 
+     </vaadin-horizontal-layout> 
+     <vaadin-vertical-layout style-name="elevation-5" size-auto margin-bottom _id="loginForm" :middle :center> 
+      <vaadin-form-layout size-auto margin-left margin-right margin-top="false"> 
+       <vaadin-text-field caption="Username" _id="username"></vaadin-text-field> 
+       <vaadin-password-field caption="Password" _id="password"></vaadin-password-field> 
+      </vaadin-form-layout> 
+      <vaadin-horizontal-layout :middle :right> 
+       <vaadin-button style-name="accent-color" width="70px" plain-text _id="loginButton">
+         Login 
+       </vaadin-button> 
+      </vaadin-horizontal-layout> 
+     </vaadin-vertical-layout> 
+    </vaadin-vertical-layout> 
+   </vaadin-horizontal-layout> 
+   <vaadin-horizontal-layout width-full _id="bottomBarWrapper" :bottom :center></vaadin-horizontal-layout> 
+  </vaadin-vertical-layout>  
+ </body>
+</html>

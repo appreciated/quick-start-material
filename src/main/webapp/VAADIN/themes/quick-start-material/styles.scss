@@ -1,0 +1,8 @@
+@import "quick-start-material.scss";
+@import "addons.scss";
+
+.quick-start-material {
+  @include addons;
+  @include quick-start-material;
+}
+

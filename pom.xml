@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	
+	 <properties>
+    		<maven.compiler.source>1.8</maven.compiler.source>
+    		<maven.compiler.target>1.8</maven.compiler.target>
+  	</properties>
+<version>0.5</version>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.github.appreciated</groupId>
+	<artifactId>quick-start-material</artifactId>
+	<name>quick-start-material</name>
+	<packaging>jar</packaging>
+	<repositories>
+		<repository>
+		<id>jitpack.io</id>
+		<url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.vaadin</groupId>
+			<artifactId>vaadin-client</artifactId>
+			<version>7.7.6</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>github.com.appreciated</groupId>
+			<artifactId>quick-start-base</artifactId>
+			<version>0.5</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<archive>
+						<index>true</index>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+						</manifest>
+						<manifestEntries>
+							<Vaadin-Package-Version>1</Vaadin-Package-Version>
+						</manifestEntries>
+					</archive>
+				</configuration>
+			</plugin>
+		</plugins>
+
+		<resources>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.java</include>
+				</includes>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+			<resource>
+				<directory>src/main/webapp</directory>
+			</resource>
+		</resources>
+	</build>
+
+</project>

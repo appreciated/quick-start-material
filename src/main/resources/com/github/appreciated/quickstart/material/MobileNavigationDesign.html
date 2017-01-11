@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;JAVA_SOURCES_ROOT&quot;:&quot;../GURPS Character Generator/quick-start-material/src/main/java&quot;,&quot;THEME&quot;:&quot;quick-start-material&quot;}">
+  <meta name="vaadin-version" content="7.7.0">
+ </head> 
+ <body> 
+  <vaadin-absolute-layout> 
+   <vaadin-vertical-layout size-full :top="0px" :right="0px" :bottom="0px" :left="0px"> 
+    <vaadin-vertical-layout style-name="navigation"> 
+     <vaadin-horizontal-layout width-full height="60px"> 
+      <vaadin-button icon="fonticon://FontAwesome/f0c9" style-name="borderless mobile-tab2 large" id="menu-button" height-full plain-text _id="menuButton">
+        My Mobile App 
+      </vaadin-button> 
+     </vaadin-horizontal-layout> 
+    </vaadin-vertical-layout> 
+    <vaadin-horizontal-layout size-full :expand> 
+     <vaadin-horizontal-layout size-full _id="componentHolder" :expand></vaadin-horizontal-layout> 
+     <vaadin-vertical-layout width="0px" height-full> 
+      <vaadin-vertical-layout style-name="mobile-context-button-container floating-left display-none" width="70px" _id="contextButtonContainer" :bottom> 
+       <vaadin-vertical-layout style-name="small-context-button-container display-none" spacing size-auto _id="smallContextButtonContainer" :bottom :center></vaadin-vertical-layout> 
+       <vaadin-button style-name="context-button" width="60px" height="60px" plain-text _id="floatingButton" :bottom :center></vaadin-button> 
+      </vaadin-vertical-layout> 
+     </vaadin-vertical-layout> 
+    </vaadin-horizontal-layout> 
+   </vaadin-vertical-layout> 
+   <vaadin-horizontal-layout style-name="menu-wrapper menu-hidden" id="menu-wrapper" width="300px" height-full _id="menuWrapper" :top="60px" :bottom="0px" :left="0px"> 
+    <vaadin-vertical-layout style-name="navigation menu" width="250px" height-full _id="menu"> 
+     <vaadin-panel style-name="borderless" size-full :middle :expand> 
+      <vaadin-horizontal-layout width-full margin-top margin-bottom> 
+       <vaadin-vertical-layout spacing _id="menuButtons"> 
+        <vaadin-button icon="fonticon://FontAwesome/f015" style-name="borderless mobile-tab" width-full height="50px" plain-text>
+          Home 
+        </vaadin-button> 
+        <vaadin-button icon="fonticon://FontAwesome/f129" style-name="borderless mobile-tab" width-full height="50px" plain-text>
+          About 
+        </vaadin-button> 
+       </vaadin-vertical-layout> 
+      </vaadin-horizontal-layout> 
+     </vaadin-panel> 
+     <vaadin-horizontal-layout width-full _id="logoutWrapper" :bottom> 
+      <vaadin-button icon="fonticon://FontAwesome/f011" style-name="borderless mobile-tab" width-full height="50px" plain-text _id="logout" :middle :center>
+        Logout 
+      </vaadin-button> 
+     </vaadin-horizontal-layout> 
+    </vaadin-vertical-layout> 
+   </vaadin-horizontal-layout> 
+  </vaadin-absolute-layout>  
+ </body>
+</html>

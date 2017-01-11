@@ -1,0 +1,46 @@
+
+
+@mixin navigation {
+
+
+    .menu-hidden {
+        transform: translate(-300px, 0px);
+        width: 0px !important;
+    }
+
+    .menu-show {
+        transform: translate(0px, 0px);
+        width: 300px !important;
+    }
+
+
+    .navigation-margin-left{
+       margin-left: 13px;
+    }
+
+    .login-background {
+        background-image: $background-image;
+        background-position: center;
+        background-size: cover;
+    }
+
+    .login-margin-bottom {
+        margin-bottom: 60px;
+    }
+
+    .navigation-container-holder {
+        text-align: center;
+    }
+
+    .navigation-container {
+        margin: 50px;
+        padding: 40px;
+        min-width: 400px;
+        animation: valo-animate-in-fade 1s ease;
+        transition: opacity 1s;
+    }
+
+    .fade-in {
+        animation: valo-animate-in-fade 1s ease;
+    }
+}
