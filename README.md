@@ -1,2 +1,2 @@
 # quick-start-material
-A Material Design for Vaadin
+A Quick-Start Material implementation for Vaadin
