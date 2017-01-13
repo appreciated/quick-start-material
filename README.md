@@ -2,4 +2,4 @@
 A Quick-Start Material implementation for Vaadin
 
 ## Status
-This Library is incomplete most Components require a manual change I planned to reuse as much from Materialize but didn't find the time yet. The Library is usable but there are no tests yet. 
+This Library is incomplete most Components require still a manual sdf change. I planned to reuse as much from the Materialize but havent had the time yet (https://github.com/dogfalo/materialize/). The Library is usable but there are no tests yet. 
