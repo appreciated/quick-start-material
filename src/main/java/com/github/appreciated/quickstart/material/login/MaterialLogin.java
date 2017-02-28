@@ -4,6 +4,7 @@ import com.github.appreciated.quickstart.base.interfaces.LoginListener;
 import com.github.appreciated.quickstart.base.interfaces.LoginNavigable;
 import com.github.appreciated.quickstart.base.listeners.ShortcutKeyListener;
 import com.github.appreciated.quickstart.base.login.AccessControl;
+import com.github.appreciated.quickstart.base.navigation.WebsiteUI;
 import com.github.appreciated.quickstart.base.notification.QuickNotification;
 import com.vaadin.event.ShortcutAction;
 import com.vaadin.server.Page;
@@ -14,17 +15,21 @@ import com.vaadin.ui.Notification;
 /**
  * Created by appreciated on 07.12.2016.
  */
-public class LoginView extends LoginDesign implements LoginNavigable {
+public class MaterialLogin extends LoginDesign implements LoginNavigable {
 
     private LoginListener loginListener;
     private final AccessControl accessControl;
 
-    public LoginView(String pageTitle, AccessControl accessControl) {
+    public MaterialLogin(String loginTitle, AccessControl accessControl) {
         this.accessControl = accessControl;
         username.focus();
-        title.setValue(pageTitle);
+        title.setValue(loginTitle);
         loginButton.addClickListener(event -> tryLogin());
         this.addShortcutListener(new ShortcutKeyListener(ShortcutAction.KeyCode.ENTER, (o, o1) -> tryLogin()));
+    }
+
+    public MaterialLogin(AccessControl accessControl) {
+        this(WebsiteUI.get().getWebsiteDefinition().getTitle(), accessControl);
     }
 
     private void tryLogin() {
@@ -57,7 +62,7 @@ public class LoginView extends LoginDesign implements LoginNavigable {
         return bottomBarWrapper;
     }
 
-    public LoginView withBottomBarWrapperContent(Component component) {
+    public MaterialLogin withBottomBarWrapperContent(Component component) {
         this.bottomBarWrapper.addComponent(component);
         return this;
     }

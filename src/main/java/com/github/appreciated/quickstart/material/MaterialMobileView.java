@@ -1,8 +1,8 @@
 package com.github.appreciated.quickstart.material;
 
 
-import com.github.appreciated.quickstart.base.navigation.Navigation;
-import com.github.appreciated.quickstart.base.interfaces.NavigatorInterface;
+import com.github.appreciated.quickstart.base.interfaces.WebsiteNavigationInterface;
+import com.github.appreciated.quickstart.base.navigation.WebsiteNavigator;
 import com.github.appreciated.quickstart.base.vaadin.Util;
 import com.vaadin.server.Page;
 import com.vaadin.ui.Button;
@@ -12,13 +12,13 @@ import com.vaadin.ui.VerticalLayout;
 /**
  * Created by appreciated on 10.12.2016.
  */
-public abstract class MobileNavigationView extends MobileNavigationDesign implements NavigatorInterface {
+public class MaterialMobileView extends MobileNavigationDesign implements WebsiteNavigationInterface {
 
-    private final Navigation navigation;
+    private final WebsiteNavigator navigation;
 
-    public MobileNavigationView() {
+    public MaterialMobileView() {
         menuButton.setCaption(getConfiguration().getTitle());
-        navigation = new Navigation(this, floatingButton, componentHolder, contextButtonContainer, smallContextButtonContainer);
+        navigation = new WebsiteNavigator(this, floatingButton, componentHolder, contextButtonContainer, smallContextButtonContainer);
         menuButtons.removeAllComponents();
         getConfiguration().getButtons().stream().forEach(entry -> {
             /**
@@ -131,7 +131,7 @@ public abstract class MobileNavigationView extends MobileNavigationDesign implem
     }
 
     @Override
-    public Navigation getNavigation() {
+    public WebsiteNavigator getNavigation() {
         return navigation;
     }
 
