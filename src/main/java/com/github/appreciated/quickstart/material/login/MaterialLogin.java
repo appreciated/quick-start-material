@@ -15,7 +15,7 @@ import com.vaadin.ui.Notification;
 /**
  * Created by appreciated on 07.12.2016.
  */
-public class MaterialLogin extends LoginDesign implements LoginNavigable {
+public abstract class MaterialLogin extends LoginDesign implements LoginNavigable {
 
     private LoginListener loginListener;
     private final AccessControl accessControl;

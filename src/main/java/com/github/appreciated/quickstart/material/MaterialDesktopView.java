@@ -21,21 +21,21 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Webs
 
     public MaterialDesktopView() {
         navigation = new WebsiteNavigator(this, floatingButton, componentHolder, contextButtonContainer, smallContextButtonContainer);
-        title.setValue(getConfiguration().getTitle());
+        title.setValue(getDefinition().getTitle());
         buttonContainer.removeAllComponents();
-        getConfiguration().getButtons().stream().forEach(entry -> {
-            Button button = entry.getKey();
+        getDefinition().getNavigationElements().stream().forEach(navigation -> {
+            Button button = new Button(navigation.getNavigationName());
             button.addStyleName("tab");
             button.setHeight(60, Unit.PIXELS);
             buttonContainer.addComponent(button);
-            navigation.addNavigation(button, entry.getValue());
+            this.navigation.addNavigation(button, navigation);
         });
         logout.addClickListener(event -> {
             Util.invalidateSession();
         });
-        navigation.navigateTo(getConfiguration().getStartNavigable());
+        navigation.navigateTo(getDefinition().getDefaultPage());
 
-        List<AbstractMap.SimpleEntry<String, Boolean>> config = getConfiguration().getConfiguration();
+        List<AbstractMap.SimpleEntry<String, Boolean>> config = getDefinition().getConfiguration();
         if (config != null) {
             config.stream().forEach(entry -> {
                 if (entry.getValue().booleanValue() == true) {

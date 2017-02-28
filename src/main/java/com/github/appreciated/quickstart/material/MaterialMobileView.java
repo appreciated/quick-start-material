@@ -17,10 +17,10 @@ public class MaterialMobileView extends MobileNavigationDesign implements Websit
     private final WebsiteNavigator navigation;
 
     public MaterialMobileView() {
-        menuButton.setCaption(getConfiguration().getTitle());
+        menuButton.setCaption(getDefinition().getTitle());
         navigation = new WebsiteNavigator(this, floatingButton, componentHolder, contextButtonContainer, smallContextButtonContainer);
         menuButtons.removeAllComponents();
-        getConfiguration().getButtons().stream().forEach(entry -> {
+        getDefinition().getNavigationElements().stream().forEach(element -> {
             /**
              * Wrapper for the Java script part at the attach() method to not override the vaadin on click events
              */
@@ -28,18 +28,18 @@ public class MaterialMobileView extends MobileNavigationDesign implements Websit
             wrapper.setHeight(50, Unit.PIXELS);
             wrapper.setWidth(100, Unit.PERCENTAGE);
             wrapper.addStyleName("mobile-tab-wrapper");
-            Button button = entry.getKey();
+            Button button = new Button(element.getNavigationName());
             button.addStyleName("mobile-tab");
             button.setSizeFull();
             wrapper.addComponent(button);
             menuButtons.addComponent(wrapper);
-            navigation.addNavigation(button, entry.getValue());
+            navigation.addNavigation(button, element);
         });
 
         logout.addClickListener(event -> {
             Util.invalidateSession();
         });
-        navigation.navigateTo(getConfiguration().getStartNavigable());
+        navigation.navigateTo(getDefinition().getDefaultPage());
     }
 
 
