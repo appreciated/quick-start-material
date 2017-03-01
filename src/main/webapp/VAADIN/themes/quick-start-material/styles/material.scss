@@ -61,12 +61,6 @@ $icon-image: url("img/test_icon.png") !default;
     box-shadow: unset;
     border: none;
     border-radius: 0px;
-    &:after{
-        border-color: unset !important;
-        -webkit-box-shadow: unset !important;
-        box-shadow: unset !important;
-        border: none !important;
-     }
 
 }
 
@@ -86,6 +80,15 @@ $icon-image: url("img/test_icon.png") !default;
     .v-button {
         @extend .v-button-borderless;
     }
+
+       .v-button:after{
+            border-color: unset !important;
+            -webkit-box-shadow: unset !important;
+                border-color: transparent !important;
+                box-shadow: none !important;
+         }
+         
+
 
     .v-textfield {
         @extend .v-textfield-borderless;
@@ -108,6 +111,13 @@ $icon-image: url("img/test_icon.png") !default;
         position: relative;
         z-index:1;
     }
+
+      .background {
+            @extend .color-white;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.19);
+            background: $theme-primary-color;
+            z-index: -1;
+        }
 
      .menu-wrapper {
             position: relative;
@@ -309,5 +319,26 @@ $icon-image: url("img/test_icon.png") !default;
         transform: scale(1.3);
         background-color: rgba(0, 0, 0, 0.5);
     }
+
+            .slide-background {
+                background: grey;
+                width: 210% !important;
+                background-size: cover;
+                height: 400px !important;
+                margin-bottom: -300px;
+                box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.3);
+            }
+
+             .slides {
+                        perspective: 500px;
+                        perspective-origin: 100% 0%;
+                    }
+                    .slide-content-container {
+                        transform-style: preserve-3d;
+                        transform: translateZ(0);
+                    }
+                    .slide-background {
+                        transform: translateZ(-500px) translateY(0px) translateX(-50%) scale(1.0);
+                    }
 }
 

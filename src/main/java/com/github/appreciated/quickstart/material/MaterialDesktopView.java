@@ -23,6 +23,7 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Webs
         navigation = new WebsiteNavigator(this, floatingButton, componentHolder, contextButtonContainer, smallContextButtonContainer);
         title.setValue(getDefinition().getTitle());
         buttonContainer.removeAllComponents();
+
         getDefinition().getNavigationElements().stream().forEach(navigation -> {
             Button button = new Button(navigation.getNavigationName());
             button.addStyleName("tab");

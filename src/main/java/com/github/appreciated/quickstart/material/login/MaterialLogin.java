@@ -29,7 +29,7 @@ public abstract class MaterialLogin extends LoginDesign implements LoginNavigabl
     }
 
     public MaterialLogin(AccessControl accessControl) {
-        this(WebsiteUI.get().getWebsiteDefinition().getTitle(), accessControl);
+        this(WebsiteUI.get().getWebsiteDescriptor().getTitle(), accessControl);
     }
 
     private void tryLogin() {

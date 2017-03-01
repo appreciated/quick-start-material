@@ -1,7 +1,10 @@
 
 
 @mixin navigation {
-
+    .floating {
+    position:relative;
+    z-index: 1;
+    }
 
     .menu-hidden {
         transform: translate(-300px, 0px);
