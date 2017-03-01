@@ -19,14 +19,8 @@ import com.vaadin.ui.declarative.Design;
 public class DesktopNavigationDesign extends VerticalLayout {
     protected HorizontalLayout iconContainer;
     protected Label title;
-    protected HorizontalLayout menuButtonContainer;
-    protected CssLayout buttonContainer;
-    protected Button home;
-    protected Button about;
-    protected Button logout;
-    protected VerticalLayout contextButtonContainer;
-    protected Button floatingButton;
-    protected VerticalLayout smallContextButtonContainer;
+    protected MenuBar user;
+    protected MenuBar navigationMenu;
     protected HorizontalLayout componentHolder;
 
     public DesktopNavigationDesign() {

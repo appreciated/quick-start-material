@@ -35,7 +35,6 @@ $icon-image: url("img/test_icon.png") !default;
     //animation: scale 0.3s;
     transform: scale(1.0);
 
-
     &:after {
         border-color: unset !important;
         box-shadow: unset !important;
@@ -112,19 +111,19 @@ $icon-image: url("img/test_icon.png") !default;
         z-index:1;
     }
 
-      .background {
-            @extend .color-white;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.19);
-            background: $theme-primary-color;
-            z-index: -1;
-        }
+    .background {
+        @extend .color-white;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.19);
+        background: $theme-primary-color;
+        z-index: -1;
+    }
 
-     .menu-wrapper {
-            position: relative;
-            z-index: 2;
-            overflow:hidden;
-            transition: transform 0.7s, width 0.7s;
-     }
+    .menu-wrapper {
+        position: relative;
+        z-index: 2;
+        overflow:hidden;
+        transition: transform 0.7s, width 0.7s;
+    }
 
     .menu {
         box-shadow: 0 0 40px rgba(0, 0, 0,0.9);
@@ -192,7 +191,7 @@ $icon-image: url("img/test_icon.png") !default;
         width: 30px;
    }
 
-   .mobile-tab {
+    .mobile-tab {
         @include true-borderless;
         @extend .primary-contrast-color;
         border-color: transparent;
@@ -205,7 +204,7 @@ $icon-image: url("img/test_icon.png") !default;
     }
 
 
-   .mobile-tab-active {
+    .mobile-tab-active {
         @extend .accent-color;
         @extend .primary-contrast-background-color;
         &:after {
@@ -320,25 +319,49 @@ $icon-image: url("img/test_icon.png") !default;
         background-color: rgba(0, 0, 0, 0.5);
     }
 
-            .slide-background {
-                background: grey;
-                width: 210% !important;
-                background-size: cover;
-                height: 400px !important;
-                margin-bottom: -300px;
-                box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.3);
-            }
+    .v-menubar.round-image {
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+        border-radius: 100%;
+        background: red;
+        margin:5px;
+        box-shadow: 0px 0px 3px rgba(0,0,0,0.4);
+    }
 
-             .slides {
-                        perspective: 500px;
-                        perspective-origin: 100% 0%;
-                    }
-                    .slide-content-container {
-                        transform-style: preserve-3d;
-                        transform: translateZ(0);
-                    }
-                    .slide-background {
-                        transform: translateZ(-500px) translateY(0px) translateX(-50%) scale(1.0);
-                    }
+    .v-menubar.round-image:after {
+        display: none;
+    }
+    .v-menubar.round-image .v-menubar-menuitem-selected {
+           background: transparent;
+           border: none;
+           box-shadow: none;
+    }
+
+    .v-menubar.round-image > .v-menubar-menuitem:hover:before {
+        background-color: transparent;
+    }
+
+    .slide-background {
+        background: $theme-primary-color;
+        width: 210% !important;
+        background-size: cover;
+        height: 70vh !important;
+        margin-bottom: -56vh;
+        box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.3);
+    }
+
+    .slides {
+        perspective: 500px;
+        perspective-origin: 100% 0%;
+    }
+    .slide-content-container {
+        transform-style: preserve-3d;
+        transform: translateZ(0);
+    }
+    .slide-background {
+        transform: translateZ(-500px) translateY(0px) translateX(-50%) scale(1.0);
+    }
 }
 

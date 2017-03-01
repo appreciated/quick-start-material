@@ -1,7 +1,7 @@
 package com.github.appreciated.quickstart.material;
 
 
-import com.github.appreciated.quickstart.base.interfaces.WebsiteNavigationInterface;
+import com.github.appreciated.quickstart.base.interfaces.NavigationDesignInterface;
 import com.github.appreciated.quickstart.base.navigation.WebsiteNavigator;
 import com.github.appreciated.quickstart.base.vaadin.Util;
 import com.vaadin.server.Page;
@@ -12,14 +12,14 @@ import com.vaadin.ui.VerticalLayout;
 /**
  * Created by appreciated on 10.12.2016.
  */
-public class MaterialMobileView extends MobileNavigationDesign implements WebsiteNavigationInterface {
+public class MaterialMobileView extends MobileNavigationDesign implements NavigationDesignInterface {
 
     private final WebsiteNavigator navigation;
 
     public MaterialMobileView() {
         menuButton.setCaption(getDefinition().getTitle());
-        navigation = new WebsiteNavigator(this, floatingButton, componentHolder, contextButtonContainer, smallContextButtonContainer);
-        menuButtons.removeAllComponents();
+        navigation = new WebsiteNavigator(this, componentHolder);
+        navigationMenu.removeItems();
         getDefinition().getNavigationElements().stream().forEach(element -> {
             /**
              * Wrapper for the Java script part at the attach() method to not override the vaadin on click events
@@ -32,8 +32,8 @@ public class MaterialMobileView extends MobileNavigationDesign implements Websit
             button.addStyleName("mobile-tab");
             button.setSizeFull();
             wrapper.addComponent(button);
-            menuButtons.addComponent(wrapper);
-            navigation.addNavigation(button, element);
+          //  menuButtons.addComponent(wrapper);
+            //navigation.addNavigation(button, element);
         });
 
         logout.addClickListener(event -> {
@@ -168,9 +168,6 @@ public class MaterialMobileView extends MobileNavigationDesign implements Websit
         return menu;
     }
 
-    public VerticalLayout getMenuButtons() {
-        return menuButtons;
-    }
 
     public HorizontalLayout getLogoutWrapper() {
         return logoutWrapper;
