@@ -32,7 +32,7 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
             button.addStyleName("mobile-tab");
             button.setSizeFull();
             wrapper.addComponent(button);
-          //  menuButtons.addComponent(wrapper);
+            //  menuButtons.addComponent(wrapper);
             //navigation.addNavigation(button, element);
         });
 
@@ -48,7 +48,7 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
         super.attach();
 
         /**
-         * Some additional Javascript to dodge the server-round trip time on mobile devices for the openning and closing
+         * Some additional Javascript to dodge the server-round trip time on mobile devices for the opening and closing
          * animation
          *
          * Be careful when editing this the domIds are set via the Vaadin designer.
@@ -107,10 +107,10 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
                 "    if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/\n" +
                 "           console.log(Math.abs( xDiff ));      \n" +
                 "        if ( xDiff > 0 && Math.abs( xDiff ) >= 10) {\n" +
-                            // left swipe
+                // left swipe
                 "           document.getElementById('" + menuId + "').classList.remove('menu-show');\n" +
                 "        } else if (Math.abs( xDiff ) >= 10) {\n" +
-                            // right swipe
+                // right swipe
                 "           document.getElementById('" + menuId + "').classList.add('menu-show');\n" +
                 "        }\n" +
                 "    } else {\n" +
@@ -138,6 +138,11 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
     @Override
     public void disableLogout() {
         logoutWrapper.setVisible(false);
+    }
+
+    @Override
+    public void setCurrentContainerLabel(String label) {
+        menuButton.setCaption(label);
     }
 
     public Button getMenuButton() {

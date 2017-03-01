@@ -6,6 +6,8 @@
 @import "styles/tags.scss";
 @import "styles/window.scss";
 @import "styles/material.scss";
+@import "styles/animations.scss";
+@import "styles/input.scss";
 @import "../valo/valo.scss";
 
 
@@ -18,4 +20,6 @@
     @include window;
     @include material;
     @include tags;
+    @include animations;
+     @include input;
 }

@@ -37,7 +37,7 @@ public abstract class MaterialLogin extends LoginDesign implements LoginNavigabl
         if (accessControl.signIn(username.getValue(), password.getValue())) {
             loginListener.loginSuccessful();
         } else {
-            QuickNotification.showMessageHumanized("Login failed", "Please check your username and password and try again.");
+            QuickNotification.showMessage("Login failed", "Please check your username and password and try again.");
             username.focus();
             loginButton.setEnabled(true);
         }

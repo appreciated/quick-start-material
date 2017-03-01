@@ -1,9 +1,13 @@
-$theme-primary-color: #ffffff !default;
-$theme-accent-color: #cccccc !default;
+$v-border-radius: 0px !default;
+$v-background-color: #ffffff !default;
+$v-app-background-color: #ffffff !default;
+$theme-primary-color: #999999 !default;
+$v-gradient: v-linear 0% !default;
+$v-bevel-depth: 0% !default;
+$v-shadow-opacity: 10% !default;
+$v-focus-color: #ffffff !default;
 
 @mixin color {
-
-
      .primary-color {
           color: $theme-primary-color;
      }
@@ -16,9 +20,8 @@ $theme-accent-color: #cccccc !default;
          color: $theme-accent-color;
      }
 
-
     .primary-contrast-background-color {
-       background-color: valo-font-color($theme-primary-color, 1.0) !important;
+       background-color: $primary-contrast-background-color !important;
     }
 
     .primary-border-color {

@@ -8,10 +8,10 @@
  <body>
   <vaadin-vertical-layout size-full margin="false">
    <vaadin-absolute-layout>
-    <vaadin-horizontal-layout style-name="floating" width-full>
+    <vaadin-horizontal-layout style-name="floating" id="navigation-bar" width-full>
      <vaadin-css-layout width-full :expand>
       <vaadin-horizontal-layout height="60px">
-       <vaadin-horizontal-layout height-full>
+       <vaadin-horizontal-layout spacing="false" height-full>
         <vaadin-horizontal-layout style-name="login-icon" spacing="false" width="50px" height="50px" _id="iconContainer" :middle></vaadin-horizontal-layout>
         <vaadin-label style-name="x-large primary-contrast-color" plain-text _id="title" :middle :center>
           My Web App 
@@ -19,7 +19,7 @@
        </vaadin-horizontal-layout>
       </vaadin-horizontal-layout>
       <vaadin-horizontal-layout spacing="false" height="60px" margin-left>
-       <vaadin-menu-bar style-name="borderless" _id="navigationMenu" :middle :center>
+       <vaadin-menu-bar style-name="borderless navigation-bar" _id="navigationMenu" :middle :center>
         <menu>
           File 
          <menu>
@@ -46,8 +46,9 @@
       </vaadin-horizontal-layout>
      </vaadin-css-layout>
      <vaadin-vertical-layout spacing="false" width-auto height-full margin="false">
-      <vaadin-horizontal-layout spacing="false" width="60px" height="60px" :middle :right :expand>
-       <vaadin-menu-bar style-name="tab borderless" _id="user" :middle :center>
+      <vaadin-horizontal-layout height="60px" :right :expand>
+       <vaadin-text-field icon="fonticon://Vaadin-Icons/e805" style-name="inline-icon floating-input" placeholder="Search" :middle></vaadin-text-field>
+       <vaadin-menu-bar style-name="borderless navigation-bar no-indicator" width="60px" height="60px" _id="user" :middle :center>
         <menu>
           User 
         </menu>
@@ -55,16 +56,16 @@
       </vaadin-horizontal-layout>
      </vaadin-vertical-layout>
     </vaadin-horizontal-layout>
-    <vaadin-panel style-name="borderless slides" size-full>
+    <vaadin-panel style-name="borderless slides" id="contentPanel" size-full _id="contentPanel">
      <vaadin-vertical-layout spacing="false" margin="false">
-      <vaadin-horizontal-layout style-name="background slide-background" spacing="false" width-full height="60px"></vaadin-horizontal-layout>
-      <vaadin-vertical-layout>
-       <vaadin-horizontal-layout width-full margin-left margin-right :middle>
-        <vaadin-horizontal-layout width-full height="40px" margin-left margin-right>
-         <vaadin-label style-name="h3 primary-contrast-color" plain-text _id="componentLabel" :middle>
+      <vaadin-horizontal-layout style-name="slide-background" spacing="false" id="parralax-header" width-full height="60px"></vaadin-horizontal-layout>
+      <vaadin-vertical-layout id="contentHeader">
+       <vaadin-horizontal-layout style-name="min-width" width="600px" :center>
+        <vaadin-horizontal-layout style-name="full-width" width-full height="60px" :center :expand>
+         <vaadin-label style-name="h3 primary-contrast-color" plain-text _id="containerLabel" :middle>
            Label 
          </vaadin-label>
-         <vaadin-menu-bar style-name="borderless" _id="contextButtons" :middle :right>
+         <vaadin-menu-bar style-name="borderless navigation-bar" _id="contextButtons" :middle :right>
           <menu>
             File 
            <menu>
@@ -90,7 +91,7 @@
          </vaadin-menu-bar>
         </vaadin-horizontal-layout>
        </vaadin-horizontal-layout>
-       <vaadin-horizontal-layout style-name="slide-content-container" width-full _id="componentHolder"></vaadin-horizontal-layout>
+       <vaadin-horizontal-layout style-name="slide-content-container" width="600px" _id="componentHolder" :center></vaadin-horizontal-layout>
       </vaadin-vertical-layout>
      </vaadin-vertical-layout>
     </vaadin-panel>

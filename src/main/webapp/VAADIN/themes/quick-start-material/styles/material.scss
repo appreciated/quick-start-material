@@ -70,6 +70,8 @@ $icon-image: url("img/test_icon.png") !default;
 @mixin material {
 
     .login-icon {
+        margin-left: 5px;
+        margin-right: 5px;
         background: $icon-image;
         background-position: center;
         background-size: cover;
@@ -329,6 +331,17 @@ $icon-image: url("img/test_icon.png") !default;
         margin:5px;
         box-shadow: 0px 0px 3px rgba(0,0,0,0.4);
     }
+    .v-menubar.navigation-bar {
+            height: 60px;
+            line-height:60px;
+    }
+    .v-menubar.navigation-bar .v-menubar-menuitem:hover {
+            background: $v-focus-color;
+    }
+
+    .navigation-bar:not(.v-menubar-submenu) *{
+        @extend .primary-contrast-color;
+    }
 
     .v-menubar.round-image:after {
         display: none;
@@ -339,18 +352,37 @@ $icon-image: url("img/test_icon.png") !default;
            box-shadow: none;
     }
 
-    .v-menubar.round-image > .v-menubar-menuitem:hover:before {
+    .navigation-bar .v-menubar-menuitem:hover {
+        background-color: rgba($v-focus-color,0.2) !important;
+    }
+
+     .navigation-bar > .v-menubar-menuitem-selected {
+        background-color: rgba($v-focus-color,0.2) !important;
+         background-image: none;
+    }
+
+    .v-menubar.round-image > .v-menubar-menuitem:focus:before {
         background-color: transparent;
     }
 
+    .v-caption-inline-icon span.v-icon {
+     left: unset;
+     bottom: unset;
+    }
     .slide-background {
         background: $theme-primary-color;
         width: 210% !important;
         background-size: cover;
         height: 70vh !important;
-        margin-bottom: -56vh;
-        box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.3);
+        margin-bottom: -63vh;
     }
+
+            .min-width {
+                min-width: 600px;
+        }
+        .full-width {
+            width: 100%;
+        }
 
     .slides {
         perspective: 500px;

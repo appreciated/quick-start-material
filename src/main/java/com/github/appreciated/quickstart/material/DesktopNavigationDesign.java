@@ -22,6 +22,8 @@ public class DesktopNavigationDesign extends VerticalLayout {
     protected MenuBar user;
     protected MenuBar navigationMenu;
     protected HorizontalLayout componentHolder;
+    protected Label containerLabel;
+    protected Panel contentPanel;
 
     public DesktopNavigationDesign() {
         Design.read(this);
