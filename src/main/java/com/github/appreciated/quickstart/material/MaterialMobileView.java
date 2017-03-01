@@ -1,13 +1,18 @@
 package com.github.appreciated.quickstart.material;
 
 
+import com.github.appreciated.quickstart.base.interfaces.ContextNavigable;
 import com.github.appreciated.quickstart.base.interfaces.NavigationDesignInterface;
+import com.github.appreciated.quickstart.base.interfaces.SearchNavigable;
+import com.github.appreciated.quickstart.base.navigation.Action;
 import com.github.appreciated.quickstart.base.navigation.WebsiteNavigator;
 import com.github.appreciated.quickstart.base.vaadin.Util;
 import com.vaadin.server.Page;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.VerticalLayout;
+
+import java.util.List;
 
 /**
  * Created by appreciated on 10.12.2016.
@@ -143,6 +148,21 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
     @Override
     public void setCurrentContainerLabel(String label) {
         menuButton.setCaption(label);
+    }
+
+    @Override
+    public void setCurrentActions(ContextNavigable contextNavigable) {
+        List<Action> actions = contextNavigable.getContextActions();
+        if (actions == null ||actions.size() == 0){
+
+        }
+    }
+
+    @Override
+    public void setCurrentSearchNavigable(SearchNavigable navigable) {
+        if (navigable == null) {
+
+        }
     }
 
     public Button getMenuButton() {

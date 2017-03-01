@@ -1,8 +1,12 @@
 package com.github.appreciated.quickstart.material;
 
 
+import com.github.appreciated.quickstart.base.components.DownloadButton;
+import com.github.appreciated.quickstart.base.components.UploadButton;
 import com.github.appreciated.quickstart.base.interfaces.ContextNavigable;
 import com.github.appreciated.quickstart.base.interfaces.NavigationDesignInterface;
+import com.github.appreciated.quickstart.base.interfaces.SearchNavigable;
+import com.github.appreciated.quickstart.base.navigation.Action;
 import com.github.appreciated.quickstart.base.navigation.WebsiteNavigator;
 import com.github.appreciated.quickstart.base.notification.QuickNotification;
 import com.github.appreciated.quickstart.base.vaadin.Util;
@@ -30,9 +34,7 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Navi
         title.setValue(getDefinition().getTitle());
         navigationMenu.removeItems();
         getDefinition().getNavigationElements().stream().forEach(navigation -> {
-            MenuBar.MenuItem item = this.navigationMenu.addItem(navigation.getNavigationName(), navigation.getNavigationIcon(), menuItem -> {
-                System.out.println("Yay");
-            });
+            MenuBar.MenuItem item = this.navigationMenu.addItem(navigation.getNavigationName(), navigation.getNavigationIcon(), null);
             this.navigation.addNavigation(item, navigation);
         });
 
@@ -69,7 +71,7 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Navi
 
     private void initContextButtons(ContextNavigable navigable) {
         /*smallContextButtonContainer.removeAllComponents();
-        List<Action> contextIcons = navigable.getContextIcons();
+        List<Action> contextIcons = navigable.getContextActions();
         List<HashMap.SimpleEntry<Resource, Component>> generatedButtons = new ArrayList<>();
 
         if (contextIcons.size() > 1) {
@@ -85,7 +87,7 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Navi
                     case BUTTON:
                         Button button = new Button(action.getResource());
                         button.addClickListener(clickEvent -> navigable.onContextButtonClicked(action.getResource()));
-                        button.addStyleName("small-context-button");
+                        button.addStyleName("mobile-context-button");
                         buttonComponent = button;
                         break;
                     case UPLOAD:
@@ -156,6 +158,42 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Navi
     @Override
     public void setCurrentContainerLabel(String label) {
         containerLabel.setValue(label);
+    }
+
+    @Override
+    public void setCurrentActions(ContextNavigable contextNavigable) {
+        if (contextNavigable != null) {
+            List<Action> actions = contextNavigable.getContextActions();
+            if (actions == null || actions.size() == 0) {
+                actions.forEach(action -> {
+                    switch (action.getActionType()) {
+                        case DOWNLOAD:
+                            contextButtonWrapper.addComponent(new DownloadButton(action));
+                            break;
+                        case UPLOAD:
+                            contextButtonWrapper.addComponent(new UploadButton(action));
+                            break;
+                        default:
+                            contextButtons.addItem(action.getName(), action.getResource(), menuItem -> {
+                                action.getListener().actionPerformed(null);
+                            });
+                            break;
+                    }
+                });
+            }
+        } else {
+            contextButtonWrapper.addStyleName("hidden");
+        }
+    }
+
+    @Override
+    public void setCurrentSearchNavigable(SearchNavigable navigable) {
+        if (navigable == null) {
+            searchBarWrapper.addStyleName("hidden");
+        } else {
+            searchBarWrapper.removeStyleName("hidden");
+            searchBar.addValueChangeListener(navigable);
+        }
     }
 
     /*

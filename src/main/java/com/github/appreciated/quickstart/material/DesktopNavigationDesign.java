@@ -21,6 +21,10 @@ public class DesktopNavigationDesign extends VerticalLayout {
     protected Label title;
     protected MenuBar user;
     protected MenuBar navigationMenu;
+    protected MenuBar contextButtons;
+    protected HorizontalLayout searchBarWrapper;
+    protected TextField searchBar;
+    protected HorizontalLayout contextButtonWrapper;
     protected HorizontalLayout componentHolder;
     protected Label containerLabel;
     protected Panel contentPanel;

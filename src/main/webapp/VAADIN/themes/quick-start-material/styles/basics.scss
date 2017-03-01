@@ -5,6 +5,10 @@
 
 @mixin basics {
 
+    .margin-l-20 {
+        margin-left:20px;
+    }
+
     .v-upload {
         pointer: cursor;
     }
@@ -13,7 +17,12 @@
         pointer: cursor !important;
     }
 
-    .transparent{
+    .hideable{
+        transition: opacity 1s;
+        opacity: 1.0;
+    }
+
+    .hidden{
         opacity: 0;
     }
 
@@ -53,17 +62,16 @@
         padding:10px;
     }
 
-    .small-context-button-container {
+    .mobile-context-button-container {
         max-height: 500px;
         transition: all 0.5s;
-        //animation: expand 0.2s;
         overflow: hidden;
         margin-bottom: -30px;
         padding-bottom: 40px;
         animation-direction:alternate-reverse;
     }
 
-    .small-context-button-container .display-none {
+    .mobile-context-button-container .display-none {
         max-height: 0px;
     }
 
@@ -84,10 +92,10 @@
     }
 
     .display-none {
-        > div > .small-context-button-container > div > .small-context-button {
+        > div > .mobile-context-button-container > div > .mobile-context-button {
             transform: scale(0.0);
         }
-        > div > .small-context-button {
+        > div > .mobile-context-button {
             transform: scale(0.0);
         }
         > div > .context-button {

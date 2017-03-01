@@ -77,19 +77,16 @@ $icon-image: url("img/test_icon.png") !default;
         background-size: cover;
     }
 
-
     .v-button {
         @extend .v-button-borderless;
     }
 
-       .v-button:after{
-            border-color: unset !important;
-            -webkit-box-shadow: unset !important;
-                border-color: transparent !important;
-                box-shadow: none !important;
-         }
-         
-
+    .v-button:after{
+          border-color: unset !important;
+          -webkit-box-shadow: unset !important;
+          border-color: transparent !important;
+          box-shadow: none !important;
+    }
 
     .v-textfield {
         @extend .v-textfield-borderless;
@@ -98,7 +95,6 @@ $icon-image: url("img/test_icon.png") !default;
         width: unset;
         min-width: 60px;
     }
-
 
     .v-textfield:focus {
         box-shadow: none;
@@ -135,7 +131,7 @@ $icon-image: url("img/test_icon.png") !default;
         animation: valo-animate-in-fade 1s;
     }
 
-    .small-context-button {
+    .mobile-context-button {
        @include floating-button-style;
        width: 48px;
        height: 48px;
