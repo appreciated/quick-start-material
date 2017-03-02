@@ -74,55 +74,6 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Navi
         }
     }
 
-    private void initContextButtons(ContextNavigable navigable) {
-        /*smallContextButtonContainer.removeAllComponents();
-        List<Action> contextIcons = navigable.getContextActions();
-        List<HashMap.SimpleEntry<Resource, Component>> generatedButtons = new ArrayList<>();
-
-        if (contextIcons.size() > 1) {
-            //this.isExpandButton = true;
-            contextButton.setIcon(FontAwesome.ELLIPSIS_V);
-            contextIcons.stream().forEach(action -> {
-                Component buttonComponent = null;
-                switch (action.getActionType()) {
-                    case DOWNLOAD:
-                        buttonComponent = new DownloadButton(action);
-                        ((DownloadButton) buttonComponent).addClickListener(clickEvent -> navigable.onContextButtonClicked(action.getResource()));
-                        break;
-                    case BUTTON:
-                        Button button = new Button(action.getResource());
-                        button.addClickListener(clickEvent -> navigable.onContextButtonClicked(action.getResource()));
-                        button.addStyleName("mobile-context-button");
-                        buttonComponent = button;
-                        break;
-                    case UPLOAD:
-                        buttonComponent = new UploadButton(action);
-                        break;
-                }
-                smallContextButtonContainer.addComponent(buttonComponent);
-                generatedButtons.add(new AbstractMap.SimpleEntry<>(action.getResource(), buttonComponent));
-            });
-        } else {
-            this.isExpandButton = false;
-            contextButton.setIcon(contextIcons.get(0).getResource());
-            generatedButtons.add(new AbstractMap.SimpleEntry<>(contextIcons.get(0).getResource(), contextButton));
-        }
-        setStyle(contextButtonContainer, "display-none", false);
-
-        if (clickListener != null) {
-            contextButton.removeClickListener(clickListener);
-        }
-        clickListener = (Button.ClickListener) clickEvent -> {
-            if (smallContextButtonContainer != null && !isExpandButton) {
-                contextButtonListener.onContextButtonClick(contextButton.getIcon());
-            } else if (isExpandButton) {
-                toggleStyle(smallContextButtonContainer, "display-none");
-            }
-        };
-        contextButton.addClickListener(clickListener);
-        navigable.generatedButtons(generatedButtons);*/
-    }
-
     @Override
     public void attach() {
         super.attach();
