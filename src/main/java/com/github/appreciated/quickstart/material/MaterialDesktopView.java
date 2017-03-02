@@ -21,6 +21,8 @@ import com.vaadin.ui.MenuBar;
 
 import java.util.AbstractMap;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 /**
  * Created by appreciated on 04.12.2016.
@@ -166,14 +168,19 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Navi
     @Override
     public void setCurrentActions(ContextNavigable contextNavigable) {
         if (contextNavigable != null) {
+
+            /**
+             * Why so complicated you may ask? I did try to use the forEach Method, but it seem removing objects from the
+             * inside caused some issues
+             */
+            StreamSupport.stream(contextButtonWrapper.spliterator(), false).collect(Collectors.toList())
+                    .stream()
+                    .filter(component -> !(component instanceof MenuBar))
+                    .forEach(component -> contextButtonWrapper.removeComponent(component));
+
             List<Action> actions = contextNavigable.getContextActions();
             if (actions != null && actions.size() > 0) {
                 contextButtons.removeItems();
-                contextButtonWrapper.forEach(component -> {
-                    if (!(component instanceof MenuBar)) {
-                        contextButtonWrapper.removeComponent(component);
-                    }
-                });
                 actions.forEach(action -> {
                     if (action instanceof DownloadAction) {
                         DownloadButton download = new DownloadButton(action.getName(), action.getResource(), (DownloadAction) action);

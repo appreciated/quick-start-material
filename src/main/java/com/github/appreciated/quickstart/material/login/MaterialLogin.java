@@ -4,7 +4,7 @@ import com.github.appreciated.quickstart.base.interfaces.LoginListener;
 import com.github.appreciated.quickstart.base.interfaces.LoginNavigable;
 import com.github.appreciated.quickstart.base.listeners.ShortcutKeyListener;
 import com.github.appreciated.quickstart.base.login.AccessControl;
-import com.github.appreciated.quickstart.base.navigation.WebsiteUI;
+import com.github.appreciated.quickstart.base.navigation.WebApplicationUI;
 import com.github.appreciated.quickstart.base.notification.QuickNotification;
 import com.vaadin.event.ShortcutAction;
 import com.vaadin.server.Page;
@@ -29,7 +29,7 @@ public abstract class MaterialLogin extends LoginDesign implements LoginNavigabl
     }
 
     public MaterialLogin(AccessControl accessControl) {
-        this(WebsiteUI.get().getWebsiteDescriptor().getTitle(), accessControl);
+        this(WebApplicationUI.get().getWebsiteDescriptor().getTitle(), accessControl);
     }
 
     private void tryLogin() {
