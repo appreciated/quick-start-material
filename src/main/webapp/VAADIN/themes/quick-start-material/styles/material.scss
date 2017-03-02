@@ -162,6 +162,7 @@ $icon-image: url("img/test_icon.png") !default;
         border-bottom: 2px solid;
         border-color: transparent;
         transition: border 0.7s, color 0.7s, text-shadow 0.7s;
+            line-height: 60px;
         color: valo-font-color($theme-primary-color, 1.0);
         &:hover {
               @extend .primary-contrast-color;

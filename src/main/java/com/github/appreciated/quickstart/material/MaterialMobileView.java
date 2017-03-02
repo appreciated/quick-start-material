@@ -4,7 +4,7 @@ package com.github.appreciated.quickstart.material;
 import com.github.appreciated.quickstart.base.interfaces.ContextNavigable;
 import com.github.appreciated.quickstart.base.interfaces.NavigationDesignInterface;
 import com.github.appreciated.quickstart.base.interfaces.SearchNavigable;
-import com.github.appreciated.quickstart.base.navigation.Action;
+import com.github.appreciated.quickstart.base.navigation.actions.Action;
 import com.github.appreciated.quickstart.base.navigation.WebsiteNavigator;
 import com.github.appreciated.quickstart.base.vaadin.Util;
 import com.vaadin.server.Page;
@@ -37,8 +37,6 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
             button.addStyleName("mobile-tab");
             button.setSizeFull();
             wrapper.addComponent(button);
-            //  menuButtons.addComponent(wrapper);
-            //navigation.addNavigation(button, element);
         });
 
         logout.addClickListener(event -> {
@@ -192,7 +190,6 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
     public VerticalLayout getMenu() {
         return menu;
     }
-
 
     public HorizontalLayout getLogoutWrapper() {
         return logoutWrapper;

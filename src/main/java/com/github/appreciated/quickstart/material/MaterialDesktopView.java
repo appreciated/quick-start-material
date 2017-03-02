@@ -6,8 +6,11 @@ import com.github.appreciated.quickstart.base.components.UploadButton;
 import com.github.appreciated.quickstart.base.interfaces.ContextNavigable;
 import com.github.appreciated.quickstart.base.interfaces.NavigationDesignInterface;
 import com.github.appreciated.quickstart.base.interfaces.SearchNavigable;
-import com.github.appreciated.quickstart.base.navigation.Action;
 import com.github.appreciated.quickstart.base.navigation.WebsiteNavigator;
+import com.github.appreciated.quickstart.base.navigation.actions.Action;
+import com.github.appreciated.quickstart.base.navigation.actions.ClickAction;
+import com.github.appreciated.quickstart.base.navigation.actions.DownloadAction;
+import com.github.appreciated.quickstart.base.navigation.actions.UploadAction;
 import com.github.appreciated.quickstart.base.notification.QuickNotification;
 import com.github.appreciated.quickstart.base.vaadin.Util;
 import com.vaadin.icons.VaadinIcons;
@@ -164,23 +167,30 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Navi
     public void setCurrentActions(ContextNavigable contextNavigable) {
         if (contextNavigable != null) {
             List<Action> actions = contextNavigable.getContextActions();
-            if (actions == null || actions.size() == 0) {
+            if (actions != null && actions.size() > 0) {
+                contextButtons.removeItems();
+                contextButtonWrapper.forEach(component -> {
+                    if (!(component instanceof MenuBar)) {
+                        contextButtonWrapper.removeComponent(component);
+                    }
+                });
                 actions.forEach(action -> {
-                    switch (action.getActionType()) {
-                        case DOWNLOAD:
-                            contextButtonWrapper.addComponent(new DownloadButton(action));
-                            break;
-                        case UPLOAD:
-                            contextButtonWrapper.addComponent(new UploadButton(action));
-                            break;
-                        default:
-                            contextButtons.addItem(action.getName(), action.getResource(), menuItem -> {
-                                action.getListener().actionPerformed(null);
-                            });
-                            break;
+                    if (action instanceof DownloadAction) {
+                        DownloadButton download = new DownloadButton(action.getName(), action.getResource(), (DownloadAction) action);
+                        download.setHeight(60, Unit.PIXELS);
+                        contextButtonWrapper.addComponent(download);
+                    } else if (action instanceof UploadAction) {
+                        UploadButton upload = new UploadButton(action.getName(), action.getResource(), (UploadAction) action);
+                        upload.setHeight(60, Unit.PIXELS);
+                        contextButtonWrapper.addComponent(upload);
+                    } else if (action instanceof ClickAction) {
+                        contextButtons.addItem(action.getName(), action.getResource(), menuItem -> {
+                            ((ClickAction) action).getListener().actionPerformed(null);
+                        });
                     }
                 });
             }
+            contextButtonWrapper.removeStyleName("hidden");
         } else {
             contextButtonWrapper.addStyleName("hidden");
         }
@@ -191,6 +201,7 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Navi
         if (navigable == null) {
             searchBarWrapper.addStyleName("hidden");
         } else {
+            searchBar.setValue("");
             searchBarWrapper.removeStyleName("hidden");
             searchBar.addValueChangeListener(navigable);
         }
