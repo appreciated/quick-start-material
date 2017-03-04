@@ -4,17 +4,16 @@ A Quick-Start Material implementation for Vaadin
 ## Status
 This Library is incomplete most Components require still a manual sdf change. I planned to reuse as much from the Materialize but havent had the time yet (https://github.com/dogfalo/materialize/). The Library is usable but there are no tests yet. 
 
-## How to Use?
-
+## How do I use it?
 
 ### Add the JitPack Repository to your POM
 
     <repositories>
-	    <repository>
-        <id>jitpack.io</id>
-        <url>https://jitpack.io</url>
-	    </repository>
-     </repositories>
+      <repository>
+         <id>jitpack.io</id>
+         <url>https://jitpack.io</url>
+      </repository>
+    </repositories>
 
 ### Add the following POM to your Maven dependencies
   
