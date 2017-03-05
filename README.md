@@ -1,12 +1,8 @@
 # quick-start-material [![](https://jitpack.io/v/appreciated/quick-start-material.svg)](https://jitpack.io/#appreciated/quick-start-material)
 A Quick-Start Material implementation for Vaadin
 
-
-
 ## Status
-This Library is incomplete! 
-I plan to reuse as much CSS from Materialize but havent had the time yet (https://github.com/dogfalo/materialize/). 
-The Library is usable but there are no tests yet. It will be added as a Vaadin Addon when a more mature status is reached, for now I decided to use JitPack
+This Library is incomplete but can be used already. It will be added as a Vaadin Addon when a more mature status is reached, for now I decided to use JitPack
 
 ToDo:
 * Materialize import
