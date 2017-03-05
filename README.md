@@ -14,6 +14,7 @@ ToDo:
 * left / right side navigation
 * Allow Components to be added to the Navigation and the Context Menu 
 * Context Buttons without List 
+* Pager replacement
 * Integration Tests
 
 ## How do I use it?
