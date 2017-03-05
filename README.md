@@ -24,7 +24,7 @@ This Library will be added as a Vaadin Addon when a more mature status is reache
     <dependency>
       <groupId>com.github.appreciated</groupId>
       <artifactId>quick-start-material</artifactId>
-      <version>0.5.5</version>
+      <version>0.5.6</version>
     </dependency>
   
 ### Modify your UI Class to look similar to this
