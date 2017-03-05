@@ -8,6 +8,8 @@ The Library is usable but there are no tests yet.
 
 ## How do I use it?
 
+The Vaadin Addon will be added when a more mature status is reached, for now I decided to use JitPack
+
 ### Add the JitPack Repository to your POM
 
     <repositories>
