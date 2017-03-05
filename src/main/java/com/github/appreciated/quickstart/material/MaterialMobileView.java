@@ -1,34 +1,50 @@
 package com.github.appreciated.quickstart.material;
 
 
+import com.github.appreciated.quickstart.base.components.DownloadButton;
+import com.github.appreciated.quickstart.base.components.UploadButton;
 import com.github.appreciated.quickstart.base.interfaces.ContextNavigable;
+import com.github.appreciated.quickstart.base.interfaces.Navigable;
 import com.github.appreciated.quickstart.base.interfaces.NavigationDesignInterface;
 import com.github.appreciated.quickstart.base.interfaces.SearchNavigable;
+import com.github.appreciated.quickstart.base.navigation.WebAppDescription;
 import com.github.appreciated.quickstart.base.navigation.actions.Action;
-import com.github.appreciated.quickstart.base.navigation.WebsiteNavigator;
+import com.github.appreciated.quickstart.base.navigation.actions.ClickAction;
+import com.github.appreciated.quickstart.base.navigation.actions.DownloadAction;
+import com.github.appreciated.quickstart.base.navigation.actions.UploadAction;
 import com.github.appreciated.quickstart.base.vaadin.Util;
+import com.vaadin.icons.VaadinIcons;
 import com.vaadin.server.Page;
-import com.vaadin.ui.Button;
-import com.vaadin.ui.HorizontalLayout;
-import com.vaadin.ui.VerticalLayout;
+import com.vaadin.server.Resource;
+import com.vaadin.ui.*;
 
+import java.util.AbstractMap;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.stream.Stream;
 
 /**
  * Created by appreciated on 10.12.2016.
  */
 public class MaterialMobileView extends MobileNavigationDesign implements NavigationDesignInterface {
 
-    private final WebsiteNavigator navigation;
-
     public MaterialMobileView() {
-        menuButton.setCaption(getDefinition().getTitle());
-        navigation = new WebsiteNavigator(this, componentHolder);
-        navigationMenu.removeItems();
-        getDefinition().getNavigationElements().stream().forEach(element -> {
-            /**
-             * Wrapper for the Java script part at the attach() method to not override the vaadin on click events
-             */
+        logout.addClickListener(event -> {
+            Util.invalidateSession();
+        });
+    }
+
+    @Override
+    public void initWithTitle(String title) {
+        menuButton.setCaption(title);
+    }
+
+    @Override
+    public void initNavigationElements(Stream<Navigable> navigables) {
+        navigationElements.removeAllComponents();
+        navigables.forEach(element -> {
+            // Wrapper for the Java script part at the attach() method to not override the vaadin on click events
             HorizontalLayout wrapper = new HorizontalLayout();
             wrapper.setHeight(50, Unit.PIXELS);
             wrapper.setWidth(100, Unit.PERCENTAGE);
@@ -37,12 +53,14 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
             button.addStyleName("mobile-tab");
             button.setSizeFull();
             wrapper.addComponent(button);
+            button.addClickListener(clickEvent -> element.navigateTo());
+            navigationElements.addComponent(wrapper);
         });
+    }
 
-        logout.addClickListener(event -> {
-            Util.invalidateSession();
-        });
-        navigation.navigateTo(getDefinition().getDefaultPage());
+    @Override
+    public void initUserFunctionality(WebAppDescription description) {
+
     }
 
 
@@ -61,7 +79,6 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
          * on mobile devices to toogle the animation this might actually take pretty long also we are dodging the Widgetset
          * compilation. But ofcourse is has also its disadvantages.
          */
-
 
         String menButtonId = "menu-button";
         String menuId = "menu-wrapper";
@@ -133,9 +150,10 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
         );
     }
 
+
     @Override
-    public WebsiteNavigator getNavigation() {
-        return navigation;
+    public AbstractOrderedLayout getHolder() {
+        return componentHolder;
     }
 
     @Override
@@ -150,25 +168,57 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
 
     @Override
     public void setCurrentActions(ContextNavigable contextNavigable) {
-        List<Action> actions = contextNavigable.getContextActions();
-        if (actions == null ||actions.size() == 0){
+        if (contextNavigable != null) {
+            List<Action> actions = contextNavigable.getContextActions();
+            Button contextButton = new Button("floating-button");
+            if (actions == null || actions.size() == 0) {
+                smallContextButtonContainer.removeAllComponents();
+                List<Action> contextActions = contextNavigable.getContextActions();
+                List<HashMap.SimpleEntry<Resource, Component>> generatedButtons = new ArrayList<>();
 
+                contextButton.setIcon(VaadinIcons.ELLIPSIS_V);
+                contextActions.stream().forEach(action -> {
+                    Component buttonComponent = null;
+                    if (action instanceof DownloadAction) {
+                        buttonComponent = new DownloadButton((DownloadAction) action);
+                    } else if (action instanceof UploadAction) {
+                        buttonComponent = new UploadButton((UploadAction) action);
+                    } else if (action instanceof ClickAction) {
+                        buttonComponent = new Button(action.getName(), action.getResource());
+                        ((Button) buttonComponent).addClickListener(clickEvent -> ((ClickAction) action).getListener().actionPerformed(null));
+                    }
+                    smallContextButtonContainer.addComponent(buttonComponent);
+                    generatedButtons.add(new AbstractMap.SimpleEntry<>(action.getResource(), buttonComponent));
+                });
+                setStyle(contextButtonContainer, "display-none", false);
+                Button.ClickListener clickListener = (Button.ClickListener) clickEvent -> {
+                    toggleStyle(smallContextButtonContainer, "display-none");
+                };
+                contextButton.addClickListener(clickListener);
+                generatedButtons.forEach(resourceComponentSimpleEntry -> contextButtonContainer.addComponent(resourceComponentSimpleEntry.getValue()));
+                contextButtonContainer.addComponents();
+            }
         }
     }
 
     @Override
     public void setCurrentSearchNavigable(SearchNavigable navigable) {
         if (navigable == null) {
-
+            showSearchbarButton.addStyleName("hidden");
+            menubarWrapper.setVisible(true);
+        } else {
+            showSearchbarButton.removeStyleName("hidden");
+            showSearchbarButton.addClickListener((Button.ClickListener) clickEvent -> {
+                menubarWrapper.setVisible(false);
+                searchbar.addValueChangeListener(valueChangeEvent -> navigable.valueChange(valueChangeEvent));
+                searchbar.focus();
+                searchbar.addBlurListener(blurEvent -> this.menubarWrapper.setVisible(true));
+            });
         }
     }
 
     public Button getMenuButton() {
         return menuButton;
-    }
-
-    public HorizontalLayout getComponentHolder() {
-        return componentHolder;
     }
 
     public VerticalLayout getContextButtonContainer() {
@@ -198,4 +248,21 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
     public Button getLogout() {
         return logout;
     }
+
+    public static void toggleStyle(Component component, String style) {
+        if (component.getStyleName().contains(style)) {
+            component.removeStyleName(style);
+        } else {
+            component.addStyleName(style);
+        }
+    }
+
+    public static void setStyle(Component component, String style, boolean enabled) {
+        if (!enabled) {
+            component.removeStyleName(style);
+        } else {
+            component.addStyleName(style);
+        }
+    }
+
 }

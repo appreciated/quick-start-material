@@ -4,8 +4,10 @@ package com.github.appreciated.quickstart.material;
 import com.github.appreciated.quickstart.base.components.DownloadButton;
 import com.github.appreciated.quickstart.base.components.UploadButton;
 import com.github.appreciated.quickstart.base.interfaces.ContextNavigable;
+import com.github.appreciated.quickstart.base.interfaces.Navigable;
 import com.github.appreciated.quickstart.base.interfaces.NavigationDesignInterface;
 import com.github.appreciated.quickstart.base.interfaces.SearchNavigable;
+import com.github.appreciated.quickstart.base.navigation.WebAppDescription;
 import com.github.appreciated.quickstart.base.navigation.WebsiteNavigator;
 import com.github.appreciated.quickstart.base.navigation.actions.Action;
 import com.github.appreciated.quickstart.base.navigation.actions.ClickAction;
@@ -15,13 +17,16 @@ import com.github.appreciated.quickstart.base.notification.QuickNotification;
 import com.github.appreciated.quickstart.base.vaadin.Util;
 import com.vaadin.icons.VaadinIcons;
 import com.vaadin.server.Page;
+import com.vaadin.ui.AbstractOrderedLayout;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.MenuBar;
 
+import java.awt.event.ActionListener;
 import java.util.AbstractMap;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
 /**
@@ -35,43 +40,7 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Navi
     private WebsiteNavigator navigation = null;
 
     public MaterialDesktopView() {
-        navigation = new WebsiteNavigator(this, componentHolder);
-        title.setValue(getDefinition().getTitle());
-        navigationMenu.removeItems();
-        getDefinition().getNavigationElements().stream().forEach(navigation -> {
-            MenuBar.MenuItem item = this.navigationMenu.addItem(navigation.getNavigationName(), navigation.getNavigationIcon(), null);
-            this.navigation.addNavigation(item, navigation);
-        });
-
-        user.removeItems();
-
-        MenuBar.MenuItem item = user.addItem("", VaadinIcons.USER, null);
-        item.addItem("Edit Profile", menuItem -> QuickNotification.showMessageError("This is currently not implemented"));
-        item.addItem("Logout", menuItem -> Util.invalidateSession());
-
-       /* user.addShortcutListener().addClickListener(event -> {
-            Util.invalidateSession();
-        });*/
-        navigation.navigateTo(getDefinition().getDefaultPage());
-
-        List<AbstractMap.SimpleEntry<String, Boolean>> config = getDefinition().getConfiguration();
-        if (config != null) {
-            config.stream().forEach(entry -> {
-                if (entry.getValue().booleanValue() == true) {
-                    switch (entry.getKey()) {
-                        case CONFIGURATION_FULLHEIGHT_NAVIGATIONBAR:
-                            navigationMenu.setWidth(100, Unit.PERCENTAGE);
-                            break;
-                        case CONFIGURATION_HIDE_ICON:
-                            iconContainer.setVisible(false);
-                            break;
-                        case CONFIGURATION_HIDE_TITLE:
-                            title.setVisible(false);
-                            break;
-                    }
-                }
-            });
-        }
+        navigation = new WebsiteNavigator(this);
     }
 
     @Override
@@ -102,8 +71,52 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Navi
     }
 
     @Override
-    public WebsiteNavigator getNavigation() {
-        return navigation;
+    public void initWithConfiguration(Stream<AbstractMap.SimpleEntry<String, Boolean>> configurations) {
+        if (configurations != null) {
+            configurations.forEach(entry -> {
+                if (entry.getValue().booleanValue() == true) {
+                    switch (entry.getKey()) {
+                        case CONFIGURATION_FULLHEIGHT_NAVIGATIONBAR:
+                            navigationMenu.setWidth(100, Unit.PERCENTAGE);
+                            break;
+                        case CONFIGURATION_HIDE_ICON:
+                            iconContainer.setVisible(false);
+                            break;
+                        case CONFIGURATION_HIDE_TITLE:
+                            title.setVisible(false);
+                            break;
+                    }
+                }
+            });
+        }
+    }
+
+    @Override
+    public void initNavigationElements(Stream<Navigable> navigables) {
+        navigationMenu.removeItems();
+        navigables.forEach(navigation -> {
+            MenuBar.MenuItem item = this.navigationMenu.addItem(navigation.getNavigationName(), navigation.getNavigationIcon(), null);
+            ActionListener listener = this.navigation.addNavigation(navigation);
+            item.setCommand(menuItem -> listener.actionPerformed(null));
+        });
+    }
+
+    @Override
+    public void initWithTitle(String title) {
+        this.title.setValue(title);
+    }
+
+    @Override
+    public void initUserFunctionality(WebAppDescription description) {
+        user.removeItems();
+        MenuBar.MenuItem item = user.addItem("", VaadinIcons.USER, null);
+        item.addItem("Edit Profile", menuItem -> QuickNotification.showMessageError("This is currently not implemented"));
+        item.addItem("Logout", menuItem -> Util.invalidateSession());
+    }
+
+    @Override
+    public AbstractOrderedLayout getHolder() {
+        return componentHolder;
     }
 
     @Override
@@ -134,11 +147,11 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Navi
                 contextButtons.removeItems();
                 actions.forEach(action -> {
                     if (action instanceof DownloadAction) {
-                        DownloadButton download = new DownloadButton(action.getName(), action.getResource(), (DownloadAction) action);
+                        DownloadButton download = new DownloadButton((DownloadAction) action);
                         download.setHeight(60, Unit.PIXELS);
                         contextButtonWrapper.addComponent(download);
                     } else if (action instanceof UploadAction) {
-                        UploadButton upload = new UploadButton(action.getName(), action.getResource(), (UploadAction) action);
+                        UploadButton upload = new UploadButton((UploadAction) action);
                         upload.setHeight(60, Unit.PIXELS);
                         contextButtonWrapper.addComponent(upload);
                     } else if (action instanceof ClickAction) {

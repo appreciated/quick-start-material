@@ -18,12 +18,15 @@ import com.vaadin.ui.declarative.Design;
 @SuppressWarnings("serial")
 public class MobileNavigationDesign extends AbsoluteLayout {
     protected Button menuButton;
-    protected HorizontalLayout componentHolder;
+    protected VerticalLayout componentHolder;
     protected VerticalLayout contextButtonContainer;
     protected VerticalLayout smallContextButtonContainer;
     protected Button floatingButton;
     protected HorizontalLayout menuWrapper;
-    protected MenuBar navigationMenu;
+    protected VerticalLayout navigationElements;
+    protected Button showSearchbarButton;
+    protected TextField searchbar;
+    protected HorizontalLayout menubarWrapper;
     protected VerticalLayout menu;
     protected HorizontalLayout logoutWrapper;
     protected Button logout;

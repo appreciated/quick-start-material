@@ -5,8 +5,16 @@
 
 @mixin basics {
 
+    .height-unset {
+        height: unset !important;
+    }
+
     .margin-l-20 {
         margin-left:20px;
+    }
+
+    .v-caption-inline-icon .v-icon {
+        z-index: unset;
     }
 
     .v-upload {
@@ -31,7 +39,6 @@
     .hidden{
         opacity: 0;
     }
-
 
     .much-hidden-window {
         position:absolute !important;

@@ -27,7 +27,6 @@ public class DesktopNavigationDesign extends VerticalLayout {
     protected HorizontalLayout contextButtonWrapper;
     protected HorizontalLayout componentHolder;
     protected Label containerLabel;
-    protected Panel contentPanel;
 
     public DesktopNavigationDesign() {
         Design.read(this);

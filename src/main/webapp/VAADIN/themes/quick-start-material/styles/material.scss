@@ -100,7 +100,13 @@ $icon-image: url("img/test_icon.png") !default;
         box-shadow: none;
     }
 
-    .navigation {
+
+    .primary-background {
+        background: $theme-primary-color;
+    }
+
+
+   .navigation {
         @extend .color-white;
         box-shadow: 0 10px 20px rgba(0,0,0,0.19);
         background: $theme-primary-color;

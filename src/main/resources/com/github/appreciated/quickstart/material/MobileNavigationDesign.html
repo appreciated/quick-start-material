@@ -7,51 +7,10 @@
  </head>
  <body>
   <vaadin-absolute-layout>
-   <vaadin-vertical-layout size-full margin="false" :top="0px" :right="0px" :bottom="0px" :left="0px">
-    <vaadin-vertical-layout style-name="navigation" margin="false">
-     <vaadin-horizontal-layout width-full height="60px">
-      <vaadin-button icon="fonticon://FontAwesome/f0c9" style-name="borderless mobile-tab2 large" id="menu-button" height-full plain-text _id="menuButton">
-        My Mobile App 
-      </vaadin-button>
-     </vaadin-horizontal-layout>
-    </vaadin-vertical-layout>
-    <vaadin-horizontal-layout size-full :expand>
-     <vaadin-horizontal-layout size-full _id="componentHolder" :expand></vaadin-horizontal-layout>
-     <vaadin-vertical-layout width="0px" height-full>
-      <vaadin-vertical-layout style-name="mobile-context-button-container floating-left display-none" width="70px" _id="contextButtonContainer" :bottom>
-       <vaadin-vertical-layout style-name="mobile-context-button-container display-none" size-auto _id="smallContextButtonContainer" :bottom :center></vaadin-vertical-layout>
-       <vaadin-button style-name="context-button" width="60px" height="60px" plain-text _id="floatingButton" :bottom :center></vaadin-button>
-      </vaadin-vertical-layout>
-     </vaadin-vertical-layout>
-    </vaadin-horizontal-layout>
-   </vaadin-vertical-layout>
    <vaadin-horizontal-layout style-name="menu-wrapper menu-hidden" spacing="false" id="menu-wrapper" width="300px" height-full _id="menuWrapper" :top="60px" :bottom="0px" :left="0px">
     <vaadin-vertical-layout style-name="navigation menu" width="250px" height-full margin="false" _id="menu">
-     <vaadin-panel style-name="borderless" size-full :middle :expand>
-      <vaadin-menu-bar _id="navigationMenu">
-       <menu>
-         File 
-        <menu>
-          Open 
-        </menu>
-        <menu>
-          Save 
-        </menu>
-        <menu>
-          Preferences 
-        </menu>
-        <menu separator></menu>
-        <menu>
-          Quit 
-        </menu>
-       </menu>
-       <menu>
-         Edit 
-       </menu>
-       <menu description="Some description">
-         About 
-       </menu>
-      </vaadin-menu-bar>
+     <vaadin-panel style-name="borderless" size-full :expand>
+      <vaadin-vertical-layout margin="false" _id="navigationElements"></vaadin-vertical-layout>
      </vaadin-panel>
      <vaadin-horizontal-layout width-full _id="logoutWrapper" :bottom>
       <vaadin-button icon="fonticon://FontAwesome/f011" style-name="borderless mobile-tab" width-full height="50px" plain-text _id="logout" :middle :center>
@@ -60,6 +19,32 @@
      </vaadin-horizontal-layout>
     </vaadin-vertical-layout>
    </vaadin-horizontal-layout>
+   <vaadin-vertical-layout spacing="false" size-full margin="false" :top="0px" :right="0px" :bottom="0px" :left="0px">
+    <vaadin-absolute-layout style-name="navigation" height="60px">
+     <vaadin-horizontal-layout style-name="mobile-searchbar hideable" width-full height="60px">
+      <vaadin-text-field icon="fonticon://Vaadin-Icons/e805" style-name="inline-icon" id="testID" width-full _id="searchbar" :middle :expand></vaadin-text-field>
+     </vaadin-horizontal-layout>
+     <vaadin-horizontal-layout style-name="primary-background" width-full height="60px" _id="menubarWrapper" :top="0px">
+      <vaadin-button icon="fonticon://FontAwesome/f0c9" style-name="borderless mobile-tab2 large" id="menu-button" height-full plain-text _id="menuButton">
+        My Mobile App 
+      </vaadin-button>
+      <vaadin-horizontal-layout size-full :middle :right :expand>
+       <vaadin-button icon="fonticon://Vaadin-Icons/e805" style-name="x-large hideable hidden" plain-text _id="showSearchbarButton" :middle :right></vaadin-button>
+      </vaadin-horizontal-layout>
+     </vaadin-horizontal-layout>
+    </vaadin-absolute-layout>
+    <vaadin-horizontal-layout spacing="false" size-full :expand>
+     <vaadin-panel style-name="borderless" size-full :expand>
+      <vaadin-vertical-layout style-name="height-unset" id="" _id="componentHolder"></vaadin-vertical-layout>
+     </vaadin-panel>
+     <vaadin-vertical-layout width="0px" height-full margin="false">
+      <vaadin-vertical-layout style-name="mobile-context-button-container floating-left display-none" width="70px" _id="contextButtonContainer" :bottom>
+       <vaadin-vertical-layout style-name="mobile-context-button-container display-none" size-auto _id="smallContextButtonContainer" :bottom :center></vaadin-vertical-layout>
+       <vaadin-button style-name="context-button" width="60px" height="60px" plain-text _id="floatingButton" :bottom :center></vaadin-button>
+      </vaadin-vertical-layout>
+     </vaadin-vertical-layout>
+    </vaadin-horizontal-layout>
+   </vaadin-vertical-layout>
   </vaadin-absolute-layout>
  </body>
 </html>
