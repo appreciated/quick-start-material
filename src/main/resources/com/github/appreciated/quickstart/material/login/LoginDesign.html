@@ -9,23 +9,39 @@
   <vaadin-vertical-layout style-name="login-background" size-full margin-left="false" margin-right="false">
    <vaadin-horizontal-layout size-full :expand>
     <vaadin-vertical-layout style-name="opacity-transition" size-auto margin-left="false" margin-right="false" :middle :center>
-     <vaadin-horizontal-layout style-name="login-margin-bottom animate-in-slide-down" :center>
-      <vaadin-horizontal-layout style-name="login-icon" width="75px" height="75px"></vaadin-horizontal-layout>
-      <vaadin-label style-name="xx-large accent-color text-shadow weight-100 label-break center" plain-text _id="title" :middle>
+     <vaadin-horizontal-layout style-name="login-margin-bottom animate-in-slide-down" spacing="false" :middle>
+      <vaadin-horizontal-layout style-name="login-icon" spacing="false" width="75px" height="75px"></vaadin-horizontal-layout>
+      <vaadin-label style-name="xx-large accent-color text-shadow weight-100" plain-text _id="title" :middle>
         My Website Title 
       </vaadin-label>
      </vaadin-horizontal-layout>
-     <vaadin-vertical-layout style-name="elevation-5" size-auto _id="loginForm" :middle :center>
-      <vaadin-form-layout size-auto margin-left margin-right margin-top="false">
-       <vaadin-text-field caption="Username" _id="username"></vaadin-text-field>
-       <vaadin-password-field caption="Password" _id="password"></vaadin-password-field>
-      </vaadin-form-layout>
-      <vaadin-horizontal-layout :middle :right>
-       <vaadin-button style-name="accent-color" width="70px" plain-text _id="loginButton">
-         Login 
-       </vaadin-button>
-      </vaadin-horizontal-layout>
-     </vaadin-vertical-layout>
+     <vaadin-horizontal-layout style-name="elevation-5" spacing="false" :middle :center>
+      <vaadin-tab-sheet size-auto _id="tabs">
+       <tab caption="Login" selected>
+        <vaadin-vertical-layout size-auto margin-left="false" margin-right="false" margin-bottom="false" _id="loginForm">
+         <vaadin-form-layout size-auto margin-left margin-right margin-top="false">
+          <vaadin-text-field caption="Username" _id="username"></vaadin-text-field>
+          <vaadin-password-field caption="Password" _id="password"></vaadin-password-field>
+         </vaadin-form-layout>
+         <vaadin-horizontal-layout :middle :right>
+          <vaadin-button style-name="accent-color" width="70px" plain-text _id="loginButton" :middle>
+            Login 
+          </vaadin-button>
+         </vaadin-horizontal-layout>
+        </vaadin-vertical-layout>
+       </tab>
+       <tab caption="Registration">
+        <vaadin-vertical-layout size-auto margin-left="false" margin-right="false" margin-bottom="false" _id="registrationForm">
+         <vaadin-form-layout size-auto margin-left margin-right margin-top="false" _id="registrationFormLayout"></vaadin-form-layout>
+         <vaadin-horizontal-layout :middle :right>
+          <vaadin-button style-name="accent-color" plain-text _id="registerButton">
+            Register 
+          </vaadin-button>
+         </vaadin-horizontal-layout>
+        </vaadin-vertical-layout>
+       </tab>
+      </vaadin-tab-sheet>
+     </vaadin-horizontal-layout>
     </vaadin-vertical-layout>
    </vaadin-horizontal-layout>
    <vaadin-horizontal-layout width-full _id="bottomBarWrapper" :bottom :center></vaadin-horizontal-layout>

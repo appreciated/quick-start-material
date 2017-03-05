@@ -8,7 +8,6 @@ import com.github.appreciated.quickstart.base.interfaces.Navigable;
 import com.github.appreciated.quickstart.base.interfaces.NavigationDesignInterface;
 import com.github.appreciated.quickstart.base.interfaces.SearchNavigable;
 import com.github.appreciated.quickstart.base.navigation.WebAppDescription;
-import com.github.appreciated.quickstart.base.navigation.WebsiteNavigator;
 import com.github.appreciated.quickstart.base.navigation.actions.Action;
 import com.github.appreciated.quickstart.base.navigation.actions.ClickAction;
 import com.github.appreciated.quickstart.base.navigation.actions.DownloadAction;
@@ -22,7 +21,6 @@ import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.MenuBar;
 
-import java.awt.event.ActionListener;
 import java.util.AbstractMap;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -37,11 +35,6 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Navi
     public static final String CONFIGURATION_FULLHEIGHT_NAVIGATIONBAR = "full_height_navigationbar";
     public static final String CONFIGURATION_HIDE_ICON = "hide_icon";
     public static final String CONFIGURATION_HIDE_TITLE = "hide_title";
-    private WebsiteNavigator navigation = null;
-
-    public MaterialDesktopView() {
-        navigation = new WebsiteNavigator(this);
-    }
 
     @Override
     public void attach() {
@@ -96,8 +89,7 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Navi
         navigationMenu.removeItems();
         navigables.forEach(navigation -> {
             MenuBar.MenuItem item = this.navigationMenu.addItem(navigation.getNavigationName(), navigation.getNavigationIcon(), null);
-            ActionListener listener = this.navigation.addNavigation(navigation);
-            item.setCommand(menuItem -> listener.actionPerformed(null));
+            item.setCommand(menuItem -> navigation.navigateTo());
         });
     }
 

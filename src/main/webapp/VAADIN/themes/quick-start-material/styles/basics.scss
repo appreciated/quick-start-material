@@ -5,6 +5,19 @@
 
 @mixin basics {
 
+    .v-tabsheet-tabitem-selected .v-caption.v-caption {
+        border-bottom-color: $theme-primary-color !important;
+        color: $theme-primary-color !important;
+    }
+
+    .v-tabsheet-tabitemcell .v-caption:hover {
+         color: $theme-primary-color !important;
+    }
+
+    .v-tabsheet-tabcontainer:before {
+        border-top: unset;
+    }
+
     .height-unset {
         height: unset !important;
     }

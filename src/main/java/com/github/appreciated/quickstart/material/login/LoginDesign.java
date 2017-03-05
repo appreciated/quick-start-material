@@ -18,10 +18,13 @@ import com.vaadin.ui.declarative.Design;
 @SuppressWarnings("serial")
 public class LoginDesign extends VerticalLayout {
     protected Label title;
+    protected TabSheet tabs;
     protected VerticalLayout loginForm;
+    protected FormLayout registrationFormLayout;
     protected TextField username;
     protected PasswordField password;
     protected Button loginButton;
+    protected Button registerButton;
     protected HorizontalLayout bottomBarWrapper;
 
     public LoginDesign() {
