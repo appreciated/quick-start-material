@@ -32,9 +32,11 @@ The Library is usable but there are no tests yet. It will be added as a Vaadin A
       @Override
       public WebAppDescription initWebAppDescription() {
           return new WebAppDescription()
-                .withDefaultDesign(MaterialDesktopView.class) // Set the "design" for the desktop
+                .withDesign(MaterialDesktopView.class) // Set the "design" for the desktop
                 .withMobileDesign(MaterialMobileView.class) // Set the "design" for the mobile platform
-                .withLoginDesign(LoginPageView.class) // Set a login page if you want to have one
+                .withLogin(new BasicAccess()) // Set the login procedure
+                .withRegistration(new BasicRegistration())   // Set the registration procedure
+                .withLoginPage(MaterialLogin.class) // Set a login page if you want to have one otherwise the site will be shown with a login button
                 .withTitle("TestWebsite")
                 .withNavigation(new TestView1()) // add all the Views your want to be able to navigate in
                 .withNavigation(new TestView2()) // ...
