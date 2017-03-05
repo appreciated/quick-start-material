@@ -50,7 +50,7 @@ This Library will be added as a Vaadin Addon when a more mature status is reache
       
     }
 
-### Finally replace Valo as your theme 
+### Finally replace valo with the quick-start-material theme 
   
     @import "../quick-start-material/quick-start-material.scss";
 
@@ -59,7 +59,7 @@ This Library will be added as a Vaadin Addon when a more mature status is reache
     }
 
   
-### (Optional) If you don't want to do any theme customaziations you can replace valo in the UI class
+### (Optional) If you don't need theme customaziations you can replace valo in the UI class
 
     @Theme("quick-start-material")
     public class MyUI extends WebApplicationUI {
