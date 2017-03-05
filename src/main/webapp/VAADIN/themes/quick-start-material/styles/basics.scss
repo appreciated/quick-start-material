@@ -14,6 +14,10 @@
          color: $theme-primary-color !important;
     }
 
+    .animated-tab-sheet  .v-tabsheet-content .v-tabsheet-tabsheetpanel {
+        transition: height 0.7s, width 0.7s;
+    }
+
     .v-tabsheet-tabcontainer:before {
         border-top: unset;
     }
@@ -51,6 +55,10 @@
 
     .hidden{
         opacity: 0;
+    }
+
+    .overflow-hidden {
+        overflow: hidden;
     }
 
     .much-hidden-window {

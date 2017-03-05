@@ -205,14 +205,14 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
     public void setCurrentSearchNavigable(SearchNavigable navigable) {
         if (navigable == null) {
             showSearchbarButton.addStyleName("hidden");
-            menubarWrapper.setVisible(true);
+            searchbarWrapper.setVisible(false);
         } else {
             showSearchbarButton.removeStyleName("hidden");
             showSearchbarButton.addClickListener((Button.ClickListener) clickEvent -> {
-                menubarWrapper.setVisible(false);
+                searchbarWrapper.setVisible(true);
                 searchbar.addValueChangeListener(valueChangeEvent -> navigable.valueChange(valueChangeEvent));
                 searchbar.focus();
-                searchbar.addBlurListener(blurEvent -> this.menubarWrapper.setVisible(true));
+                searchbar.addBlurListener(blurEvent -> searchbarWrapper.setVisible(false));
             });
         }
     }

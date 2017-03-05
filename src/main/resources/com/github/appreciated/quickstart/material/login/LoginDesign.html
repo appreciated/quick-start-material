@@ -15,11 +15,11 @@
         My Website Title 
       </vaadin-label>
      </vaadin-horizontal-layout>
-     <vaadin-horizontal-layout style-name="elevation-5" spacing="false" :middle :center>
-      <vaadin-tab-sheet size-auto _id="tabs">
+     <vaadin-horizontal-layout style-name="elevation-5 overflow-hidden" spacing="false" :middle :center>
+      <vaadin-tab-sheet style-name="animated-tab-sheet" id="" size-auto _id="tabs">
        <tab caption="Login" selected>
-        <vaadin-vertical-layout size-auto margin-left="false" margin-right="false" margin-bottom="false" _id="loginForm">
-         <vaadin-form-layout size-auto margin-left margin-right margin-top="false">
+        <vaadin-vertical-layout size-auto margin="false" _id="loginForm">
+         <vaadin-form-layout size-auto margin>
           <vaadin-text-field caption="Username" _id="username"></vaadin-text-field>
           <vaadin-password-field caption="Password" _id="password"></vaadin-password-field>
          </vaadin-form-layout>
@@ -31,8 +31,8 @@
         </vaadin-vertical-layout>
        </tab>
        <tab caption="Registration">
-        <vaadin-vertical-layout size-auto margin-left="false" margin-right="false" margin-bottom="false" _id="registrationForm">
-         <vaadin-form-layout size-auto margin-left margin-right margin-top="false" _id="registrationFormLayout"></vaadin-form-layout>
+        <vaadin-vertical-layout size-auto margin="false" _id="registrationForm">
+         <vaadin-form-layout size-auto margin _id="registrationFormLayout"></vaadin-form-layout>
          <vaadin-horizontal-layout :middle :right>
           <vaadin-button style-name="accent-color" plain-text _id="registerButton">
             Register 

@@ -6,6 +6,7 @@ import com.github.appreciated.quickstart.base.listeners.ShortcutKeyListener;
 import com.github.appreciated.quickstart.base.login.AccessControl;
 import com.github.appreciated.quickstart.base.navigation.RegistrationControl;
 import com.github.appreciated.quickstart.base.notification.QuickNotification;
+import com.github.appreciated.quickstart.base.registration.RegistrationResult;
 import com.vaadin.data.Binder;
 import com.vaadin.data.HasValue;
 import com.vaadin.event.ShortcutAction;
@@ -13,11 +14,11 @@ import com.vaadin.server.Page;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Notification;
+import com.vaadin.ui.TextField;
 import javafx.util.Pair;
 
 import java.lang.reflect.Field;
 import java.util.List;
-import java.util.stream.Stream;
 
 /**
  * Created by appreciated on 07.12.2016.
@@ -28,6 +29,7 @@ public class MaterialLogin extends LoginDesign implements LoginNavigable {
     private LoginListener loginListener;
     private AccessControl accessControl;
     private Binder binder;
+    private List<Pair<HasValue, Field>> fields;
 
     public MaterialLogin() {
         username.focus();
@@ -49,7 +51,7 @@ public class MaterialLogin extends LoginDesign implements LoginNavigable {
     @Override
     public void initRegistrationControl(RegistrationControl registrationControl) {
         this.registrationControl = registrationControl;
-        List<Pair<HasValue, Field>> fields = registrationControl.getFields();
+        fields = registrationControl.getFields();
         fields.forEach(pair -> registrationFormLayout.addComponent((Component) pair.getKey()));
         binder = registrationControl.getBinderForFields(fields);
         registerButton.addClickListener(clickEvent -> register());
@@ -61,7 +63,13 @@ public class MaterialLogin extends LoginDesign implements LoginNavigable {
     }
 
     private void register() {
-        registrationControl.onUserDataEntered(binder.getBean());
+        RegistrationResult result = registrationControl.checkUserRegistrationValidity(binder.getBean());
+        if (result.isValid()) {
+            tabs.setSelectedTab(loginForm);
+        } else {
+            TextField field = (TextField) fields.stream().filter(hasValueFieldPair -> hasValueFieldPair.getValue().equals(result)).findFirst().get().getKey();
+            field.setComponentError(result.getErrorMessage());
+        }
     }
 
     private void tryLogin() {
