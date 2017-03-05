@@ -4,7 +4,7 @@ A Quick-Start Material implementation for Vaadin
 ## Status
 This Library is incomplete! 
 I plan to reuse as much CSS from Materialize but havent had the time yet (https://github.com/dogfalo/materialize/). 
-The Library is usable but there are no tests yet. 
+The Library is usable but there are no tests yet. It will be added as a Vaadin Addon when a more mature status is reached, for now I decided to use JitPack
 
 ## How do I use it?
 
@@ -22,7 +22,7 @@ The Library is usable but there are no tests yet.
     <dependency>
       <groupId>com.github.appreciated</groupId>
       <artifactId>quick-start-material</artifactId>
-      <version>0.5.5</version>
+      <version>0.5.6</version>
     </dependency>
   
 ### Modify your UI Class to look similar to this
@@ -48,4 +48,17 @@ The Library is usable but there are no tests yet.
       
     }
 
+### Finally replace valo with the quick-start-material theme 
   
+    @import "../quick-start-material/quick-start-material.scss";
+
+    @mixin mytheme {
+      @include quick-start-material;
+    }
+
+  
+### (Optional) If you don't need theme customaziations you can replace valo in the UI class
+
+    @Theme("quick-start-material")
+    public class MyUI extends WebApplicationUI {
+       ...
