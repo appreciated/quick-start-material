@@ -4,11 +4,9 @@ A Quick-Start Material implementation for Vaadin
 ## Status
 This Library is incomplete! 
 I plan to reuse as much CSS from Materialize but havent had the time yet (https://github.com/dogfalo/materialize/). 
-The Library is usable but there are no tests yet. 
+The Library is usable but there are no tests yet. It will be added as a Vaadin Addon when a more mature status is reached, for now I decided to use JitPack
 
 ## How do I use it?
-
-This Library will be added as a Vaadin Addon when a more mature status is reached, for now I decided to use JitPack
 
 ### Add the JitPack Repository to your POM
 
