@@ -5,6 +5,7 @@ A Quick-Start Material implementation for Vaadin
 This Library is incomplete but can be used already. It will be added as a Vaadin Addon when a more mature status is reached, for now I decided to use JitPack
 
 ToDo:
+* Debugging
 * Mobile Context Buttons
 * Allow Components to be added to the Navigation and the Context Menu 
 * Context Buttons without List 
