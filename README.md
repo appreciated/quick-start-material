@@ -68,7 +68,7 @@ ToDo:
     }
 
   
-### (Optional) If you don't need theme customaziations you can replace valo in the UI class
+### (Optional) If you don't need theme customaziations you can also replace valo in the UI class
 
     @Theme("quick-start-material")
     public class MyUI extends WebApplicationUI {
