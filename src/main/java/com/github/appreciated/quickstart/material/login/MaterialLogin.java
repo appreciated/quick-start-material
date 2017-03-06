@@ -51,6 +51,7 @@ public class MaterialLogin extends LoginDesign implements LoginNavigable {
     @Override
     public void initRegistrationControl(RegistrationControl registrationControl) {
         this.registrationControl = registrationControl;
+        this.registrationFormLayout.removeAllComponents();
         fields = registrationControl.getFields();
         fields.forEach(pair -> registrationFormLayout.addComponent((Component) pair.getKey()));
         binder = registrationControl.getBinderForFields(fields);
