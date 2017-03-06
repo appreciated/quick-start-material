@@ -1,4 +1,4 @@
-# quick-start-material [![](https://jitpack.io/v/appreciated/quick-start-material.svg)](https://jitpack.io/#appreciated/quick-start-material)
+# quick-start-material [![](https://jitpack.io/v/appreciated/quick-start-material.svg)](https://jitpack.io/#appreciated/quick-start-material) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/ebd859c2020b430790380477ab0551ef)](https://www.codacy.com/app/appreciated/quick-start-material?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=appreciated/quick-start-material&amp;utm_campaign=Badge_Grade)
 A Quick-Start Material implementation for Vaadin
 
 ## Status
