@@ -8,6 +8,7 @@
 @import "styles/material.scss";
 @import "styles/animations.scss";
 @import "styles/input.scss";
+@import "styles/upload.scss";
 @import "../valo/valo.scss";
 
 
@@ -22,4 +23,5 @@
     @include tags;
     @include animations;
      @include input;
+     @include upload;
 }

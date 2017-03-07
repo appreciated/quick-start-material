@@ -20,6 +20,7 @@ public class MobileNavigationDesign extends AbsoluteLayout {
     protected Button menuButton;
     protected VerticalLayout componentHolder;
     protected VerticalLayout contextButtonContainer;
+    protected VerticalLayout contextButtonWrapper;
     protected VerticalLayout smallContextButtonContainer;
     protected Button floatingButton;
     protected HorizontalLayout menuWrapper;

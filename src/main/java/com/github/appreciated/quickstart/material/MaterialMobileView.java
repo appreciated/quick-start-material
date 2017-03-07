@@ -15,13 +15,11 @@ import com.github.appreciated.quickstart.base.navigation.actions.UploadAction;
 import com.github.appreciated.quickstart.base.vaadin.Util;
 import com.vaadin.icons.VaadinIcons;
 import com.vaadin.server.Page;
-import com.vaadin.server.Resource;
 import com.vaadin.ui.*;
 
-import java.util.AbstractMap;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Stream;
 
 /**
@@ -168,35 +166,53 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
 
     @Override
     public void setCurrentActions(ContextNavigable contextNavigable) {
-        if (contextNavigable != null) {
+        if (contextNavigable == null) {
+            contextButtonContainer.setVisible(false);
+        } else {
+            contextButtonWrapper.forEach(component -> {
+                if (component != floatingButton) {
+                    contextButtonWrapper.removeComponent(component);
+                }
+            });
+            contextButtonContainer.setVisible(true);
+            smallContextButtonContainer.removeAllComponents();
             List<Action> actions = contextNavigable.getContextActions();
-            Button contextButton = new Button("floating-button");
-            if (actions == null || actions.size() == 0) {
-                smallContextButtonContainer.removeAllComponents();
-                List<Action> contextActions = contextNavigable.getContextActions();
-                List<HashMap.SimpleEntry<Resource, Component>> generatedButtons = new ArrayList<>();
-
-                contextButton.setIcon(VaadinIcons.ELLIPSIS_V);
-                contextActions.stream().forEach(action -> {
-                    Component buttonComponent = null;
-                    if (action instanceof DownloadAction) {
-                        buttonComponent = new DownloadButton((DownloadAction) action);
-                    } else if (action instanceof UploadAction) {
-                        buttonComponent = new UploadButton((UploadAction) action);
-                    } else if (action instanceof ClickAction) {
-                        buttonComponent = new Button(action.getName(), action.getResource());
-                        ((Button) buttonComponent).addClickListener(clickEvent -> ((ClickAction) action).getListener().actionPerformed(null));
-                    }
-                    smallContextButtonContainer.addComponent(buttonComponent);
-                    generatedButtons.add(new AbstractMap.SimpleEntry<>(action.getResource(), buttonComponent));
+            Map<Action, Component> generatedButtons = new HashMap<>();
+            floatingButton.setIcon(VaadinIcons.ELLIPSIS_V);
+            actions.stream().forEach(action -> {
+                Component buttonComponent = null;
+                if (action instanceof DownloadAction) {
+                    buttonComponent = new DownloadButton((DownloadAction) action);
+                } else if (action instanceof UploadAction) {
+                    buttonComponent = new HorizontalLayout();
+                    ((HorizontalLayout) buttonComponent).addComponent(new UploadButton((UploadAction) action));
+                } else if (action instanceof ClickAction) {
+                    buttonComponent = new Button(action.getResource());
+                    ((Button) buttonComponent).addClickListener(clickEvent -> ((ClickAction) action).getListener().actionPerformed(null));
+                }
+                generatedButtons.put(action, buttonComponent);
+            });
+            if (generatedButtons.size() > 1) {
+                floatingButton.setVisible(true);
+                generatedButtons.forEach((action, component) -> {
+                    component.setStyleName("context-button");
+                    component.setWidth("50px");
+                    component.setHeight("50px");
+                    smallContextButtonContainer.addComponent(component);
                 });
                 setStyle(contextButtonContainer, "display-none", false);
                 Button.ClickListener clickListener = (Button.ClickListener) clickEvent -> {
                     toggleStyle(smallContextButtonContainer, "display-none");
                 };
-                contextButton.addClickListener(clickListener);
-                generatedButtons.forEach(resourceComponentSimpleEntry -> contextButtonContainer.addComponent(resourceComponentSimpleEntry.getValue()));
-                contextButtonContainer.addComponents();
+                floatingButton.addClickListener(clickListener);
+            } else {
+                floatingButton.setVisible(false);
+                generatedButtons.forEach((action, component) -> {
+                    component.setStyleName("context-button");
+                    component.setWidth("60px");
+                    component.setHeight("60px");
+                    contextButtonWrapper.addComponent(component);
+                });
             }
         }
     }

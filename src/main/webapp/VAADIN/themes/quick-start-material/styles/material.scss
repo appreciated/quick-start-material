@@ -143,6 +143,7 @@ $icon-image: url("img/test_icon.png") !default;
         @include floating-button-style;
         width: 55px;
         height: 55px;
+        animation: scale 1s;
     }
 
     .floating-bottom {
