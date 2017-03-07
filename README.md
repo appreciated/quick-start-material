@@ -6,7 +6,6 @@ This Library is incomplete but can be used already. It will be added as a Vaadin
 
 ToDo:
 * Debugging
-* Mobile Context Buttons
 * Allow Components to be added to the Navigation and the Context Menu 
 * Context Buttons without List 
 * Pager replacement
