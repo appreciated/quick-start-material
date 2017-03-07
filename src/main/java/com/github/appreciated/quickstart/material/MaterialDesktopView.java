@@ -3,19 +3,18 @@ package com.github.appreciated.quickstart.material;
 
 import com.github.appreciated.quickstart.base.components.DownloadButton;
 import com.github.appreciated.quickstart.base.components.UploadButton;
-import com.github.appreciated.quickstart.base.interfaces.ContextNavigable;
-import com.github.appreciated.quickstart.base.interfaces.Navigable;
-import com.github.appreciated.quickstart.base.interfaces.NavigationDesignInterface;
-import com.github.appreciated.quickstart.base.interfaces.SearchNavigable;
 import com.github.appreciated.quickstart.base.navigation.WebAppDescription;
 import com.github.appreciated.quickstart.base.navigation.actions.Action;
 import com.github.appreciated.quickstart.base.navigation.actions.ClickAction;
 import com.github.appreciated.quickstart.base.navigation.actions.DownloadAction;
 import com.github.appreciated.quickstart.base.navigation.actions.UploadAction;
+import com.github.appreciated.quickstart.base.navigation.interfaces.HasContextButtons;
+import com.github.appreciated.quickstart.base.navigation.interfaces.HasSearch;
+import com.github.appreciated.quickstart.base.navigation.interfaces.NavigationDesignInterface;
+import com.github.appreciated.quickstart.base.navigation.interfaces.Page;
 import com.github.appreciated.quickstart.base.notification.QuickNotification;
 import com.github.appreciated.quickstart.base.vaadin.Util;
 import com.vaadin.icons.VaadinIcons;
-import com.vaadin.server.Page;
 import com.vaadin.ui.AbstractOrderedLayout;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
@@ -39,7 +38,7 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Navi
     @Override
     public void attach() {
         super.attach();
-        Page.getCurrent().getJavaScript().execute("var element = document.getElementById('contentPanel');\n" +
+        com.vaadin.server.Page.getCurrent().getJavaScript().execute("var element = document.getElementById('contentPanel');\n" +
                 "var childElement = element.getElementsByClassName('v-panel-content').item(0);\n" +
                 "console.log('test');\n" +
                 "childElement.addEventListener('scroll', function () {\n" +
@@ -85,7 +84,7 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Navi
     }
 
     @Override
-    public void initNavigationElements(Stream<Navigable> navigables) {
+    public void initNavigationElements(Stream<Page> navigables) {
         navigationMenu.removeItems();
         navigables.forEach(navigation -> {
             MenuBar.MenuItem item = this.navigationMenu.addItem(navigation.getNavigationName(), navigation.getNavigationIcon(), null);
@@ -122,7 +121,7 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Navi
     }
 
     @Override
-    public void setCurrentActions(ContextNavigable contextNavigable) {
+    public void setCurrentActions(HasContextButtons contextNavigable) {
         if (contextNavigable != null) {
 
             /**
@@ -160,7 +159,7 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Navi
     }
 
     @Override
-    public void setCurrentSearchNavigable(SearchNavigable navigable) {
+    public void setCurrentSearchNavigable(HasSearch navigable) {
         if (navigable == null) {
             searchBarWrapper.addStyleName("hidden");
         } else {

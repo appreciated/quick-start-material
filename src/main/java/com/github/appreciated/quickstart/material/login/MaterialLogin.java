@@ -1,10 +1,10 @@
 package com.github.appreciated.quickstart.material.login;
 
 import com.github.appreciated.quickstart.base.interfaces.LoginListener;
-import com.github.appreciated.quickstart.base.interfaces.LoginNavigable;
 import com.github.appreciated.quickstart.base.listeners.ShortcutKeyListener;
 import com.github.appreciated.quickstart.base.login.AccessControl;
 import com.github.appreciated.quickstart.base.navigation.RegistrationControl;
+import com.github.appreciated.quickstart.base.navigation.interfaces.LoginPage;
 import com.github.appreciated.quickstart.base.notification.QuickNotification;
 import com.github.appreciated.quickstart.base.registration.RegistrationResult;
 import com.vaadin.data.Binder;
@@ -23,7 +23,7 @@ import java.util.List;
 /**
  * Created by appreciated on 07.12.2016.
  */
-public class MaterialLogin extends LoginDesign implements LoginNavigable {
+public class MaterialLogin extends LoginDesign implements LoginPage {
 
     private RegistrationControl registrationControl;
     private LoginListener loginListener;

@@ -3,18 +3,17 @@ package com.github.appreciated.quickstart.material;
 
 import com.github.appreciated.quickstart.base.components.DownloadButton;
 import com.github.appreciated.quickstart.base.components.UploadButton;
-import com.github.appreciated.quickstart.base.interfaces.ContextNavigable;
-import com.github.appreciated.quickstart.base.interfaces.Navigable;
-import com.github.appreciated.quickstart.base.interfaces.NavigationDesignInterface;
-import com.github.appreciated.quickstart.base.interfaces.SearchNavigable;
 import com.github.appreciated.quickstart.base.navigation.WebAppDescription;
 import com.github.appreciated.quickstart.base.navigation.actions.Action;
 import com.github.appreciated.quickstart.base.navigation.actions.ClickAction;
 import com.github.appreciated.quickstart.base.navigation.actions.DownloadAction;
 import com.github.appreciated.quickstart.base.navigation.actions.UploadAction;
+import com.github.appreciated.quickstart.base.navigation.interfaces.HasContextButtons;
+import com.github.appreciated.quickstart.base.navigation.interfaces.HasSearch;
+import com.github.appreciated.quickstart.base.navigation.interfaces.NavigationDesignInterface;
+import com.github.appreciated.quickstart.base.navigation.interfaces.Page;
 import com.github.appreciated.quickstart.base.vaadin.Util;
 import com.vaadin.icons.VaadinIcons;
-import com.vaadin.server.Page;
 import com.vaadin.ui.*;
 
 import java.util.HashMap;
@@ -39,7 +38,7 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
     }
 
     @Override
-    public void initNavigationElements(Stream<Navigable> navigables) {
+    public void initNavigationElements(Stream<Page> navigables) {
         navigationElements.removeAllComponents();
         navigables.forEach(element -> {
             // Wrapper for the Java script part at the attach() method to not override the vaadin on click events
@@ -84,15 +83,15 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
         /**
          * Open / Close the menu when clicking on Menubutton
          */
-        Page.getCurrent().getJavaScript().execute(
+        com.vaadin.server.Page.getCurrent().getJavaScript().execute(
                 "document.getElementById('" + menButtonId + "').onclick = function(){" +
                         "\n" + "document.getElementById('" + menuId + "').classList.toggle('menu-show');" +
                         "\n" + "};");
 
         /**
-         * Close The menu when clicking on a Navigation Button
+         * Close The menu when clicking on a Pages Button
          */
-        Page.getCurrent().getJavaScript().execute(
+        com.vaadin.server.Page.getCurrent().getJavaScript().execute(
                 "var elements = document.getElementsByClassName('mobile-tab-wrapper'); \n" +
                         "for (var i = 0; i < elements.length; i++) {\n" +
                         "   elements[i].addEventListener(\"click\", function() {\n" +
@@ -104,7 +103,7 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
          * Close/open the menu when swiping left/right
          */
 
-        Page.getCurrent().getJavaScript().execute("var xDown = null;\n" +
+        com.vaadin.server.Page.getCurrent().getJavaScript().execute("var xDown = null;\n" +
                 "var yDown = null;\n" +
                 "\n" +
                 "function handleTouchStart(evt) {\n" +
@@ -165,7 +164,7 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
     }
 
     @Override
-    public void setCurrentActions(ContextNavigable contextNavigable) {
+    public void setCurrentActions(HasContextButtons contextNavigable) {
         if (contextNavigable == null) {
             contextButtonContainer.setVisible(false);
         } else {
@@ -218,7 +217,7 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
     }
 
     @Override
-    public void setCurrentSearchNavigable(SearchNavigable navigable) {
+    public void setCurrentSearchNavigable(HasSearch navigable) {
         if (navigable == null) {
             showSearchbarButton.addStyleName("hidden");
             searchbarWrapper.setVisible(false);
