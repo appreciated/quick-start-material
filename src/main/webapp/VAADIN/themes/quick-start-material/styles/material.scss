@@ -1,4 +1,3 @@
-
 $icon-image: url("img/test_icon.png") !default;
 
 @keyframes dot-animation {
@@ -47,7 +46,7 @@ $icon-image: url("img/test_icon.png") !default;
 
     &:hover:after {
         background-color: unset;
-     }
+    }
 
     &:hover{
         box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14),0 1px 7px 0 rgba(0,0,0,0.12),0 3px 1px -1px rgba(0,0,0,0.2);
@@ -60,7 +59,6 @@ $icon-image: url("img/test_icon.png") !default;
     box-shadow: unset;
     border: none;
     border-radius: 0px;
-
 }
 
 .v-app, .v-app-loading {
@@ -93,7 +91,6 @@ $icon-image: url("img/test_icon.png") !default;
         border-bottom: 2px solid;
         border-color: $theme-accent-color;
         width: unset;
-        padding: 0px;
         min-width: 60px;
     }
 
@@ -101,13 +98,11 @@ $icon-image: url("img/test_icon.png") !default;
         box-shadow: none;
     }
 
-
     .primary-background {
         background: $theme-primary-color;
     }
 
-
-   .navigation {
+    .navigation {
         @extend .color-white;
         box-shadow: 0 10px 20px rgba(0,0,0,0.19);
         background: $theme-primary-color;
@@ -185,19 +180,19 @@ $icon-image: url("img/test_icon.png") !default;
         }
     }
 
-   .mobile-tab2 * .FontAwesome {
+    .mobile-tab2 * .FontAwesome {
         width: 30px;
-   }
+    }
 
-   .mobile-tab2 {
+    .mobile-tab2 {
         @include true-borderless;
         @extend .primary-contrast-color;
         text-align: left;
     }
 
-   .mobile-tab * .FontAwesome {
+    .mobile-tab * .FontAwesome {
         width: 30px;
-   }
+    }
 
     .mobile-tab {
         @include true-borderless;

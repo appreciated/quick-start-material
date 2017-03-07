@@ -5,6 +5,23 @@
 
 @mixin basics {
 
+    // Tabsheet "fixes"
+    .v-tabsheet{
+        > .v-tabsheet-tabcontainer {
+            width: auto !important;
+        }
+        > .v-tabsheet-content {
+            width: auto !important;
+            > .v-tabsheet-tabsheetpanel {
+                width: auto !important;
+                > .v-scrollable {
+                    position: inherit !important;
+                    width: auto !important;
+                }
+            }
+        }
+    }
+
     .v-tabsheet-tabitem-selected .v-caption.v-caption {
         border-bottom-color: $theme-primary-color !important;
         color: $theme-primary-color !important;
@@ -36,7 +53,7 @@
     }
 
     .v-caption-inline-icon .v-icon {
-        z-index: unset;
+        //z-index: unset;
     }
 
     .v-upload {

@@ -34,7 +34,7 @@ public class MaterialLogin extends LoginDesign implements LoginNavigable {
     public MaterialLogin() {
         username.focus();
         loginButton.addClickListener(event -> tryLogin());
-        this.addShortcutListener(new ShortcutKeyListener(ShortcutAction.KeyCode.ENTER, (o, o1) -> {
+        addShortcutListener(new ShortcutKeyListener(ShortcutAction.KeyCode.ENTER, (o, o1) -> {
             if (tabs.getSelectedTab() == loginForm) {
                 tryLogin();
             } else {
@@ -55,6 +55,7 @@ public class MaterialLogin extends LoginDesign implements LoginNavigable {
         fields = registrationControl.getFields();
         fields.forEach(pair -> registrationFormLayout.addComponent((Component) pair.getKey()));
         binder = registrationControl.getBinderForFields(fields);
+        binder.addValueChangeListener(valueChangeListener -> registerButton.setEnabled(binder.isValid()));
         registerButton.addClickListener(clickEvent -> register());
     }
 
@@ -100,7 +101,14 @@ public class MaterialLogin extends LoginDesign implements LoginNavigable {
     }
 
     public MaterialLogin withBottomBarWrapperContent(Component component) {
-        this.bottomBarWrapper.addComponent(component);
+        bottomBarWrapper.addComponent(component);
         return this;
+    }
+
+    @Override
+    public void attach() {
+        removeStyleName("v-formlayout-margin-top");
+        removeStyleName("v-formlayout-margin-bottom");
+        super.attach();
     }
 }
