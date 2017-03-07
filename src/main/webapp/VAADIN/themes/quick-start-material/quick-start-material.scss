@@ -1,3 +1,4 @@
+@import "../valo/valo.scss";
 @import "styles/color.scss";
 @import "styles/fonts.scss";
 @import "styles/layouts.scss";
@@ -9,8 +10,6 @@
 @import "styles/animations.scss";
 @import "styles/input.scss";
 @import "styles/upload.scss";
-@import "../valo/valo.scss";
-
 
 @mixin quick-start-material {
     @include valo;
@@ -22,6 +21,6 @@
     @include material;
     @include tags;
     @include animations;
-     @include input;
-     @include upload;
+    @include input;
+    @include upload;
 }

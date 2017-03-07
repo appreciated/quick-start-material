@@ -7,6 +7,7 @@ $v-gradient: v-linear 0% !default;
 $v-bevel-depth: 0% !default;
 $v-shadow-opacity: 10% !default;
 $v-focus-color: #ffffff !default;
+$primary-contrast-background-color: valo-font-color($theme-primary-color, 1.0);
 
 @mixin color {
      .primary-color {

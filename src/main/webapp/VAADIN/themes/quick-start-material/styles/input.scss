@@ -1,3 +1,7 @@
+.floating-input::-webkit-input-placeholder {
+       color: rgba($primary-contrast-background-color,0.7);
+}
+
 @mixin input {
     .floating-input * {
             @extend .primary-contrast-color;
@@ -5,7 +9,7 @@
 
     .floating-input {
             border-bottom: none;
-            background: rgba($v-focus-color,0.2);
+            background: lighten($theme-primary-color,5%);
             border-radius: 2px;
             box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3) !important;
             transition: box-shadow 0.6s,  background 0.6s !important;
@@ -18,10 +22,6 @@
 
     .v-caption-floating-input{
         @extend .primary-contrast-color;
-    }
-
-    .floating-input::-webkit-input-placeholder {
-       @extend .primary-contrast-color;
     }
 
     .no-indicator:not(.v-menubar-submenu) > .v-menubar-menuitem {
