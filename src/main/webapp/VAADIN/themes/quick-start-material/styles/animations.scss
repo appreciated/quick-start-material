@@ -20,7 +20,7 @@
 }
 
 .form-animation{
-  animation: formFrames ease  3s;
+  animation: formFrames ease  2s;
   animation-iteration-count: 1;
   transform-origin: 50% 50%;
   animation-fill-mode:forwards; /*when the spec is finished*/
@@ -31,7 +31,7 @@
     opacity:0;
     transform:  translate(150px,0px);
   }
-  40% {
+  60% {
   opacity:0;
     transform:  translate(150px,0px);
   }
