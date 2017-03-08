@@ -26,12 +26,12 @@
     }
 
     .v-tabsheet-tabitem-selected .v-caption.v-caption {
-        border-bottom-color: $theme-primary-color !important;
-        color: $theme-primary-color !important;
+        border-bottom-color: $theme-accent-color !important;
+        color: $theme-accent-color !important;
     }
 
     .v-tabsheet-tabitemcell .v-caption:hover {
-         color: $theme-primary-color !important;
+         color: $theme-accent-color !important;
     }
 
 
