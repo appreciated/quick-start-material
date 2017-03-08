@@ -11,7 +11,7 @@ import com.github.appreciated.quickstart.base.navigation.actions.UploadAction;
 import com.github.appreciated.quickstart.base.navigation.interfaces.HasContextButtons;
 import com.github.appreciated.quickstart.base.navigation.interfaces.HasSearch;
 import com.github.appreciated.quickstart.base.navigation.interfaces.NavigationDesignInterface;
-import com.github.appreciated.quickstart.base.navigation.interfaces.Page;
+import com.github.appreciated.quickstart.base.navigation.interfaces.Subpage;
 import com.github.appreciated.quickstart.base.vaadin.Util;
 import com.vaadin.icons.VaadinIcons;
 import com.vaadin.ui.*;
@@ -38,9 +38,9 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
     }
 
     @Override
-    public void initNavigationElements(Stream<Page> navigables) {
+    public void initNavigationElements(Stream<Subpage> pages) {
         navigationElements.removeAllComponents();
-        navigables.forEach(element -> {
+        pages.forEach(element -> {
             // Wrapper for the Java script part at the attach() method to not override the vaadin on click events
             HorizontalLayout wrapper = new HorizontalLayout();
             wrapper.setHeight(50, Unit.PIXELS);
@@ -88,7 +88,7 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
                         "\n" + "};");
 
         /**
-         * Close The menu when clicking on a Pages Button
+         * Close The menu when clicking on a Subpages Button
          */
         com.vaadin.server.Page.getCurrent().getJavaScript().execute(
                 "var elements = document.getElementsByClassName('mobile-tab-wrapper'); \n" +

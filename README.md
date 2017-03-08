@@ -44,11 +44,11 @@ ToDo:
                 .withMobileDesign(MaterialMobileView.class) // Set the "design" for the mobile platform
                 .withLogin(new BasicAccess()) // Set the login procedure
                 .withRegistration(new BasicRegistration())   // Set the registration procedure
-                .withLoginPage(MaterialLogin.class) // Set a login page if you want to have one otherwise the site will be shown with a login button
+                .withLoginPage(MaterialLogin.class) // Set a login subpage if you want to have one otherwise the site will be shown with a login button
                 .withTitle("TestWebsite")
                 .withNavigation(new TestView1()) // add all the Views your want to be able to navigate in
                 .withNavigation(new TestView2()) // ...
-                .withDefaultPage(TestView1.class); // Set the default page
+                .withDefaultPage(TestView1.class); // Set the default subpage
       }
 
       @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)

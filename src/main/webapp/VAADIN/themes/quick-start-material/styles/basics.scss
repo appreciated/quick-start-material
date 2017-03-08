@@ -4,7 +4,6 @@
 }
 
 @mixin basics {
-
     // Tabsheet "fixes"
     .v-tabsheet{
         > .v-tabsheet-tabcontainer {
@@ -69,7 +68,6 @@
         height: 100%;
     }
 
-
     .hideable{
         transition: opacity 1s;
         opacity: 1.0;
@@ -81,6 +79,10 @@
 
     .overflow-hidden {
         overflow: hidden;
+    }
+
+   .overflow-visible {
+        overflow: visible;
     }
 
     .much-hidden-window {

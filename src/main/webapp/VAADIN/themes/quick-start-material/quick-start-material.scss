@@ -10,6 +10,7 @@
 @import "styles/animations.scss";
 @import "styles/input.scss";
 @import "styles/upload.scss";
+@import "styles/pager.scss";
 
 @mixin quick-start-material {
     @include valo;
@@ -23,4 +24,5 @@
     @include animations;
     @include input;
     @include upload;
+    @include pager;
 }

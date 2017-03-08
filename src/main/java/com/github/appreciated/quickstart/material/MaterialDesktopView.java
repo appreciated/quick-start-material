@@ -11,7 +11,7 @@ import com.github.appreciated.quickstart.base.navigation.actions.UploadAction;
 import com.github.appreciated.quickstart.base.navigation.interfaces.HasContextButtons;
 import com.github.appreciated.quickstart.base.navigation.interfaces.HasSearch;
 import com.github.appreciated.quickstart.base.navigation.interfaces.NavigationDesignInterface;
-import com.github.appreciated.quickstart.base.navigation.interfaces.Page;
+import com.github.appreciated.quickstart.base.navigation.interfaces.Subpage;
 import com.github.appreciated.quickstart.base.notification.QuickNotification;
 import com.github.appreciated.quickstart.base.vaadin.Util;
 import com.vaadin.icons.VaadinIcons;
@@ -84,9 +84,9 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Navi
     }
 
     @Override
-    public void initNavigationElements(Stream<Page> navigables) {
+    public void initNavigationElements(Stream<Subpage> pages) {
         navigationMenu.removeItems();
-        navigables.forEach(navigation -> {
+        pages.forEach(navigation -> {
             MenuBar.MenuItem item = this.navigationMenu.addItem(navigation.getNavigationName(), navigation.getNavigationIcon(), null);
             item.setCommand(menuItem -> navigation.navigateTo());
         });
