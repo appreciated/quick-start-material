@@ -4,35 +4,47 @@
     }
 
     .pager-right-button {
-        box-shadow: 0 0 3px 2px rgba(0,0,0,0.2);
+        box-shadow: 0 5px 8px 0px rgba(0, 0, 0, 0.15);
         border-radius: 100%;
         height: 50px;
         width: 50px !important;
-        background: white;
+        background: $theme-accent-color;
+        transition:  box-shadow 0.7s;
     }
 
+     .pager-right-button:hover {
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+     }
+
     .pager-left-button {
-        box-shadow: 0 0 3px 2px rgba(0,0,0,0.2);
+        box-shadow: 0 5px 8px 0px rgba(0, 0, 0, 0.15);
         border-radius: 100%;
         height: 50px;
         width: 50px !important;
-        background: white;
+        background: $theme-accent-color;
+        transition:  box-shadow 0.7s;
+    }
+
+    .pager-left-button:hover {
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
     }
 
     .pager-content{
         margin: 25px;
-        animation: valo-animate-in-slide-right 1s, valo-animate-in-fade 1s ease;
+        animation: valo-animate-in-slide-left 1s, valo-animate-in-fade 1s ease;
     }
 
     .paging-indicator {
-        margin: 5px;
-        width: 7px;
-        height: 7px;
-        background: black;
+        margin: 7px;
+        width: 9px;
+        height: 9px;
+        background: $theme-accent-color;
         border-radius: 100%;
         padding: 0px;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
         transition: transform 0.5s;
     }
+
     .paging-indicator-active {
         transform: scale(1.5);
     }
