@@ -31,7 +31,7 @@ ToDo:
     <dependency>
       <groupId>com.github.appreciated</groupId>
       <artifactId>quick-start-material</artifactId>
-      <version>0.6</version>
+      <version>0.6.1</version>
     </dependency>
   
 ### Modify your UI Class to look similar to this
