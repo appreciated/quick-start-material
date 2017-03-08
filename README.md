@@ -62,14 +62,10 @@ ToDo:
 ### Finally replace valo with the quick-start-material theme 
   
     @import "../quick-start-material/quick-start-material.scss";
+    // Take a look here https://www.materialpalette.com/
+    $theme-primary-color: #03A9F4;  // Color for Background 
+    $theme-accent-color: #536DFE; // Color used as a Contrast to the Background 
 
     @mixin mytheme {
       @include quick-start-material;
     }
-
-  
-### (Optional) If you don't need theme customaziations you can also replace valo in the UI class
-
-    @Theme("quick-start-material")
-    public class MyUI extends WebApplicationUI {
-       ...
