@@ -1,4 +1,53 @@
+@keyframes headerFrames{
+  0% {
+    opacity:0;
+    transform:  translate(0px,150px);
+  }
+  3% {
+    opacity:1;
+    transform:  translate(0px,150px);
+  }
+  25% {
+    transform:  translate(0px,150px);
+  }
+  50% {
+    transform:  translate(0px,0px);
+  }
+  100% {
+    opacity:1;
+    transform:  translate(0px,0px);
+  }
+}
+
+.form-animation{
+  animation: formFrames ease  3s;
+  animation-iteration-count: 1;
+  transform-origin: 50% 50%;
+  animation-fill-mode:forwards; /*when the spec is finished*/
+}
+
+@keyframes formFrames{
+  0% {
+    opacity:0;
+    transform:  translate(150px,0px);
+  }
+  40% {
+  opacity:0;
+    transform:  translate(150px,0px);
+  }
+  100% {
+  opacity:1;
+    transform:  translate(0px,0px);
+  }
+}
+
 @mixin animations {
+        .header-animation{
+          animation: headerFrames ease  3s;
+          animation-iteration-count: 1;
+          transform-origin: 50% 50%;
+        }
+
     .animate-in-slide-down {
         animation: valo-animate-in-slide-down 1s;
     }

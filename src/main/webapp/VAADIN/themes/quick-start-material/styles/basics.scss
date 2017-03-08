@@ -5,7 +5,10 @@
 
 @mixin basics {
     // Tabsheet "fixes"
-    .v-tabsheet{
+       .animated-tab-sheet  .v-tabsheet-content .v-tabsheet-tabsheetpanel {
+            //transition: height 0.7s, width 0.7s;
+       }
+        .v-tabsheet{
         > .v-tabsheet-tabcontainer {
             width: auto !important;
         }
@@ -13,6 +16,7 @@
             width: auto !important;
             > .v-tabsheet-tabsheetpanel {
                 width: auto !important;
+                    transition: height 1s;
                 > .v-scrollable {
                     position: inherit !important;
                     width: auto !important;
@@ -30,9 +34,7 @@
          color: $theme-primary-color !important;
     }
 
-    .animated-tab-sheet  .v-tabsheet-content .v-tabsheet-tabsheetpanel {
-        transition: height 0.7s, width 0.7s;
-    }
+
 
     .v-tabsheet-tabcontainer:before {
         border-top: unset;
