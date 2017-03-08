@@ -13,6 +13,7 @@ import com.github.appreciated.quickstart.base.navigation.interfaces.HasSearch;
 import com.github.appreciated.quickstart.base.navigation.interfaces.NavigationDesignInterface;
 import com.github.appreciated.quickstart.base.navigation.interfaces.Page;
 import com.github.appreciated.quickstart.base.vaadin.Util;
+import com.vaadin.client.AnimationUtil;
 import com.vaadin.icons.VaadinIcons;
 import com.vaadin.ui.*;
 
@@ -59,7 +60,6 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
     public void initUserFunctionality(WebAppDescription description) {
 
     }
-
 
     @Override
     public void attach() {
@@ -146,7 +146,6 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
                 "document.addEventListener(\"touchmove\", handleTouchMove, false);"
         );
     }
-
 
     @Override
     public AbstractOrderedLayout getHolder() {

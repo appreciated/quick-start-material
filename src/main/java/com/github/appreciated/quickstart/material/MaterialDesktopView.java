@@ -161,10 +161,10 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Navi
     @Override
     public void setCurrentSearchNavigable(HasSearch navigable) {
         if (navigable == null) {
-            searchBarWrapper.addStyleName("hidden");
+            searchBarWrapper.setVisible(false);
         } else {
             searchBar.setValue("");
-            searchBarWrapper.removeStyleName("hidden");
+            searchBarWrapper.setVisible(true);
             searchBar.addValueChangeListener(navigable);
         }
     }
