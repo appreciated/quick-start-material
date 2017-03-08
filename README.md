@@ -62,8 +62,8 @@ ToDo:
 ### Finally replace valo with the quick-start-material theme 
   
     @import "../quick-start-material/quick-start-material.scss";
-
-    $theme-primary-color: #999999 !default; // Color for Background
+    // Take a look here https://www.materialpalette.com/
+    $theme-primary-color: #999999 !default; // Color for Background 
     $theme-accent-color: #bbbbbb !default; // Color used as a Contrast to the Background 
 
     @mixin mytheme {
