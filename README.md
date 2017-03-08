@@ -63,8 +63,8 @@ ToDo:
   
     @import "../quick-start-material/quick-start-material.scss";
     // Take a look here https://www.materialpalette.com/
-    $theme-primary-color: #999999 !default; // Color for Background 
-    $theme-accent-color: #bbbbbb !default; // Color used as a Contrast to the Background 
+    $theme-primary-color: #03A9F4;  // Color for Background 
+    $theme-accent-color: #536DFE; // Color used as a Contrast to the Background 
 
     @mixin mytheme {
       @include quick-start-material;
