@@ -13,7 +13,6 @@ import com.github.appreciated.quickstart.base.navigation.interfaces.HasSearch;
 import com.github.appreciated.quickstart.base.navigation.interfaces.NavigationDesignInterface;
 import com.github.appreciated.quickstart.base.navigation.interfaces.Page;
 import com.github.appreciated.quickstart.base.vaadin.Util;
-import com.vaadin.client.AnimationUtil;
 import com.vaadin.icons.VaadinIcons;
 import com.vaadin.ui.*;
 
