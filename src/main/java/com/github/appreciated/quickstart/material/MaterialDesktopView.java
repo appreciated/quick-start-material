@@ -139,9 +139,7 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Navi
                 actions.forEach(action -> {
                     if (action instanceof CustomAction) {
                         CustomAction caction = (CustomAction) action;
-                        if (caction.hasMobileComponent()) {
-                            contextButtonWrapper.addComponent(caction.getDesktopComponent());
-                        }
+                        contextButtonWrapper.addComponent(caction.getDesktopComponent());
                     } else if (action instanceof DownloadAction) {
                         DownloadButton download = new DownloadButton((DownloadAction) action);
                         download.setHeight(60, Unit.PIXELS);

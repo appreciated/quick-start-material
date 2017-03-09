@@ -192,7 +192,7 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
                 Component buttonComponent = null;
                 if (action instanceof CustomAction) {
                     CustomAction customAction = (CustomAction) action;
-                    if (customAction.hasMobileComponent()) {
+                    if (customAction.isMobileCompliant()) {
                         buttonComponent = customAction.getMobileComponent();
                     }
                 } else if (action instanceof DownloadAction) {
