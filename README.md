@@ -11,6 +11,7 @@ ToDo:
 * SCSS cleanup
 * left / right side navigation
 * Integration Tests
+* easy access management integration
 
 ### How do I use it?
 
