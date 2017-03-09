@@ -6,10 +6,8 @@ This Project is still under construction! You can already use it for Experiments
 It will be added as a Vaadin Addon when a more mature status is reached, for now I decided to use JitPack
 
 ToDo:
-* Debugging
-* Allow Components to be added to the Navigation and the Context Menu 
-* Context Buttons without List 
-* Pager replacement
+* Debugging 
+* Stepper (Alternative to the pager)
 * Materialize import
 * SCSS cleanup
 * left / right side navigation
