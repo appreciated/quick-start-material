@@ -9,9 +9,9 @@
   <vaadin-vertical-layout size-full margin="false">
    <vaadin-absolute-layout>
     <vaadin-panel style-name="borderless slides" id="contentPanel" size-full _id="contentPanel">
-     <vaadin-vertical-layout spacing="false" margin="false">
+     <vaadin-vertical-layout spacing="false" margin="false" _id="pageWrapper">
       <vaadin-horizontal-layout style-name="slide-background" spacing="false" id="parralax-header" width-full height="60px"></vaadin-horizontal-layout>
-      <vaadin-vertical-layout style-name="navigation-max-width-1000" id="contentHeader" :center>
+      <vaadin-vertical-layout style-name="navigation-max-width-1000" id="contentHeader" size-full :center :expand>
        <vaadin-horizontal-layout style-name="min-width" width-full :center>
         <vaadin-horizontal-layout width-full height="60px" :center :expand>
          <vaadin-label style-name="h3 primary-contrast-color margin-l-20" plain-text _id="containerLabel" :middle>
@@ -45,7 +45,7 @@
          </vaadin-horizontal-layout>
         </vaadin-horizontal-layout>
        </vaadin-horizontal-layout>
-       <vaadin-horizontal-layout style-name="slide-content-container" spacing="false" width-full _id="componentHolder" :center></vaadin-horizontal-layout>
+       <vaadin-horizontal-layout style-name="slide-content-container" spacing="false" width-full _id="componentHolder" :center :expand></vaadin-horizontal-layout>
       </vaadin-vertical-layout>
      </vaadin-vertical-layout>
     </vaadin-panel>
@@ -87,6 +87,7 @@
       </vaadin-horizontal-layout>
       <vaadin-horizontal-layout width-full :right :expand>
        <vaadin-horizontal-layout height="60px" :middle :right>
+        <vaadin-horizontal-layout height-full _id="menuElements"></vaadin-horizontal-layout>
         <vaadin-horizontal-layout style-name="animate-in-fade" _id="searchBarWrapper" :middle>
          <vaadin-text-field icon="fonticon://Vaadin-Icons/e805" style-name="floating-input inline-icon" placeholder="Search" _id="searchBar" :expand></vaadin-text-field>
         </vaadin-horizontal-layout>

@@ -24,6 +24,7 @@ public class MobileNavigationDesign extends AbsoluteLayout {
     protected VerticalLayout smallContextButtonContainer;
     protected Button floatingButton;
     protected HorizontalLayout menuWrapper;
+    protected HorizontalLayout menuElements;
     protected VerticalLayout navigationElements;
     protected Button showSearchbarButton;
     protected TextField searchbar;

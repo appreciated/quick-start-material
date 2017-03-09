@@ -4,12 +4,11 @@
     }
 
     .pager-right-button {
-        box-shadow: 0 5px 8px 0px rgba(0, 0, 0, 0.15);
-        border-radius: 100%;
-        height: 50px;
-        width: 50px !important;
-        background: $theme-accent-color;
-        transition:  box-shadow 0.7s;
+       @include floating-button-style;
+       color: valo-font-color($theme-accent-color, 1.0);
+       margin: 0px;
+       width: 50px;
+       height: 50px;
     }
 
      .pager-right-button:hover {
@@ -17,12 +16,11 @@
      }
 
     .pager-left-button {
-        box-shadow: 0 5px 8px 0px rgba(0, 0, 0, 0.15);
-        border-radius: 100%;
-        height: 50px;
-        width: 50px !important;
-        background: $theme-accent-color;
-        transition:  box-shadow 0.7s;
+       @include floating-button-style;
+       color: valo-font-color($theme-accent-color, 1.0);
+       margin: 0px;
+       width: 50px;
+       height: 50px;
     }
 
     .pager-left-button:hover {
@@ -38,7 +36,7 @@
         margin: 7px;
         width: 9px;
         height: 9px;
-        background: $theme-accent-color;
+        background: #fafafa;
         border-radius: 100%;
         padding: 0px;
         box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);

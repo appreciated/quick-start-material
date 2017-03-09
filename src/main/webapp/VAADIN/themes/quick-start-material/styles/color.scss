@@ -26,6 +26,10 @@ $primary-contrast-background-color: valo-font-color($theme-primary-color, 1.0);
        background-color: $primary-contrast-background-color !important;
     }
 
+     .accent-contrast-color {
+         color: valo-font-color($theme-accent-color, 1.0);
+     }
+
     .primary-border-color {
         border-color: $theme-primary-color ;
     }

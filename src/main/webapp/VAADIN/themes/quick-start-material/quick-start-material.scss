@@ -21,8 +21,8 @@
     @include window;
     @include material;
     @include tags;
-    @include animations;
     @include input;
     @include upload;
     @include pager;
+    @include animations;
 }

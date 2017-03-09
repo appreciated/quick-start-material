@@ -1,24 +1,18 @@
 package com.github.appreciated.quickstart.material;
 
 
+import com.github.appreciated.quickstart.base.authentication.Util;
 import com.github.appreciated.quickstart.base.components.DownloadButton;
 import com.github.appreciated.quickstart.base.components.UploadButton;
 import com.github.appreciated.quickstart.base.navigation.WebAppDescription;
-import com.github.appreciated.quickstart.base.navigation.actions.Action;
-import com.github.appreciated.quickstart.base.navigation.actions.ClickAction;
-import com.github.appreciated.quickstart.base.navigation.actions.DownloadAction;
-import com.github.appreciated.quickstart.base.navigation.actions.UploadAction;
-import com.github.appreciated.quickstart.base.navigation.interfaces.HasContextButtons;
+import com.github.appreciated.quickstart.base.navigation.actions.*;
+import com.github.appreciated.quickstart.base.navigation.interfaces.HasContextActions;
 import com.github.appreciated.quickstart.base.navigation.interfaces.HasSearch;
 import com.github.appreciated.quickstart.base.navigation.interfaces.NavigationDesignInterface;
 import com.github.appreciated.quickstart.base.navigation.interfaces.Subpage;
 import com.github.appreciated.quickstart.base.notification.QuickNotification;
-import com.github.appreciated.quickstart.base.vaadin.Util;
 import com.vaadin.icons.VaadinIcons;
-import com.vaadin.ui.AbstractOrderedLayout;
-import com.vaadin.ui.HorizontalLayout;
-import com.vaadin.ui.Label;
-import com.vaadin.ui.MenuBar;
+import com.vaadin.ui.*;
 
 import java.util.AbstractMap;
 import java.util.List;
@@ -106,6 +100,12 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Navi
     }
 
     @Override
+    public void initCustomMenuElements(List<Component> components) {
+        menuElements.removeAllComponents();
+        components.forEach(component -> menuElements.addComponent(component));
+    }
+
+    @Override
     public AbstractOrderedLayout getHolder() {
         return componentHolder;
     }
@@ -121,7 +121,7 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Navi
     }
 
     @Override
-    public void setCurrentActions(HasContextButtons contextNavigable) {
+    public void setCurrentActions(HasContextActions contextNavigable) {
         if (contextNavigable != null) {
 
             /**
@@ -137,7 +137,12 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Navi
             if (actions != null && actions.size() > 0) {
                 contextButtons.removeItems();
                 actions.forEach(action -> {
-                    if (action instanceof DownloadAction) {
+                    if (action instanceof CustomAction) {
+                        CustomAction caction = (CustomAction) action;
+                        if (caction.hasMobileComponent()) {
+                            contextButtonWrapper.addComponent(caction.getDesktopComponent());
+                        }
+                    } else if (action instanceof DownloadAction) {
                         DownloadButton download = new DownloadButton((DownloadAction) action);
                         download.setHeight(60, Unit.PIXELS);
                         contextButtonWrapper.addComponent(download);
@@ -159,6 +164,20 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Navi
     }
 
     @Override
+    public void allowPercentagePageHeight(boolean allow) {
+        if (allow) {
+            this.pageWrapper.setHeight(100, Unit.PERCENTAGE);
+        } else {
+            this.pageWrapper.setHeightUndefined();
+        }
+    }
+
+    @Override
+    public void setPageTitleVisibility(boolean visiblity) {
+        containerLabel.setVisible(visiblity);
+    }
+
+    @Override
     public void setCurrentSearchNavigable(HasSearch navigable) {
         if (navigable == null) {
             searchBarWrapper.setVisible(false);
@@ -170,9 +189,8 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Navi
     }
 
     /*
-     * To make the view mosre customizable allow every Property to be accessed
+     * To make the view more customizable allow every Property to be accessed
      */
-
     public HorizontalLayout getIconContainer() {
         return iconContainer;
     }

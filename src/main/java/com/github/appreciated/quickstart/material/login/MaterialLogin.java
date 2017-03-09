@@ -1,12 +1,12 @@
 package com.github.appreciated.quickstart.material.login;
 
-import com.github.appreciated.quickstart.base.interfaces.LoginListener;
+import com.github.appreciated.quickstart.base.authentication.login.AccessControl;
+import com.github.appreciated.quickstart.base.authentication.login.LoginListener;
+import com.github.appreciated.quickstart.base.authentication.registration.RegistrationResult;
 import com.github.appreciated.quickstart.base.listeners.ShortcutKeyListener;
-import com.github.appreciated.quickstart.base.login.AccessControl;
 import com.github.appreciated.quickstart.base.navigation.RegistrationControl;
 import com.github.appreciated.quickstart.base.navigation.interfaces.LoginPage;
 import com.github.appreciated.quickstart.base.notification.QuickNotification;
-import com.github.appreciated.quickstart.base.registration.RegistrationResult;
 import com.vaadin.data.Binder;
 import com.vaadin.data.HasValue;
 import com.vaadin.event.ShortcutAction;

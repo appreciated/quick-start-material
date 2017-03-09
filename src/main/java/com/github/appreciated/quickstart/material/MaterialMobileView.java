@@ -1,18 +1,15 @@
 package com.github.appreciated.quickstart.material;
 
 
+import com.github.appreciated.quickstart.base.authentication.Util;
 import com.github.appreciated.quickstart.base.components.DownloadButton;
 import com.github.appreciated.quickstart.base.components.UploadButton;
 import com.github.appreciated.quickstart.base.navigation.WebAppDescription;
-import com.github.appreciated.quickstart.base.navigation.actions.Action;
-import com.github.appreciated.quickstart.base.navigation.actions.ClickAction;
-import com.github.appreciated.quickstart.base.navigation.actions.DownloadAction;
-import com.github.appreciated.quickstart.base.navigation.actions.UploadAction;
-import com.github.appreciated.quickstart.base.navigation.interfaces.HasContextButtons;
+import com.github.appreciated.quickstart.base.navigation.actions.*;
+import com.github.appreciated.quickstart.base.navigation.interfaces.HasContextActions;
 import com.github.appreciated.quickstart.base.navigation.interfaces.HasSearch;
 import com.github.appreciated.quickstart.base.navigation.interfaces.NavigationDesignInterface;
 import com.github.appreciated.quickstart.base.navigation.interfaces.Subpage;
-import com.github.appreciated.quickstart.base.vaadin.Util;
 import com.vaadin.icons.VaadinIcons;
 import com.vaadin.ui.*;
 
@@ -58,6 +55,21 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
     @Override
     public void initUserFunctionality(WebAppDescription description) {
 
+    }
+
+    @Override
+    public void initCustomMenuElements(List<Component> components) {
+        menuElements.removeAllComponents();
+        components.forEach(component -> menuElements.addComponent(component));
+    }
+
+    @Override
+    public void allowPercentagePageHeight(boolean allow) {
+        if (allow) {
+            this.componentHolder.setHeight(100, Unit.PERCENTAGE);
+        } else {
+            this.componentHolder.setHeightUndefined();
+        }
     }
 
     @Override
@@ -162,7 +174,7 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
     }
 
     @Override
-    public void setCurrentActions(HasContextButtons contextNavigable) {
+    public void setCurrentActions(HasContextActions contextNavigable) {
         if (contextNavigable == null) {
             contextButtonContainer.setVisible(false);
         } else {
@@ -178,7 +190,12 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
             floatingButton.setIcon(VaadinIcons.ELLIPSIS_V);
             actions.stream().forEach(action -> {
                 Component buttonComponent = null;
-                if (action instanceof DownloadAction) {
+                if (action instanceof CustomAction) {
+                    CustomAction customAction = (CustomAction) action;
+                    if (customAction.hasMobileComponent()) {
+                        buttonComponent = customAction.getMobileComponent();
+                    }
+                } else if (action instanceof DownloadAction) {
                     buttonComponent = new DownloadButton((DownloadAction) action);
                 } else if (action instanceof UploadAction) {
                     buttonComponent = new HorizontalLayout();
@@ -187,7 +204,9 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
                     buttonComponent = new Button(action.getResource());
                     ((Button) buttonComponent).addClickListener(clickEvent -> ((ClickAction) action).getListener().actionPerformed(null));
                 }
-                generatedButtons.put(action, buttonComponent);
+                if (buttonComponent != null) {
+                    generatedButtons.put(action, buttonComponent);
+                }
             });
             if (generatedButtons.size() > 1) {
                 floatingButton.setVisible(true);

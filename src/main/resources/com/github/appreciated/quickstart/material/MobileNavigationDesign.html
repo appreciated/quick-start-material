@@ -29,13 +29,14 @@
         My Mobile App 
       </vaadin-button>
       <vaadin-horizontal-layout size-full :middle :right :expand>
+       <vaadin-horizontal-layout height-full _id="menuElements" :middle :right></vaadin-horizontal-layout>
        <vaadin-button icon="fonticon://Vaadin-Icons/e805" style-name="x-large primary-theme-color primary-contrast-color animate-in-fade" height="60px" plain-text _id="showSearchbarButton" :middle :right></vaadin-button>
       </vaadin-horizontal-layout>
      </vaadin-horizontal-layout>
     </vaadin-absolute-layout>
     <vaadin-horizontal-layout spacing="false" size-full :expand>
      <vaadin-panel style-name="borderless" size-full :expand>
-      <vaadin-vertical-layout style-name="height-unset" id="" _id="componentHolder"></vaadin-vertical-layout>
+      <vaadin-vertical-layout id="" _id="componentHolder"></vaadin-vertical-layout>
      </vaadin-panel>
      <vaadin-vertical-layout width="0px" height-full margin="false">
       <vaadin-vertical-layout style-name="mobile-context-button-container floating-left" spacing="false" width="70px" margin="false" _id="contextButtonContainer" :bottom>

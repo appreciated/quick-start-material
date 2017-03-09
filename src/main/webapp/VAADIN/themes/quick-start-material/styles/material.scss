@@ -31,23 +31,18 @@ $icon-image: url("img/test_icon.png") !default;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 1px 5px 0 rgba(0,0,0,0.12),0 3px 1px -2px rgba(0,0,0,0.2);
     transition: max-height 3s, max-width 3s, box-shadow 0.5s, transform 0.3s;
     transition-delay: 0.1s;
-    //animation: scale 0.3s;
     transform: scale(1.0);
-
     &:after {
         border-color: unset !important;
         box-shadow: unset !important;
         border: none !important;
     }
-
     &:active:after {
         background-color: unset;
     }
-
     &:hover:after {
         background-color: unset;
     }
-
     &:hover{
         box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14),0 1px 7px 0 rgba(0,0,0,0.12),0 3px 1px -1px rgba(0,0,0,0.2);
     }
@@ -141,9 +136,10 @@ $icon-image: url("img/test_icon.png") !default;
 
     .context-button {
         @include floating-button-style;
+        color: valo-font-color($theme-accent-color, 1.0);
         width: 55px;
         height: 55px;
-        animation: scale 1s;
+        animation: scale 0.7s;
     }
 
     .floating-bottom {
@@ -157,8 +153,6 @@ $icon-image: url("img/test_icon.png") !default;
     }
 
     // Menu Button Styling + removal of Vaadin button Styling
-
-
     .tab {
         @include true-borderless;
         border: 0px;
@@ -171,8 +165,6 @@ $icon-image: url("img/test_icon.png") !default;
               background-color: rgba(255, 255, 255, 0.2) !important;
         }
     }
-
-
 
     .tab-active {
         border-bottom-color: white;
@@ -218,18 +210,15 @@ $icon-image: url("img/test_icon.png") !default;
 
 
     // Material elevation levels + Hover effect for Selectable cards
-
     .elevation-0 {
         border-radius: 2px;
         background: white;
         padding: 20px;
     }
-
     .elevation-1 {
         @extend .elevation-0;
         box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     }
-
     .selectable {
         @extend .elevation-1;
         animation: valo-animate-out-scale-down-fade 0.8s ;
@@ -237,57 +226,44 @@ $icon-image: url("img/test_icon.png") !default;
         transition: all 0.6s;
         animation-timing-function: ease-in;
     }
-
     .selectable:hover * {
         transition: color 0.6s;
     }
-
     .selectable:hover {
         @extend .elevation-0;
         box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
         transform: scale(1.01);
     }
-
     .selectable:hover * {
             color: $theme-accent-color;
-        }
-
+    }
     .elevation-2 {
         @extend .elevation-0;
         box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     }
-
     .elevation-3 {
         @extend .elevation-0;
         box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     }
-
     .elevation-4 {
         @extend .elevation-0;
         box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     }
-
     .elevation-5 {
         @extend .elevation-0;
         box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
     }
-
-
     // Scrollbar customization
     ::-webkit-scrollbar {
         width: 8px;
         height: 8px;
     }
-
     ::-webkit-scrollbar-track {
          background: rgba(128,128,128,0.3);
     }
-
     ::-webkit-scrollbar-thumb {
          background: rgba(128,128,128,0.8);
     }
-
-
     // Pager
     .pager li {
         position: relative;
@@ -297,7 +273,6 @@ $icon-image: url("img/test_icon.png") !default;
         width: 8px;
         height: 8px;
         cursor: pointer;
-
         & a {
             top: 0;
             left: 0;
@@ -310,7 +285,6 @@ $icon-image: url("img/test_icon.png") !default;
             text-indent: -999em;
             cursor: pointer;
             position: absolute;
-
             &:focus {
                 outline: none;
             }
