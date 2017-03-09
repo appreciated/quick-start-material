@@ -37,7 +37,7 @@ ToDo:
 
         @Override
         public WebAppDescription initWebAppDescription() {
-            return new WebAppDescription().withDesign(MaterialDesktopView.class) // Set the "design" for the desktop
+            return new WebAppDescription().withDesign(MaterialDesktopView.class) // Set the "design" for the desktop platform
             .withMobileDesign(MaterialMobileView.class) // Set the "design" for the mobile platform
             .withLogin(new ExampleAccess()) // Set the login procedure
             .withRegistration(new ExampleRegistration())   // Set the registration procedure
