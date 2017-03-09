@@ -15,9 +15,9 @@ ToDo:
 * left / right side navigation
 * Integration Tests
 
-## How do I use it?
+### How do I use it?
 
-### Add the JitPack Repository to your POM
+#### 1. Add the JitPack Repository to your POM
 
     <repositories>
       <repository>
@@ -26,7 +26,7 @@ ToDo:
       </repository>
     </repositories>
 
-### Add the following POM to your Maven dependencies
+#### 2. Add the following POM to your Maven dependencies
   
     <dependency>
       <groupId>com.github.appreciated</groupId>
@@ -34,7 +34,7 @@ ToDo:
       <version>0.6.1</version>
     </dependency>
   
-### Modify your UI Class to look similar to this
+#### 3. Modify your UI Class to look similar to this
   
     public class MyUI extends WebApplicationUI {
 
@@ -59,7 +59,7 @@ ToDo:
       
     }
 
-### Finally replace valo with the quick-start-material theme 
+#### 4. Replace valo with the quick-start-material theme 
   
     @import "../quick-start-material/quick-start-material.scss";
     // Take a look here https://www.materialpalette.com/
