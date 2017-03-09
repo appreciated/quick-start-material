@@ -7,7 +7,6 @@ It will be added as a Vaadin Addon when a more mature status is reached, for now
 
 ToDo:
 * Debugging 
-* Stepper (Alternative to the pager)
 * Materialize import
 * SCSS cleanup
 * left / right side navigation
