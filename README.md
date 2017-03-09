@@ -35,25 +35,25 @@ ToDo:
   
     public class MyUI extends WebApplicationUI {
 
-      @Override
-      public WebAppDescription initWebAppDescription() {
-          return new WebAppDescription().withDesign(MaterialDesktopView.class) // Set the "design" for the desktop
-                .withMobileDesign(MaterialMobileView.class) // Set the "design" for the mobile platform
-                .withLogin(new ExampleAccess()) // Set the login procedure
-                .withRegistration(new ExampleRegistration())   // Set the registration procedure
-                .withLoginPage(MaterialLogin.class) // Set a login subpage if you want to have one otherwise the site will be shown with a login button
-                .withTitle("TestWebsite")
-                 .withSubpages(new HomeView(),  // add all the Views your want to be able to navigate in
-                        new HistoryView(),      // ...
-                        new PagerView());       // ...
-                .withDefaultPage(TestView1.class); // Set optional the default Subpage if you want
-      }
+        @Override
+        public WebAppDescription initWebAppDescription() {
+            return new WebAppDescription().withDesign(MaterialDesktopView.class) // Set the "design" for the desktop
+            .withMobileDesign(MaterialMobileView.class) // Set the "design" for the mobile platform
+            .withLogin(new ExampleAccess()) // Set the login procedure
+            .withRegistration(new ExampleRegistration())   // Set the registration procedure
+            .withLoginPage(MaterialLogin.class) // Set a login subpage if you want to have one otherwise the site will be shown with a login button
+            .withTitle("TestWebsite")
+            .withSubpages(new HomeView(),  // add all the Views your want to be able to navigate in
+                    new HistoryView(),      // ...
+                    new PagerView());       // ...
+            .withDefaultPage(TestView1.class); // Set optional the default Subpage if you want
+        }
 
-      @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
-      @VaadinServletConfiguration(ui = MyUI.class, productionMode = false)
-      public static class MyUIServlet extends VaadinServlet {
-      }
-      
+        @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
+        @VaadinServletConfiguration(ui = MyUI.class, productionMode = false)
+        public static class MyUIServlet extends VaadinServlet {
+        }
+
     }
 
 #### 4. Replace valo with the quick-start-material theme 
