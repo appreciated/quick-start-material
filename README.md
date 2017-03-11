@@ -45,7 +45,7 @@ ToDo:
             .withTitle("TestWebsite")
             .withSubpages(new HomeView(),  // add all the Views your want to be able to navigate in
                     new HistoryView(),     // ...
-                    new PagerView());      // ...
+                    new PagerView())      // ...
             .withDefaultPage(TestView1.class); // Set optionally the default shown Subpage
         }
 
@@ -57,11 +57,11 @@ ToDo:
     }
 
 #### 4. Replace valo with the quick-start-material theme 
-  
-    @import "../quick-start-material/quick-start-material.scss";
     // For the material design color palette take a look here https://www.materialpalette.com/
-    $theme-primary-color: #607D8B;  // F.e (Blue Grey) Primary color for Background 
-    $theme-accent-color: #03A9F4; // F.e (Light Blue) Accent color for Components 
+    $theme-primary-color: #607D8B;  // F.e (Blue Grey) Primary color for Background
+    $theme-accent-color: #03A9F4; // F.e (Light Blue) Accent color for Components
+
+    @import "../quick-start-material/quick-start-material.scss";
 
     @mixin mytheme {
         @include quick-start-material;
