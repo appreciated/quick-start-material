@@ -24,15 +24,15 @@ ToDo:
       </repository>
     </repositories>
 
-#### 2. Add the following POM to your Maven dependencies
+#### 2. Add the following dependancy to your POM
   
     <dependency>
-      <groupId>com.github.appreciated</groupId>
-      <artifactId>quick-start-material</artifactId>
-      <version>0.6.3</version>
+        <groupId>com.github.appreciated</groupId>
+        <artifactId>quick-start-material</artifactId>
+        <version>LATEST</version>
     </dependency>
   
-#### 3. Modify your UI Class to look similar to this
+#### 3. Modify your UI Class and add your Views (The added views have to be a decendant of the Interface "Subpage")
   
     public class MyUI extends WebApplicationUI {
 
