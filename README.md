@@ -61,8 +61,8 @@ ToDo:
   
     @import "../quick-start-material/quick-start-material.scss";
     // For the material design color palette take a look here https://www.materialpalette.com/
-    $theme-primary-color: #607D8B;  // (Blue Grey) Color for Background 
-    $theme-accent-color: #03A9F4; // (Light Blue) Color used as a Contrast to the Background 
+    $theme-primary-color: #607D8B;  // F.e (Blue Grey) Primary color for Background 
+    $theme-accent-color: #03A9F4; // F.e (Light Blue) Accent color for Components 
 
     @mixin mytheme {
       @include quick-start-material;
