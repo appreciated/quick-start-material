@@ -47,7 +47,7 @@ ToDo:
             .withSubpages(new HomeView(),  // add all the Views your want to be able to navigate in
                     new HistoryView(),      // ...
                     new PagerView());       // ...
-            .withDefaultPage(TestView1.class); // Set optional the default Subpage if you want
+            .withDefaultPage(TestView1.class); // Set optionally the default shown Page
         }
 
         @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
