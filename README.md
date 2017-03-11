@@ -32,8 +32,7 @@ ToDo:
         <version>LATEST</version>
     </dependency>
   
-#### 3. Modify your UI Class and add your Component (Components must be a decendant of the Interface "Subpage")
-  
+#### 3. Modify your UI Class and add your Component (Components must be a decendant of the Interface "Subpage"
     public class MyUI extends WebApplicationUI {
 
         @Override
@@ -65,5 +64,5 @@ ToDo:
     $theme-accent-color: #03A9F4; // F.e (Light Blue) Accent color for Components 
 
     @mixin mytheme {
-      @include quick-start-material;
+        @include quick-start-material;
     }
