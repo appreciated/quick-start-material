@@ -32,7 +32,7 @@ ToDo:
         <version>LATEST</version>
     </dependency>
   
-#### 3. Modify your UI Class and add your Views (The added views have to be a decendant of the Interface "Subpage")
+#### 3. Modify your UI Class and add your Component (Components must be a decendant of the Interface "Subpage")
   
     public class MyUI extends WebApplicationUI {
 
