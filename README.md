@@ -39,14 +39,14 @@ ToDo:
         public WebAppDescription initWebAppDescription() {
             return new WebAppDescription().withDesign(MaterialDesktopView.class) // Set the "design" for the desktop platform
             .withMobileDesign(MaterialMobileView.class) // Set the "design" for the mobile platform
-            .withLogin(new ExampleAccess()) // Set the login procedure
-            .withRegistration(new ExampleRegistration())   // Set the registration procedure
-            .withLoginPage(MaterialLogin.class) // Set a login subpage if you want to have one otherwise the site will be shown with a login button
+            .withLogin(new ExampleAccess()) // Set your custom login procedure
+            .withRegistration(new ExampleRegistration()) // Set your custom registration procedure
+            .withLoginPage(MaterialLogin.class) // Set a login Subpage if you want to have one, otherwise a login / registration button will be shown on the menu
             .withTitle("TestWebsite")
             .withSubpages(new HomeView(),  // add all the Views your want to be able to navigate in
                     new HistoryView(),     // ...
                     new PagerView());      // ...
-            .withDefaultPage(TestView1.class); // Set optionally the default shown Page
+            .withDefaultPage(TestView1.class); // Set optionally the default shown Subpage
         }
 
         @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
