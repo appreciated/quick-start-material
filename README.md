@@ -29,7 +29,7 @@ ToDo:
     <dependency>
       <groupId>com.github.appreciated</groupId>
       <artifactId>quick-start-material</artifactId>
-      <version>0.6.1</version>
+      <version>0.6.3</version>
     </dependency>
   
 #### 3. Modify your UI Class to look similar to this
