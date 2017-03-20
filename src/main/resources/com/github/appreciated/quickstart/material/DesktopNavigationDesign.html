@@ -14,34 +14,43 @@
       <vaadin-vertical-layout style-name="navigation-max-width-1000" id="contentHeader" size-full :center :expand>
        <vaadin-horizontal-layout style-name="min-width" width-full :center>
         <vaadin-horizontal-layout width-full height="60px" :center :expand>
-         <vaadin-label style-name="h3 primary-contrast-color margin-l-20" plain-text _id="containerLabel" :middle>
-           Label 
-         </vaadin-label>
-         <vaadin-horizontal-layout style-name="hideable" spacing="false" _id="contextButtonWrapper" :middle :right>
-          <vaadin-menu-bar style-name="borderless navigation-bar" _id="contextButtons">
-           <menu>
-             File 
+         <vaadin-horizontal-layout height-full :middle>
+          <vaadin-horizontal-layout margin-right :middle>
+           <vaadin-label style-name="h3 primary-contrast-color margin-r-20 margin-l-20" width="46px" plain-text _id="containerLabel">
+             Label 
+           </vaadin-label>
+          </vaadin-horizontal-layout>
+         </vaadin-horizontal-layout>
+         <vaadin-horizontal-layout margin-right :middle :right :expand>
+          <vaadin-horizontal-layout style-name="hideable" spacing="false" _id="contextButtonWrapper" :middle :right>
+           <vaadin-menu-bar style-name="borderless navigation-bar" _id="contextButtons" :middle :right>
             <menu>
-              Open 
+              File 
+             <menu>
+               Open 
+             </menu>
+             <menu>
+               Save 
+             </menu>
+             <menu>
+               Preferences 
+             </menu>
+             <menu separator></menu>
+             <menu>
+               Quit 
+             </menu>
             </menu>
             <menu>
-              Save 
+              Edit 
             </menu>
-            <menu>
-              Preferences 
+            <menu description="Some description">
+              About 
             </menu>
-            <menu separator></menu>
-            <menu>
-              Quit 
-            </menu>
-           </menu>
-           <menu>
-             Edit 
-           </menu>
-           <menu description="Some description">
-             About 
-           </menu>
-          </vaadin-menu-bar>
+           </vaadin-menu-bar>
+          </vaadin-horizontal-layout>
+          <vaadin-horizontal-layout _id="searchBarWrapper" :middle :center>
+           <vaadin-text-field icon="fonticon://Vaadin-Icons/e805" style-name="floating-input inline-icon" placeholder="Search" _id="searchBar"></vaadin-text-field>
+          </vaadin-horizontal-layout>
          </vaadin-horizontal-layout>
         </vaadin-horizontal-layout>
        </vaadin-horizontal-layout>
@@ -88,10 +97,15 @@
       <vaadin-horizontal-layout width-full :right :expand>
        <vaadin-horizontal-layout height="60px" :middle :right>
         <vaadin-horizontal-layout height-full _id="menuElements"></vaadin-horizontal-layout>
-        <vaadin-horizontal-layout style-name="animate-in-fade" _id="searchBarWrapper" :middle>
-         <vaadin-text-field icon="fonticon://Vaadin-Icons/e805" style-name="floating-input inline-icon" placeholder="Search" _id="searchBar" :expand></vaadin-text-field>
+        <vaadin-horizontal-layout spacing="false" height-full>
+         <vaadin-button style-name="tab sign-in" height-full plain-text _id="signIn">
+           Sign-In 
+         </vaadin-button>
+         <vaadin-button style-name="tab register" height-full plain-text _id="register">
+           Register 
+         </vaadin-button>
         </vaadin-horizontal-layout>
-        <vaadin-menu-bar style-name="borderless navigation-bar no-indicator" width="60px" height="60px" _id="user" :middle :right>
+        <vaadin-menu-bar style-name="borderless navigation-bar no-indicator float-icon-right" height="60px" _id="user" :middle :right>
          <menu>
            User 
          </menu>
