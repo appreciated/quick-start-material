@@ -47,10 +47,11 @@ ToDo:
             .withRegistration(new ExampleRegistration()) // Set your custom registration procedure
             .withLoginPage(MaterialLogin.class) // Set a login Subpage if you want to have one, otherwise a login / registration button will be shown on the menu
             .withTitle("TestWebsite")
-            .withSubpages(new HomeView(),  // add all the Views your want to be able to navigate in
-                    new HistoryView(),     // ...
-                    new PagerView())       // ...
-            .withDefaultPage(TestView1.class); // Set optional the default shown Subpage
+            .withSubpages(new HomeView(),     // add all the Views your want to be able to navigate in
+                    new HistoryView(),        // ...
+                    new PagerView())          // ...
+            .withDefaultPage(TestView1.class) // Set optional the default shown Subpage
+            .build();
         }
 
         @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
