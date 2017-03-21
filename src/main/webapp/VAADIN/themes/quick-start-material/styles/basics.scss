@@ -16,7 +16,7 @@
             width: auto !important;
             > .v-tabsheet-tabsheetpanel {
                 width: auto !important;
-                    transition: height 1s;
+                   transition: height 0.5s ease;
                 > .v-scrollable {
                     position: inherit !important;
                     width: auto !important;
