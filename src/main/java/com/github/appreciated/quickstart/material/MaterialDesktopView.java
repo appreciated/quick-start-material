@@ -146,9 +146,13 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Navi
              */
             StreamSupport.stream(contextButtonWrapper.spliterator(), false).collect(Collectors.toList())
                     .stream()
-                    .filter(component -> component != contextButtons)
                     .filter(component -> component != actionWrapper)
                     .forEach(component -> contextButtonWrapper.removeComponent(component));
+
+            StreamSupport.stream(actionWrapper.spliterator(), false).collect(Collectors.toList())
+                    .stream()
+                    .filter(component -> component != contextButtons)
+                    .forEach(component -> actionWrapper.removeComponent(component));
 
             List<Action> actions = contextNavigable.getContextActions();
             if (actions != null && actions.size() > 0) {
