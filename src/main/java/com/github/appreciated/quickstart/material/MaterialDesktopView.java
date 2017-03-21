@@ -2,15 +2,19 @@ package com.github.appreciated.quickstart.material;
 
 
 import com.github.appreciated.quickstart.base.authentication.Util;
+import com.github.appreciated.quickstart.base.authentication.login.AccessControl;
 import com.github.appreciated.quickstart.base.components.DownloadButton;
 import com.github.appreciated.quickstart.base.components.UploadButton;
+import com.github.appreciated.quickstart.base.navigation.RegistrationControl;
 import com.github.appreciated.quickstart.base.navigation.WebAppDescription;
+import com.github.appreciated.quickstart.base.navigation.WebApplicationUI;
 import com.github.appreciated.quickstart.base.navigation.actions.*;
 import com.github.appreciated.quickstart.base.navigation.interfaces.HasContextActions;
 import com.github.appreciated.quickstart.base.navigation.interfaces.HasSearch;
 import com.github.appreciated.quickstart.base.navigation.interfaces.NavigationDesignInterface;
 import com.github.appreciated.quickstart.base.navigation.interfaces.Subpage;
 import com.github.appreciated.quickstart.base.notification.QuickNotification;
+import com.github.appreciated.quickstart.material.login.LoginDialog;
 import com.vaadin.icons.VaadinIcons;
 import com.vaadin.ui.*;
 
@@ -28,6 +32,8 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Navi
     public static final String CONFIGURATION_FULLHEIGHT_NAVIGATIONBAR = "full_height_navigationbar";
     public static final String CONFIGURATION_HIDE_ICON = "hide_icon";
     public static final String CONFIGURATION_HIDE_TITLE = "hide_title";
+    private AccessControl accessControl;
+    private RegistrationControl registrationControl;
 
     @Override
     public void attach() {
@@ -94,7 +100,17 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Navi
     @Override
     public void initUserFunctionality(WebAppDescription description) {
         user.removeItems();
-        MenuBar.MenuItem item = user.addItem("", VaadinIcons.USER, null);
+        if (description.getLoginNavigable() == null) {
+            register.addClickListener(clickEvent -> new LoginDialog("Register").initWithAccessControl(accessControl).initRegistrationControl(registrationControl).withLoginVisible(false).initWithLoginListener(() -> showUser()).show());
+            signIn.addClickListener(clickEvent -> new LoginDialog("Sign-In").initWithAccessControl(accessControl).withLoginVisible(true).initWithLoginListener(() -> showUser()).show());
+        } else if (WebApplicationUI.isUserSignedIn()) {
+            showUser();
+        }
+    }
+
+    private void showUser() {
+        userAuthWrapper.setVisible(false);
+        MenuBar.MenuItem item = user.addItem("John Wayne", VaadinIcons.USER, null);
         item.addItem("Edit Profile", menuItem -> QuickNotification.showMessageError("This is currently not implemented"));
         item.addItem("Logout", menuItem -> Util.invalidateSession());
     }
@@ -184,6 +200,16 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Navi
             searchBarWrapper.setVisible(true);
             searchBar.addValueChangeListener(navigable);
         }
+    }
+
+    @Override
+    public void initWithAccessControl(AccessControl accessControl) {
+        this.accessControl = accessControl;
+    }
+
+    @Override
+    public void initRegistrationControl(RegistrationControl registrationControl) {
+        this.registrationControl = registrationControl;
     }
 
     /*

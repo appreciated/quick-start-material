@@ -3,6 +3,21 @@
 }
 
 @mixin input {
+
+
+    .v-textfield {
+        @extend .v-textfield-borderless;
+        border-bottom: 2px solid;
+        border-color: $theme-accent-color;
+        width: unset;
+        min-width: 60px;
+    }
+
+    .v-textfield:focus {
+        box-shadow: none;
+    }
+
+
     .floating-input * {
             @extend .primary-contrast-color;
     }

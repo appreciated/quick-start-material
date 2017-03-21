@@ -12,6 +12,8 @@
 @import "styles/upload.scss";
 @import "styles/pager.scss";
 @import "styles/stepper.scss";
+@import "styles/buttons.scss";
+@import "styles/scrollbar.scss";
 
 @mixin quick-start-material {
     @include valo;
@@ -27,4 +29,6 @@
     @include pager;
     @include animations;
     @include stepper;
+    @include buttons;
+     @include scrollbar;
 }

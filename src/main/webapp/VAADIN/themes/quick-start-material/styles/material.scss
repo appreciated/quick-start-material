@@ -48,14 +48,6 @@ $icon-image: url("img/test_icon.png") !default;
     }
 }
 
-@mixin true-borderless {
-    border-color: unset;
-    -webkit-box-shadow: unset;
-    box-shadow: unset;
-    border: none;
-    border-radius: 0px;
-}
-
 .v-app, .v-app-loading {
     background-color: $theme-background-color !important;
 }
@@ -68,29 +60,6 @@ $icon-image: url("img/test_icon.png") !default;
         background: $icon-image;
         background-position: center;
         background-size: cover;
-    }
-
-    .v-button {
-        @extend .v-button-borderless;
-    }
-
-    .v-button:after{
-          border-color: unset !important;
-          -webkit-box-shadow: unset !important;
-          border-color: transparent !important;
-          box-shadow: none !important;
-    }
-
-    .v-textfield {
-        @extend .v-textfield-borderless;
-        border-bottom: 2px solid;
-        border-color: $theme-accent-color;
-        width: unset;
-        min-width: 60px;
-    }
-
-    .v-textfield:focus {
-        box-shadow: none;
     }
 
     .primary-background {
@@ -152,63 +121,6 @@ $icon-image: url("img/test_icon.png") !default;
        margin-bottom: 10px;
     }
 
-    // Menu Button Styling + removal of Vaadin button Styling
-    .tab {
-        @include true-borderless;
-        border: 0px;
-        border-bottom: 2px solid;
-        border-color: transparent;
-        transition: border 0.7s, color 0.7s, text-shadow 0.7s;
-        line-height: 60px;
-        color: valo-font-color($theme-primary-color, 1.0);
-        &:hover {
-              background-color: rgba(255, 255, 255, 0.2) !important;
-        }
-    }
-
-    .tab-active {
-        border-bottom-color: white;
-        &:after {
-            border: none;
-        }
-    }
-
-    .mobile-tab2 * .FontAwesome {
-        width: 30px;
-    }
-
-    .mobile-tab2 {
-        @include true-borderless;
-        @extend .primary-contrast-color;
-        text-align: left;
-    }
-
-    .mobile-tab * .FontAwesome {
-        width: 30px;
-    }
-
-    .mobile-tab {
-        @include true-borderless;
-        @extend .primary-contrast-color;
-        border-color: transparent;
-        text-align: left;
-    }
-
-    .mobile-tab:focus {
-        @extend .accent-color;
-        @extend .primary-contrast-background-color;
-    }
-
-
-    .mobile-tab-active {
-        @extend .accent-color;
-        @extend .primary-contrast-background-color;
-        &:after {
-            border: none;
-        }
-    }
-
-
     // Material elevation levels + Hover effect for Selectable cards
     .elevation-0 {
         border-radius: 2px;
@@ -252,49 +164,6 @@ $icon-image: url("img/test_icon.png") !default;
     .elevation-5 {
         @extend .elevation-0;
         box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-    }
-    // Scrollbar customization
-    ::-webkit-scrollbar {
-        width: 8px;
-        height: 8px;
-    }
-    ::-webkit-scrollbar-track {
-         background: rgba(128,128,128,0.3);
-    }
-    ::-webkit-scrollbar-thumb {
-         background: rgba(128,128,128,0.8);
-    }
-    // Pager
-    .pager li {
-        position: relative;
-        display: block;
-        float: left;
-        margin: 0 6px;
-        width: 8px;
-        height: 8px;
-        cursor: pointer;
-        & a {
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            outline: none;
-            border-radius: 50%;
-            background-color: #000;
-            background-color: rgba(0, 0, 0, 0.3);
-            text-indent: -999em;
-            cursor: pointer;
-            position: absolute;
-            &:focus {
-                outline: none;
-            }
-        }
-    }
-
-    .pager-current li a {
-        animation: dot-animation 1s ;
-        transform: scale(1.3);
-        background-color: rgba(0, 0, 0, 0.5);
     }
 
     .v-menubar.round-image {
@@ -345,6 +214,7 @@ $icon-image: url("img/test_icon.png") !default;
      left: unset;
      bottom: unset;
     }
+
     .slide-background {
         background: $theme-primary-color;
         width: 210% !important;

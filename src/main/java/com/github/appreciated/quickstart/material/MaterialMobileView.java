@@ -2,8 +2,10 @@ package com.github.appreciated.quickstart.material;
 
 
 import com.github.appreciated.quickstart.base.authentication.Util;
+import com.github.appreciated.quickstart.base.authentication.login.AccessControl;
 import com.github.appreciated.quickstart.base.components.DownloadButton;
 import com.github.appreciated.quickstart.base.components.UploadButton;
+import com.github.appreciated.quickstart.base.navigation.RegistrationControl;
 import com.github.appreciated.quickstart.base.navigation.WebAppDescription;
 import com.github.appreciated.quickstart.base.navigation.actions.*;
 import com.github.appreciated.quickstart.base.navigation.interfaces.HasContextActions;
@@ -84,8 +86,8 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
          */
         /**
          * A little bit of JavaScript "hacking" because we don't want to wait for the for the whole server-round-trip-time
-         * on mobile devices to toogle the animation this might actually take pretty long also we are dodging the Widgetset
-         * compilation. But ofcourse is has also its disadvantages.
+         * on mobile devices to toggle the animation this might actually take pretty long also we are dodging the Widgetset
+         * compilation. But it has also its disadvantages.
          */
 
         String menButtonId = "menu-button";
@@ -247,6 +249,16 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
                 searchbar.addBlurListener(blurEvent -> searchbarWrapper.setVisible(false));
             });
         }
+    }
+
+    @Override
+    public void initWithAccessControl(AccessControl accessControl) {
+
+    }
+
+    @Override
+    public void initRegistrationControl(RegistrationControl registrationControl) {
+
     }
 
     public Button getMenuButton() {

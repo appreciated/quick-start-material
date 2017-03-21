@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;JAVA_SOURCES_ROOT&quot;:&quot;../GURPS Character Generator/quick-start-material/src/main/java&quot;,&quot;THEME&quot;:&quot;quick-start-material&quot;}">
   <meta name="vaadin-version" content="8.0.0">
+  <meta name="package-mapping" content="com_github_appreciated_quickstart_material_login:com.github.appreciated.quickstart.material.login">
  </head>
  <body>
   <vaadin-vertical-layout style-name="login-background background-animation" size-full margin-left="false" margin-right="false">
@@ -16,34 +17,7 @@
       </vaadin-label>
      </vaadin-horizontal-layout>
      <vaadin-horizontal-layout style-name="overflow-hidden login-window form-animation" spacing="false" responsive :middle :center>
-      <vaadin-tab-sheet style-name="animated-tab-sheet" id="" size-auto _id="tabs">
-       <tab caption="Login" selected>
-        <vaadin-vertical-layout spacing="false" size-auto margin="false" _id="loginForm">
-         <vaadin-form-layout size-auto>
-          <vaadin-text-field caption="Username" _id="username"></vaadin-text-field>
-          <vaadin-password-field caption="Password" _id="password"></vaadin-password-field>
-         </vaadin-form-layout>
-         <vaadin-horizontal-layout :middle :right>
-          <vaadin-button style-name="accent-color" width="70px" plain-text _id="loginButton" :middle>
-            Login 
-          </vaadin-button>
-         </vaadin-horizontal-layout>
-        </vaadin-vertical-layout>
-       </tab>
-       <tab caption="Registration">
-        <vaadin-vertical-layout spacing="false" size-auto margin="false" _id="registrationForm">
-         <vaadin-form-layout size-auto _id="registrationFormLayout">
-          <vaadin-text-field caption="Username" _id="username1"></vaadin-text-field>
-          <vaadin-password-field caption="Password" _id="password1"></vaadin-password-field>
-         </vaadin-form-layout>
-         <vaadin-horizontal-layout :middle :right>
-          <vaadin-button enabled="false" style-name="accent-color" plain-text _id="registerButton">
-            Register 
-          </vaadin-button>
-         </vaadin-horizontal-layout>
-        </vaadin-vertical-layout>
-       </tab>
-      </vaadin-tab-sheet>
+      <com_github_appreciated_quickstart_material_login-login-view _id="loginView"></com_github_appreciated_quickstart_material_login-login-view>
      </vaadin-horizontal-layout>
     </vaadin-vertical-layout>
    </vaadin-horizontal-layout>
