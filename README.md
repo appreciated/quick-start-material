@@ -41,7 +41,7 @@ ToDo:
 
         @Override
         public WebAppDescription initWebAppDescription() {
-            return new WebAppDescription().withDesign(MaterialDesktopView.class) // Set the "design" for the desktop platform
+            return new WebAppDescriptionBuilder().withDesign(MaterialDesktopView.class) // Set the "design" for the desktop platform
             .withMobileDesign(MaterialMobileView.class) // Set the "design" for the mobile platform
             .withLogin(new ExampleAccess()) // Set your custom login procedure
             .withRegistration(new ExampleRegistration()) // Set your custom registration procedure
@@ -50,7 +50,7 @@ ToDo:
             .withSubpages(new HomeView(),  // add all the Views your want to be able to navigate in
                     new HistoryView(),     // ...
                     new PagerView())       // ...
-            .withDefaultPage(TestView1.class); // Set optionally the default shown Subpage
+            .withDefaultPage(TestView1.class); // Set optional the default shown Subpage
         }
 
         @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
