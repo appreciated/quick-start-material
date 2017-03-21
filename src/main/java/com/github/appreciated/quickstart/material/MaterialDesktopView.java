@@ -146,7 +146,8 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Navi
              */
             StreamSupport.stream(contextButtonWrapper.spliterator(), false).collect(Collectors.toList())
                     .stream()
-                    .filter(component -> !(component instanceof MenuBar))
+                    .filter(component -> component != contextButtons)
+                    .filter(component -> component != actionWrapper)
                     .forEach(component -> contextButtonWrapper.removeComponent(component));
 
             List<Action> actions = contextNavigable.getContextActions();
@@ -154,17 +155,17 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Navi
                 contextButtons.removeItems();
                 actions.forEach(action -> {
                     if (action instanceof CustomAction) {
-                        CustomAction caction = (CustomAction) action;
-                        contextButtonWrapper.addComponent(caction.getDesktopComponent());
-                        contextButtonWrapper.setComponentAlignment(caction.getDesktopComponent(), caction.getAlignment());
+                        CustomAction cAction = (CustomAction) action;
+                        contextButtonWrapper.addComponent(cAction.getDesktopComponent());
+                        contextButtonWrapper.setComponentAlignment(cAction.getDesktopComponent(), cAction.getAlignment());
                     } else if (action instanceof DownloadAction) {
                         DownloadButton download = new DownloadButton((DownloadAction) action);
                         download.setHeight(60, Unit.PIXELS);
-                        contextButtonWrapper.addComponent(download);
+                        actionWrapper.addComponent(download);
                     } else if (action instanceof UploadAction) {
                         UploadButton upload = new UploadButton((UploadAction) action);
                         upload.setHeight(60, Unit.PIXELS);
-                        contextButtonWrapper.addComponent(upload);
+                        actionWrapper.addComponent(upload);
                     } else if (action instanceof ClickAction) {
                         contextButtons.addItem(action.getName(), action.getResource(), menuItem -> {
                             ((ClickAction) action).getListener().actionPerformed(null);

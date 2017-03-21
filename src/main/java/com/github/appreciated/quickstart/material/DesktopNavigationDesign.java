@@ -30,6 +30,7 @@ public class DesktopNavigationDesign extends VerticalLayout {
     protected VerticalLayout pageWrapper;
     protected TextField searchBar;
     protected HorizontalLayout contextButtonWrapper;
+    protected HorizontalLayout actionWrapper;
     protected HorizontalLayout componentHolder;
     protected Label containerLabel;
 
