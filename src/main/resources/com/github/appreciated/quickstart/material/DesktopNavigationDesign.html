@@ -3,7 +3,7 @@
  <head>
   <meta charset="UTF-8">
   <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;JAVA_SOURCES_ROOT&quot;:&quot;../GURPS Character Generator/quick-start-material/src/main/java&quot;,&quot;THEME&quot;:&quot;quick-start-material&quot;}">
-  <meta name="vaadin-version" content="8.0.0">
+  <meta name="vaadin-version" content="8.0.2">
  </head>
  <body>
   <vaadin-vertical-layout size-full margin="false">
@@ -21,8 +21,8 @@
            </vaadin-label>
           </vaadin-horizontal-layout>
          </vaadin-horizontal-layout>
-         <vaadin-horizontal-layout :middle :right :expand>
-          <vaadin-horizontal-layout style-name="hideable" spacing="false" _id="contextButtonWrapper" :middle :right>
+         <vaadin-horizontal-layout width-full :middle :right :expand>
+          <vaadin-horizontal-layout style-name="hideable" spacing="false" width-full _id="contextButtonWrapper" :middle :right :expand>
            <vaadin-menu-bar style-name="borderless navigation-bar" _id="contextButtons" :middle :right>
             <menu>
               File 
@@ -48,8 +48,8 @@
             </menu>
            </vaadin-menu-bar>
           </vaadin-horizontal-layout>
-          <vaadin-horizontal-layout _id="searchBarWrapper" :middle :center>
-           <vaadin-text-field icon="fonticon://Vaadin-Icons/e805" style-name="floating-input inline-icon" placeholder="Search" _id="searchBar"></vaadin-text-field>
+          <vaadin-horizontal-layout _id="searchBarWrapper" :middle :right>
+           <vaadin-text-field icon="fonticon://Vaadin-Icons/e805" style-name="floating-input inline-icon" placeholder="Search" _id="searchBar" :middle :right></vaadin-text-field>
           </vaadin-horizontal-layout>
          </vaadin-horizontal-layout>
         </vaadin-horizontal-layout>

@@ -21,6 +21,7 @@ public class MaterialDialog extends Dialog {
         dialog.setResizable(false);
         dialog.setDraggable(false);
         dialog.setModal(true);
+        getDialogContentWrapper().setMargin(false);
         getDialogContentWrapper().addStyleName("content-wrapper");
     }
 

@@ -156,6 +156,7 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Navi
                     if (action instanceof CustomAction) {
                         CustomAction caction = (CustomAction) action;
                         contextButtonWrapper.addComponent(caction.getDesktopComponent());
+                        contextButtonWrapper.setComponentAlignment(caction.getDesktopComponent(), caction.getAlignment());
                     } else if (action instanceof DownloadAction) {
                         DownloadButton download = new DownloadButton((DownloadAction) action);
                         download.setHeight(60, Unit.PIXELS);
@@ -170,6 +171,7 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Navi
                         });
                     }
                 });
+                contextButtons.setVisible(actions.stream().filter(action -> action instanceof ClickAction).count() > 0);
             }
             contextButtonWrapper.removeStyleName("hidden");
         } else {
