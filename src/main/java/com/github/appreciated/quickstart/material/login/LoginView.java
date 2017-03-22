@@ -11,9 +11,9 @@ import com.vaadin.data.HasValue;
 import com.vaadin.event.ShortcutAction;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.TextField;
-import javafx.util.Pair;
 
 import java.lang.reflect.Field;
+import java.util.AbstractMap;
 import java.util.List;
 
 /**
@@ -23,7 +23,7 @@ public class LoginView extends LoginViewDesign {
 
     private RegistrationControl registrationControl;
     private AccessControl accessControl;
-    private List<Pair<HasValue, Field>> fields;
+    private List<AbstractMap.SimpleEntry<HasValue, Field>> fields;
     private Binder binder;
     private LoginListener loginListener;
 

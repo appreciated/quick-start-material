@@ -105,12 +105,14 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Navi
             signIn.addClickListener(clickEvent -> new LoginDialog("Sign-In").initWithAccessControl(accessControl).withLoginVisible(true).initWithLoginListener(() -> showUser()).show());
         } else if (WebApplicationUI.isUserSignedIn()) {
             showUser();
+        } else {
+            Util.invalidateSession();
         }
     }
 
     private void showUser() {
         userAuthWrapper.setVisible(false);
-        MenuBar.MenuItem item = user.addItem("John Wayne", VaadinIcons.USER, null);
+        MenuBar.MenuItem item = user.addItem(WebApplicationUI.getUsername(), VaadinIcons.USER, null);
         item.addItem("Edit Profile", menuItem -> QuickNotification.showMessageError("This is currently not implemented"));
         item.addItem("Logout", menuItem -> Util.invalidateSession());
     }
