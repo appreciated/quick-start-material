@@ -183,7 +183,7 @@ $icon-image: url("img/test_icon.png") !default;
         transition: background-color 0.7s;
     }
     .navigation-bar .v-menubar-menuitem:hover {
-        background-color: rgba($v-focus-color, 0.2) !important;
+        background-color: background-color: rgba(255, 255, 255, 0.2) !important;
     }
     .navigation-bar > .v-menubar-menuitem-selected {
         background-color: rgba($v-focus-color, 0.2) !important;
