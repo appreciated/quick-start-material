@@ -177,8 +177,8 @@ $icon-image: url("img/test_icon.png") !default;
         box-shadow: 0px 0px 3px rgba(0,0,0,0.4);
     }
     .v-menubar.navigation-bar {
-            height: 60px;
-            line-height:60px;
+            height: 40px;
+            line-height:40px;
     }
     .v-menubar.navigation-bar .v-menubar-menuitem:hover {
             background: $v-focus-color;
@@ -240,6 +240,10 @@ $icon-image: url("img/test_icon.png") !default;
     }
     .slide-background {
         transform: translateZ(-500px) translateY(0px) translateX(-50%) scale(1.0);
+    }
+
+    .qs-error-label{
+        color:red;
     }
 }
 

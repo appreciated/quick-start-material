@@ -12,7 +12,7 @@
      <vaadin-vertical-layout spacing="false" margin="false" _id="pageWrapper">
       <vaadin-horizontal-layout style-name="slide-background" spacing="false" id="parralax-header" width-full height="60px"></vaadin-horizontal-layout>
       <vaadin-vertical-layout style-name="navigation-max-width-1000" id="contentHeader" size-full :center :expand>
-       <vaadin-horizontal-layout style-name="min-width" width-full :center>
+       <vaadin-horizontal-layout style-name="min-width margin-t-30" width-full :center>
         <vaadin-horizontal-layout width-full height="60px" :center :expand>
          <vaadin-horizontal-layout height-full :middle>
           <vaadin-horizontal-layout :middle>
@@ -23,8 +23,8 @@
          </vaadin-horizontal-layout>
          <vaadin-horizontal-layout size-full :middle :right :expand>
           <vaadin-horizontal-layout style-name="hideable" spacing="false" size-full _id="contextButtonWrapper" :middle :right :expand>
-           <vaadin-horizontal-layout _id="actionWrapper" :middle :right>
-            <vaadin-menu-bar style-name="borderless navigation-bar" _id="contextButtons">
+           <vaadin-horizontal-layout height-full _id="actionWrapper" :middle :right>
+            <vaadin-menu-bar style-name="borderless navigation-bar" _id="contextButtons" :middle :center>
              <menu>
                File 
               <menu>
@@ -60,7 +60,7 @@
       </vaadin-vertical-layout>
      </vaadin-vertical-layout>
     </vaadin-panel>
-    <vaadin-horizontal-layout style-name="floating" id="navigation-bar" width-full height="60px">
+    <vaadin-horizontal-layout style-name="floating margin-t-20" id="navigation-bar" width-full height="60px">
      <vaadin-horizontal-layout style-name="navigation-max-width-1100" width-full :center :expand>
       <vaadin-horizontal-layout height="60px">
        <vaadin-horizontal-layout spacing="false" height-full>
@@ -69,7 +69,7 @@
           My Web App 
         </vaadin-label>
        </vaadin-horizontal-layout>
-       <vaadin-horizontal-layout spacing="false" height="60px" margin-left>
+       <vaadin-horizontal-layout spacing="false" height="60px" margin-left :middle>
         <vaadin-menu-bar style-name="borderless navigation-bar" _id="navigationMenu" :middle :center>
          <menu>
            File 
@@ -107,7 +107,7 @@
            Register 
          </vaadin-button>
         </vaadin-horizontal-layout>
-        <vaadin-menu-bar style-name="borderless navigation-bar no-indicator float-icon-right" height="60px" _id="user" :middle :right>
+        <vaadin-menu-bar style-name="borderless navigation-bar no-indicator float-icon-right" _id="user" :middle :right>
          <menu>
            User 
          </menu>
