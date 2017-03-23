@@ -19,33 +19,6 @@ $icon-image: url("img/test_icon.png") !default;
     }
 }
 
-@mixin floating-button-style {
-    position: relative;
-    border-radius: 50%;
-    background-color: $theme-accent-color;
-    border-color: transparent;
-    background-image: none;
-    border: none !important;
-    margin: 5px;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-    transition: max-height 3s, max-width 3s, box-shadow 0.5s, transform 0.3s;
-    transition-delay: 0.1s;
-    transform: scale(1.0);
-    &:after {
-        border-color: unset !important;
-        box-shadow: unset !important;
-        border: none !important;
-    }
-    &:active:after {
-        background-color: unset;
-    }
-    &:hover:after {
-        background-color: unset;
-    }
-    &:hover {
-        box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
-    }
-}
 
 .v-app,
 .v-app-loading {
@@ -89,18 +62,7 @@ $icon-image: url("img/test_icon.png") !default;
     .opacity-transition {
         animation: valo-animate-in-fade 1s;
     }
-    .mobile-context-button {
-        @include floating-button-style;
-        width: 48px;
-        height: 48px;
-    }
-    .context-button {
-        @include floating-button-style;
-        color: valo-font-color($theme-accent-color, 1.0);
-        width: 55px;
-        height: 55px;
-        animation: scale 0.7s;
-    }
+
     .floating-bottom {
         margin-top: 76px;
         margin-bottom: 7px;

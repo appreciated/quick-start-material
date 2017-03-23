@@ -26,9 +26,9 @@
     @include tags;
     @include input;
     @include upload;
-    @include pager;
     @include animations;
     @include stepper;
     @include buttons;
     @include scrollbar;
+    @include pager;
 }
