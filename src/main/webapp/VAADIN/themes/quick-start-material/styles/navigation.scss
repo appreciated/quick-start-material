@@ -1,84 +1,68 @@
+@media (max-device-width: 500px) {
+    .login-window {}
+}
 
-
-  @media (max-device-width: 500px) {
-        .login-window {
-
-        }
+@media (min-device-width: 501px) {
+    .login-window {
+        border-radius: 2px;
+        background: white;
+        padding: 20px;
+        box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
     }
-    @media (min-device-width: 501px) {
-        .login-window {
-            border-radius: 2px;
-            background: white;
-            padding: 20px;
-            box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-        }
-    }
+}
 
-    @media (min-device-width: 800px) {
-        .login-window {
-            padding: 30px;
-        }
+@media (min-device-width: 800px) {
+    .login-window {
+        padding: 30px;
     }
+}
 
 @mixin navigation {
-
     .mobile-searchbar {
         background: white;
         padding-left: 20px;
         padding-right: 20px;
     }
-
     .navigation-max-width-1100 {
         max-width: 1100px;
     }
-
     .navigation-max-width-1000 {
         max-width: 1000px;
     }
-
     .floating {
-        position:relative;
+        position: relative;
         z-index: 1;
         transition: all 0.5s ease, margin 0.3s ease;
         background: transparent;
         box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.0), 0 4px 25px 0px rgba(0, 0, 0, 0.0), 0 8px 10px -5px rgba(0, 0, 0, 0.0);
     }
-
     .floating-navigation-bar {
         margin-top: 0px !important;
         background: $theme-primary-color;
         box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
     }
-
     .menu-hidden {
         transform: translate(-300px, 0px);
         width: 0px !important;
     }
-
     .menu-show {
         transform: translate(0px, 0px);
         width: 300px !important;
     }
-
-
-    .navigation-margin-left{
-       margin-left: 13px;
+    .navigation-margin-left {
+        margin-left: 13px;
     }
-
     .login-background {
         background-image: $background-image;
         background-position: center;
         background-size: cover;
     }
-
     .login-margin-bottom {
         margin-bottom: 4vh;
     }
-
     .navigation-container-holder {
         text-align: center;
     }
-
     .navigation-container {
         margin: 50px;
         padding: 40px;
@@ -86,7 +70,6 @@
         animation: valo-animate-in-fade 1s ease;
         transition: opacity 1s;
     }
-
     .fade-in {
         animation: valo-animate-in-fade 1s ease;
     }

@@ -1,13 +1,12 @@
 @mixin tags {
-    .tag-combobox-chosen{
-         background: yellow;
-         border: 1.5px solid yellow !important;
+    .tag-combobox-chosen {
+        background: yellow;
+        border: 1.5px solid yellow !important;
     }
-
     .tag-combobox {
-         border-radius: 100px;
-         color: black;
-         border: 1px solid darkgrey;
+        border-radius: 100px;
+        color: black;
+        border: 1px solid darkgrey;
     }
     .tag-combobox .v-filterselect-button {
         visibility: hidden;

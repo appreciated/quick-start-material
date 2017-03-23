@@ -1,7 +1,6 @@
 $icon-image: url("img/test_icon.png") !default;
-
 @keyframes dot-animation {
-    0%   {
+    0% {
         transform: scale(1.0);
         background-color: rgba(0, 0, 0, 0.3);
     }
@@ -12,7 +11,7 @@ $icon-image: url("img/test_icon.png") !default;
 }
 
 @keyframes scale {
-    0%   {
+    0% {
         transform: scale(0.0);
     }
     100% {
@@ -24,11 +23,11 @@ $icon-image: url("img/test_icon.png") !default;
     position: relative;
     border-radius: 50%;
     background-color: $theme-accent-color;
-    border-color:transparent;
+    border-color: transparent;
     background-image: none;
     border: none !important;
     margin: 5px;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 1px 5px 0 rgba(0,0,0,0.12),0 3px 1px -2px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
     transition: max-height 3s, max-width 3s, box-shadow 0.5s, transform 0.3s;
     transition-delay: 0.1s;
     transform: scale(1.0);
@@ -43,17 +42,17 @@ $icon-image: url("img/test_icon.png") !default;
     &:hover:after {
         background-color: unset;
     }
-    &:hover{
-        box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14),0 1px 7px 0 rgba(0,0,0,0.12),0 3px 1px -1px rgba(0,0,0,0.2);
+    &:hover {
+        box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
     }
 }
 
-.v-app, .v-app-loading {
+.v-app,
+.v-app-loading {
     background-color: $theme-background-color !important;
 }
 
 @mixin material {
-
     .login-icon {
         margin-left: 5px;
         margin-right: 5px;
@@ -61,48 +60,40 @@ $icon-image: url("img/test_icon.png") !default;
         background-position: center;
         background-size: cover;
     }
-
     .primary-background {
         background: $theme-primary-color;
     }
-
     .navigation {
         @extend .color-white;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.19);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19);
         background: $theme-primary-color;
-        overflow:visible;
+        overflow: visible;
         position: relative;
-        z-index:1;
+        z-index: 1;
     }
-
     .background {
         @extend .color-white;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.19);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19);
         background: $theme-primary-color;
         z-index: -1;
     }
-
     .menu-wrapper {
         position: relative;
         z-index: 2;
-        overflow:hidden;
+        overflow: hidden;
         transition: transform 0.7s, width 0.7s;
     }
-
     .menu {
-        box-shadow: 0 0 40px rgba(0, 0, 0,0.9);
+        box-shadow: 0 0 40px rgba(0, 0, 0, 0.9);
     }
-
     .opacity-transition {
         animation: valo-animate-in-fade 1s;
     }
-
     .mobile-context-button {
-       @include floating-button-style;
-       width: 48px;
-       height: 48px;
+        @include floating-button-style;
+        width: 48px;
+        height: 48px;
     }
-
     .context-button {
         @include floating-button-style;
         color: valo-font-color($theme-accent-color, 1.0);
@@ -110,17 +101,14 @@ $icon-image: url("img/test_icon.png") !default;
         height: 55px;
         animation: scale 0.7s;
     }
-
     .floating-bottom {
-       margin-top: 76px;
-       margin-bottom: 7px;
+        margin-top: 76px;
+        margin-bottom: 7px;
     }
-
-    .floating-left{
-       margin-left: -80px;
-       margin-bottom: 10px;
+    .floating-left {
+        margin-left: -80px;
+        margin-bottom: 10px;
     }
-
     // Material elevation levels + Hover effect for Selectable cards
     .elevation-0 {
         border-radius: 2px;
@@ -129,11 +117,11 @@ $icon-image: url("img/test_icon.png") !default;
     }
     .elevation-1 {
         @extend .elevation-0;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     }
     .selectable {
         @extend .elevation-1;
-        animation: valo-animate-out-scale-down-fade 0.8s ;
+        animation: valo-animate-out-scale-down-fade 0.8s;
         animation-direction: reverse;
         transition: all 0.6s;
         animation-timing-function: ease-in;
@@ -143,29 +131,28 @@ $icon-image: url("img/test_icon.png") !default;
     }
     .selectable:hover {
         @extend .elevation-0;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
         transform: scale(1.01);
     }
     .selectable:hover * {
-            color: $theme-accent-color;
+        color: $theme-accent-color;
     }
     .elevation-2 {
         @extend .elevation-0;
-        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     }
     .elevation-3 {
         @extend .elevation-0;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
     }
     .elevation-4 {
         @extend .elevation-0;
-        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     }
     .elevation-5 {
         @extend .elevation-0;
-        box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+        box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
     }
-
     .v-menubar.round-image {
         width: 50px;
         height: 50px;
@@ -173,48 +160,42 @@ $icon-image: url("img/test_icon.png") !default;
         line-height: 50px;
         border-radius: 100%;
         background: red;
-        margin:5px;
-        box-shadow: 0px 0px 3px rgba(0,0,0,0.4);
+        margin: 5px;
+        box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.4);
     }
     .v-menubar.navigation-bar {
-            height: 40px;
-            line-height:40px;
+        height: 40px;
+        line-height: 40px;
     }
-    .v-menubar.navigation-bar .v-menubar-menuitem:hover {
-            background: $v-focus-color;
-    }
-
-    .navigation-bar:not(.v-menubar-submenu) *{
+    .navigation-bar:not(.v-menubar-submenu) * {
         @extend .primary-contrast-color;
     }
-
     .v-menubar.round-image:after {
         display: none;
     }
     .v-menubar.round-image .v-menubar-menuitem-selected {
-           background: transparent;
-           border: none;
-           box-shadow: none;
+        background: transparent;
+        border: none;
+        box-shadow: none;
     }
-
     .navigation-bar .v-menubar-menuitem:hover {
-        background-color: rgba($v-focus-color,0.2) !important;
+        background-color: transparent;
+        transition: background-color 0.7s;
     }
-
-     .navigation-bar > .v-menubar-menuitem-selected {
-        background-color: rgba($v-focus-color,0.2) !important;
-         background-image: none;
+    .navigation-bar .v-menubar-menuitem:hover {
+        background-color: rgba($v-focus-color, 0.2) !important;
     }
-
+    .navigation-bar > .v-menubar-menuitem-selected {
+        background-color: rgba($v-focus-color, 0.2) !important;
+        background-image: none;
+    }
     .v-menubar.round-image > .v-menubar-menuitem:focus:before {
         background-color: transparent;
     }
-
     .v-caption-inline-icon span.v-icon {
-     left: unset;
-     bottom: unset;
+        left: unset;
+        bottom: unset;
     }
-
     .slide-background {
         background: $theme-primary-color;
         width: 210% !important;
@@ -222,14 +203,12 @@ $icon-image: url("img/test_icon.png") !default;
         height: 70vh !important;
         margin-bottom: -63vh;
     }
-
-            .min-width {
-                min-width: 600px;
-        }
-        .full-width {
-            width: 100%;
-        }
-
+    .min-width {
+        min-width: 600px;
+    }
+    .full-width {
+        width: 100%;
+    }
     .slides {
         perspective: 500px;
         perspective-origin: 100% 0%;
@@ -241,9 +220,7 @@ $icon-image: url("img/test_icon.png") !default;
     .slide-background {
         transform: translateZ(-500px) translateY(0px) translateX(-50%) scale(1.0);
     }
-
-    .qs-error-label{
-        color:red;
+    .qs-error-label {
+        color: red;
     }
 }
-

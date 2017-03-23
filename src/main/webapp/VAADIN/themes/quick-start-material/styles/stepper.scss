@@ -7,7 +7,7 @@
         text-align: center;
         font-weight: 500;
     }
-    .stepper-view > :not(:first-child) > .stepper-wrapper:before {
+    .stepper-view >:not(:first-child) > .stepper-wrapper:before {
         content: "....";
         line-height: 50px;
         font-weight: 800;
@@ -17,26 +17,21 @@
         position: fixed;
         @extend .primary-contrast-color;
     }
-
     .stepper-view > .v-spacing {
         width: 50px;
     }
-
     .stepper-wrapper {
         opacity: 0.4;
         transition: opacity 0.6s;
     }
-
     .stepper-wrapper-active {
-         opacity: 1;
+        opacity: 1;
     }
-
-    .stepper-number{
+    .stepper-number {
         line-height: 45px;
         @extend .primary-contrast-color;
     }
-
-    .stepper-name{
+    .stepper-name {
         @extend .primary-contrast-color;
         text-transform: uppercase;
         font-size: small;

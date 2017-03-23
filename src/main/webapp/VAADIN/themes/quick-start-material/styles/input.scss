@@ -1,10 +1,8 @@
 .floating-input::-webkit-input-placeholder {
-       color: rgba($primary-contrast-background-color,0.7);
+    color: rgba($primary-contrast-background-color, 0.7);
 }
 
 @mixin input {
-
-
     .v-textfield {
         @extend .v-textfield-borderless;
         border-bottom: 2px solid;
@@ -12,40 +10,32 @@
         width: unset;
         min-width: 60px;
     }
-
     .v-textfield:focus {
         box-shadow: none;
     }
-
-
     .floating-input * {
-            @extend .primary-contrast-color;
+        @extend .primary-contrast-color;
     }
-
     .floating-input {
-            border-bottom: none;
-            background: lighten($theme-primary-color,5%);
-            border-radius: 2px;
-            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3) !important;
-            transition: box-shadow 0.6s,  background 0.6s !important;
-            @extend .primary-contrast-color;
+        border-bottom: none;
+        background: lighten($theme-primary-color, 5%);
+        border-radius: 2px;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3) !important;
+        transition: box-shadow 0.6s, background 0.6s !important;
+        @extend .primary-contrast-color;
     }
-
     .floating-input:hover {
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4) !important;
     }
-
-    .v-caption-floating-input{
+    .v-caption-floating-input {
         @extend .primary-contrast-color;
     }
-
     .no-indicator:not(.v-menubar-submenu) > .v-menubar-menuitem {
         width: 100%;
     }
     .no-indicator > .v-menubar-menuitem .v-icon {
         margin: unset;
     }
-
     .no-indicator .v-menubar-submenu-indicator + .v-menubar-menuitem-caption:after {
         display: none;
     }

@@ -8,33 +8,26 @@ $v-bevel-depth: 0% !default;
 $v-shadow-opacity: 10% !default;
 $v-focus-color: #ffffff !default;
 $primary-contrast-background-color: valo-font-color($theme-primary-color, 1.0);
-
 @mixin color {
-     .primary-color {
-          color: $theme-primary-color;
-     }
-
+    .primary-color {
+        color: $theme-primary-color;
+    }
     .primary-contrast-color {
         color: valo-font-color($theme-primary-color, 1.0);
     }
-
-     .accent-color{
-         color: $theme-accent-color;
-     }
-
+    .accent-color {
+        color: $theme-accent-color;
+    }
     .primary-contrast-background-color {
-       background-color: $primary-contrast-background-color !important;
+        background-color: $primary-contrast-background-color !important;
     }
-
-     .accent-contrast-color {
-         color: valo-font-color($theme-accent-color, 1.0);
-     }
-
+    .accent-contrast-color {
+        color: valo-font-color($theme-accent-color, 1.0);
+    }
     .primary-border-color {
-        border-color: $theme-primary-color ;
+        border-color: $theme-primary-color;
     }
-
-    .accent-border-color{
+    .accent-border-color {
         border-color: $theme-accent-color;
     }
 }
