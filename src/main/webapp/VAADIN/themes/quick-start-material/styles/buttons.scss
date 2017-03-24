@@ -70,6 +70,12 @@
         &:hover {
             background-color: rgba(255, 255, 255, 0.2) !important;
         }
+        &:hover:after {
+            background-color: unset !important;
+        }
+        & .v-button:hover:after {
+            background-color: unset !important;
+        }
     }
     .tab-active {
         border-bottom-color: white;
