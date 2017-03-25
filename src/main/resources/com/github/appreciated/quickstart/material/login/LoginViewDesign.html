@@ -10,7 +10,7 @@
    <vaadin-tab-sheet style-name="animated-tab-sheet" id="" size-auto _id="tabs">
     <tab caption="Login" selected>
      <vaadin-vertical-layout spacing="false" size-auto margin="false" _id="loginForm">
-      <vaadin-form-layout size-auto>
+      <vaadin-form-layout style-name="form-layout-no-margin margin-t-20" size-auto>
        <vaadin-text-field caption="Username" _id="username"></vaadin-text-field>
        <vaadin-password-field caption="Password" _id="password"></vaadin-password-field>
        <vaadin-button style-name="accent-color float-right" width="70px" plain-text _id="loginButton">
@@ -21,23 +21,12 @@
     </tab>
     <tab caption="Registration">
      <vaadin-vertical-layout spacing="false" size-auto margin="false" _id="registrationForm">
-      <vaadin-form-layout size-auto _id="registrationFormLayout">
+      <vaadin-form-layout style-name="form-layout-no-margin margin-t-20" size-auto _id="registrationFormLayout">
        <vaadin-button enabled="false" style-name="accent-color float-right" plain-text _id="registerButton">
          Register 
        </vaadin-button>
       </vaadin-form-layout>
      </vaadin-vertical-layout>
-    </tab>
-   </vaadin-tab-sheet>
-   <vaadin-tab-sheet size-auto>
-    <tab caption="Tab" selected>
-     <vaadin-horizontal-layout></vaadin-horizontal-layout>
-    </tab>
-    <tab caption="Tab">
-     <vaadin-horizontal-layout></vaadin-horizontal-layout>
-    </tab>
-    <tab caption="Tab">
-     <vaadin-horizontal-layout></vaadin-horizontal-layout>
     </tab>
    </vaadin-tab-sheet>
   </vaadin-vertical-layout>

@@ -1,5 +1,6 @@
 @media (max-device-width: 500px) {
-    .login-window {}
+    .login-window {
+       }
 }
 
 @media (min-device-width: 501px) {
@@ -13,7 +14,7 @@
 
 @media (min-device-width: 800px) {
     .login-window {
-        padding: 30px;
+        padding: 20px;
     }
 }
 
