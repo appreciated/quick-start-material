@@ -71,3 +71,28 @@ ToDo:
     @mixin mytheme {
         @include quick-start-material;
     }
+
+#### 5. (Optinal) If you are working with the Designer
+The Designer won't be able to successfully compile the design to fix this you will need to copy the theme to src/main/webapp/VAADIN/themes
+fortunatly this can also be fixed by using a maven plugin
+
+    <plugin>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+            <execution>
+                <id>unpack-one</id>
+                <phase>generate-resources</phase>
+                <goals>
+                    <goal>unpack-dependencies</goal>
+                </goals>
+                <configuration>
+                    <includeGroupIds>com.github.appreciated</includeGroupIds>
+                    <includeArtifactIds>quick-start-material</includeArtifactIds>
+                    <type>zip</type>
+                    <excludes>*</excludes>
+                    <includes>VAADIN/themes/**</includes>
+                    <outputDirectory>src/main/webapp/</outputDirectory>
+                </configuration>
+            </execution>
+        </executions>
+    </plugin>
