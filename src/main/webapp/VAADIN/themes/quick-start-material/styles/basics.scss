@@ -8,6 +8,11 @@
 }
 
 @mixin basics {
+
+    .float-right {
+        float: right;
+    }
+
     // Tabsheet "fixes"
     .animated-tab-sheet .v-tabsheet-content .v-tabsheet-tabsheetpanel {
         //transition: height 0.7s, width 0.7s;

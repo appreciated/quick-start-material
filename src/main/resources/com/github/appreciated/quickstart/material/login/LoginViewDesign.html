@@ -3,7 +3,7 @@
  <head>
   <meta charset="UTF-8">
   <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;quick-start-material&quot;}">
-  <meta name="vaadin-version" content="8.0.0">
+  <meta name="vaadin-version" content="8.0.2">
  </head>
  <body>
   <vaadin-vertical-layout size-auto margin="false">
@@ -13,12 +13,10 @@
       <vaadin-form-layout size-auto>
        <vaadin-text-field caption="Username" _id="username"></vaadin-text-field>
        <vaadin-password-field caption="Password" _id="password"></vaadin-password-field>
-      </vaadin-form-layout>
-      <vaadin-horizontal-layout :middle :right>
-       <vaadin-button style-name="accent-color" width="70px" plain-text _id="loginButton" :middle>
+       <vaadin-button style-name="accent-color float-right" width="70px" plain-text _id="loginButton">
          Login 
        </vaadin-button>
-      </vaadin-horizontal-layout>
+      </vaadin-form-layout>
      </vaadin-vertical-layout>
     </tab>
     <tab caption="Registration">
@@ -26,12 +24,10 @@
       <vaadin-form-layout size-auto _id="registrationFormLayout">
        <vaadin-text-field caption="Username"></vaadin-text-field>
        <vaadin-password-field caption="Password"></vaadin-password-field>
-      </vaadin-form-layout>
-      <vaadin-horizontal-layout :middle :right>
-       <vaadin-button enabled="false" style-name="accent-color" plain-text _id="registerButton">
+       <vaadin-button enabled="false" style-name="accent-color float-right" plain-text _id="registerButton">
          Register 
        </vaadin-button>
-      </vaadin-horizontal-layout>
+      </vaadin-form-layout>
      </vaadin-vertical-layout>
     </tab>
    </vaadin-tab-sheet>
