@@ -15,6 +15,7 @@ import com.vaadin.ui.TextField;
 import java.lang.reflect.Field;
 import java.util.AbstractMap;
 import java.util.List;
+import java.util.ListIterator;
 
 /**
  * Created by Johannes on 21.03.2017.
@@ -49,9 +50,11 @@ public class LoginView extends LoginViewDesign {
 
     public void initRegistrationControl(RegistrationControl registrationControl) {
         this.registrationControl = registrationControl;
-        registrationFormLayout.removeAllComponents();
         fields = registrationControl.getFields();
-        fields.forEach(pair -> registrationFormLayout.addComponent((Component) pair.getKey()));
+        ListIterator<AbstractMap.SimpleEntry<HasValue, Field>> iterator = fields.listIterator(fields.size());
+        while(iterator.hasPrevious()) {
+            registrationFormLayout.addComponentAsFirst((Component) iterator.previous().getKey());
+        }
         binder = registrationControl.getBinderForFields(fields);
         binder.addValueChangeListener(valueChangeListener -> registerButton.setEnabled(binder.isValid()));
         registerButton.addClickListener(clickEvent -> register());
