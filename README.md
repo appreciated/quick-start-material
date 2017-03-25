@@ -74,7 +74,7 @@ ToDo:
 
 #### 5. (Optinal) If you are working with the Designer
 The Designer won't be able to successfully compile the SCSS because it does not have access to it. To fix this you will either need to copy the theme manually to src/main/webapp/VAADIN/themes or is you could use a maven plugin for that job (which I recommend). The theme will updated automatically when using the plugin.  
-You might also want to add `src/main/webapp/VAADIN/themes/quick-start-material/` to your .gitignore
+You might then also want to add `src/main/webapp/VAADIN/themes/quick-start-material/` to your .gitignore
 
     <plugin>
         <artifactId>maven-dependency-plugin</artifactId>
