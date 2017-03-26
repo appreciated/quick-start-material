@@ -1,12 +1,12 @@
 @mixin scrollbar {
-    ::-webkit-scrollbar {
+    :not(.v-grid-scroller)::-webkit-scrollbar {
         width: 8px;
         height: 8px;
     }
-    ::-webkit-scrollbar-track {
+    :not(.v-grid-scroller)::-webkit-scrollbar-track {
         background: rgba(128, 128, 128, 0.3);
     }
-    ::-webkit-scrollbar-thumb {
+    :not(.v-grid-scroller)::-webkit-scrollbar-thumb {
         background: rgba(128, 128, 128, 0.8);
     }
 }
