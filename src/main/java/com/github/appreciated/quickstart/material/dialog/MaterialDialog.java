@@ -23,6 +23,7 @@ public class MaterialDialog extends Dialog {
         dialog.setModal(true);
         getDialogContentWrapper().setMargin(false);
         getDialogContentWrapper().addStyleName("content-wrapper");
+        getButtonWrapper().addStyleName("padding-10");
     }
 
 }

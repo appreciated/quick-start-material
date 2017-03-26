@@ -9,7 +9,7 @@
 
 @mixin basics {
 
-    // temporarily fix for non removable margin in Formlayout - https://github.com/vaadin/designer-issues/issues/1362
+    // temporary fix for non removable margin in Formlayout - https://github.com/vaadin/designer-issues/issues/1362
     .form-layout-no-margin > [class*="margin-top"] > tbody > [class*="firstrow"] > td {
         padding-top: 0px;
     }
@@ -61,7 +61,10 @@
     .margin-t-20 {
         margin-top: 20px;
     }
-    .container-padding{
+    .padding-10{
+        padding:10px;
+    }
+    .container-padding {
         padding:20px;
     }
     .margin-t-30 {

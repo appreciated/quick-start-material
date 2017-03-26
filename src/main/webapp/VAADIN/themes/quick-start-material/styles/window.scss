@@ -12,6 +12,8 @@
     .content-wrapper {
         padding: 20px !important;
         padding-top: 10px !important;
+        max-height: 85vh;
+        overflow: auto;
     }
     .v-window-modalitycurtain {
         background-color: #111;
