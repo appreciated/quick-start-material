@@ -71,3 +71,28 @@ ToDo:
     @mixin mytheme {
         @include quick-start-material;
     }
+
+#### 5. (Optional) If you are working with the Vaadin Designer 
+The Designer won't be able to successfully compile the SCSS because it does not have access to it. To fix this you will either need to copy the theme manually to src/main/webapp/VAADIN/themes or is you could use a maven plugin for that job (which I recommend). The theme will updated automatically when using the plugin.  
+You might then also want to add `src/main/webapp/VAADIN/themes/quick-start-material/` to your .gitignore
+
+    <plugin>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+            <execution>
+                <id>unpack-one</id>
+                <phase>generate-resources</phase>
+                <goals>
+                    <goal>unpack-dependencies</goal>
+                </goals>
+                <configuration>
+                    <includeGroupIds>com.github.appreciated</includeGroupIds>
+                    <includeArtifactIds>quick-start-material</includeArtifactIds>
+                    <type>zip</type>
+                    <excludes>*</excludes>
+                    <includes>VAADIN/themes/**</includes>
+                    <outputDirectory>src/main/webapp/</outputDirectory>
+                </configuration>
+            </execution>
+        </executions>
+    </plugin>
