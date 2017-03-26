@@ -16,6 +16,11 @@
     .floating-input * {
         @extend .primary-contrast-color;
     }
+
+    .floating-input > input::-webkit-input-placeholder {
+         color: rgba($primary-contrast-background-color, 0.7);
+    }
+
     .floating-input {
         border-bottom: none;
         background: lighten($theme-primary-color, 5%) !important;

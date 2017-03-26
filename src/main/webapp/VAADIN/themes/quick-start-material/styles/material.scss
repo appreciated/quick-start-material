@@ -82,7 +82,6 @@ $icon-image: url("img/test_icon.png") !default;
     .elevation-0 {
         border-radius: 2px;
         background: white;
-        padding: 20px;
     }
     .elevation-1 {
         @extend .elevation-0;

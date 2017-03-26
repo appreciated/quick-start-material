@@ -68,9 +68,6 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Navi
             configurations.forEach(entry -> {
                 if (entry.getValue().booleanValue() == true) {
                     switch (entry.getKey()) {
-                        case CONFIGURATION_FULLHEIGHT_NAVIGATIONBAR:
-                            navigationMenu.setWidth(100, Unit.PERCENTAGE);
-                            break;
                         case CONFIGURATION_HIDE_ICON:
                             iconContainer.setVisible(false);
                             break;
