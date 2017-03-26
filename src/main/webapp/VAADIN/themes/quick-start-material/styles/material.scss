@@ -59,7 +59,8 @@ $icon-image: url("img/test_icon.png") !default;
     }
     .menu-wrapper {
         position: relative;
-        z-index: 2;
+        // This exact number due to .v-grid horizontal scrollbar
+        z-index: 91;
         overflow: hidden;
         transition: transform 0.7s, width 0.7s;
     }
