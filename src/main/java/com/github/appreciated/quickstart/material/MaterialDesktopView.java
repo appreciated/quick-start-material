@@ -159,18 +159,22 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Navi
                 actions.forEach(action -> {
                     if (action instanceof CustomAction) {
                         CustomAction cAction = (CustomAction) action;
-                        contextButtonWrapper.addComponent(cAction.getDesktopComponent());
+                        if (!cAction.insertLeft()) {
+                            contextButtonWrapper.addComponent(cAction.getDesktopComponent());
+                        } else {
+                            contextButtonWrapper.addComponentAsFirst(cAction.getDesktopComponent());
+                        }
                         contextButtonWrapper.setComponentAlignment(cAction.getDesktopComponent(), cAction.getAlignment());
                     } else if (action instanceof DownloadAction) {
                         DownloadButton download = new DownloadButton((DownloadAction) action);
                         download.setHeight(40, Unit.PIXELS);
                         actionWrapper.addComponent(download);
-                        actionWrapper.setComponentAlignment(download,Alignment.MIDDLE_LEFT);
+                        actionWrapper.setComponentAlignment(download, Alignment.MIDDLE_LEFT);
                     } else if (action instanceof UploadAction) {
                         UploadButton upload = new UploadButton((UploadAction) action);
                         upload.setHeight(40, Unit.PIXELS);
                         actionWrapper.addComponent(upload);
-                        actionWrapper.setComponentAlignment(upload,Alignment.MIDDLE_LEFT);
+                        actionWrapper.setComponentAlignment(upload, Alignment.MIDDLE_LEFT);
                     } else if (action instanceof ClickAction) {
                         contextButtons.addItem(action.getName(), action.getResource(), menuItem -> {
                             ((ClickAction) action).getListener().actionPerformed(null);
