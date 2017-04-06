@@ -13,7 +13,6 @@ ToDo:
 * Debugging 
 * Materialize import
 * SCSS cleanup
-* left / right side navigation
 * Integration Tests
 * easy access management integration
 
