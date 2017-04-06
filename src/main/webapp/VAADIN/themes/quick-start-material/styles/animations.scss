@@ -41,14 +41,11 @@
     0% {
         background: $theme-primary-color;
     }
-    25% {
+    30% {
         background: $theme-primary-color;
     }
-    50% {
-        background: white;
-    }
     100% {
-        background: white;
+        background: transparent;
     }
 }
 
