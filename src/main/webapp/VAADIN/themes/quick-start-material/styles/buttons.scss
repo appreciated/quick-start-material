@@ -67,6 +67,7 @@
         transition: border 0.7s, color 0.7s, text-shadow 0.7s, background-color 0.7s;
         line-height: 40px;
         color: valo-font-color($theme-primary-color, 1.0);
+        padding: 0 12px;
         &:hover {
             background-color: rgba(255, 255, 255, 0.2) !important;
         }
@@ -76,6 +77,7 @@
         & .v-button:hover:after {
             background-color: unset !important;
         }
+
     }
     .tab-active {
         border-bottom-color: white;

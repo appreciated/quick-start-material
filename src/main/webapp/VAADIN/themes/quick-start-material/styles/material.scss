@@ -134,6 +134,11 @@ $icon-image: url("img/test_icon.png") !default;
     .v-menubar.navigation-bar {
         height: 40px;
         line-height: 40px;
+        padding: 0px;
+    }
+
+    .v-menubar.navigation-bar .v-menubar-menuitem {
+        margin: 0px;
     }
     .navigation-bar:not(.v-menubar-submenu) * {
         @extend .primary-contrast-color;
