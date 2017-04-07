@@ -1,4 +1,4 @@
-package com.github.appreciated.quickstart.material;
+package com.github.appreciated.quickstart.material.design;
 
 
 import com.github.appreciated.quickstart.base.authentication.Util;

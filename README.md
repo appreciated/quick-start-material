@@ -36,7 +36,7 @@ ToDo:
     </dependency>
   
 #### 3. Modify your UI Class and add your Component (Components must be a decendant of the Interface "Subpage"
-    public class MyUI extends WebApplicationUI {
+    public class com.github.appreciated.appreciated.MyUI extends WebApplicationUI {
 
         @Override
         public WebAppDescription initWebAppDescription() {
@@ -54,7 +54,7 @@ ToDo:
         }
 
         @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
-        @VaadinServletConfiguration(ui = MyUI.class, productionMode = false)
+        @VaadinServletConfiguration(com.github.appreciated.quickstart.material.ui = com.github.appreciated.appreciated.MyUI.class, productionMode = false)
         public static class MyUIServlet extends VaadinServlet {
         }
 
