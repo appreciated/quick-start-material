@@ -25,10 +25,10 @@
     @include material;
     @include tags;
     @include input;
-    @include upload;
     @include animations;
     @include stepper;
     @include buttons;
+    @include upload;
     @include scrollbar;
     @include pager;
 }
