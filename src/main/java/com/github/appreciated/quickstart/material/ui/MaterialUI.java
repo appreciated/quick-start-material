@@ -1,8 +1,10 @@
 package com.github.appreciated.quickstart.material.ui;
 
 import com.github.appreciated.quickstart.base.navigation.WebApplicationUI;
+import com.github.appreciated.quickstart.base.splashscreen.CustomSplashScreenConfigurator;
 import com.vaadin.server.VaadinServlet;
 import org.vaadin.leif.splashscreen.SplashScreen;
+import org.vaadin.leif.splashscreen.SplashScreenConfigurator;
 import org.vaadin.leif.splashscreen.SplashScreenHandler;
 
 import javax.servlet.ServletConfig;
@@ -11,6 +13,7 @@ import javax.servlet.ServletException;
 /**
  * Created by Johannes on 07.04.2017.
  */
+@SplashScreenConfigurator(value = CustomSplashScreenConfigurator.class)
 @SplashScreen(value = "com/github/appreciated/quickstart/material/ui/loader.html", width = 100, height = 100)
 public abstract class MaterialUI extends WebApplicationUI {
 
