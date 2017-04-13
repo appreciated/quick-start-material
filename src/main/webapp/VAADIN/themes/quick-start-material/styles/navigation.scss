@@ -5,8 +5,11 @@
         padding: 20px;
         background: white;
     }
+    .login-window-wrapper {
+        width: 100%;
+        text-align: center;
+    }
 }
-
 @media (min-device-width: 501px) {
     .login-window {
         border-radius: 2px;
@@ -14,8 +17,8 @@
         padding: 20px;
         box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
     }
+    .login-window-wrapper {}
 }
-
 @media (min-device-width: 800px) {
     .login-window {
         padding: 20px;
