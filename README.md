@@ -36,7 +36,10 @@ ToDo:
     </dependency>
   
 #### 3. Modify your UI Class and add your Component (Components must be a decendant of the Interface "Subpage"
-    public class com.github.appreciated.appreciated.MyUI extends WebApplicationUI {
+
+    @Theme("....")
+    @SplashScreenConfigurator(value = CustomSplashScreenConfigurator.class) // This hopefully won't be necessary in future
+    public class MyUI extends MaterialUI {
 
         @Override
         public WebAppDescription initWebAppDescription() {
