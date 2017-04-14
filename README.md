@@ -65,7 +65,7 @@ ToDo:
 
 #### 4. Replace valo with the quick-start-material theme 
     // For the material design color palette take a look here https://www.materialpalette.com/
-    $theme-primary-color: #607D8B;  // F.e (Blue Grey) Primary color for Background
+    $mat-primary-color: #607D8B;  // F.e (Blue Grey) Primary color for Background
     $theme-accent-color: #03A9F4; // F.e (Light Blue) Accent color for Components
 
     @import "../quick-start-material/quick-start-material.scss";

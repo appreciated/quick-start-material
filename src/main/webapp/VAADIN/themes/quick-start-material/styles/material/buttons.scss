@@ -1,10 +1,4 @@
-@mixin true-borderless {
-    border-color: unset;
-    -webkit-box-shadow: unset;
-    box-shadow: unset;
-    border: none;
-    border-radius: 0px;
-}
+
 
 @function set-text-color($color) {
     @if (lightness( $color) > 50) {
@@ -20,7 +14,7 @@
 @mixin floating-button-style {
     position: relative;
     border-radius: 50%;
-    background-color: $theme-accent-color;
+    background-color: $mat-accent-color;
     border-color: transparent;
     background-image: none;
     border: none !important;
@@ -45,19 +39,8 @@
     }
 }
 
-
 @mixin buttons {
-    .v-button {
-        @extend .v-button-borderless;
-        @include true-borderless;
-        transition: background-color 0.6s ease;
-    }
-    .v-button:after {
-        border-color: unset !important;
-        -webkit-box-shadow: unset !important;
-        border-color: transparent !important;
-        box-shadow: none !important;
-    }
+
     // Menu Button Styling + removal of Vaadin button Styling
     .tab {
         @include true-borderless;
@@ -66,7 +49,7 @@
         border-color: transparent;
         transition: border 0.7s, color 0.7s, text-shadow 0.7s, background-color 0.7s;
         line-height: 40px;
-        color: valo-font-color($theme-primary-color, 1.0);
+        color: valo-font-color($mat-primary-color, 1.0);
         padding: 0 12px;
         &:hover {
             background-color: rgba(255, 255, 255, 0.2) !important;
@@ -85,54 +68,27 @@
             border: none;
         }
     }
-    .mobile-tab2 * .FontAwesome {
-        width: 30px;
-    }
-    .mobile-tab2 {
-        @include true-borderless;
-        @extend .primary-contrast-color;
-        text-align: left;
-    }
-    .mobile-tab * .FontAwesome {
-        width: 30px;
-    }
-    .mobile-tab {
-        @include true-borderless;
-        @extend .primary-contrast-color;
-        border-color: transparent;
-        text-align: left;
-    }
-    .mobile-tab:focus {
-        @extend .accent-color;
-        @extend .primary-contrast-background-color;
-    }
-    .mobile-tab-active {
-        @extend .accent-color;
-        @extend .primary-contrast-background-color;
-        &:after {
-            border: none;
-        }
-    }
+
     .register-button {
         height: 40px;
         line-height: 40px;
-        color: $theme-primary-color;
-        background: $primary-contrast-background-color;
+        color: $mat-primary-color;
+        background: $mat-primary-contrast-color;
         border-radius: 3px;
         transition: background-color 0.3s ease;
     }
     .register-button:hover {
-        background: set-text-color($primary-contrast-background-color) !important;
+        background: set-text-color($mat-primary-contrast-color) !important;
     }
     .sign-in-button {
         height: 40px;
         line-height: 40px;
         border-radius: 3px;
-        border: 1px solid $primary-contrast-background-color;
+        border: 1px solid $mat-primary-contrast-color;
         transition: background-color 0.3s ease;
     }
     .sign-in-button:hover {
-        background: set-text-color($theme-primary-color) !important;
+        background: set-text-color($mat-primary-color) !important;
     }
 
         .mobile-context-button {
@@ -142,7 +98,7 @@
         }
         .context-button {
             @include floating-button-style;
-            color: valo-font-color($theme-accent-color, 1.0);
+            color: valo-font-color($mat-accent-color, 1.0);
             width: 55px;
             height: 55px;
             animation: scale 0.7s;

@@ -1,4 +1,4 @@
-$icon-image: url("img/test_icon.png") !default;
+$mat-icon-image: url("img/test_icon.png") !default;
 @keyframes dot-animation {
     0% {
         transform: scale(1.0);
@@ -25,27 +25,21 @@ $icon-image: url("img/test_icon.png") !default;
 }
 
 @mixin material {
-    .login-icon {
-        margin-left: 5px;
-        margin-right: 15px;
-        background: $icon-image;
-        background-position: center;
-        background-size: cover;
-    }
+
     .small-icon{
-        background: $icon-image;
+        background: $mat-icon-image;
         background-position: center;
         background-size: cover;
         margin-left: 5px;
         margin-right: 5px;
     }
     .primary-background {
-        background: $theme-primary-color;
+        background: $mat-primary-color;
     }
     .navigation {
         @extend .color-white;
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19);
-        background: $theme-primary-color;
+        background: $mat-primary-color;
         overflow: visible;
         position: relative;
         z-index: 1;
@@ -53,7 +47,7 @@ $icon-image: url("img/test_icon.png") !default;
     .background {
         @extend .color-white;
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19);
-        background: $theme-primary-color;
+        background: $mat-primary-color;
         z-index: -1;
     }
     .menu-wrapper {
@@ -103,7 +97,7 @@ $icon-image: url("img/test_icon.png") !default;
         transform: scale(1.01);
     }
     .selectable:hover * {
-        color: $theme-accent-color;
+        color: $mat-accent-color;
     }
     .elevation-2 {
         @extend .elevation-0;
@@ -121,56 +115,13 @@ $icon-image: url("img/test_icon.png") !default;
         @extend .elevation-0;
         box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
     }
-    .v-menubar.round-image {
-        width: 50px;
-        height: 50px;
-        text-align: center;
-        line-height: 50px;
-        border-radius: 100%;
-        background: red;
-        margin: 5px;
-        box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.4);
-    }
-    .v-menubar.navigation-bar {
-        height: 40px;
-        line-height: 40px;
-        padding: 0px;
-    }
 
-    .v-menubar.navigation-bar .v-menubar-menuitem {
-        margin: 0px;
-    }
-    .navigation-bar:not(.v-menubar-submenu) * {
-        @extend .primary-contrast-color;
-    }
-    .v-menubar.round-image:after {
-        display: none;
-    }
-    .v-menubar.round-image .v-menubar-menuitem-selected {
-        background: transparent;
-        border: none;
-        box-shadow: none;
-    }
-    .navigation-bar .v-menubar-menuitem:hover {
-        background-color: transparent;
-        transition: background-color 0.7s;
-    }
-    .navigation-bar .v-menubar-menuitem:hover {
-        background-color: rgba(255, 255, 255, 0.2) !important;
-    }
-    .navigation-bar > .v-menubar-menuitem-selected {
-        background-color: rgba(255, 255, 255, 0.2) !important;
-        background-image: none;
-    }
-    .v-menubar.round-image > .v-menubar-menuitem:focus:before {
-        background-color: transparent;
-    }
     .v-caption-inline-icon span.v-icon {
         left: unset;
         bottom: unset;
     }
     .slide-background {
-        background: $theme-primary-color;
+        background: $mat-primary-color;
         width: 210% !important;
         background-size: cover;
         height: 70vh !important;

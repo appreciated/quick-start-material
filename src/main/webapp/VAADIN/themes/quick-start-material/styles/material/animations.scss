@@ -30,19 +30,19 @@
         color: white;
     }
     50% {
-        color: $theme-accent-color;
+        color: $mat-accent-color;
     }
     100% {
-        color: $theme-accent-color;
+        color: $mat-accent-color;
     }
 }
 
 @keyframes backgroundFrames {
     0% {
-        background: $theme-primary-color;
+        background: $mat-primary-color;
     }
     30% {
-        background: $theme-primary-color;
+        background: $mat-primary-color;
     }
     100% {
         background: transparent;

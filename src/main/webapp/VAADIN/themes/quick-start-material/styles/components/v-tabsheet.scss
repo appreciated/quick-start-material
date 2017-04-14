@@ -1,0 +1,33 @@
+    @mixin v-tabsheet {
+
+    // Tabsheet "fixes"
+    .animated-tab-sheet .v-tabsheet-content .v-tabsheet-tabsheetpanel {
+        //transition: height 0.7s, width 0.7s;
+    }
+    .v-tabsheet {
+        > .v-tabsheet-tabcontainer {
+            width: auto !important;
+        }
+        > .v-tabsheet-content {
+            width: auto !important;
+            > .v-tabsheet-tabsheetpanel {
+                width: auto !important;
+                transition: height 0.5s ease;
+                > .v-scrollable {
+                    position: inherit !important;
+                    width: auto !important;
+                }
+            }
+        }
+    }
+    .v-tabsheet-tabitem-selected .v-caption.v-caption {
+        border-bottom-color: $mat-accent-color !important;
+        color: $mat-accent-color !important;
+    }
+    .v-tabsheet-tabitemcell .v-caption:hover {
+        color: $mat-accent-color !important;
+    }
+    .v-tabsheet-tabcontainer:before {
+        border-top: unset;
+    }
+    }

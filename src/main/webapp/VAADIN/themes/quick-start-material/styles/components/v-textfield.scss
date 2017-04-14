@@ -1,0 +1,15 @@
+
+ @mixin v-textfield {
+
+
+ .v-textfield {
+        @extend .v-textfield-borderless;
+        border-bottom: 2px solid;
+        border-color: $mat-accent-color;
+        width: unset;
+        min-width: 60px;
+    }
+    .v-textfield:focus {
+        box-shadow: none;
+    }
+     }

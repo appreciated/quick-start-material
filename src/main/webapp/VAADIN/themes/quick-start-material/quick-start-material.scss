@@ -1,25 +1,26 @@
 @import "../valo/valo.scss";
-@import "styles/color.scss";
-@import "styles/fonts.scss";
-@import "styles/layouts.scss";
-@import "styles/navigation.scss";
-@import "styles/basics.scss";
-@import "styles/tags.scss";
-@import "styles/window.scss";
-@import "styles/material.scss";
-@import "styles/animations.scss";
-@import "styles/input.scss";
-@import "styles/upload.scss";
-@import "styles/pager.scss";
-@import "styles/stepper.scss";
-@import "styles/buttons.scss";
-@import "styles/scrollbar.scss";
-@import "styles/loader.scss";
+@import "styles/basics/color.scss";
+@import "styles/basics/fonts.scss";
+@import "styles/basics/basics.scss";
+@import "styles/material/navigation.scss";
+@import "styles/material/tags.scss";
+@import "styles/material/window.scss";
+@import "styles/material/material.scss";
+@import "styles/material/animations.scss";
+@import "styles/material/input.scss";
+@import "styles/material/pager.scss";
+@import "styles/material/stepper.scss";
+@import "styles/material/buttons.scss";
+@import "styles/material/scrollbar.scss";
+@import "styles/material/loader.scss";
+@import "styles/material/login.scss";
+@import "styles/components.scss";
 
 @mixin quick-start-material {
     @include valo;
     @include color;
     @include basics;
+    @include components;
     @include fonts;
     @include navigation;
     @include window;
@@ -29,7 +30,7 @@
     @include animations;
     @include stepper;
     @include buttons;
-    @include upload;
+    @include login;
     @include scrollbar;
     @include pager;
 }

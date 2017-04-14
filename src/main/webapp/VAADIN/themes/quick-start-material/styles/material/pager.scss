@@ -4,7 +4,7 @@
     }
     .pager-right-button {
         @include floating-button-style;
-        color: valo-font-color($theme-accent-color, 1.0);
+        color: valo-font-color($mat-accent-color, 1.0);
         margin: 0px;
         width: 50px;
         height: 50px;
@@ -14,7 +14,7 @@
     }
     .pager-left-button {
         @include floating-button-style;
-        color: valo-font-color($theme-accent-color, 1.0);
+        color: valo-font-color($mat-accent-color, 1.0);
         margin: 0px;
         width: 50px;
         height: 50px;
