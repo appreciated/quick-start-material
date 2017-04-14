@@ -9,27 +9,27 @@ $v-focus-color: #ffffff !default;
 $qs-primary-color: #999999 !default;
 $qs-accent-color: #bbbbbb !default;
 
-$qs-primary-contrast-color: valo-font-color($mat-primary-color, 1.0);
+$qs-primary-contrast-color: valo-font-color($qs-primary-color, 1.0);
 @mixin color {
     .qs-primary-color {
-        color: $mat-primary-color;
+        color: $qs-primary-color;
     }
     .qs-primary-contrast-color {
-        color: valo-font-color($mat-primary-color, 1.0);
+        color: valo-font-color($qs-primary-color, 1.0);
     }
     .qs-accent-color {
-        color: $mat-accent-color;
+        color: $qs-accent-color;
     }
     .qs-primary-contrast-background-color {
         background-color: $qs-primary-contrast-color !important;
     }
     .qs-accent-contrast-color {
-        color: valo-font-color($mat-accent-color, 1.0);
+        color: valo-font-color($qs-accent-color, 1.0);
     }
     .qs-primary-border-color {
-        border-color: $mat-primary-color;
+        border-color: $qs-primary-color;
     }
     .qs-accent-border-color {
-        border-color: $mat-accent-color;
+        border-color: $qs-accent-color;
     }
 }
