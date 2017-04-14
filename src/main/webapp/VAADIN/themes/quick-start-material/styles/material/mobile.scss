@@ -27,15 +27,16 @@
         bottom: 0px;
     }
 
-     .mobile-context-button-container .display-none {
-              max-height: 0px;
-      }
+    .mobile-context-button-container .display-none {
+        max-height: 0px;
+    }
 
-      .mobile-context-button-container-container {
-        @extend .mobile-context-button-container;
-        bottom: 60px;
+    .mobile-context-button-container-container {
+    @extend .mobile-context-button-container;
+        bottom: 30px;
         text-align: center;
-      }
+        padding-bottom: 45px;
+    }
 
      .mobile-tab2 * .FontAwesome {
          width: 30px;
