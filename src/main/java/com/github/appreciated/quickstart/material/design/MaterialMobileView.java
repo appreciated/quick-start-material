@@ -29,6 +29,10 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
         logout.addClickListener(event -> {
             Util.invalidateSession();
         });
+        closeSearch.addClickListener(e -> {
+            searchbarWrapper.setVisible(false);
+            searchbar.clear();
+        });
     }
 
     @Override

@@ -21,8 +21,9 @@
    </vaadin-horizontal-layout>
    <vaadin-vertical-layout spacing="false" size-full margin="false" :top="0px" :right="0px" :bottom="0px" :left="0px">
     <vaadin-absolute-layout style-name="navigation" height="60px">
-     <vaadin-horizontal-layout visible="false" style-name="mobile-searchbar fade-in" width-full height="60px" _id="searchbarWrapper">
+     <vaadin-horizontal-layout style-name="mobile-searchbar fade-in" spacing="false" width-full height="60px" _id="searchbarWrapper">
       <vaadin-text-field icon="fonticon://Vaadin-Icons/e805" style-name="inline-icon" id="testID" width-full _id="searchbar" :middle :expand></vaadin-text-field>
+      <vaadin-button icon="fonticon://Vaadin-Icons/e7ad" id="" plain-text _id="closeSearch" :middle :center></vaadin-button>
      </vaadin-horizontal-layout>
      <vaadin-horizontal-layout style-name="primary-background" width-full height="60px" _id="menubarWrapper" :top="0px">
       <vaadin-button icon="fonticon://FontAwesome/f0c9" style-name="borderless mobile-tab2 large" id="menu-button" height-full plain-text _id="menuButton">
@@ -35,9 +36,7 @@
      </vaadin-horizontal-layout>
     </vaadin-absolute-layout>
     <vaadin-horizontal-layout spacing="false" size-full :expand>
-     <vaadin-panel style-name="borderless" size-full :expand>
-      <vaadin-vertical-layout id="" _id="componentHolder"></vaadin-vertical-layout>
-     </vaadin-panel>
+     <vaadin-vertical-layout id="" margin="false" _id="componentHolder" :expand></vaadin-vertical-layout>
      <vaadin-vertical-layout width="0px" height-full margin="false">
       <vaadin-vertical-layout style-name="mobile-context-button-container floating-left" spacing="false" width="70px" margin="false" _id="contextButtonContainer" :bottom>
        <vaadin-vertical-layout style-name="mobile-context-button-container display-none" size-auto margin="false" _id="smallContextButtonContainer" :bottom :center></vaadin-vertical-layout>
