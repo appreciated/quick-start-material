@@ -33,7 +33,8 @@
 
       .mobile-context-button-container-container {
         @extend .mobile-context-button-container;
-
+        bottom: 60px;
+        text-align: center;
       }
 
      .mobile-tab2 * .FontAwesome {
