@@ -1,12 +1,24 @@
-@mixin v-textfield {
-    .v-textfield {
-        @extend .v-textfield-borderless;
-        border-bottom: 2px solid;
-        border-color: $mat-accent-color;
-        width: unset;
-        min-width: 60px;
+@mixin v-upload {
+   .gwt-FileUpload {
+       pointer: cursor !important;
+   }
+   .v-upload-immediate .v-button {
+       width: 100%;
+       height: 100%;
+   }
+    .v-caption-mobile-upload-inline-icon {
+        position: relative;
+        margin-left: 5px;
+        line-height: 50px;
+        margin-bottom: -50px;
+        font-size: 16px;
     }
-    .v-textfield:focus {
-        box-shadow: none;
+    .upload-inline-icon > div > div {
+        padding-left: 20px;
+    }
+    .v-upload {
+        pointer: cursor;
+        line-height: 42px;
+        padding: 0px;
     }
 }
