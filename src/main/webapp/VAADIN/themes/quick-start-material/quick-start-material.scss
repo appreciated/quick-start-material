@@ -3,7 +3,6 @@
 @import "styles/basics/fonts.scss";
 @import "styles/basics/basics.scss";
 @import "styles/material/navigation.scss";
-@import "styles/material/tags.scss";
 @import "styles/material/window.scss";
 @import "styles/material/material.scss";
 @import "styles/material/animations.scss";
@@ -27,7 +26,6 @@
     @include navigation;
     @include window;
     @include material;
-    @include tags;
     @include animations;
     @include stepper;
     @include login;
