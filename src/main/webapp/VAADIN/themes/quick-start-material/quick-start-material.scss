@@ -9,6 +9,8 @@
 @import "styles/material/input.scss";
 @import "styles/material/pager.scss";
 @import "styles/material/stepper.scss";
+@import "styles/material/desktop.scss";
+@import "styles/material/mobile.scss";
 @import "styles/material/buttons.scss";
 @import "styles/material/scrollbar.scss";
 @import "styles/material/loader.scss";
@@ -26,6 +28,8 @@
     @include navigation;
     @include window;
     @include material;
+    @include desktop;
+    @include mobile;
     @include animations;
     @include stepper;
     @include login;
