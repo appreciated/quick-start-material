@@ -70,8 +70,10 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
         button.addStyleName("mobile-tab");
         button.setSizeFull();
         wrapper.addComponent(button);
-        button.addClickListener(clickEvent -> root.navigateTo());
-        root.setCurrentSubpage(subpage);
+        button.addClickListener(clickEvent -> {
+            root.navigateTo();
+            root.setCurrentSubpage(subpage);
+        });
         navigationElements.addComponent(wrapper);
     }
 
