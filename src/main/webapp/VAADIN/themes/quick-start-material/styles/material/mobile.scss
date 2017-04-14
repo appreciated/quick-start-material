@@ -1,4 +1,19 @@
  @mixin mobile {
+     .menu {
+         box-shadow: 0 0 40px rgba(0, 0, 0, 0.9);
+         height: 92vh;
+     }
+      .mobile-searchbar {
+             background: white;
+             padding-left: 20px;
+             padding-right: 20px;
+         }
+             .mobile-navigation {
+                 @extend .navigation;
+                 height: 8vh !important;
+                 position: fixed;
+             }
+
      .menu-wrapper {
           position: relative;
           // This exact number due to .v-grid horizontal scrollbar
@@ -96,5 +111,15 @@
     .mobile-wrapper > div > .v-absolutelayout-margin{
         overflow-y: inherit !important;
     }
-
+    .display-none {
+        > div > .mobile-context-button-container > div > .mobile-context-button {
+            transform: scale(0.0);
+        }
+        > div > .mobile-context-button {
+            transform: scale(0.0);
+        }
+        > div > .context-button {
+            transform: scale(0.0);
+        }
+    }
 }

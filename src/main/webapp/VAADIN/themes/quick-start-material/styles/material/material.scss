@@ -1,4 +1,4 @@
-$mat-icon-image: url("img/test_icon.png") !default;
+
 @keyframes dot-animation {
     0% {
         transform: scale(1.0);
@@ -25,13 +25,6 @@ $mat-icon-image: url("img/test_icon.png") !default;
 }
 
 @mixin material {
-    .small-icon {
-        background: $mat-icon-image;
-        background-position: center;
-        background-size: cover;
-        margin-left: 5px;
-        margin-right: 5px;
-    }
     .primary-background {
         background: $qs-primary-color;
     }
@@ -43,21 +36,11 @@ $mat-icon-image: url("img/test_icon.png") !default;
         position: relative;
         z-index: 1;
     }
-    .mobile-navigation {
-        @extend .navigation;
-        height: 8vh !important;
-        position: fixed;
-    }
     .background {
         @extend .color-white;
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19);
         background: $qs-primary-color;
         z-index: -1;
-    }
-
-    .menu {
-        box-shadow: 0 0 40px rgba(0, 0, 0, 0.9);
-        height: 92vh;
     }
     .opacity-transition {
         animation: valo-animate-in-fade 1s;
@@ -117,43 +100,13 @@ $mat-icon-image: url("img/test_icon.png") !default;
         left: unset;
         bottom: unset;
     }
-    .slide-background {
-        background: $qs-primary-color;
-        width: 210% !important;
-        background-size: cover;
-        height: 70vh !important;
-        margin-bottom: -63vh;
-    }
     .min-width {
         min-width: 600px;
     }
     .full-width {
         width: 100%;
     }
-    .slides {
-        perspective: 500px;
-        perspective-origin: 100% 0%;
-    }
-    .slide-content-container {
-        transform-style: preserve-3d;
-        transform: translateZ(0);
-    }
-    .slide-background {
-        transform: translateZ(-500px) translateY(0px) translateX(-50%) scale(1.0);
-    }
     .qs-error-label {
         color: red;
     }
-
-    .display-none {
-            > div > .mobile-context-button-container > div > .mobile-context-button {
-                transform: scale(0.0);
-            }
-            > div > .mobile-context-button {
-                transform: scale(0.0);
-            }
-            > div > .context-button {
-                transform: scale(0.0);
-            }
-        }
 }
