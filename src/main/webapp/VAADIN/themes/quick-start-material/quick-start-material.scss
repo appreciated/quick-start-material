@@ -20,16 +20,16 @@
     @include valo;
     @include color;
     @include basics;
+    @include input;
+    @include buttons;
     @include components;
     @include fonts;
     @include navigation;
     @include window;
     @include material;
     @include tags;
-    @include input;
     @include animations;
     @include stepper;
-    @include buttons;
     @include login;
     @include scrollbar;
     @include pager;

@@ -1,5 +1,4 @@
  @mixin mobile {
-
      .menu-hidden {
          transform: translate(-300px, 0px);
          width: 0px !important;
@@ -8,44 +7,55 @@
          transform: translate(0px, 0px);
          width: 300px !important;
      }
-
-   .mobile-context-button-container {
-        overflow: hidden;
-    }
-    .mobile-context-button-container .display-none {
-        max-height: 0px;
-    }
-    .mobile-context-button-container {
-        max-height: 300px;
-        transition: all 1s;
-        overflow: hidden;
-    }
+     .mobile-context-button-container {
+         overflow: hidden;
+     }
+     .mobile-context-button-container .display-none {
+         max-height: 0px;
+     }
+     .mobile-context-button-container {
+         max-height: 300px;
+         transition: all 1s;
+         overflow: hidden;
+     }
      .mobile-tab2 * .FontAwesome {
-            width: 30px;
-        }
-        .mobile-tab2 {
-            @include true-borderless;
-            @extend .mat-primary-contrast-color;
-            text-align: left;
-        }
-        .mobile-tab * .FontAwesome {
-            width: 30px;
-        }
-        .mobile-tab {
-            @include true-borderless;
-            @extend .mat-primary-contrast-color;
-            border-color: transparent;
-            text-align: left;
-        }
-        .mobile-tab:focus {
-            @extend .accent-color;
-            @extend .primary-contrast-background-color;
-        }
-        .mobile-tab-active {
-            @extend .accent-color;
-            @extend .primary-contrast-background-color;
-            &:after {
-                border: none;
-            }
-        }
+         width: 30px;
+     }
+     .mobile-tab2 {
+         @include true-borderless;
+         @extend .mat-primary-contrast-color;
+         text-align: left;
+     }
+     .mobile-tab * .FontAwesome {
+         width: 30px;
+     }
+     .mobile-tab {
+         @include true-borderless;
+         @extend .mat-primary-contrast-color;
+         border-color: transparent;
+         text-align: left;
+     }
+     .mobile-tab:focus {
+         @extend .accent-color;
+         @extend .primary-contrast-background-color;
+     }
+     .mobile-tab-active {
+         @extend .accent-color;
+         @extend .primary-contrast-background-color;
+         &:after {
+             border: none;
+         }
+     }
+     .mobile-context-button {
+         @include floating-button-style;
+         width: 48px;
+         height: 48px;
+     }
+     .context-button {
+         @include floating-button-style;
+         color: valo-font-color($mat-accent-color, 1.0);
+         width: 55px;
+         height: 55px;
+         animation: scale 0.7s;
+     }
  }

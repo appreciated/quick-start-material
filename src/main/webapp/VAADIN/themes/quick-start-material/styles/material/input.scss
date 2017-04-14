@@ -7,7 +7,7 @@
         @extend .mat-primary-contrast-color;
     }
     .floating-input > input::-webkit-input-placeholder {
-         color: rgba($mat-primary-contrast-color, 0.7);
+        color: rgba($mat-primary-contrast-color, 0.7);
     }
     .floating-input {
         border-bottom: none;

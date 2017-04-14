@@ -1,5 +1,3 @@
-
-
 @function set-text-color($color) {
     @if (lightness( $color) > 50) {
         //@return #000000; // Lighter color, return black
@@ -40,7 +38,6 @@
 }
 
 @mixin buttons {
-
     // Menu Button Styling + removal of Vaadin button Styling
     .tab {
         @include true-borderless;
@@ -60,7 +57,6 @@
         & .v-button:hover:after {
             background-color: unset !important;
         }
-
     }
     .tab-active {
         border-bottom-color: white;
@@ -68,39 +64,4 @@
             border: none;
         }
     }
-
-    .register-button {
-        height: 40px;
-        line-height: 40px;
-        color: $mat-primary-color;
-        background: $mat-primary-contrast-color;
-        border-radius: 3px;
-        transition: background-color 0.3s ease;
-    }
-    .register-button:hover {
-        background: set-text-color($mat-primary-contrast-color) !important;
-    }
-    .sign-in-button {
-        height: 40px;
-        line-height: 40px;
-        border-radius: 3px;
-        border: 1px solid $mat-primary-contrast-color;
-        transition: background-color 0.3s ease;
-    }
-    .sign-in-button:hover {
-        background: set-text-color($mat-primary-color) !important;
-    }
-
-        .mobile-context-button {
-            @include floating-button-style;
-            width: 48px;
-            height: 48px;
-        }
-        .context-button {
-            @include floating-button-style;
-            color: valo-font-color($mat-accent-color, 1.0);
-            width: 55px;
-            height: 55px;
-            animation: scale 0.7s;
-        }
 }

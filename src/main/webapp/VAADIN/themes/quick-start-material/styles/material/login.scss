@@ -6,4 +6,25 @@
         background-position: center;
         background-size: cover;
     }
+    .register-button {
+        height: 40px;
+        line-height: 40px;
+        color: $mat-primary-color;
+        background: $mat-primary-contrast-color;
+        border-radius: 3px;
+        transition: background-color 0.3s ease;
+    }
+    .register-button:hover {
+        background: set-text-color($mat-primary-contrast-color) !important;
+    }
+    .sign-in-button {
+        height: 40px;
+        line-height: 40px;
+        border-radius: 3px;
+        border: 1px solid $mat-primary-contrast-color;
+        transition: background-color 0.3s ease;
+    }
+    .sign-in-button:hover {
+        background: set-text-color($mat-primary-color) !important;
+    }
 }

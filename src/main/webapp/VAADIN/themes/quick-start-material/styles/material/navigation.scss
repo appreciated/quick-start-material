@@ -10,6 +10,7 @@
         text-align: center;
     }
 }
+
 @media (min-device-width: 501px) {
     .login-window {
         border-radius: 2px;
@@ -19,6 +20,7 @@
     }
     .login-window-wrapper {}
 }
+
 @media (min-device-width: 800px) {
     .login-window {
         padding: 20px;
@@ -37,8 +39,6 @@
     .navigation-max-width-1000 {
         max-width: 1000px;
     }
-
-
     .navigation-margin-left {
         margin-left: 13px;
     }
@@ -61,22 +61,20 @@
         transition: opacity 1s;
     }
     .fade-in {
-        animation: valo-animate-in-fade 1s cubic-bezier(0,.5,.5,1);
+        animation: valo-animate-in-fade 1s cubic-bezier(0, .5, .5, 1);
     }
-
-     .v-menubar-menuitem:after {
-         position: absolute;
-         border-bottom: 2px white solid;
-         width: 100%;
-         height: 100%;
-         left: 0px;
-         content: "";
-         transition: opacity 0.3s;
-         opacity: 0;
-     }
-
-     .v-menubar-menuitem-active:after {
-         opacity: 1;
-         animation: valo-animate-in-fade 1s;
-     }
+    .v-menubar-menuitem:after {
+        position: absolute;
+        border-bottom: 2px white solid;
+        width: 100%;
+        height: 100%;
+        left: 0px;
+        content: "";
+        transition: opacity 0.3s;
+        opacity: 0;
+    }
+    .v-menubar-menuitem-active:after {
+        opacity: 1;
+        animation: valo-animate-in-fade 1s;
+    }
 }
