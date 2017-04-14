@@ -39,8 +39,8 @@
         transition: all 1s;
         overflow: hidden;
         position: fixed;
-        right: 0px;
-        bottom: 0px;
+        right: 10px;
+        bottom: 10px;
     }
 
     .mobile-context-button-container .display-none {
@@ -49,7 +49,7 @@
 
     .mobile-context-button-container-container {
     @extend .mobile-context-button-container;
-        bottom: 30px;
+        bottom: 40px;
         text-align: center;
         padding-bottom: 45px;
     }
