@@ -1,7 +1,7 @@
 @mixin window {
     .v-window-header {
         @extend .large;
-        @extend .accent-color;
+        @extend .qs-accent-color;
         padding: 10px;
         padding-left: 20px;
     }

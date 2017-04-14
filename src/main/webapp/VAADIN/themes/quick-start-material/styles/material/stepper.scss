@@ -1,6 +1,6 @@
 @mixin stepper {
     .stepper-number-wrapper {
-        border: 1px solid $mat-primary-contrast-color;
+        border: 1px solid $qs-primary-contrast-color;
         border-radius: 100%;
         width: 45px;
         height: 45px;
@@ -15,7 +15,7 @@
         text-align: center;
         margin-left: -50px;
         position: fixed;
-        @extend .mat-primary-contrast-color;
+        @extend .qs-primary-contrast-color;
     }
     .stepper-view > .v-spacing {
         width: 50px;
@@ -29,10 +29,10 @@
     }
     .stepper-number {
         line-height: 45px;
-        @extend .mat-primary-contrast-color;
+        @extend .qs-primary-contrast-color;
     }
     .stepper-name {
-        @extend .mat-primary-contrast-color;
+        @extend .qs-primary-contrast-color;
         text-transform: uppercase;
         font-size: small;
         height: unset !important;

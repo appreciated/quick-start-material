@@ -43,7 +43,7 @@
      }
      .mobile-tab2 {
          @include true-borderless;
-         @extend .mat-primary-contrast-color;
+         @extend .qs-primary-contrast-color;
          text-align: left;
      }
      .mobile-tab * .FontAwesome {
@@ -51,17 +51,17 @@
      }
      .mobile-tab {
          @include true-borderless;
-         @extend .mat-primary-contrast-color;
+         @extend .qs-primary-contrast-color;
          border-color: transparent;
          text-align: left;
      }
      .mobile-tab:focus {
-         @extend .accent-color;
-         @extend .primary-contrast-background-color;
+         @extend .qs-accent-color;
+         @extend .qs-primary-contrast-background-color;
      }
      .mobile-tab-active {
-         @extend .accent-color;
-         @extend .primary-contrast-background-color;
+         @extend .qs-accent-color;
+         @extend .qs-primary-contrast-background-color;
          &:after {
              border: none;
          }

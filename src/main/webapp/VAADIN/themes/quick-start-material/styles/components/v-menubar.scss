@@ -22,7 +22,7 @@
         margin: 0px;
     }
     .navigation-bar:not(.v-menubar-submenu) * {
-        @extend .mat-primary-contrast-color;
+        @extend .qs-primary-contrast-color;
     }
     .v-menubar.round-image:after {
         display: none;
