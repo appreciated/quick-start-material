@@ -43,27 +43,18 @@ $mat-icon-image: url("img/test_icon.png") !default;
         position: relative;
         z-index: 1;
     }
-
     .mobile-navigation {
         @extend .navigation;
         height: 8vh !important;
+        position: fixed;
     }
-
     .background {
         @extend .color-white;
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19);
         background: $mat-primary-color;
         z-index: -1;
     }
-    .menu-wrapper {
-        position: relative;
-        // This exact number due to .v-grid horizontal scrollbar
-        z-index: 91;
-        overflow: hidden;
-        transition: transform 0.7s, width 0.7s;
-        margin-right: -50px;
-        height: 92vh;
-    }
+
     .menu {
         box-shadow: 0 0 40px rgba(0, 0, 0, 0.9);
         height: 92vh;
