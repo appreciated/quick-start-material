@@ -17,17 +17,25 @@
          transform: translate(0px, 0px);
          width: 300px !important;
      }
-     .mobile-context-button-container {
-         overflow: hidden;
-     }
+
+    .mobile-context-button-container {
+        max-height: 300px;
+        transition: all 1s;
+        overflow: hidden;
+        position: fixed;
+        right: 0px;
+        bottom: 0px;
+    }
+
      .mobile-context-button-container .display-none {
-         max-height: 0px;
-     }
-     .mobile-context-button-container {
-         max-height: 300px;
-         transition: all 1s;
-         overflow: hidden;
-     }
+              max-height: 0px;
+      }
+
+      .mobile-context-button-container-container {
+        @extend .mobile-context-button-container;
+
+      }
+
      .mobile-tab2 * .FontAwesome {
          width: 30px;
      }
@@ -86,12 +94,5 @@
     .mobile-wrapper > div > .v-absolutelayout-margin{
         overflow-y: inherit !important;
     }
-    .mobile-context-button-container {
-        max-height: 300px;
-        transition: all 1s;
-        overflow: hidden;
-        right: 0px;
-        position: fixed;
-        bottom: 0px;
-    }
+
 }
