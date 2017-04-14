@@ -8,6 +8,7 @@ import com.github.appreciated.quickstart.base.components.UploadButton;
 import com.github.appreciated.quickstart.base.navigation.RegistrationControl;
 import com.github.appreciated.quickstart.base.navigation.WebAppDescription;
 import com.github.appreciated.quickstart.base.navigation.actions.*;
+import com.github.appreciated.quickstart.base.navigation.container.SubPageNavigator;
 import com.github.appreciated.quickstart.base.navigation.interfaces.HasContextActions;
 import com.github.appreciated.quickstart.base.navigation.interfaces.HasSearch;
 import com.github.appreciated.quickstart.base.navigation.interfaces.NavigationDesignInterface;
@@ -44,18 +45,34 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
     public void initNavigationElements(Stream<Subpage> pages) {
         navigationElements.removeAllComponents();
         pages.forEach(element -> {
-            // Wrapper for the Java script part at the attach() method to not override the vaadin on click events
-            HorizontalLayout wrapper = new HorizontalLayout();
-            wrapper.setHeight(50, Unit.PIXELS);
-            wrapper.setWidth(100, Unit.PERCENTAGE);
-            wrapper.addStyleName("mobile-tab-wrapper");
-            Button button = new Button(element.getNavigationName());
-            button.addStyleName("mobile-tab");
-            button.setSizeFull();
-            wrapper.addComponent(button);
-            button.addClickListener(clickEvent -> element.navigateTo());
-            navigationElements.addComponent(wrapper);
+            if (element instanceof SubPageNavigator) {
+                addMenuElement(element, true);
+                ((SubPageNavigator) element).getPagingElements().getSubpages().forEach(subpage -> {
+                    addMenuElement(subpage, false);
+                });
+            } else {
+                addMenuElement(element, false);
+            }
         });
+    }
+
+    private void addMenuElement(Subpage subpage, boolean hasChildren) {
+        // Wrapper for the Java script part at the attach() method to not override the vaadin on click events
+        HorizontalLayout wrapper = new HorizontalLayout();
+        wrapper.setHeight(50, Unit.PIXELS);
+        wrapper.setWidth(100, Unit.PERCENTAGE);
+        if (hasChildren) {
+            wrapper.addStyleName("mobile-tab-wrapper-root");
+        } else {
+            wrapper.addStyleName("mobile-tab-wrapper");
+        }
+        Button button = new Button(subpage.getNavigationName());
+        button.addStyleName("mobile-tab");
+        button.setSizeFull();
+        wrapper.addComponent(button);
+        button.addClickListener(clickEvent -> subpage.navigateTo());
+        navigationElements.addComponent(wrapper);
+
     }
 
     @Override
@@ -94,14 +111,14 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
          * compilation. But it has also its disadvantages.
          */
 
-        String menButtonId = "menu-button";
+        String menuButtonId = "menu-button";
         String menuId = "menu-wrapper";
 
         /**
          * Open / Close the menu when clicking on Menubutton
          */
         com.vaadin.server.Page.getCurrent().getJavaScript().execute(
-                "document.getElementById('" + menButtonId + "').onclick = function(){" +
+                "document.getElementById('" + menuButtonId + "').onclick = function(){" +
                         "\n" + "document.getElementById('" + menuId + "').classList.toggle('menu-show');" +
                         "\n" + "};");
 

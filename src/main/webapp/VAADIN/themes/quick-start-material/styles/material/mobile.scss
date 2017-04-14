@@ -58,4 +58,20 @@
          height: 55px;
          animation: scale 0.7s;
      }
- }
+    .mobile-content-wrapper {
+        margin-top:  8vh;
+        padding: 8px;
+    }
+    .mobile-content-wrapper > .v-expand > .v-slot {
+        margin: 0px !important;
+    }
+    .mobile-content-wrapper > .v-expand {
+        padding: 0px !important;
+    }
+    .mobile-wrapper{
+        overflow-y:inherit !important;
+    }
+    .mobile-wrapper > div > .v-absolutelayout-margin{
+        overflow-y: inherit !important;
+    }
+}

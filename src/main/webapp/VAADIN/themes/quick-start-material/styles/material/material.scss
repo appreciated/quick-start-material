@@ -43,6 +43,12 @@ $mat-icon-image: url("img/test_icon.png") !default;
         position: relative;
         z-index: 1;
     }
+
+    .mobile-navigation {
+        @extend .navigation;
+        height: 8vh !important;
+    }
+
     .background {
         @extend .color-white;
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19);
@@ -55,9 +61,12 @@ $mat-icon-image: url("img/test_icon.png") !default;
         z-index: 91;
         overflow: hidden;
         transition: transform 0.7s, width 0.7s;
+        margin-right: -50px;
+        height: 92vh;
     }
     .menu {
         box-shadow: 0 0 40px rgba(0, 0, 0, 0.9);
+        height: 92vh;
     }
     .opacity-transition {
         animation: valo-animate-in-fade 1s;
