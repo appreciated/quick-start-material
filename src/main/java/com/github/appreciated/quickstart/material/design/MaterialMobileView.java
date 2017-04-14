@@ -48,12 +48,31 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
             if (element instanceof SubPageNavigator) {
                 addMenuElement(element, true);
                 ((SubPageNavigator) element).getPagingElements().getSubpages().forEach(subpage -> {
-                    addMenuElement(subpage, false);
+                    addChildElement((SubPageNavigator) element, subpage, false);
                 });
             } else {
                 addMenuElement(element, false);
             }
         });
+    }
+
+    private void addChildElement(SubPageNavigator root, Subpage subpage, boolean hasChildren) {
+        // Wrapper for the Java script part at the attach() method to not override the vaadin on click events
+        HorizontalLayout wrapper = new HorizontalLayout();
+        wrapper.setHeight(50, Unit.PIXELS);
+        wrapper.setWidth(100, Unit.PERCENTAGE);
+        if (hasChildren) {
+            wrapper.addStyleName("mobile-tab-wrapper-root");
+        } else {
+            wrapper.addStyleName("mobile-tab-wrapper");
+        }
+        Button button = new Button(subpage.getNavigationName());
+        button.addStyleName("mobile-tab");
+        button.setSizeFull();
+        wrapper.addComponent(button);
+        button.addClickListener(clickEvent -> root.navigateTo());
+        root.setCurrentSubpage(subpage);
+        navigationElements.addComponent(wrapper);
     }
 
     private void addMenuElement(Subpage subpage, boolean hasChildren) {
@@ -72,7 +91,6 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
         wrapper.addComponent(button);
         button.addClickListener(clickEvent -> subpage.navigateTo());
         navigationElements.addComponent(wrapper);
-
     }
 
     @Override
