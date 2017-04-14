@@ -153,4 +153,16 @@ $mat-icon-image: url("img/test_icon.png") !default;
     .qs-error-label {
         color: red;
     }
+
+    .display-none {
+            > div > .mobile-context-button-container > div > .mobile-context-button {
+                transform: scale(0.0);
+            }
+            > div > .mobile-context-button {
+                transform: scale(0.0);
+            }
+            > div > .context-button {
+                transform: scale(0.0);
+            }
+        }
 }

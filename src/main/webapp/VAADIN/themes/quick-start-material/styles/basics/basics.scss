@@ -80,17 +80,6 @@
     .display-none {
         max-height: 0px;
     }
-    .display-none {
-        > div > .mobile-context-button-container > div > .mobile-context-button {
-            transform: scale(0.0);
-        }
-        > div > .mobile-context-button {
-            transform: scale(0.0);
-        }
-        > div > .context-button {
-            transform: scale(0.0);
-        }
-    }
     .center {
         text-align: center;
     }

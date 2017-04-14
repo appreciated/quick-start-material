@@ -76,4 +76,12 @@
     .mobile-wrapper > div > .v-absolutelayout-margin{
         overflow-y: inherit !important;
     }
+    .mobile-context-button-container {
+        max-height: 300px;
+        transition: all 1s;
+        overflow: hidden;
+        right: 0px;
+        position: fixed;
+        bottom: 0px;
+    }
 }
