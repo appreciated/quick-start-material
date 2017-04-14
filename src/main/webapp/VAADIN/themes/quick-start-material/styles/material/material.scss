@@ -33,12 +33,12 @@ $mat-icon-image: url("img/test_icon.png") !default;
         margin-right: 5px;
     }
     .primary-background {
-        background: $mat-primary-color;
+        background: $qs-primary-color;
     }
     .navigation {
         @extend .color-white;
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19);
-        background: $mat-primary-color;
+        background: $qs-primary-color;
         overflow: visible;
         position: relative;
         z-index: 1;
@@ -51,7 +51,7 @@ $mat-icon-image: url("img/test_icon.png") !default;
     .background {
         @extend .color-white;
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19);
-        background: $mat-primary-color;
+        background: $qs-primary-color;
         z-index: -1;
     }
 
@@ -95,7 +95,7 @@ $mat-icon-image: url("img/test_icon.png") !default;
         transform: scale(1.01);
     }
     .selectable:hover * {
-        color: $mat-accent-color;
+        color: $qs-accent-color;
     }
     .elevation-2 {
         @extend .elevation-0;
@@ -118,7 +118,7 @@ $mat-icon-image: url("img/test_icon.png") !default;
         bottom: unset;
     }
     .slide-background {
-        background: $mat-primary-color;
+        background: $qs-primary-color;
         width: 210% !important;
         background-size: cover;
         height: 70vh !important;

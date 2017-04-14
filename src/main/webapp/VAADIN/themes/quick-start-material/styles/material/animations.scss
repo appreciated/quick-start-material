@@ -30,19 +30,19 @@
         color: white;
     }
     50% {
-        color: $mat-accent-color;
+        color: $qs-accent-color;
     }
     100% {
-        color: $mat-accent-color;
+        color: $qs-accent-color;
     }
 }
 
 @keyframes backgroundFrames {
     0% {
-        background: $mat-primary-color;
+        background: $qs-primary-color;
     }
     30% {
-        background: $mat-primary-color;
+        background: $qs-primary-color;
     }
     100% {
         background: transparent;

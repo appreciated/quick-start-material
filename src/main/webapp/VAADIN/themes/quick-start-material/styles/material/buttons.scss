@@ -12,7 +12,7 @@
 @mixin floating-button-style {
     position: relative;
     border-radius: 50%;
-    background-color: $mat-accent-color;
+    background-color: $qs-accent-color;
     border-color: transparent;
     background-image: none;
     border: none !important;
@@ -46,7 +46,7 @@
         border-color: transparent;
         transition: border 0.7s, color 0.7s, text-shadow 0.7s, background-color 0.7s;
         line-height: 40px;
-        color: valo-font-color($mat-primary-color, 1.0);
+        color: valo-font-color($qs-primary-color, 1.0);
         padding: 0 12px;
         &:hover {
             background-color: rgba(255, 255, 255, 0.2) !important;

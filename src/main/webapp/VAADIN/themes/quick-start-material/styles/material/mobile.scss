@@ -73,7 +73,7 @@
      }
      .context-button {
          @include floating-button-style;
-         color: valo-font-color($mat-accent-color, 1.0);
+         color: valo-font-color($qs-accent-color, 1.0);
          width: 55px;
          height: 55px;
          animation: scale 0.7s;

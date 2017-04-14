@@ -20,11 +20,11 @@
             }
         }
         .v-tabsheet-tabitem-selected .v-caption.v-caption {
-            border-bottom-color: $mat-accent-color !important;
-            color: $mat-accent-color !important;
+            border-bottom-color: $qs-accent-color !important;
+            color: $qs-accent-color !important;
         }
         .v-tabsheet-tabitemcell .v-caption:hover {
-            color: $mat-accent-color !important;
+            color: $qs-accent-color !important;
         }
         .v-tabsheet-tabcontainer:before {
             border-top: unset;

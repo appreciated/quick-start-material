@@ -2,7 +2,7 @@
     .v-textfield {
         @extend .v-textfield-borderless;
         border-bottom: 2px solid;
-        border-color: $mat-accent-color;
+        border-color: $qs-accent-color;
         width: unset;
         min-width: 60px;
     }

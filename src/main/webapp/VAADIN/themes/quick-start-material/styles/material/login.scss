@@ -8,7 +8,7 @@
     .register-button {
         height: 40px;
         line-height: 40px;
-        color: $mat-primary-color;
+        color: $qs-primary-color;
         background: $qs-primary-contrast-color;
         border-radius: 3px;
         transition: background-color 0.3s ease;
@@ -24,6 +24,6 @@
         transition: background-color 0.3s ease;
     }
     .sign-in-button:hover {
-        background: set-text-color($mat-primary-color) !important;
+        background: set-text-color($qs-primary-color) !important;
     }
 }
