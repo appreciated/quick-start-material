@@ -95,8 +95,8 @@
          animation: scale 0.7s;
      }
      .mobile-top-bar{
-        position: relative;
-        z-index: 2;
+        position: fixed;
+        z-index: 92;
         overflow: visible;
      }
     .mobile-content-wrapper {
@@ -104,6 +104,7 @@
     }
     .mobile-component-holder {
         padding: 8px;
+        margin-top: 60px;
     }
     .mobile-content-wrapper > .v-expand > .v-slot {
         margin: 0px !important;
