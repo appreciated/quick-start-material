@@ -15,6 +15,7 @@ import com.github.appreciated.quickstart.base.navigation.interfaces.NavigationDe
 import com.github.appreciated.quickstart.base.navigation.interfaces.Subpage;
 import com.github.appreciated.quickstart.base.notification.QuickNotification;
 import com.github.appreciated.quickstart.material.login.LoginDialog;
+import com.vaadin.annotations.JavaScript;
 import com.vaadin.icons.VaadinIcons;
 import com.vaadin.ui.*;
 
@@ -27,40 +28,13 @@ import java.util.stream.StreamSupport;
 /**
  * Created by appreciated on 04.12.2016.
  */
-
+@JavaScript({"vaadin://component/desktop.js"})
 public class MaterialDesktopView extends DesktopNavigationDesign implements NavigationDesignInterface {
     public static final String CONFIGURATION_FULLHEIGHT_NAVIGATIONBAR = "full_height_navigationbar";
     public static final String CONFIGURATION_HIDE_ICON = "hide_icon";
     public static final String CONFIGURATION_HIDE_TITLE = "hide_title";
     private AccessControl accessControl;
     private RegistrationControl registrationControl;
-
-    @Override
-    public void attach() {
-        super.attach();
-        com.vaadin.server.Page.getCurrent().getJavaScript().execute("var element = document.getElementById('contentPanel');\n" +
-                "var childElement = element.getElementsByClassName('v-panel-content').item(0);\n" +
-                "console.log('test');\n" +
-                "childElement.addEventListener('scroll', function () {\n" +
-                "    if (document.getElementById('navigation-bar')) {\n" +
-                "        if (childElement.scrollTop > 0) {\n" +
-                "            if (!document.getElementById('navigation-bar').classList.contains('floating-navigation-bar')) {\n" +
-                "                document.getElementById('navigation-bar').classList.add('floating-navigation-bar')\n" +
-                "                console.log('added');\n" +
-                "            }\n" +
-                "        }\n" +
-                "        else {\n" +
-                "            if (document.getElementById('navigation-bar').classList.contains('floating-navigation-bar')) {\n" +
-                "                document.getElementById('navigation-bar').classList.remove('floating-navigation-bar');\n" +
-                "                console.log('removed');\n" +
-                "            }\n" +
-                "        }\n" +
-                "    }\n" +
-                "    else {\n" +
-                "        console.log('no element');\n" +
-                "    }\n" +
-                "});");
-    }
 
     @Override
     public void initWithConfiguration(Stream<AbstractMap.SimpleEntry<String, Boolean>> configurations) {

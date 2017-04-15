@@ -13,6 +13,7 @@ import com.github.appreciated.quickstart.base.navigation.interfaces.HasContextAc
 import com.github.appreciated.quickstart.base.navigation.interfaces.HasSearch;
 import com.github.appreciated.quickstart.base.navigation.interfaces.NavigationDesignInterface;
 import com.github.appreciated.quickstart.base.navigation.interfaces.Subpage;
+import com.vaadin.annotations.JavaScript;
 import com.vaadin.icons.VaadinIcons;
 import com.vaadin.ui.*;
 
@@ -24,6 +25,7 @@ import java.util.stream.Stream;
 /**
  * Created by appreciated on 10.12.2016.
  */
+@JavaScript({"vaadin://component/mobile.js"})
 public class MaterialMobileView extends MobileNavigationDesign implements NavigationDesignInterface {
 
     public MaterialMobileView() {
@@ -117,92 +119,6 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
             mobileContentWrapper.setHeightUndefined();
             this.componentHolder.setHeightUndefined();
         }
-    }
-
-    @Override
-    public void attach() {
-        super.attach();
-
-        /**
-         * Some additional Javascript to dodge the server-round trip time on mobile devices for the opening and closing
-         * animation
-         *
-         * Be careful when editing this the domIds are set via the Vaadin designer.
-         */
-        /**
-         * A little bit of JavaScript "hacking" because we don't want to wait for the for the whole server-round-trip-time
-         * on mobile devices to toggle the animation this might actually take pretty long also we are dodging the Widgetset
-         * compilation. But it has also its disadvantages.
-         */
-
-        String menuButtonId = "menu-button";
-        String menuId = "menu-wrapper";
-
-        /**
-         * Open / Close the menu when clicking on Menubutton
-         */
-        com.vaadin.server.Page.getCurrent().getJavaScript().execute(
-                "document.getElementById('" + menuButtonId + "').onclick = function(){" +
-                        "\n" + "document.getElementById('" + menuId + "').classList.toggle('menu-show');" +
-                        "\n" + "};");
-
-        /**
-         * Close The menu when clicking on a Subpages Button
-         */
-        com.vaadin.server.Page.getCurrent().getJavaScript().execute(
-                "var elements = document.getElementsByClassName('mobile-tab-wrapper'); \n" +
-                        "for (var i = 0; i < elements.length; i++) {\n" +
-                        "   elements[i].addEventListener(\"click\", function() {\n" +
-                        "       document.getElementById('" + menuId + "').classList.toggle('menu-show');\n" +
-                        "   });\n" +
-                        "}");
-
-        /**
-         * Close/open the menu when swiping left/right
-         */
-
-        com.vaadin.server.Page.getCurrent().getJavaScript().execute("var xDown = null;\n" +
-                "var yDown = null;\n" +
-                "\n" +
-                "function handleTouchStart(evt) {\n" +
-                "    xDown = evt.touches[0].clientX;\n" +
-                "    yDown = evt.touches[0].clientY;\n" +
-                "}\n" +
-                "\n" +
-                "function handleTouchMove(evt) {\n" +
-                "    if ( ! xDown || ! yDown ) {\n" +
-                "        return;\n" +
-                "    }\n" +
-                "\n" +
-                "    var xUp = evt.touches[0].clientX;\n" +
-                "    var yUp = evt.touches[0].clientY;\n" +
-                "    var xDiff = xDown - xUp;\n" +
-                "    var yDiff = yDown - yUp;\n" +
-                "\n" +
-                "    if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/\n" +
-                "           console.log(Math.abs( xDiff ));      \n" +
-                "        if ( xDiff > 0 && Math.abs( xDiff ) >= 10) {\n" +
-                // left swipe
-                "           document.getElementById('" + menuId + "').classList.remove('menu-show');\n" +
-                "        } else if (Math.abs( xDiff ) >= 10) {\n" +
-                // right swipe
-                "           document.getElementById('" + menuId + "').classList.add('menu-show');\n" +
-                "        }\n" +
-                "    } else {\n" +
-                "        if ( yDiff > 0 ) {\n" +
-                "           // console.log(\"up swipe\"); \n" +
-                "        } else { \n" +
-                "           // console.log(\"down swipe\"); \n" +
-                "        }\n" +
-                "    }\n" +
-                "    /* reset values */\n" +
-                "    xDown = null;\n" +
-                "    yDown = null;\n" +
-                "}\n" +
-                "\n" +
-                "document.addEventListener(\"touchstart\", handleTouchStart, false);\n" +
-                "document.addEventListener(\"touchmove\", handleTouchMove, false);"
-        );
     }
 
     @Override
