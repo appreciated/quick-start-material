@@ -36,7 +36,7 @@
 
     .mobile-context-button-container {
         max-height: 300px;
-        transition: all 1s;
+        transition: max-height 0.6s ease;
         overflow: hidden;
         position: fixed;
         right: 10px;
@@ -94,9 +94,6 @@
          height: 55px;
          animation: scale 0.7s;
      }
-    .mobile-content-wrapper {
-        margin-top:  8vh;
-    }
     .mobile-component-holder {
         padding: 8px;
     }

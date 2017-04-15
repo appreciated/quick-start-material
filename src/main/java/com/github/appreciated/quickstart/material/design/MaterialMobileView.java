@@ -109,8 +109,12 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
     @Override
     public void allowPercentagePageHeight(boolean allow) {
         if (allow) {
+            this.setHeight(100, Unit.PERCENTAGE);
+            mobileContentWrapper.setHeight(100,Unit.PERCENTAGE);
             this.componentHolder.setHeight(100, Unit.PERCENTAGE);
         } else {
+            this.setHeightUndefined();
+            mobileContentWrapper.setHeightUndefined();
             this.componentHolder.setHeightUndefined();
         }
     }
