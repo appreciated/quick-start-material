@@ -16,14 +16,14 @@
      }
 
      .menu-wrapper {
-          position: relative;
-          // This exact number due to .v-grid horizontal scrollbar
+          // If you wonder why this exact number -> due to .v-grid horizontal scrollbar
           z-index: 91;
           overflow: hidden;
           transition: transform 0.7s, width 0.7s;
           margin-right: -50px;
           height: 92vh;
           position: fixed;
+          top: 60px;
       }
      .menu-hidden {
          transform: translate(-300px, 0px);
