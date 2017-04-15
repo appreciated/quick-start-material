@@ -7,7 +7,7 @@ import com.vaadin.ui.AbstractJavaScriptComponent;
  * Created by Johannes on 10.01.2017.
  */
 @JavaScript({"vaadin://component/circularprogressbar_connector.js"})
-class CircularProgressBar extends AbstractJavaScriptComponent {
+public class CircularProgressBar extends AbstractJavaScriptComponent {
 
     public void setProgress(double value) {
         getState().progress = value;
