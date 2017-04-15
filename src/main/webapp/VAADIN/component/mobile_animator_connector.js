@@ -1,16 +1,19 @@
-window.onload = function () {
-    var body = document.body;
-    body.addEventListener('DOMNodeInserted', OnNodeInserted, false);
+window.com_github_appreciated_quickstart_material_component_mobile_MobileMenuAnimator = function () {
+    this.onStateChange = function () {
+        animateScroll();
+    }
 
-    function OnNodeInserted(event) {
+    function animateScroll() {
+        console.log('mobile says hello from javascript!');
         var menuButtonId = 'menu-button';
         var menuId = 'menu-wrapper';
+        console.log("mobile.js");
         document.getElementById(menuButtonId).onclick = function () {
             document.getElementById(menuId).classList.toggle('menu-show');
         };
         var elements = document.getElementsByClassName('mobile-tab-wrapper');
         for (var i = 0; i < elements.length; i++) {
-            elements[i].addEventListener(\click\, function () {
+            elements[i].addEventListener('click', function () {
                 document.getElementById(menuId).classList.toggle('menu-show');
             });
         }
@@ -59,4 +62,4 @@ window.onload = function () {
         document.addEventListener('touchstart', handleTouchStart, false);
         document.addEventListener('touchmove', handleTouchMove, false);
     }
-}
+};

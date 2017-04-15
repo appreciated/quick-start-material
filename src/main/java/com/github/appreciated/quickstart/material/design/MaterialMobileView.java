@@ -13,7 +13,7 @@ import com.github.appreciated.quickstart.base.navigation.interfaces.HasContextAc
 import com.github.appreciated.quickstart.base.navigation.interfaces.HasSearch;
 import com.github.appreciated.quickstart.base.navigation.interfaces.NavigationDesignInterface;
 import com.github.appreciated.quickstart.base.navigation.interfaces.Subpage;
-import com.vaadin.annotations.JavaScript;
+import com.github.appreciated.quickstart.material.component.mobile.MobileMenuAnimator;
 import com.vaadin.icons.VaadinIcons;
 import com.vaadin.ui.*;
 
@@ -25,7 +25,6 @@ import java.util.stream.Stream;
 /**
  * Created by appreciated on 10.12.2016.
  */
-@JavaScript({"vaadin://component/mobile.js"})
 public class MaterialMobileView extends MobileNavigationDesign implements NavigationDesignInterface {
 
     public MaterialMobileView() {
@@ -36,6 +35,7 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
             searchbarWrapper.setVisible(false);
             searchbar.clear();
         });
+        new MobileMenuAnimator();
     }
 
     @Override

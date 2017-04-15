@@ -14,8 +14,8 @@ import com.github.appreciated.quickstart.base.navigation.interfaces.HasSearch;
 import com.github.appreciated.quickstart.base.navigation.interfaces.NavigationDesignInterface;
 import com.github.appreciated.quickstart.base.navigation.interfaces.Subpage;
 import com.github.appreciated.quickstart.base.notification.QuickNotification;
+import com.github.appreciated.quickstart.material.component.desktop.DesktopMenuBarAnimator;
 import com.github.appreciated.quickstart.material.login.LoginDialog;
-import com.vaadin.annotations.JavaScript;
 import com.vaadin.icons.VaadinIcons;
 import com.vaadin.ui.*;
 
@@ -28,13 +28,16 @@ import java.util.stream.StreamSupport;
 /**
  * Created by appreciated on 04.12.2016.
  */
-@JavaScript({"vaadin://component/desktop.js"})
 public class MaterialDesktopView extends DesktopNavigationDesign implements NavigationDesignInterface {
     public static final String CONFIGURATION_FULLHEIGHT_NAVIGATIONBAR = "full_height_navigationbar";
     public static final String CONFIGURATION_HIDE_ICON = "hide_icon";
     public static final String CONFIGURATION_HIDE_TITLE = "hide_title";
     private AccessControl accessControl;
     private RegistrationControl registrationControl;
+
+    public MaterialDesktopView(){
+        new DesktopMenuBarAnimator();
+    }
 
     @Override
     public void initWithConfiguration(Stream<AbstractMap.SimpleEntry<String, Boolean>> configurations) {
