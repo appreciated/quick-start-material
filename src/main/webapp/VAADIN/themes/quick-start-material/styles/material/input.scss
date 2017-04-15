@@ -10,7 +10,7 @@
         color: rgba($qs-primary-contrast-color, 0.7);
     }
     .floating-input {
-        border-bottom: none;
+        border-bottom: none !important;
         background: lighten($qs-primary-color, 5%) !important;
         border-radius: 2px !important;
         box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3) !important;
