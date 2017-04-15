@@ -94,6 +94,14 @@
          height: 55px;
          animation: scale 0.7s;
      }
+     .mobile-top-bar{
+        position: relative;
+        z-index: 2;
+        overflow: visible;
+     }
+    .mobile-content-wrapper {
+
+    }
     .mobile-component-holder {
         padding: 8px;
     }
