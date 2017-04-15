@@ -35,6 +35,7 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
             searchbarWrapper.setVisible(false);
             searchbar.clear();
         });
+
         this.addComponent(new MobileMenuAnimator());
     }
 

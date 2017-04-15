@@ -35,8 +35,10 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Navi
     private AccessControl accessControl;
     private RegistrationControl registrationControl;
 
-    public MaterialDesktopView(){
-        this.addComponent(new DesktopMenuBarAnimator());
+    public MaterialDesktopView() {
+        DesktopMenuBarAnimator animator = new DesktopMenuBarAnimator();
+        animator.addStyleName("visibility: collapse");
+        navigationMenuWrapper.addComponent(animator);
     }
 
     @Override
