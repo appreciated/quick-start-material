@@ -74,6 +74,7 @@
         animation: headerColorFrames ease 3s;
         animation-iteration-count: 1;
         transform-origin: 50% 50%;
+        color: $qs-accent-color;
     }
     .header-animation {
         animation: headerFrames ease 3s;

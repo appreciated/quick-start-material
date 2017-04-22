@@ -4,6 +4,7 @@
 @import "components/v-formlayout.scss";
 @import "components/v-tabsheet.scss";
 @import "components/v-upload.scss";
+@import "components/v-window.scss";
 @mixin components {
     @include v-button;
     @include v-textfield;
@@ -11,4 +12,5 @@
     @include v-formlayout;
     @include v-tabsheet;
     @include v-upload;
+    @include v-window;
 }

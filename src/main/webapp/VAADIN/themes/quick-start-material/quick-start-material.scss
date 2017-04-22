@@ -3,7 +3,6 @@
 @import "styles/basics/fonts.scss";
 @import "styles/basics/basics.scss";
 @import "styles/material/navigation.scss";
-@import "styles/material/window.scss";
 @import "styles/material/material.scss";
 @import "styles/material/animations.scss";
 @import "styles/material/input.scss";
@@ -26,7 +25,6 @@
     @include components;
     @include fonts;
     @include navigation;
-    @include window;
     @include material;
     @include desktop;
     @include mobile;
