@@ -68,8 +68,8 @@ ToDo:
     $qs-accent-color: #03A9F4; // F.e (Light Blue) Accent color for Components
     
     // optionally
-    $mat-background-image: url(...) // color, (no gradients due to [a bug in] the scss compiler);
-    $mat-slide-background: url(...) // color, (no gradients due to [a bug in] the scss compiler);
+    $mat-background-image: url(...) // color, image or a gradient;
+    $mat-slide-background: url(...) // color, image or a gradient;
     
     @import "../quick-start-material/quick-start-material.scss";
 
