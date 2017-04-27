@@ -6,8 +6,7 @@
 A Quick-Start Material implementation for Vaadin
 
 ## Status
-This Project is still under construction! You can already use it for Experiments but be ready for extensive API changes even in minor versions. 
-It will be added as a Vaadin Addon when a more mature status is reached, for now I decided to use JitPack
+This Project is still in developement! It will be added as a Vaadin Addon when a more mature status is reached, for now I decided to use JitPack
 
 ToDo:
 * Debugging 
