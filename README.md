@@ -6,8 +6,7 @@
 A Quick-Start Material implementation for Vaadin
 
 ## Status
-This Project is still under construction! You can already use it for Experiments but be ready for extensive API changes even in minor versions. 
-It will be added as a Vaadin Addon when a more mature status is reached, for now I decided to use JitPack
+This Project is still in developement! It will be added as a Vaadin Addon when a more mature status is reached, for now I decided to use JitPack
 
 ToDo:
 * Debugging 
@@ -69,8 +68,8 @@ ToDo:
     $qs-accent-color: #03A9F4; // F.e (Light Blue) Accent color for Components
     
     // optionally
-    $mat-background-image: url(...) // color, (no gradients due to [a bug in] the scss compiler);
-    $mat-slide-background: url(...) // color, (no gradients due to [a bug in] the scss compiler);
+    $mat-background-image: ... ; // can be a color, image or a gradient (by default = $qs-primary-color)
+    $mat-slide-background: ... ; // can be a color, image or a gradient (by default = $qs-primary-color)
     
     @import "../quick-start-material/quick-start-material.scss";
 
