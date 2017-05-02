@@ -40,7 +40,6 @@
 @mixin buttons {
     // Menu Button Styling + removal of Vaadin button Styling
     .tab {
-        @include true-borderless;
         border: 0px;
         border-bottom: 2px solid;
         border-color: transparent;

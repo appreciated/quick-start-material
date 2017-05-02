@@ -1,9 +1,10 @@
 @import "../valo/valo.scss";
+@import "../material/material.scss";
 @import "styles/basics/color.scss";
 @import "styles/basics/fonts.scss";
 @import "styles/basics/basics.scss";
 @import "styles/material/navigation.scss";
-@import "styles/material/material.scss";
+@import "styles/material/layout.scss";
 @import "styles/material/animations.scss";
 @import "styles/material/input.scss";
 @import "styles/material/pager.scss";
@@ -18,6 +19,7 @@
 
 @mixin quick-start-material {
     @include valo;
+    @include material;
     @include color;
     @include basics;
     @include input;
@@ -25,7 +27,7 @@
     @include components;
     @include fonts;
     @include navigation;
-    @include material;
+    @include layout;
     @include desktop;
     @include mobile;
     @include animations;

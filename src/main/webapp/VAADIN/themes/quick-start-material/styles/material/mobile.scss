@@ -58,7 +58,6 @@
          width: 30px;
      }
      .mobile-tab2 {
-         @include true-borderless;
          @extend .qs-primary-contrast-color;
          text-align: left;
      }
@@ -66,7 +65,6 @@
          width: 30px;
      }
      .mobile-tab {
-         @include true-borderless;
          @extend .qs-primary-contrast-color;
          border-color: transparent;
          text-align: left;

@@ -20,8 +20,9 @@ import com.vaadin.ui.declarative.Design;
 @SuppressWarnings("serial")
 public class LoginDesign extends VerticalLayout {
     protected Label title;
+    protected LoginView loginView;
     protected HorizontalLayout bottomBarWrapper;
-    protected  LoginView loginView;
+
     public LoginDesign() {
         Design.read(this);
     }
