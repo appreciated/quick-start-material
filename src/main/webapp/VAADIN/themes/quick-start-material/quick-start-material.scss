@@ -35,4 +35,8 @@
     @include login;
     @include scrollbar;
     @include pager;
+
+    .v-button-borderless {
+        text-transform: initial;
+    }
 }
