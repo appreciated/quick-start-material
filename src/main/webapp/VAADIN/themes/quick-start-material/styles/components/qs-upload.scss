@@ -22,9 +22,9 @@
         padding: 0px;
     }
     .borderless-upload-button .v-button {
-        background: transparent;
+        background: transparent !important;
         color: white;
-        box-shadow: none;
+        box-shadow: none !important;
     }
     .v-caption-upload-inline-icon {
         margin-left: 9px;
