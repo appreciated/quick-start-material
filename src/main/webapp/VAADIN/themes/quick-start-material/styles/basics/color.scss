@@ -4,7 +4,7 @@ $v-app-background-color: #ffffff !default;
 $v-gradient: v-linear 0% !default;
 $v-bevel-depth: 0% !default;
 $v-shadow-opacity: 10% !default;
-$v-focus-color: #ffffff !default;
+$v-focus-color: $qs-primary-color;
 
 $qs-primary-color: #999999 !default;
 $qs-accent-color: #bbbbbb !default;

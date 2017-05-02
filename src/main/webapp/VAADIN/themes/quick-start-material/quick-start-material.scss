@@ -15,7 +15,7 @@
 @import "styles/material/scrollbar.scss";
 @import "styles/material/loader.scss";
 @import "styles/material/login.scss";
-@import "styles/components.scss";
+@import "styles/qs-components.scss";
 
 @mixin quick-start-material {
     @include valo;
@@ -24,7 +24,7 @@
     @include basics;
     @include input;
     @include buttons;
-    @include components;
+    @include qs-components;
     @include fonts;
     @include navigation;
     @include layout;
