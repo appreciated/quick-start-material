@@ -1,8 +1,16 @@
  @mixin mobile {
      .menu {
          box-shadow: 0 0 40px rgba(0, 0, 0, 0.9);
-         height: 92vh;
+         height: 90vh;
+         display: flex;
+         flex-direction: column;
+         justify-content: space-around;
      }
+     .menu > :first-child {
+         flex: 1 1;
+         overflow: auto;
+     }
+
       .mobile-searchbar {
              background: white;
              padding-left: 20px;
@@ -68,6 +76,7 @@
          @extend .qs-primary-contrast-color;
          border-color: transparent;
          text-align: left;
+         border-radius: 0px;
      }
      .mobile-tab:focus {
          @extend .qs-accent-color;

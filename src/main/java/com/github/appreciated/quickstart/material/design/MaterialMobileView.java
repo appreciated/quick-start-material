@@ -70,7 +70,7 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
             wrapper.addStyleName("mobile-tab-wrapper");
         }
         Button button = new Button(subpage.getNavigationName());
-        button.addStyleName("mobile-tab");
+        button.addStyleName("mobile-tab borderless");
         button.setSizeFull();
         wrapper.addComponent(button);
         button.addClickListener(clickEvent -> {
@@ -92,6 +92,7 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
         }
         Button button = new Button(subpage.getNavigationName());
         button.addStyleName("mobile-tab");
+        button.addStyleName("mobile-tab borderless");
         button.setSizeFull();
         wrapper.addComponent(button);
         button.addClickListener(clickEvent -> subpage.navigateTo());
