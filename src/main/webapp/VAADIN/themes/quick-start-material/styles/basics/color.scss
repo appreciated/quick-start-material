@@ -28,4 +28,7 @@ $qs-primary-contrast-color: valo-font-color($qs-primary-color, 1.0);
     .qs-accent-border-color {
         border-color: $qs-accent-color;
     }
+    .secondary {
+         background: $qs-primary-color;
+    }
 }
