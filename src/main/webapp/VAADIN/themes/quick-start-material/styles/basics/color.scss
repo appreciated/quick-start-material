@@ -28,7 +28,10 @@ $qs-primary-contrast-color: valo-font-color($qs-primary-color, 1.0);
     .qs-accent-border-color {
         border-color: $qs-accent-color;
     }
-    .secondary {
+    .v-button.secondary, .v-textfield.floating.secondary {
          background: $qs-primary-color;
+    }
+    .v-textfield:not(.floating).secondary {
+         border-color: $qs-primary-color;
     }
 }
