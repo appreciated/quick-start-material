@@ -1,5 +1,6 @@
 *.iml
 *.css
+*.css.map
 .idea
 target
 /src/main/webapp/VAADIN/themes/material/
