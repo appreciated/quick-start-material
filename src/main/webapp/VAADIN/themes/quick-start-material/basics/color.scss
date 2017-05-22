@@ -1,6 +1,7 @@
 
 
 $qs-primary-contrast-color: valo-font-color($qs-primary-color, 1.0);
+$qs-accent-contrast-color: valo-font-color($qs-accent-color, 1.0);
 
 .v-textfield.floating::-webkit-input-placeholder {
     color: rgba($qs-primary-contrast-color, 0.7);
