@@ -1,24 +1,25 @@
-@import "../valo/valo.scss";
-@import "../material/material.scss";
-@import "styles/basics/color.scss";
-@import "styles/basics/fonts.scss";
-@import "styles/basics/basics.scss";
-@import "styles/material/navigation.scss";
-@import "styles/material/layout.scss";
-@import "styles/material/animations.scss";
-@import "styles/material/input.scss";
-@import "styles/material/pager.scss";
-@import "styles/material/stepper.scss";
-@import "styles/material/desktop.scss";
-@import "styles/material/mobile.scss";
-@import "styles/material/buttons.scss";
-@import "styles/material/scrollbar.scss";
-@import "styles/material/loader.scss";
-@import "styles/material/login.scss";
-@import "styles/qs-components.scss";
+$qs-primary-color: #607d8b;
+$qs-accent-color: #009688;
 
+$v-selection-color: $qs-accent-color;
+@import "../material/material.scss";
+@import "basics/color.scss";
+@import "basics/fonts.scss";
+@import "basics/basics.scss";
+@import "qs-material/navigation.scss";
+@import "qs-material/layout.scss";
+@import "qs-material/animations.scss";
+@import "qs-material/input.scss";
+@import "qs-material/pager.scss";
+@import "qs-material/stepper.scss";
+@import "qs-material/desktop.scss";
+@import "qs-material/mobile.scss";
+@import "qs-material/buttons.scss";
+@import "qs-material/scrollbar.scss";
+@import "qs-material/loader.scss";
+@import "qs-material/login.scss";
+@import "qs-components.scss";
 @mixin quick-start-material {
-    @include valo;
     @include material;
     @include color;
     @include basics;
@@ -35,8 +36,4 @@
     @include login;
     @include scrollbar;
     @include pager;
-
-    .v-button-borderless {
-        text-transform: initial;
-    }
 }

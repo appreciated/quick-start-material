@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.appreciated</groupId>
     <artifactId>quick-start-material</artifactId>
-    <version>0.9.4</version>
+    <version>0.9.5</version>
     <packaging>jar</packaging>
     <properties>
-        <vaadin.version>8.0.5</vaadin.version>
-        <vaadin.plugin.version>8.0.5</vaadin.plugin.version>
+        <vaadin.version>8.0.6</vaadin.version>
+        <vaadin.plugin.version>8.0.6</vaadin.plugin.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
@@ -31,16 +31,37 @@
         <dependency>
             <groupId>com.github.appreciated</groupId>
             <artifactId>quick-start-base</artifactId>
-            <version>0.9.4</version>
+            <version>0.9.5</version>
         </dependency>
         <dependency>
             <groupId>com.github.appreciated</groupId>
             <artifactId>material</artifactId>
-            <version>0.5.7</version>
+            <version>0.6.1</version>
         </dependency>
     </dependencies>
     <build>
         <plugins>
+            <plugin>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>unpack-one</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>unpack-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <includeGroupIds>com.github.appreciated</includeGroupIds>
+                            <includeArtifactIds>material</includeArtifactIds>
+                            <type>zip</type>
+                            <excludes>*</excludes>
+                            <includes>VAADIN/themes/**</includes>
+                            <outputDirectory>src/main/webapp/</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
@@ -49,6 +70,22 @@
                     <execution>
                         <goals>
                             <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>com.vaadin</groupId>
+                <artifactId>vaadin-maven-plugin</artifactId>
+                <version>${vaadin.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>update-theme</goal>
+                            <goal>update-widgetset</goal>
+                            <goal>compile</goal>
+                            <!-- Comment out compile-theme goal to use on-the-fly theme compilation -->
+                            <goal>compile-theme</goal>
                         </goals>
                     </execution>
                 </executions>

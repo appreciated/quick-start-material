@@ -55,7 +55,7 @@
         transition: background-color 0.3s ease;
     }
     .register-button:hover {
-        background: set-text-color($qs-primary-contrast-color) !important;
+        background: v-font-color($qs-primary-contrast-color, 1.0) !important;
     }
     .sign-in-button {
         height: 40px;
@@ -65,6 +65,6 @@
         transition: background-color 0.3s ease;
     }
     .sign-in-button:hover {
-        background: set-text-color($qs-primary-color) !important;
+        background: v-font-color($qs-primary-color, 1.0) !important;
     }
 }

@@ -1,11 +1,12 @@
-$v-background-color: #ffffff !default;
-$v-app-background-color: #ffffff !default;
-$v-focus-color: $qs-primary-color;
 
-$qs-primary-color: #999999 !default;
-$qs-accent-color: #bbbbbb !default;
 
 $qs-primary-contrast-color: valo-font-color($qs-primary-color, 1.0);
+
+.v-textfield.floating::-webkit-input-placeholder {
+    color: rgba($qs-primary-contrast-color, 0.7);
+}
+
+
 @mixin color {
     .qs-primary-color {
         color: $qs-primary-color;
@@ -20,18 +21,12 @@ $qs-primary-contrast-color: valo-font-color($qs-primary-color, 1.0);
         background-color: $qs-primary-contrast-color !important;
     }
     .qs-accent-contrast-color {
-        color: valo-font-color($qs-accent-color, 1.0);
+        color: $qs-accent-contrast-color;
     }
     .qs-primary-border-color {
         border-color: $qs-primary-color;
     }
     .qs-accent-border-color {
         border-color: $qs-accent-color;
-    }
-    .v-button.secondary, .v-textfield.floating.secondary {
-         background: $qs-primary-color;
-    }
-    .v-textfield:not(.floating).secondary {
-         border-color: $qs-primary-color;
     }
 }
