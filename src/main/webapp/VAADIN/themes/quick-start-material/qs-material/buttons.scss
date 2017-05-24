@@ -122,6 +122,7 @@ body.v-touch .v-button:not(.borderless):not(.contrast).border.primary:active {
         & .v-button:hover:after {
             background-color: unset !important;
         }
+        text-transform: initial;
     }
     .tab-active {
         border-bottom-color: white;
