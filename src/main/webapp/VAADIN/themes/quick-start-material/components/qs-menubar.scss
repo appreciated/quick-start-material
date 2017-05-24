@@ -21,31 +21,38 @@
         border: none;
         box-shadow: none;
     }
-    .v-menubar.navigation-bar {
+    .v-menubar.contrast .v-menubar-menuitem {
+        color: $qs-primary-contrast-color !important;
+    }
+    .v-menubar.contrast .v-menubar-menuitem:hover {
+         background: rgba(255, 255, 255, 0.2) !important;
+    }
+    .v-menubar.tab-bar {
         height: 50px;
         line-height: 50px;
         padding: 0px;
     }
-    .v-menubar.navigation-bar .v-menubar-menuitem {
+    .v-menubar.tab-bar .v-menubar-menuitem {
         margin: 0px;
         color: rgba(255,255,255,0.8) !important;
         transition: color 0.7s, background-color 0.7s;
         text-transform: uppercase;
     }
-     .v-menubar.navigation-bar .v-menubar-menuitem-active {
+     .v-menubar.v-menubar.tab-bar .v-menubar-menuitem-active {
             color: $qs-primary-contrast-color !important;
       }
-    .navigation-bar .v-menubar-menuitem:hover {
+    .v-menubar.tab-bar .v-menubar-menuitem:hover {
+        background: transparent !important;
         color: $qs-primary-contrast-color !important;
     }
-    .navigation-bar > .v-menubar-menuitem-selected {
+    .v-menubar.tab-bar > .v-menubar-menuitem-selected {
         background-color: rgba(255, 255, 255, 0.2) !important;
         background-image: none;
     }
     .v-menubar.round-image > .v-menubar-menuitem:focus:before {
         background-color: transparent;
     }
-    .v-menubar-menuitem:after {
+    .v-menubar.tab-bar .v-menubar-menuitem:after {
         position: absolute;
         border-bottom: 2px white solid;
         width: 100%;
@@ -55,7 +62,7 @@
         transition: opacity 0.3s;
         opacity: 0;
     }
-    .v-menubar-menuitem-active:after {
+    .v-menubar.tab-bar .v-menubar-menuitem-active:after {
         opacity: 1;
         animation: valo-animate-in-fade 1s;
     }
