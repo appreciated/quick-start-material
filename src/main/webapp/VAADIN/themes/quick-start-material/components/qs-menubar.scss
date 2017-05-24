@@ -37,6 +37,7 @@
         color: rgba(255,255,255,0.8) !important;
         transition: color 0.7s, background-color 0.7s;
         text-transform: uppercase;
+        padding: 0px 20px;
     }
      .v-menubar.v-menubar.tab-bar .v-menubar-menuitem-active {
             color: $qs-primary-contrast-color !important;
