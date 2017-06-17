@@ -1,8 +1,9 @@
 $qs-primary-color: #607d8b !default;
 $qs-accent-color: #009688 !default;
 $mat-custom-color: #ffffff;
+$v-unit-size: 45px;
 
-$v-selection-color: $qs-accent-color;
+$v-focus-color: $qs-accent-color !default;
 @import "../material/material.scss";
 @import "basics/color.scss";
 @import "basics/fonts.scss";
