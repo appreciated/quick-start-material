@@ -2,7 +2,8 @@
  $mat-slide-background: $qs-primary-color !default;
  @mixin desktop {
      .small-icon {
-         background: $mat-icon-image;
+         background-color: $qs-accent-color;
+         background-image: $mat-icon-image;
          background-position: center;
          background-size: cover;
          border-radius: 100%;

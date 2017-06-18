@@ -40,7 +40,8 @@
     }
     .login-icon {
         margin-right: 15px;
-        background: $mat-icon-image;
+        background-color: $qs-accent-color;
+        background-image: $mat-icon-image;
         background-position: center;
         background-size: cover;
         box-shadow: 0 19px 38px rgba(0, 0, 0, 0.2), 0 10px 12px rgba(0, 0, 0, 0.22);
