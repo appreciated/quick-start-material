@@ -7,13 +7,13 @@
  </head>
  <body>
   <vaadin-vertical-layout size-auto margin="false">
-   <vaadin-tab-sheet style-name="centered-tabs" id="" size-auto _id="tabs">
+   <vaadin-tab-sheet id="" size-auto _id="tabs">
     <tab caption="Login" selected>
      <vaadin-vertical-layout spacing="false" size-auto margin="false" _id="loginForm">
-      <vaadin-form-layout size-auto>
+      <vaadin-form-layout size-auto margin>
        <vaadin-text-field caption="Username" _id="username"></vaadin-text-field>
        <vaadin-password-field caption="Password" _id="password"></vaadin-password-field>
-       <vaadin-button style-name="float-right borderless borderless-colored" plain-text _id="loginButton">
+       <vaadin-button style-name="float-right borderless primary" plain-text _id="loginButton">
          Login 
        </vaadin-button>
       </vaadin-form-layout>
@@ -22,7 +22,7 @@
     <tab caption="Registration">
      <vaadin-vertical-layout spacing="false" size-auto margin="false" _id="registrationForm">
       <vaadin-form-layout style-name="form-layout-no-margin margin-t-20" size-auto _id="registrationFormLayout">
-       <vaadin-button enabled="false" style-name="qs-accent-color float-right" plain-text _id="registerButton">
+       <vaadin-button enabled="false" style-name="borderless primary float-right" plain-text _id="registerButton">
          Register 
        </vaadin-button>
       </vaadin-form-layout>
