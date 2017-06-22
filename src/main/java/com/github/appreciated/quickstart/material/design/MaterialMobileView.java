@@ -8,12 +8,12 @@ import com.github.appreciated.quickstart.base.components.UploadButton;
 import com.github.appreciated.quickstart.base.navigation.RegistrationControl;
 import com.github.appreciated.quickstart.base.navigation.WebAppDescription;
 import com.github.appreciated.quickstart.base.navigation.actions.*;
-import com.github.appreciated.quickstart.base.navigation.container.SubPageNavigator;
 import com.github.appreciated.quickstart.base.navigation.interfaces.HasContextActions;
 import com.github.appreciated.quickstart.base.navigation.interfaces.HasSearch;
 import com.github.appreciated.quickstart.base.navigation.interfaces.NavigationDesignInterface;
 import com.github.appreciated.quickstart.base.navigation.interfaces.Subpage;
 import com.github.appreciated.quickstart.material.component.mobile.MobileMenuAnimator;
+import com.github.appreciated.quickstart.material.container.MaterialSubPageNavigator;
 import com.vaadin.icons.VaadinIcons;
 import com.vaadin.ui.*;
 
@@ -48,10 +48,10 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
     public void initNavigationElements(Stream<Subpage> pages) {
         navigationElements.removeAllComponents();
         pages.forEach(element -> {
-            if (element instanceof SubPageNavigator) {
+            if (element instanceof MaterialSubPageNavigator) {
                 addMenuElement(element, true);
-                ((SubPageNavigator) element).getPagingElements().getSubpages().forEach(subpage -> {
-                    addChildElement((SubPageNavigator) element, subpage, false);
+                ((MaterialSubPageNavigator) element).getPagingElements().getSubpages().forEach(subpage -> {
+                    addChildElement((MaterialSubPageNavigator) element, subpage, false);
                 });
             } else {
                 addMenuElement(element, false);
@@ -59,7 +59,7 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
         });
     }
 
-    private void addChildElement(SubPageNavigator root, Subpage subpage, boolean hasChildren) {
+    private void addChildElement(MaterialSubPageNavigator root, Subpage subpage, boolean hasChildren) {
         // Wrapper for the Java script part at the attach() method to not override the vaadin on click events
         HorizontalLayout wrapper = new HorizontalLayout();
         wrapper.setHeight(50, Unit.PIXELS);

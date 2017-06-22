@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;quick-start-material&quot;}">
+  <meta name="vaadin-version" content="8.0.5">
+ </head>
+ <body>
+  <vaadin-absolute-layout style-name="absolute-overflow-visible">
+   <vaadin-horizontal-layout style-name="fade-in" size-full></vaadin-horizontal-layout>
+   <vaadin-horizontal-layout size-full>
+    <vaadin-horizontal-layout size-full>
+     <vaadin-horizontal-layout style-name="pager-content" _id="content" :middle :center></vaadin-horizontal-layout>
+    </vaadin-horizontal-layout>
+   </vaadin-horizontal-layout>
+   <vaadin-horizontal-layout width-full :bottom="0px">
+    <vaadin-horizontal-layout spacing="false" _id="pagerDots" :middle :center>
+     <vaadin-horizontal-layout spacing="false" height-full :middle :center>
+      <vaadin-button style-name="borderless paging-indicator" height="30px" plain-text>
+        • 
+      </vaadin-button>
+      <vaadin-button style-name="borderless paging-indicator-current" height="30px" plain-text>
+        • 
+      </vaadin-button>
+     </vaadin-horizontal-layout>
+    </vaadin-horizontal-layout>
+   </vaadin-horizontal-layout>
+   <vaadin-horizontal-layout width="50px" height-full :top="0px" :bottom="0px" :left="0px">
+    <vaadin-button icon="fonticon://FontAwesome/f060" style-name="floating-action fade-in" plain-text _id="last" :middle></vaadin-button>
+   </vaadin-horizontal-layout>
+   <vaadin-horizontal-layout height-full :top="0px" :right="0px" :bottom="0px">
+    <vaadin-button icon="fonticon://FontAwesome/f061" style-name="fade-in floating-action" plain-text _id="next" :middle :right></vaadin-button>
+   </vaadin-horizontal-layout>
+  </vaadin-absolute-layout>
+ </body>
+</html>
