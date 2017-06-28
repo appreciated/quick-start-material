@@ -35,7 +35,8 @@ public class MaterialDesignProvider implements QuickStartDesignProvider {
         return MaterialDesktopView.class;
     }
 
-    public QuickStartLoginView getLogin() {
+    @Override
+    public QuickStartLoginView getLoginView() {
         return new MaterialLogin();
     }
 
