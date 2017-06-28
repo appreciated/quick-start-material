@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.ListIterator;
 
 /**
- * Created by Johannes on 21.03.2017.
+ * Created by appreciated on 21.03.2017.
  */
 public class LoginView extends LoginViewDesign {
 

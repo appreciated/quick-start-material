@@ -21,7 +21,7 @@ import com.vaadin.ui.Layout;
 import org.vaadin.leif.splashscreen.SplashScreen;
 
 /**
- * Created by Johannes on 27.06.2017.
+ * Created by appreciated on 27.06.2017.
  */
 @SplashScreen(value = "com/github/appreciated/quickstart/material/ui/loader.html", width = 100, height = 100)
 public class MaterialDesignProvider implements QuickStartDesignProvider {

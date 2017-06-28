@@ -7,7 +7,7 @@ import com.github.appreciated.quickstart.base.navigation.interfaces.theme.QuickS
 import com.github.appreciated.quickstart.material.dialog.MaterialDialog;
 
 /**
- * Created by Johannes on 21.03.2017.
+ * Created by appreciated on 21.03.2017.
  */
 public class LoginDialog extends MaterialDialog implements QuickStartLogin, LoginListener {
     private LoginView view;
