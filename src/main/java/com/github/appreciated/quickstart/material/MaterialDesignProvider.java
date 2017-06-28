@@ -42,7 +42,7 @@ public class MaterialDesignProvider implements QuickStartDesignProvider {
     @Override
     public Layout getNavigationContainer(ContainerSubpage page) {
         MaterialNavigationContainerView container = new MaterialNavigationContainerView();
-        if (((ContainerSubpage) page).hasPadding()) {
+        if (page.hasPadding()) {
             container.addStyleName("container-padding");
         }
         return container;
