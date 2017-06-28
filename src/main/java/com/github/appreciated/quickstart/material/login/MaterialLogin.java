@@ -2,8 +2,8 @@ package com.github.appreciated.quickstart.material.login;
 
 import com.github.appreciated.quickstart.base.authentication.login.AccessControl;
 import com.github.appreciated.quickstart.base.authentication.login.LoginListener;
-import com.github.appreciated.quickstart.base.navigation.RegistrationControl;
-import com.github.appreciated.quickstart.base.navigation.interfaces.LoginPage;
+import com.github.appreciated.quickstart.base.authentication.registration.RegistrationControl;
+import com.github.appreciated.quickstart.base.navigation.interfaces.theme.QuickStartLoginView;
 import com.vaadin.server.Page;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.HorizontalLayout;
@@ -12,8 +12,7 @@ import com.vaadin.ui.Notification;
 /**
  * Created by appreciated on 07.12.2016.
  */
-public class MaterialLogin extends LoginDesign implements LoginPage {
-
+public class MaterialLogin extends LoginDesign implements QuickStartLoginView {
 
     @Override
     public void initTitle(String title) {

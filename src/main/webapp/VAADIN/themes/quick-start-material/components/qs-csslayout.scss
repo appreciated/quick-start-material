@@ -1,0 +1,14 @@
+@mixin qs-csslayout {
+    .v-csslayout.flex-row {
+         display: flex;
+          flex-direction: row;
+    }
+    .v-csslayout.flex-collumn {
+        display: flex;
+        flex-direction: column;
+    }
+    .v-csslayout.flex-row > .grow,
+    .v-csslayout.flex-collumn > .grow {
+         flex: 1 100%;
+    }
+}

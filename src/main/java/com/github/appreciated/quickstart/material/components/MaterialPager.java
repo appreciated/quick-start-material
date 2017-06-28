@@ -1,10 +1,11 @@
-package com.github.appreciated.quickstart.material.container;
+package com.github.appreciated.quickstart.material.components;
 
 
-import com.github.appreciated.quickstart.base.navigation.container.Pager;
-import com.github.appreciated.quickstart.base.navigation.interfaces.ContainerSubpage;
-import com.github.appreciated.quickstart.base.navigation.interfaces.HasPercentageHeight;
-import com.github.appreciated.quickstart.base.navigation.interfaces.Subpage;
+import com.github.appreciated.quickstart.base.navigation.interfaces.attributes.HasPercentageHeight;
+import com.github.appreciated.quickstart.base.navigation.interfaces.base.Subpage;
+import com.github.appreciated.quickstart.base.navigation.interfaces.components.Pager;
+import com.github.appreciated.quickstart.base.navigation.interfaces.theme.QuickStartPager;
+import com.github.appreciated.quickstart.base.ui.QuickStartUI;
 import com.vaadin.ui.Button;
 
 import java.util.HashMap;
@@ -14,7 +15,7 @@ import java.util.Map;
 /**
  * Created by appreciated on 09.12.2016.
  */
-public abstract class MaterialPager extends MaterialPagerDesign implements Pager, HasPercentageHeight {
+public class MaterialPager extends MaterialPagerDesign implements QuickStartPager, HasPercentageHeight {
 
     private final List<Subpage> subpages;
 
@@ -22,18 +23,18 @@ public abstract class MaterialPager extends MaterialPagerDesign implements Pager
 
     private Subpage currentPage;
 
-    public MaterialPager() {
-        pagerDots.removeAllComponents();
-        subpages = getPagingElements().getSubpages();
+    public MaterialPager(Pager hasSubpages) {
+        getPagerDots().removeAllComponents();
+        subpages = hasSubpages.getPagingElements().getSubpages();
         for (Subpage subpage : subpages) {
             Button button = new Button();
             button.addStyleName("paging-indicator");
             button.addClickListener(event -> setNewPage(subpage));
-            pagerDots.addComponent(button);
+            getPagerDots().addComponent(button);
             navigablesMap.put(subpage, button);
         }
-        next.addClickListener(event -> next());
-        last.addClickListener(event -> last());
+        getNext().addClickListener(event -> next());
+        getLast().addClickListener(event -> last());
         setNewPage(subpages.get(0));
         navigablesMap.get(subpages.get(0)).addStyleName("paging-indicator-active");
     }
@@ -45,17 +46,10 @@ public abstract class MaterialPager extends MaterialPagerDesign implements Pager
         navigablesMap.get(subpage).addStyleName("paging-indicator-active");
         currentPage = subpage;
         int index = subpages.indexOf(subpage);
-        last.setVisible(index != 0);
-        next.setVisible(index != subpages.size() - 1);
-        if (subpage instanceof ContainerSubpage) {
-            MaterialNavigationContainerView container = new MaterialNavigationContainerView();
-            container.addComponent(subpage);
-            content.removeAllComponents();
-            content.addComponent(container);
-        } else {
-            content.removeAllComponents();
-            content.addComponent(subpage);
-        }
+        getLast().setVisible(index != 0);
+        getNext().setVisible(index != subpages.size() - 1);
+        getContent().removeAllComponents();
+        getContent().addComponent(QuickStartUI.getProvider().getComponent(subpage));
     }
 
     public void next() {

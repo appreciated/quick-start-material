@@ -1,4 +1,4 @@
-package com.github.appreciated.quickstart.material.container;
+package com.github.appreciated.quickstart.material.components;
 
 
 /**

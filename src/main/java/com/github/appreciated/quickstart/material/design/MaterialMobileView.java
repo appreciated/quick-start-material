@@ -3,17 +3,17 @@ package com.github.appreciated.quickstart.material.design;
 
 import com.github.appreciated.quickstart.base.authentication.Util;
 import com.github.appreciated.quickstart.base.authentication.login.AccessControl;
+import com.github.appreciated.quickstart.base.authentication.registration.RegistrationControl;
 import com.github.appreciated.quickstart.base.components.DownloadButton;
 import com.github.appreciated.quickstart.base.components.UploadButton;
-import com.github.appreciated.quickstart.base.navigation.RegistrationControl;
 import com.github.appreciated.quickstart.base.navigation.WebAppDescription;
 import com.github.appreciated.quickstart.base.navigation.actions.*;
-import com.github.appreciated.quickstart.base.navigation.interfaces.HasContextActions;
-import com.github.appreciated.quickstart.base.navigation.interfaces.HasSearch;
-import com.github.appreciated.quickstart.base.navigation.interfaces.NavigationDesignInterface;
-import com.github.appreciated.quickstart.base.navigation.interfaces.Subpage;
+import com.github.appreciated.quickstart.base.navigation.interfaces.attributes.HasContextActions;
+import com.github.appreciated.quickstart.base.navigation.interfaces.attributes.HasSearch;
+import com.github.appreciated.quickstart.base.navigation.interfaces.base.Subpage;
+import com.github.appreciated.quickstart.base.navigation.interfaces.theme.QuickStartNavigationView;
 import com.github.appreciated.quickstart.material.component.mobile.MobileMenuAnimator;
-import com.github.appreciated.quickstart.material.container.MaterialSubPageNavigator;
+import com.github.appreciated.quickstart.material.components.MaterialSubPageNavigator;
 import com.vaadin.icons.VaadinIcons;
 import com.vaadin.ui.*;
 
@@ -25,7 +25,7 @@ import java.util.stream.Stream;
 /**
  * Created by appreciated on 10.12.2016.
  */
-public class MaterialMobileView extends MobileNavigationDesign implements NavigationDesignInterface {
+public class MaterialMobileView extends MobileNavigationDesign implements QuickStartNavigationView {
 
     public MaterialMobileView() {
         logout.addClickListener(event -> {
@@ -50,7 +50,7 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
         pages.forEach(element -> {
             if (element instanceof MaterialSubPageNavigator) {
                 addMenuElement(element, true);
-                ((MaterialSubPageNavigator) element).getPagingElements().getSubpages().forEach(subpage -> {
+                ((MaterialSubPageNavigator) element).getSubpages().forEach(subpage -> {
                     addChildElement((MaterialSubPageNavigator) element, subpage, false);
                 });
             } else {
@@ -114,7 +114,7 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
     public void allowPercentagePageHeight(boolean allow) {
         if (allow) {
             this.setHeight(100, Unit.PERCENTAGE);
-            mobileContentWrapper.setHeight(100,Unit.PERCENTAGE);
+            mobileContentWrapper.setHeight(100, Unit.PERCENTAGE);
             this.componentHolder.setHeight(100, Unit.PERCENTAGE);
         } else {
             this.setHeightUndefined();

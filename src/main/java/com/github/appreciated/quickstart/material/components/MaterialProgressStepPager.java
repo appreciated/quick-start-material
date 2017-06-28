@@ -1,9 +1,12 @@
-package com.github.appreciated.quickstart.material.container;
+package com.github.appreciated.quickstart.material.components;
 
-import com.github.appreciated.quickstart.base.components.ProgressStepView;
 import com.github.appreciated.quickstart.base.navigation.actions.Action;
 import com.github.appreciated.quickstart.base.navigation.actions.CustomAction;
-import com.github.appreciated.quickstart.base.navigation.interfaces.*;
+import com.github.appreciated.quickstart.base.navigation.interfaces.Finishable;
+import com.github.appreciated.quickstart.base.navigation.interfaces.base.Subpage;
+import com.github.appreciated.quickstart.base.navigation.interfaces.components.ProgressStepper;
+import com.github.appreciated.quickstart.base.navigation.interfaces.theme.ProgressStepperComponent;
+import com.github.appreciated.quickstart.base.ui.QuickStartUI;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.VerticalLayout;
@@ -14,16 +17,18 @@ import java.util.List;
 /**
  * Created by appreciated on 09.03.2017.
  */
-public abstract class MaterialProgressStepPager extends VerticalLayout implements Subpage, HasContextActions, HasFinishableSubpages, ProgressStepView.NavigationListener, Finishable.FinishListener {
+public class MaterialProgressStepPager extends VerticalLayout implements ProgressStepperComponent {
 
-    private final ProgressStepView progressStepView;
+    private final MaterialProgressStepView progressStepView;
+    private ProgressStepper finishableSubpages;
     private final List<Finishable> pages;
     private final List<Action> actions;
 
-    public MaterialProgressStepPager() {
-        progressStepView = new ProgressStepView(this, isNavigatable());
+    public MaterialProgressStepPager(ProgressStepper finishableSubpages) {
+        progressStepView = new MaterialProgressStepView(finishableSubpages, isNavigatable());
+        this.finishableSubpages = finishableSubpages;
         progressStepView.setNavigationListener(this);
-        this.pages = getPagingElements();
+        this.pages = finishableSubpages.getPagingElements();
         pages.stream().forEach(subpage -> subpage.setFinishListener(this));
         setMargin(false);
         actions = Arrays.asList(new CustomAction(progressStepView) {
@@ -42,8 +47,13 @@ public abstract class MaterialProgressStepPager extends VerticalLayout implement
     }
 
     @Override
-    public void onNavigate(Component next) {
-        setNewContent(next);
+    public void onNavigate(Subpage next) {
+        setNewContent((Finishable) next);
+    }
+
+    @Override
+    public void onDone() {
+        finishableSubpages.onDone();
     }
 
     @Override
@@ -60,15 +70,8 @@ public abstract class MaterialProgressStepPager extends VerticalLayout implement
         return false;
     }
 
-    public void setNewContent(Component content) {
-        Component actualContent = null;
-        if (content instanceof ContainerSubpage) {
-            MaterialNavigationContainerView container = new MaterialNavigationContainerView();
-            container.addComponent(content);
-            actualContent = container;
-        } else {
-            actualContent = content;
-        }
+    public void setNewContent(Finishable content) {
+        Component actualContent = QuickStartUI.getProvider().getComponent(content);
         this.removeAllComponents();
         this.addComponent(actualContent);
     }

@@ -11,6 +11,7 @@ import com.vaadin.ui.Window;
  */
 public class MaterialDialog extends Dialog {
 
+
     public MaterialDialog(String title, Component component) {
         this(title, component,null);
     }
@@ -25,4 +26,7 @@ public class MaterialDialog extends Dialog {
         getButtonWrapper().addStyleName("padding-10");
     }
 
+    public MaterialDialog() {
+
+    }
 }

@@ -1,31 +1,37 @@
-package com.github.appreciated.quickstart.material.container;
+package com.github.appreciated.quickstart.material.components;
 
 import com.github.appreciated.quickstart.base.navigation.actions.Action;
 import com.github.appreciated.quickstart.base.navigation.actions.CustomAction;
-import com.github.appreciated.quickstart.base.navigation.interfaces.*;
+import com.github.appreciated.quickstart.base.navigation.interfaces.attributes.HasContextActions;
+import com.github.appreciated.quickstart.base.navigation.interfaces.base.Subpage;
+import com.github.appreciated.quickstart.base.navigation.interfaces.components.SubpageNavigator;
+import com.github.appreciated.quickstart.base.navigation.interfaces.theme.SubpagerComponent;
+import com.github.appreciated.quickstart.base.ui.QuickStartUI;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.MenuBar;
 import com.vaadin.ui.VerticalLayout;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
  * Created by appreciated on 01.04.2017.
  */
-public abstract class MaterialSubPageNavigator extends VerticalLayout implements Subpage, HasSubpages, HasContextActions {
+public class MaterialSubPageNavigator extends VerticalLayout implements SubpagerComponent {
 
     private MenuBar menuBar;
     private List<Action> subpageActions = new ArrayList<>();
     private LinkedHashMap<Subpage, MenuBar.MenuItem> menuBarItems = new LinkedHashMap<>();
     private String standardStyle;
+    private SubpageNavigator subpages;
 
 
-    public MaterialSubPageNavigator() {
+    public MaterialSubPageNavigator(SubpageNavigator subpages) {
+        this.subpages = subpages;
         menuBar = new MenuBar();
-        getPagingElements().getSubpages()
-                .forEach(subpage -> addSubpage(subpage));
+        subpages.getPagingElements().getSubpages().forEach(subpage -> addSubpage(subpage));
         this.setMargin(false);
         menuBar.setStyleName("borderless custom");
         setCurrentSubpage(menuBarItems.entrySet().stream().map(entry -> entry.getKey()).findFirst().get());
@@ -37,25 +43,7 @@ public abstract class MaterialSubPageNavigator extends VerticalLayout implements
         if (page instanceof HasContextActions) {
             subpageActions.addAll(((HasContextActions) page).getContextActions());
         }
-        boolean hasPercentageHeight = page instanceof HasPercentageHeight;
-        if (page instanceof ContainerSubpage) {
-            MaterialNavigationContainerView container = new MaterialNavigationContainerView();
-            if (((ContainerSubpage) page).hasPadding()) {
-                container.addStyleName("container-padding");
-            }
-            if (hasPercentageHeight) {
-                container.setSizeFull();
-                this.setSizeFull();
-            }
-            container.addComponent(page);
-            this.addComponent(container);
-        } else {
-            if (hasPercentageHeight) {
-                page.setSizeFull();
-                this.setSizeFull();
-            }
-            this.addComponent(page);
-        }
+        this.addComponent(QuickStartUI.getProvider().getComponent(page));
         updateContextActions();
         menuBarItems.forEach((subpage, menuItem) -> menuItem.setStyleName(page.equals(subpage) ? getStyleName() + "active" : standardStyle));
     }
@@ -86,5 +74,9 @@ public abstract class MaterialSubPageNavigator extends VerticalLayout implements
 
     public void setCaption(Subpage page, String name) {
         menuBarItems.get(page).setText(name);
+    }
+
+    public LinkedList<Subpage> getSubpages() {
+        return subpages.getPagingElements().getSubpages();
     }
 }

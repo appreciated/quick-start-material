@@ -3,17 +3,17 @@ package com.github.appreciated.quickstart.material.design;
 
 import com.github.appreciated.quickstart.base.authentication.Util;
 import com.github.appreciated.quickstart.base.authentication.login.AccessControl;
+import com.github.appreciated.quickstart.base.authentication.registration.RegistrationControl;
 import com.github.appreciated.quickstart.base.components.DownloadButton;
 import com.github.appreciated.quickstart.base.components.UploadButton;
-import com.github.appreciated.quickstart.base.navigation.RegistrationControl;
 import com.github.appreciated.quickstart.base.navigation.WebAppDescription;
-import com.github.appreciated.quickstart.base.navigation.WebApplicationUI;
 import com.github.appreciated.quickstart.base.navigation.actions.*;
-import com.github.appreciated.quickstart.base.navigation.interfaces.HasContextActions;
-import com.github.appreciated.quickstart.base.navigation.interfaces.HasSearch;
-import com.github.appreciated.quickstart.base.navigation.interfaces.NavigationDesignInterface;
-import com.github.appreciated.quickstart.base.navigation.interfaces.Subpage;
+import com.github.appreciated.quickstart.base.navigation.interfaces.attributes.HasContextActions;
+import com.github.appreciated.quickstart.base.navigation.interfaces.attributes.HasSearch;
+import com.github.appreciated.quickstart.base.navigation.interfaces.base.Subpage;
+import com.github.appreciated.quickstart.base.navigation.interfaces.theme.QuickStartNavigationView;
 import com.github.appreciated.quickstart.base.notification.QuickNotification;
+import com.github.appreciated.quickstart.base.ui.QuickStartUI;
 import com.github.appreciated.quickstart.material.component.desktop.DesktopMenuBarAnimator;
 import com.github.appreciated.quickstart.material.login.LoginDialog;
 import com.vaadin.icons.VaadinIcons;
@@ -28,7 +28,7 @@ import java.util.stream.StreamSupport;
 /**
  * Created by appreciated on 04.12.2016.
  */
-public class MaterialDesktopView extends DesktopNavigationDesign implements NavigationDesignInterface {
+public class MaterialDesktopView extends DesktopNavigationDesign implements QuickStartNavigationView {
     public static final String CONFIGURATION_FULLHEIGHT_NAVIGATIONBAR = "full_height_navigationbar";
     public static final String CONFIGURATION_HIDE_ICON = "hide_icon";
     public static final String CONFIGURATION_HIDE_TITLE = "hide_title";
@@ -79,7 +79,7 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Navi
         if (description.getLoginNavigable() == null) {
             register.addClickListener(clickEvent -> new LoginDialog("Register").initWithAccessControl(accessControl).initRegistrationControl(registrationControl).withLoginVisible(false).initWithLoginListener(() -> showUser()).show());
             signIn.addClickListener(clickEvent -> new LoginDialog("Sign-In").initWithAccessControl(accessControl).withLoginVisible(true).initWithLoginListener(() -> showUser()).show());
-        } else if (WebApplicationUI.isUserSignedIn()) {
+        } else if (QuickStartUI.isUserSignedIn()) {
             showUser();
         } else {
             Util.invalidateSession();
@@ -88,7 +88,7 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Navi
 
     private void showUser() {
         userAuthWrapper.setVisible(false);
-        MenuBar.MenuItem item = user.addItem(WebApplicationUI.getUsername(), VaadinIcons.USER, null);
+        MenuBar.MenuItem item = user.addItem(QuickStartUI.getUsername(), VaadinIcons.USER, null);
         item.addItem("Edit Profile", menuItem -> QuickNotification.showMessageError("This is currently not implemented"));
         item.addItem("Logout", menuItem -> Util.invalidateSession());
     }

@@ -1,10 +1,10 @@
-package com.github.appreciated.quickstart.base.components;
+package com.github.appreciated.quickstart.material.components;
 
 import com.github.appreciated.quickstart.base.listeners.LayoutLeftClickListener;
 import com.github.appreciated.quickstart.base.navigation.interfaces.Finishable;
-import com.github.appreciated.quickstart.base.navigation.interfaces.HasFinishableSubpages;
-import com.github.appreciated.quickstart.base.navigation.interfaces.Subpage;
-import com.vaadin.ui.Component;
+import com.github.appreciated.quickstart.base.navigation.interfaces.NavigationListener;
+import com.github.appreciated.quickstart.base.navigation.interfaces.attributes.HasFinishableSubpages;
+import com.github.appreciated.quickstart.base.navigation.interfaces.base.Subpage;
 import com.vaadin.ui.HorizontalLayout;
 
 import java.util.LinkedList;
@@ -14,19 +14,19 @@ import java.util.ListIterator;
 /**
  * Created by appreciated on 09.03.2017.
  */
-public class ProgressStepView extends HorizontalLayout {
+public class MaterialProgressStepView extends HorizontalLayout {
 
     private final List<Finishable> pages;
     private boolean navigateable;
     private NavigationListener navigationListener;
-    LinkedList<ProgressStepDesign> stepperViews = new LinkedList<>();
-    private ListIterator<ProgressStepDesign> currentStepperIterator;
-    private ProgressStepDesign currentDesign;
+    LinkedList<MaterialProgressStepDesign> stepperViews = new LinkedList<>();
+    private ListIterator<MaterialProgressStepDesign> currentStepperIterator;
+    private MaterialProgressStepDesign currentDesign;
 
-    public ProgressStepView(HasFinishableSubpages pager, boolean navigatable) {
+    public MaterialProgressStepView(HasFinishableSubpages pager, boolean navigatable) {
         this.pages = pager.getPagingElements();
         for (int i = 0; i < pages.size(); i++) {
-            ProgressStepDesign view = new ProgressStepDesign();
+            MaterialProgressStepDesign view = new MaterialProgressStepDesign();
             if (navigateable) {
                 view.addStyleName("v-button");
             }
@@ -68,12 +68,12 @@ public class ProgressStepView extends HorizontalLayout {
         }
     }
 
-    private void setActiveStepper(ProgressStepDesign design) {
+    private void setActiveStepper(MaterialProgressStepDesign design) {
         if (navigateable) {
             stepperViews.forEach(components1 -> components1.removeStyleName("stepper-wrapper-active"));
         }
 
-        for (ProgressStepDesign stepperView : stepperViews) {
+        for (MaterialProgressStepDesign stepperView : stepperViews) {
             stepperView.addStyleName("stepper-wrapper-active");
             if (stepperView == design) {
                 break;
@@ -95,9 +95,4 @@ public class ProgressStepView extends HorizontalLayout {
         return pages.get(stepperViews.indexOf(currentDesign));
     }
 
-    public interface NavigationListener {
-        void onNavigate(Component next);
-
-        void onDone();
-    }
 }

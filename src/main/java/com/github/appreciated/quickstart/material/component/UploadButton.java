@@ -1,7 +1,7 @@
 package com.github.appreciated.quickstart.base.components;
 
-import com.github.appreciated.quickstart.base.navigation.WebApplicationUI;
 import com.github.appreciated.quickstart.base.navigation.actions.UploadAction;
+import com.github.appreciated.quickstart.base.ui.QuickStartUI;
 import com.vaadin.ui.Upload;
 
 /**
@@ -10,7 +10,7 @@ import com.vaadin.ui.Upload;
 public class UploadButton extends Upload {
 
     public UploadButton(UploadAction action) {
-        if (WebApplicationUI.isMobile()) {
+        if (QuickStartUI.isMobile()) {
             setCaption("");
             setButtonCaption("");
             setSizeFull();

@@ -1,10 +1,12 @@
 @import "components/qs-menubar.scss";
-@import "components/qs-formlayout.scss";
+@import "components/qs-csslayout.scss";
 @import "components/qs-tabsheet.scss";
+@import "components/qs-upload.scss";
+
 @import "components/qs-upload.scss";
 @mixin qs-components {
     @include qs-menubar;
-    @include qs-formlayout;
+    @include qs-csslayout;
     @include qs-tabsheet;
     @include qs-upload;
 }

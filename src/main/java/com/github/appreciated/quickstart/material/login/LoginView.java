@@ -2,9 +2,9 @@ package com.github.appreciated.quickstart.material.login;
 
 import com.github.appreciated.quickstart.base.authentication.login.AccessControl;
 import com.github.appreciated.quickstart.base.authentication.login.LoginListener;
+import com.github.appreciated.quickstart.base.authentication.registration.RegistrationControl;
 import com.github.appreciated.quickstart.base.authentication.registration.RegistrationResult;
 import com.github.appreciated.quickstart.base.listeners.ShortcutKeyListener;
-import com.github.appreciated.quickstart.base.navigation.RegistrationControl;
 import com.github.appreciated.quickstart.base.notification.QuickNotification;
 import com.vaadin.data.Binder;
 import com.vaadin.data.HasValue;
@@ -81,7 +81,7 @@ public class LoginView extends LoginViewDesign {
                 loginListener.loginSuccessful();
             }
         } else {
-            QuickNotification.showMessage("Login failed", "Please check your username and password and try again.");
+            QuickNotification.showMessage("QuickStartLogin failed", "Please check your username and password and try again.");
             username.focus();
             loginButton.setEnabled(true);
         }
