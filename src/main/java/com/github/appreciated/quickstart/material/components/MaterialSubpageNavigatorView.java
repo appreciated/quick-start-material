@@ -1,6 +1,5 @@
 package com.github.appreciated.quickstart.material.components;
 
-import com.github.appreciated.quickstart.base.components.Helper;
 import com.github.appreciated.quickstart.base.navigation.theme.SubpagerView;
 import com.github.appreciated.quickstart.base.pages.Subpage;
 import com.github.appreciated.quickstart.base.pages.SubpageNavigator;
@@ -36,6 +35,11 @@ public class MaterialSubpageNavigatorView extends VerticalLayout implements Subp
         subpages.getPagingElements().getSubpages().forEach(subpage -> addSubpage(subpage));
         this.setMargin(false);
         menuBar.setStyleName("borderless custom");
+    }
+
+    @Override
+    public void attach() {
+        super.attach();
         setCurrentSubpage(menuBarItems.entrySet().stream().map(entry -> entry.getKey()).findFirst().get());
     }
 
@@ -45,11 +49,11 @@ public class MaterialSubpageNavigatorView extends VerticalLayout implements Subp
         if (page instanceof HasContextActions && ((HasContextActions) page).getContextActions() != null) {
             subpageActions.addAll(((HasContextActions) page).getContextActions());
         }
+        QuickStartUI.getStateManager().setPageTitleVisibility(false);
+        QuickStartUI.getStateManager().onNavigate(page);
+        QuickStartUI.getStateManager().setContextActions(this);
         Component component = QuickStartUI.getProvider().getComponent(page);
-        Helper.prepareContainerForComponent(this, component);
-        this.addComponent(component);
-        updateContextActions();
-        this.setComponentAlignment(component,Alignment.TOP_CENTER);
+        QuickStartUI.getStateManager().setComponent(component, true);
         menuBarItems.forEach((subpage, menuItem) -> menuItem.setStyleName(page.equals(subpage) ? getStyleName() + "active" : standardStyle));
     }
 
