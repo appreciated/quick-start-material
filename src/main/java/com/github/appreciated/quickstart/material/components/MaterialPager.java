@@ -28,7 +28,7 @@ public class MaterialPager extends MaterialPagerDesign implements QuickStartPage
         subpages = hasSubpages.getPagingElements().getSubpages();
         for (Subpage subpage : subpages) {
             Button button = new Button();
-            button.addStyleName("paging-indicator");
+            button.addStyleName("borderless paging-indicator");
             button.addClickListener(event -> setNewPage(subpage));
             getPagerDots().addComponent(button);
             navigablesMap.put(subpage, button);
