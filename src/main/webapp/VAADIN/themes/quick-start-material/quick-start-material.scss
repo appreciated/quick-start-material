@@ -12,14 +12,15 @@ $v-focus-color: $qs-accent-color !default;
 @import "qs-material/layout.scss";
 @import "qs-material/animations.scss";
 @import "qs-material/input.scss";
-@import "qs-material/pager.scss";
-@import "qs-material/stepper.scss";
 @import "qs-material/desktop.scss";
 @import "qs-material/mobile.scss";
 @import "qs-material/buttons.scss";
 @import "qs-material/scrollbar.scss";
 @import "qs-material/loader.scss";
 @import "qs-material/login.scss";
+@import "qs-material/components/pager.scss";
+@import "qs-material/components/subpager.scss";
+@import "qs-material/components/stepper.scss";
 @import "qs-components.scss";
 @mixin quick-start-material {
     @include material;
@@ -34,8 +35,10 @@ $v-focus-color: $qs-accent-color !default;
     @include desktop;
     @include mobile;
     @include animations;
-    @include stepper;
     @include login;
     @include scrollbar;
+
+    @include stepper;
     @include pager;
+    @include subpager;
 }
