@@ -7,7 +7,7 @@ import com.github.appreciated.quickstart.base.navigation.theme.QuickStartDesignP
 import com.github.appreciated.quickstart.base.pages.*;
 import com.github.appreciated.quickstart.material.components.MaterialNavigationContainerView;
 import com.github.appreciated.quickstart.material.components.MaterialPagerView;
-import com.github.appreciated.quickstart.material.components.MaterialProgressStepper;
+import com.github.appreciated.quickstart.material.components.MaterialProgressStepperView;
 import com.github.appreciated.quickstart.material.components.MaterialSubpageNavigatorView;
 import com.github.appreciated.quickstart.material.dialog.MaterialDialog;
 import com.github.appreciated.quickstart.material.login.MaterialLogin;
@@ -48,7 +48,7 @@ public class MaterialDesignProvider implements QuickStartDesignProvider {
 
     @Override
     public ComponentSubpage getProgressStepper(ProgressStepper subpages) {
-        return new MaterialProgressStepper(subpages);
+        return new MaterialProgressStepperView(subpages);
     }
 
     @Override

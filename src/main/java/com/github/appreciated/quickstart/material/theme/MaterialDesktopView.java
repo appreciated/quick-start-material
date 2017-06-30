@@ -15,7 +15,7 @@ import com.github.appreciated.quickstart.base.pages.attributes.HasContextActions
 import com.github.appreciated.quickstart.base.pages.attributes.HasSearch;
 import com.github.appreciated.quickstart.base.ui.QuickStartUI;
 import com.github.appreciated.quickstart.material.component.desktop.DesktopMenuBarAnimator;
-import com.github.appreciated.quickstart.material.components.design.MaterialDesktopActionBar;
+import com.github.appreciated.quickstart.material.components.design.MaterialDesktopActionBarDesign;
 import com.github.appreciated.quickstart.material.login.LoginDialog;
 import com.github.appreciated.quickstart.material.theme.design.DesktopNavigationDesign;
 import com.vaadin.icons.VaadinIcons;
@@ -33,7 +33,7 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Navi
     public static final String CONFIGURATION_HIDE_TITLE = "hide_title";
     private AccessControl accessControl;
     private RegistrationControl registrationControl;
-    private MaterialDesktopActionBar actionBar = null;
+    private MaterialDesktopActionBarDesign actionBar = null;
 
     public MaterialDesktopView() {
         DesktopMenuBarAnimator animator = new DesktopMenuBarAnimator();
@@ -216,8 +216,8 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Navi
     }
 
     private void initActionBar() {
-        this.actionBar = new MaterialDesktopActionBar();
         this.actionbarHolder.removeAllComponents();
+        this.actionBar = new MaterialDesktopActionBarDesign();
         this.actionbarHolder.addComponent(actionBar);
     }
 

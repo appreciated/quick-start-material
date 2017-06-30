@@ -19,18 +19,18 @@ import java.util.List;
 /**
  * Created by appreciated on 09.03.2017.
  */
-public class MaterialProgressStepper extends VerticalLayout implements ProgressStepperView {
+public class MaterialProgressStepperView extends VerticalLayout implements ProgressStepperView {
 
     private final MaterialProgressStepView progressStepView;
     private ProgressStepper finishableSubpages;
     private final List<Finishable> pages;
     private final List<Action> actions;
 
-    public MaterialProgressStepper(ProgressStepper finishableSubpages) {
-        progressStepView = new MaterialProgressStepView(finishableSubpages, isNavigatable());
-        this.finishableSubpages = finishableSubpages;
+    public MaterialProgressStepperView(ProgressStepper progressStepper) {
+        progressStepView = new MaterialProgressStepView(progressStepper, isNavigatable());
+        this.finishableSubpages = progressStepper;
         progressStepView.setNavigationListener(this);
-        this.pages = finishableSubpages.getPagingElements();
+        this.pages = progressStepper.getPagingElements();
         setMargin(false);
         actions = Arrays.asList(new CustomAction(progressStepView) {
             @Override
