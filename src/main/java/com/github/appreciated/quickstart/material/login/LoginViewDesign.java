@@ -19,8 +19,8 @@ import com.vaadin.ui.declarative.Design;
 public class LoginViewDesign extends VerticalLayout {
     protected TabSheet tabs;
     protected VerticalLayout loginForm;
-    protected TextField username;
     protected PasswordField password;
+    protected TextField username;
     protected Button loginButton;
     protected VerticalLayout registrationForm;
     protected FormLayout registrationFormLayout;
