@@ -42,11 +42,11 @@ public class MaterialSubpageNavigatorView extends VerticalLayout implements Subp
     public void setCurrentSubpage(Subpage page) {
         this.removeAllComponents();
         subpageActions.clear();
-        if (page instanceof HasContextActions) {
+        if (page instanceof HasContextActions && ((HasContextActions) page).getContextActions() != null) {
             subpageActions.addAll(((HasContextActions) page).getContextActions());
         }
         Component component = QuickStartUI.getProvider().getComponent(page);
-        Helper.prepareContainerForComponent(this,component);
+        Helper.prepareContainerForComponent(this, component);
         this.addComponent(component);
         updateContextActions();
         menuBarItems.forEach((subpage, menuItem) -> menuItem.setStyleName(page.equals(subpage) ? getStyleName() + "active" : standardStyle));
