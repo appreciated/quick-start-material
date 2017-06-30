@@ -10,9 +10,9 @@ import com.github.appreciated.quickstart.base.navigation.interfaces.theme.LoginI
 import com.github.appreciated.quickstart.base.navigation.interfaces.theme.NavigationView;
 import com.github.appreciated.quickstart.base.navigation.interfaces.theme.QuickStartDesignProvider;
 import com.github.appreciated.quickstart.material.components.MaterialNavigationContainerView;
-import com.github.appreciated.quickstart.material.components.MaterialPagerImplementation;
+import com.github.appreciated.quickstart.material.components.MaterialPagerView;
 import com.github.appreciated.quickstart.material.components.MaterialProgressStepPager;
-import com.github.appreciated.quickstart.material.components.MaterialSubPageNavigator;
+import com.github.appreciated.quickstart.material.components.MaterialSubpageNavigatorView;
 import com.github.appreciated.quickstart.material.design.MaterialDesktopView;
 import com.github.appreciated.quickstart.material.design.MaterialMobileView;
 import com.github.appreciated.quickstart.material.dialog.MaterialDialog;
@@ -47,7 +47,7 @@ public class MaterialDesignProvider implements QuickStartDesignProvider {
 
     @Override
     public ComponentSubpage getSubPageNavigator(SubpageNavigator subpages) {
-        return new MaterialSubPageNavigator(subpages);
+        return new MaterialSubpageNavigatorView(subpages);
     }
 
     @Override
@@ -57,7 +57,7 @@ public class MaterialDesignProvider implements QuickStartDesignProvider {
 
     @Override
     public ComponentSubpage getPager(Pager subpages) {
-        return new MaterialPagerImplementation(subpages);
+        return new MaterialPagerView(subpages);
     }
 
     @Override

@@ -4,7 +4,7 @@ package com.github.appreciated.quickstart.material.components;
 import com.github.appreciated.quickstart.base.components.Helper;
 import com.github.appreciated.quickstart.base.navigation.interfaces.base.Subpage;
 import com.github.appreciated.quickstart.base.navigation.interfaces.components.Pager;
-import com.github.appreciated.quickstart.base.navigation.interfaces.theme.PagerImplementation;
+import com.github.appreciated.quickstart.base.navigation.interfaces.theme.PagerView;
 import com.github.appreciated.quickstart.base.ui.QuickStartUI;
 import com.github.appreciated.quickstart.material.components.design.MaterialPagerDesign;
 import com.vaadin.ui.Button;
@@ -17,7 +17,7 @@ import java.util.Map;
 /**
  * Created by appreciated on 09.12.2016.
  */
-public class MaterialPagerImplementation extends MaterialPagerDesign implements PagerImplementation {
+public class MaterialPagerView extends MaterialPagerDesign implements PagerView {
 
     private final List<Subpage> subpages;
 
@@ -25,7 +25,7 @@ public class MaterialPagerImplementation extends MaterialPagerDesign implements 
 
     private Subpage currentPage;
 
-    public MaterialPagerImplementation(Pager hasSubpages) {
+    public MaterialPagerView(Pager hasSubpages) {
         getPagerDots().removeAllComponents();
         subpages = hasSubpages.getPagingElements().getSubpages();
         for (Subpage subpage : subpages) {
@@ -49,12 +49,12 @@ public class MaterialPagerImplementation extends MaterialPagerDesign implements 
         currentPage = subpage;
 
         int index = subpages.indexOf(subpage);
-        getLast().setVisible(index != 0);
-        getNext().setVisible(index != subpages.size() - 1);
+        setButtonVisible(getLast(), index != 0);
+        setButtonVisible(getNext(), index != subpages.size() - 1);
         getContent().removeAllComponents();
 
         Component component = QuickStartUI.getProvider().getComponent(subpage);
-        Helper.prepareContainerForComponent(getContent(),component);
+        Helper.prepareContainerForComponent(getContent(), component);
         getContent().addComponent(component);
     }
 
@@ -70,5 +70,13 @@ public class MaterialPagerImplementation extends MaterialPagerDesign implements 
     }
 
     public void onFinish() {
+    }
+
+    private void setButtonVisible(Component component, boolean visible) {
+        if (visible) {
+            component.removeStyleName("invisible");
+        } else {
+            component.addStyleName("invisible");
+        }
     }
 }

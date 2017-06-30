@@ -1,4 +1,4 @@
-package com.github.appreciated.quickstart.material.components;
+package com.github.appreciated.quickstart.material.component;
 
 import com.github.appreciated.quickstart.base.listeners.LayoutLeftClickListener;
 import com.github.appreciated.quickstart.base.navigation.interfaces.Finishable;

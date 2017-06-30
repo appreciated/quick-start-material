@@ -94,4 +94,12 @@
     .animate-in-fade {
         animation: valo-animate-in-fade 1s;
     }
+    .opacity-animation {
+        transition: opacity 0.3s;
+        opacity: 1.0;
+    }
+    .invisible{
+        pointer-events: none;
+        opacity: 0.0;
+    }
 }

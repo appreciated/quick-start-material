@@ -1,12 +1,14 @@
 package com.github.appreciated.quickstart.material.components;
 
+import com.github.appreciated.quickstart.base.components.Helper;
 import com.github.appreciated.quickstart.base.navigation.actions.Action;
 import com.github.appreciated.quickstart.base.navigation.actions.CustomAction;
 import com.github.appreciated.quickstart.base.navigation.interfaces.Finishable;
 import com.github.appreciated.quickstart.base.navigation.interfaces.base.Subpage;
 import com.github.appreciated.quickstart.base.navigation.interfaces.components.ProgressStepper;
-import com.github.appreciated.quickstart.base.navigation.interfaces.theme.ProgressStepperImplementation;
+import com.github.appreciated.quickstart.base.navigation.interfaces.theme.ProgressStepperView;
 import com.github.appreciated.quickstart.base.ui.QuickStartUI;
+import com.github.appreciated.quickstart.material.component.MaterialProgressStepView;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.VerticalLayout;
@@ -17,7 +19,7 @@ import java.util.List;
 /**
  * Created by appreciated on 09.03.2017.
  */
-public class MaterialProgressStepPager extends VerticalLayout implements ProgressStepperImplementation {
+public class MaterialProgressStepPager extends VerticalLayout implements ProgressStepperView {
 
     private final MaterialProgressStepView progressStepView;
     private ProgressStepper finishableSubpages;
@@ -71,9 +73,10 @@ public class MaterialProgressStepPager extends VerticalLayout implements Progres
     }
 
     public void setNewContent(Finishable content) {
-        Component actualContent = QuickStartUI.getProvider().getComponent(content);
+        Component component = QuickStartUI.getProvider().getComponent(content);
+        Helper.prepareContainerForComponent(this,component);
         this.removeAllComponents();
-        this.addComponent(actualContent);
+        this.addComponent(component);
     }
 
     public void next() {
@@ -88,4 +91,5 @@ public class MaterialProgressStepPager extends VerticalLayout implements Progres
     public void onFinish() {
         progressStepView.next();
     }
+
 }

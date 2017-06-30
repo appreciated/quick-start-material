@@ -13,7 +13,7 @@ import com.github.appreciated.quickstart.base.navigation.interfaces.attributes.H
 import com.github.appreciated.quickstart.base.navigation.interfaces.base.Subpage;
 import com.github.appreciated.quickstart.base.navigation.interfaces.theme.NavigationView;
 import com.github.appreciated.quickstart.material.component.mobile.MobileMenuAnimator;
-import com.github.appreciated.quickstart.material.components.MaterialSubPageNavigator;
+import com.github.appreciated.quickstart.material.components.MaterialSubpageNavigatorView;
 import com.vaadin.icons.VaadinIcons;
 import com.vaadin.ui.*;
 
@@ -48,10 +48,10 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
     public void initNavigationElements(Stream<Subpage> pages) {
         navigationElements.removeAllComponents();
         pages.forEach(element -> {
-            if (element instanceof MaterialSubPageNavigator) {
+            if (element instanceof MaterialSubpageNavigatorView) {
                 addMenuElement(element, true);
-                ((MaterialSubPageNavigator) element).getSubpages().forEach(subpage -> {
-                    addChildElement((MaterialSubPageNavigator) element, subpage, false);
+                ((MaterialSubpageNavigatorView) element).getSubpages().forEach(subpage -> {
+                    addChildElement((MaterialSubpageNavigatorView) element, subpage, false);
                 });
             } else {
                 addMenuElement(element, false);
@@ -59,7 +59,7 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
         });
     }
 
-    private void addChildElement(MaterialSubPageNavigator root, Subpage subpage, boolean hasChildren) {
+    private void addChildElement(MaterialSubpageNavigatorView root, Subpage subpage, boolean hasChildren) {
         // Wrapper for the Java script part at the attach() method to not override the vaadin on click events
         HorizontalLayout wrapper = new HorizontalLayout();
         wrapper.setHeight(50, Unit.PIXELS);

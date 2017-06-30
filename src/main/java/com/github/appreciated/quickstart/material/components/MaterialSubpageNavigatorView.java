@@ -6,7 +6,7 @@ import com.github.appreciated.quickstart.base.navigation.actions.CustomAction;
 import com.github.appreciated.quickstart.base.navigation.interfaces.attributes.HasContextActions;
 import com.github.appreciated.quickstart.base.navigation.interfaces.base.Subpage;
 import com.github.appreciated.quickstart.base.navigation.interfaces.components.SubpageNavigator;
-import com.github.appreciated.quickstart.base.navigation.interfaces.theme.SubpagerImplementation;
+import com.github.appreciated.quickstart.base.navigation.interfaces.theme.SubpagerView;
 import com.github.appreciated.quickstart.base.ui.QuickStartUI;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Component;
@@ -21,7 +21,7 @@ import java.util.List;
 /**
  * Created by appreciated on 01.04.2017.
  */
-public class MaterialSubPageNavigator extends VerticalLayout implements SubpagerImplementation {
+public class MaterialSubpageNavigatorView extends VerticalLayout implements SubpagerView {
 
     private MenuBar menuBar;
     private List<Action> subpageActions = new ArrayList<>();
@@ -30,7 +30,7 @@ public class MaterialSubPageNavigator extends VerticalLayout implements Subpager
     private SubpageNavigator subpages;
 
 
-    public MaterialSubPageNavigator(SubpageNavigator subpages) {
+    public MaterialSubpageNavigatorView(SubpageNavigator subpages) {
         this.subpages = subpages;
         menuBar = new MenuBar();
         subpages.getPagingElements().getSubpages().forEach(subpage -> addSubpage(subpage));

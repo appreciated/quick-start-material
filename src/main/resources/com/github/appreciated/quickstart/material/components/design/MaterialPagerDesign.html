@@ -8,13 +8,13 @@
  <body>
   <vaadin-vertical-layout style-name="absolute-overflow-visible" spacing="false" size-full>
    <vaadin-horizontal-layout size-full :expand>
-    <vaadin-horizontal-layout height-full>
+    <vaadin-horizontal-layout style-name="opacity-animation" height-full _id="lastWrapper">
      <vaadin-button icon="fonticon://Vaadin-Icons/e7b0" style-name="floating-action fade-in pager-left-button" plain-text _id="last" :middle></vaadin-button>
     </vaadin-horizontal-layout>
     <vaadin-horizontal-layout size-full :expand>
      <vaadin-horizontal-layout style-name="pager-content" _id="content" :middle :center></vaadin-horizontal-layout>
     </vaadin-horizontal-layout>
-    <vaadin-horizontal-layout height-full>
+    <vaadin-horizontal-layout style-name="opacity-animation" height-full _id="nextWrapper">
      <vaadin-button icon="fonticon://Vaadin-Icons/e7b1" style-name="fade-in floating-action pager-right-button" plain-text _id="next" :middle :right></vaadin-button>
     </vaadin-horizontal-layout>
    </vaadin-horizontal-layout>
