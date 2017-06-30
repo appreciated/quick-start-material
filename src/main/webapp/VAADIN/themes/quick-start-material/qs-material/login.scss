@@ -1,12 +1,14 @@
 @media (max-device-width: 500px) {
     .login-background {
-        background-color: white !important;
+
     }
     .login-window {
         box-shadow: none !important;
+        background-color: transparent !important;
     }
     .login-text {
         text-shadow: none !important;
+        color: $qs-primary-color !important;
     }
     .login-icon {
         box-shadow: none !important;
@@ -29,7 +31,6 @@
        text-shadow: 0 17px 13px rgba(0, 0, 0, 0.3);
     }
     .login-icon {
-        margin-right: 15px;
         background-color: $qs-accent-color;
         background-image: $mat-icon-image;
         background-position: center;
