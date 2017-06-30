@@ -1,5 +1,14 @@
 @media (max-device-width: 500px) {
+    .login-background {
+        background-color: white !important;
+    }
     .login-window {
+        box-shadow: none !important;
+    }
+    login-text {
+        text-shadow: none !important;
+    }
+    .login-icon {
         box-shadow: none !important;
     }
     .login-window-wrapper {
@@ -7,16 +16,6 @@
     }
 }
 
-@media (min-device-width: 501px) {
-
-
-}
-
-@media (min-device-width: 800px) {
-    .login-window {
-        padding: 20px;
-    }
-}
 @mixin login {
      .login-background {
         background-image: unquote("#{$mat-background-image} ");
