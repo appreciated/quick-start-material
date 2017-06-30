@@ -1,4 +1,4 @@
-package com.github.appreciated.quickstart.material.design;
+package com.github.appreciated.quickstart.material.theme;
 
 
 import com.github.appreciated.quickstart.base.authentication.Util;
@@ -14,6 +14,7 @@ import com.github.appreciated.quickstart.base.pages.attributes.HasContextActions
 import com.github.appreciated.quickstart.base.pages.attributes.HasSearch;
 import com.github.appreciated.quickstart.material.component.mobile.MobileMenuAnimator;
 import com.github.appreciated.quickstart.material.components.MaterialSubpageNavigatorView;
+import com.github.appreciated.quickstart.material.theme.design.MobileNavigationDesign;
 import com.vaadin.icons.VaadinIcons;
 import com.vaadin.ui.*;
 

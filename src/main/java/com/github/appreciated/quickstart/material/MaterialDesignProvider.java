@@ -9,10 +9,10 @@ import com.github.appreciated.quickstart.material.components.MaterialNavigationC
 import com.github.appreciated.quickstart.material.components.MaterialPagerView;
 import com.github.appreciated.quickstart.material.components.MaterialProgressStepper;
 import com.github.appreciated.quickstart.material.components.MaterialSubpageNavigatorView;
-import com.github.appreciated.quickstart.material.design.MaterialDesktopView;
-import com.github.appreciated.quickstart.material.design.MaterialMobileView;
 import com.github.appreciated.quickstart.material.dialog.MaterialDialog;
 import com.github.appreciated.quickstart.material.login.MaterialLogin;
+import com.github.appreciated.quickstart.material.theme.MaterialDesktopView;
+import com.github.appreciated.quickstart.material.theme.MaterialMobileView;
 import com.vaadin.ui.Layout;
 import org.vaadin.leif.splashscreen.SplashScreen;
 
