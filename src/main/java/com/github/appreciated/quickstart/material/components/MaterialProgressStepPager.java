@@ -5,7 +5,7 @@ import com.github.appreciated.quickstart.base.navigation.actions.CustomAction;
 import com.github.appreciated.quickstart.base.navigation.interfaces.Finishable;
 import com.github.appreciated.quickstart.base.navigation.interfaces.base.Subpage;
 import com.github.appreciated.quickstart.base.navigation.interfaces.components.ProgressStepper;
-import com.github.appreciated.quickstart.base.navigation.interfaces.theme.ProgressStepperComponent;
+import com.github.appreciated.quickstart.base.navigation.interfaces.theme.ProgressStepperImplementation;
 import com.github.appreciated.quickstart.base.ui.QuickStartUI;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Component;
@@ -17,7 +17,7 @@ import java.util.List;
 /**
  * Created by appreciated on 09.03.2017.
  */
-public class MaterialProgressStepPager extends VerticalLayout implements ProgressStepperComponent {
+public class MaterialProgressStepPager extends VerticalLayout implements ProgressStepperImplementation {
 
     private final MaterialProgressStepView progressStepView;
     private ProgressStepper finishableSubpages;

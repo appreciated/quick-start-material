@@ -81,7 +81,7 @@ public class LoginView extends LoginViewDesign {
                 loginListener.loginSuccessful();
             }
         } else {
-            QuickNotification.showMessage("QuickStartLogin failed", "Please check your username and password and try again.");
+            QuickNotification.showMessage("LoginImplementation failed", "Please check your username and password and try again.");
             username.focus();
             loginButton.setEnabled(true);
         }

@@ -6,17 +6,17 @@ import com.github.appreciated.quickstart.base.navigation.interfaces.base.Contain
 import com.github.appreciated.quickstart.base.navigation.interfaces.components.Pager;
 import com.github.appreciated.quickstart.base.navigation.interfaces.components.ProgressStepper;
 import com.github.appreciated.quickstart.base.navigation.interfaces.components.SubpageNavigator;
+import com.github.appreciated.quickstart.base.navigation.interfaces.theme.LoginImplementationView;
+import com.github.appreciated.quickstart.base.navigation.interfaces.theme.NavigationView;
 import com.github.appreciated.quickstart.base.navigation.interfaces.theme.QuickStartDesignProvider;
-import com.github.appreciated.quickstart.base.navigation.interfaces.theme.QuickStartLoginView;
-import com.github.appreciated.quickstart.base.navigation.interfaces.theme.QuickStartNavigationView;
 import com.github.appreciated.quickstart.material.components.MaterialNavigationContainerView;
-import com.github.appreciated.quickstart.material.components.MaterialPager;
+import com.github.appreciated.quickstart.material.components.MaterialPagerImplementation;
 import com.github.appreciated.quickstart.material.components.MaterialProgressStepPager;
 import com.github.appreciated.quickstart.material.components.MaterialSubPageNavigator;
 import com.github.appreciated.quickstart.material.design.MaterialDesktopView;
 import com.github.appreciated.quickstart.material.design.MaterialMobileView;
 import com.github.appreciated.quickstart.material.dialog.MaterialDialog;
-import com.github.appreciated.quickstart.material.login.MaterialLogin;
+import com.github.appreciated.quickstart.material.login.MaterialLoginImplementation;
 import com.vaadin.ui.Layout;
 import org.vaadin.leif.splashscreen.SplashScreen;
 
@@ -26,18 +26,18 @@ import org.vaadin.leif.splashscreen.SplashScreen;
 @SplashScreen(value = "com/github/appreciated/quickstart/material/ui/loader.html", width = 100, height = 100)
 public class MaterialDesignProvider implements QuickStartDesignProvider {
     @Override
-    public Class<? extends QuickStartNavigationView> getMobileDesign() {
+    public Class<? extends NavigationView> getMobileDesign() {
         return MaterialMobileView.class;
     }
 
     @Override
-    public Class<? extends QuickStartNavigationView> getDesktopDesign() {
+    public Class<? extends NavigationView> getDesktopDesign() {
         return MaterialDesktopView.class;
     }
 
     @Override
-    public QuickStartLoginView getLoginView() {
-        return new MaterialLogin();
+    public LoginImplementationView getLoginView() {
+        return new MaterialLoginImplementation();
     }
 
     @Override
@@ -57,7 +57,7 @@ public class MaterialDesignProvider implements QuickStartDesignProvider {
 
     @Override
     public ComponentSubpage getPager(Pager subpages) {
-        return new MaterialPager(subpages);
+        return new MaterialPagerImplementation(subpages);
     }
 
     @Override

@@ -1,13 +1,15 @@
 package com.github.appreciated.quickstart.material.components;
 
+import com.github.appreciated.quickstart.base.components.Helper;
 import com.github.appreciated.quickstart.base.navigation.actions.Action;
 import com.github.appreciated.quickstart.base.navigation.actions.CustomAction;
 import com.github.appreciated.quickstart.base.navigation.interfaces.attributes.HasContextActions;
 import com.github.appreciated.quickstart.base.navigation.interfaces.base.Subpage;
 import com.github.appreciated.quickstart.base.navigation.interfaces.components.SubpageNavigator;
-import com.github.appreciated.quickstart.base.navigation.interfaces.theme.SubpagerComponent;
+import com.github.appreciated.quickstart.base.navigation.interfaces.theme.SubpagerImplementation;
 import com.github.appreciated.quickstart.base.ui.QuickStartUI;
 import com.vaadin.ui.Alignment;
+import com.vaadin.ui.Component;
 import com.vaadin.ui.MenuBar;
 import com.vaadin.ui.VerticalLayout;
 
@@ -19,7 +21,7 @@ import java.util.List;
 /**
  * Created by appreciated on 01.04.2017.
  */
-public class MaterialSubPageNavigator extends VerticalLayout implements SubpagerComponent {
+public class MaterialSubPageNavigator extends VerticalLayout implements SubpagerImplementation {
 
     private MenuBar menuBar;
     private List<Action> subpageActions = new ArrayList<>();
@@ -43,7 +45,9 @@ public class MaterialSubPageNavigator extends VerticalLayout implements Subpager
         if (page instanceof HasContextActions) {
             subpageActions.addAll(((HasContextActions) page).getContextActions());
         }
-        this.addComponent(QuickStartUI.getProvider().getComponent(page));
+        Component component = QuickStartUI.getProvider().getComponent(page);
+        Helper.prepareContainerForComponent(this,component);
+        this.addComponent(component);
         updateContextActions();
         menuBarItems.forEach((subpage, menuItem) -> menuItem.setStyleName(page.equals(subpage) ? getStyleName() + "active" : standardStyle));
     }

@@ -11,7 +11,7 @@ import com.github.appreciated.quickstart.base.navigation.actions.*;
 import com.github.appreciated.quickstart.base.navigation.interfaces.attributes.HasContextActions;
 import com.github.appreciated.quickstart.base.navigation.interfaces.attributes.HasSearch;
 import com.github.appreciated.quickstart.base.navigation.interfaces.base.Subpage;
-import com.github.appreciated.quickstart.base.navigation.interfaces.theme.QuickStartNavigationView;
+import com.github.appreciated.quickstart.base.navigation.interfaces.theme.NavigationView;
 import com.github.appreciated.quickstart.material.component.mobile.MobileMenuAnimator;
 import com.github.appreciated.quickstart.material.components.MaterialSubPageNavigator;
 import com.vaadin.icons.VaadinIcons;
@@ -25,7 +25,7 @@ import java.util.stream.Stream;
 /**
  * Created by appreciated on 10.12.2016.
  */
-public class MaterialMobileView extends MobileNavigationDesign implements QuickStartNavigationView {
+public class MaterialMobileView extends MobileNavigationDesign implements NavigationView {
 
     public MaterialMobileView() {
         logout.addClickListener(event -> {

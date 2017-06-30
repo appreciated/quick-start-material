@@ -4,7 +4,7 @@ package com.github.appreciated.quickstart.material.components;
 import com.github.appreciated.quickstart.base.components.Helper;
 import com.github.appreciated.quickstart.base.navigation.interfaces.base.Subpage;
 import com.github.appreciated.quickstart.base.navigation.interfaces.components.Pager;
-import com.github.appreciated.quickstart.base.navigation.interfaces.theme.QuickStartPager;
+import com.github.appreciated.quickstart.base.navigation.interfaces.theme.PagerImplementation;
 import com.github.appreciated.quickstart.base.ui.QuickStartUI;
 import com.github.appreciated.quickstart.material.components.design.MaterialPagerDesign;
 import com.vaadin.ui.Button;
@@ -17,7 +17,7 @@ import java.util.Map;
 /**
  * Created by appreciated on 09.12.2016.
  */
-public class MaterialPager extends MaterialPagerDesign implements QuickStartPager {
+public class MaterialPagerImplementation extends MaterialPagerDesign implements PagerImplementation {
 
     private final List<Subpage> subpages;
 
@@ -25,7 +25,7 @@ public class MaterialPager extends MaterialPagerDesign implements QuickStartPage
 
     private Subpage currentPage;
 
-    public MaterialPager(Pager hasSubpages) {
+    public MaterialPagerImplementation(Pager hasSubpages) {
         getPagerDots().removeAllComponents();
         subpages = hasSubpages.getPagingElements().getSubpages();
         for (Subpage subpage : subpages) {
