@@ -1,4 +1,4 @@
-package com.github.appreciated.quickstart.base.components;
+package com.github.appreciated.quickstart.material.component;
 
 import com.github.appreciated.quickstart.base.pages.actions.DownloadAction;
 import com.github.appreciated.quickstart.base.ui.QuickStartUI;
