@@ -1,9 +1,10 @@
 @mixin stepper {
     .stepper-number-wrapper {
-        border: 1px solid red;
+        border: 1px solid $mat-custom-color;
         border-radius: 100%;
         text-align: center;
         font-weight: 500;
+         color: $mat-custom-color;
     }
     .stepper-view >:not(:first-child) > .stepper-wrapper:before {
         content: "....";
@@ -13,6 +14,7 @@
         text-align: center;
         margin-left: -50px;
         position: fixed;
+        color: $mat-custom-color;
     }
     .stepper-view > .v-spacing {
         width: 50px;
@@ -29,5 +31,6 @@
         font-size: small;
         height: unset !important;
         font-weight: 500;
+         color: $mat-custom-color;
     }
 }
