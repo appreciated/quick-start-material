@@ -9,6 +9,11 @@
     }
     .v-csslayout.flex-row > .grow,
     .v-csslayout.flex-collumn > .grow {
-         flex: 1 100%;
+         flex: 1 0%;
+    }
+    .v-csslayout.center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }

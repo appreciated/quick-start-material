@@ -1,24 +1,15 @@
 @media (max-device-width: 500px) {
     .login-window {
-        width: 100%;
-        text-align: center;
-        padding: 20px;
-        background: white;
+        box-shadow: none !important;
     }
     .login-window-wrapper {
-        width: 100%;
-        text-align: center;
+        width: 100% !important;
     }
 }
 
 @media (min-device-width: 501px) {
-    .login-window {
-        @extend .card-4;
-        border-radius: 2px;
-        background: white;
-        padding: 20px;
-    }
-    .login-window-wrapper {text-align: center;}
+
+
 }
 
 @media (min-device-width: 800px) {
