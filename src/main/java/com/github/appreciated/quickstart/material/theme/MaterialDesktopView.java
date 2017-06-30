@@ -136,7 +136,7 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Navi
                         actionBar.getCustomActionWrapper().addComponent(upload);
                         actionBar.getCustomActionWrapper().setComponentAlignment(upload, Alignment.MIDDLE_LEFT);
                     } else if (action instanceof ClickAction) {
-                        actionBar.getContextButtons().addItem(action.getName(), action.getResource(), menuItem -> {
+                        actionBar.getContextButtons().addItem(action.getTitle(), action.getIconResource(), menuItem -> {
                             ((ClickAction) action).getListener().actionPerformed(null);
                         });
                     }

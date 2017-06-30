@@ -11,14 +11,14 @@ public class DownloadButton extends Button {
 
     public DownloadButton(DownloadAction action) {
 
-        setIcon(action.getResource());
+        setIcon(action.getIconResource());
         if (QuickStartUI.isMobile()) {
             addStyleName("floating-action");
         } else {
             addStyleName("borderless custom");
-            setCaption(action.getName());
+            setCaption(action.getTitle());
         }
         action.getDownload().createDownloadButton(this);
-        setIcon(action.getResource());
+        setIcon(action.getIconResource());
     }
 }

@@ -18,11 +18,11 @@ public class UploadButton extends Upload {
         } else {
             addStyleName("upload-inline-icon");
             addStyleName("borderless custom");
-            setButtonCaption(action.getName());
+            setButtonCaption(action.getTitle());
         }
         getButtonCaption();
         setImmediateMode(true);
-        setIcon(action.getResource());
+        setIcon(action.getIconResource());
         action.getUpload().createUploadButton(this);
     }
 

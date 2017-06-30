@@ -167,7 +167,7 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
                     buttonComponent = new HorizontalLayout();
                     ((HorizontalLayout) buttonComponent).addComponent(new UploadButton((UploadAction) action));
                 } else if (action instanceof ClickAction) {
-                    buttonComponent = new Button(action.getResource());
+                    buttonComponent = new Button(action.getIconResource());
                     ((Button) buttonComponent).addClickListener(clickEvent -> ((ClickAction) action).getListener().actionPerformed(null));
                 }
                 if (buttonComponent != null) {
