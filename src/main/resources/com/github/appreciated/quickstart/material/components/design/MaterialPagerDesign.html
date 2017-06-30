@@ -6,31 +6,30 @@
   <meta name="vaadin-version" content="8.0.5">
  </head>
  <body>
-  <vaadin-absolute-layout style-name="absolute-overflow-visible">
-   <vaadin-horizontal-layout style-name="fade-in" size-full></vaadin-horizontal-layout>
-   <vaadin-horizontal-layout size-full>
-    <vaadin-horizontal-layout size-full>
+  <vaadin-vertical-layout style-name="absolute-overflow-visible" size-full>
+   <vaadin-horizontal-layout size-full :expand>
+    <vaadin-horizontal-layout height-full>
+     <vaadin-button icon="fonticon://Vaadin-Icons/e7b0" style-name="floating-action fade-in pager-left-button" plain-text _id="last" :middle></vaadin-button>
+    </vaadin-horizontal-layout>
+    <vaadin-horizontal-layout size-full :expand>
      <vaadin-horizontal-layout style-name="pager-content" _id="content" :middle :center></vaadin-horizontal-layout>
     </vaadin-horizontal-layout>
+    <vaadin-horizontal-layout height-full>
+     <vaadin-button icon="fonticon://Vaadin-Icons/e7b1" style-name="fade-in floating-action pager-right-button" plain-text _id="next" :middle :right></vaadin-button>
+    </vaadin-horizontal-layout>
    </vaadin-horizontal-layout>
-   <vaadin-horizontal-layout width-full :bottom="0px">
+   <vaadin-horizontal-layout width-full>
     <vaadin-horizontal-layout spacing="false" _id="pagerDots" :middle :center>
      <vaadin-horizontal-layout spacing="false" height-full :middle :center>
       <vaadin-button style-name="borderless paging-indicator" height="30px" plain-text>
         • 
       </vaadin-button>
-      <vaadin-button style-name="borderless paging-indicator-current" height="30px" plain-text>
+      <vaadin-button style-name="borderless paging-indicator paging-indicator-active" height="30px" plain-text>
         • 
       </vaadin-button>
      </vaadin-horizontal-layout>
     </vaadin-horizontal-layout>
    </vaadin-horizontal-layout>
-   <vaadin-horizontal-layout width="50px" height-full :top="0px" :bottom="0px" :left="0px">
-    <vaadin-button icon="fonticon://FontAwesome/f060" style-name="floating-action fade-in" plain-text _id="last" :middle></vaadin-button>
-   </vaadin-horizontal-layout>
-   <vaadin-horizontal-layout height-full :top="0px" :right="0px" :bottom="0px">
-    <vaadin-button icon="fonticon://FontAwesome/f061" style-name="fade-in floating-action" plain-text _id="next" :middle :right></vaadin-button>
-   </vaadin-horizontal-layout>
-  </vaadin-absolute-layout>
+  </vaadin-vertical-layout>
  </body>
 </html>

@@ -1,22 +1,13 @@
 @mixin pager {
-    .absolute-overflow-visible > div > div {
-        overflow: visible !important;
-    }
-    .pager-right-button:hover {
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    .pager-right-button {
+        margin-left: -43px;
     }
     .pager-left-button {
-        @include floating-button-style;
-        color: valo-font-color($qs-accent-color, 1.0);
-        margin: 0px;
-        width: 50px;
-        height: 50px;
-    }
-    .pager-left-button:hover {
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+        position: relative;
+        z-index: 3;
+        margin-right: -43px;
     }
     .pager-content {
-        margin: 25px;
         animation: valo-animate-in-slide-left 1s, valo-animate-in-fade 1s ease;
     }
     .paging-indicator {

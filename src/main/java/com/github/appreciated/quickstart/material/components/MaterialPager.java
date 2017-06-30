@@ -6,6 +6,7 @@ import com.github.appreciated.quickstart.base.navigation.interfaces.base.Subpage
 import com.github.appreciated.quickstart.base.navigation.interfaces.components.Pager;
 import com.github.appreciated.quickstart.base.navigation.interfaces.theme.QuickStartPager;
 import com.github.appreciated.quickstart.base.ui.QuickStartUI;
+import com.github.appreciated.quickstart.material.components.design.MaterialPagerDesign;
 import com.vaadin.ui.Button;
 
 import java.util.HashMap;

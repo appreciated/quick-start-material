@@ -5,6 +5,7 @@ import com.github.appreciated.quickstart.base.navigation.interfaces.Finishable;
 import com.github.appreciated.quickstart.base.navigation.interfaces.NavigationListener;
 import com.github.appreciated.quickstart.base.navigation.interfaces.attributes.HasFinishableSubpages;
 import com.github.appreciated.quickstart.base.navigation.interfaces.base.Subpage;
+import com.github.appreciated.quickstart.material.components.design.MaterialProgressStepDesign;
 import com.vaadin.ui.HorizontalLayout;
 
 import java.util.LinkedList;
@@ -31,8 +32,8 @@ public class MaterialProgressStepView extends HorizontalLayout {
                 view.addStyleName("v-button");
             }
             stepperViews.add(view);
-            view.stepNumber.setValue(String.valueOf(i + 1));
-            view.stepName.setValue(pages.get(i).getNavigationName());
+            view.getStepNumber().setValue(String.valueOf(i + 1));
+            view.getStepName().setValue(pages.get(i).getNavigationName());
             int finalI = i;
             if (navigateable) {
                 view.addLayoutClickListener(new LayoutLeftClickListener(clickEvent -> {
