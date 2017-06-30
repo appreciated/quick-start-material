@@ -3,7 +3,6 @@ package com.github.appreciated.quickstart.material.login;
 import com.github.appreciated.quickstart.base.authentication.login.AccessControl;
 import com.github.appreciated.quickstart.base.authentication.login.LoginListener;
 import com.github.appreciated.quickstart.base.authentication.registration.RegistrationControl;
-import com.github.appreciated.quickstart.base.navigation.interfaces.theme.LoginImplementationView;
 import com.vaadin.server.Page;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.HorizontalLayout;
@@ -12,7 +11,7 @@ import com.vaadin.ui.Notification;
 /**
  * Created by appreciated on 07.12.2016.
  */
-public class MaterialLoginImplementation extends LoginDesign implements LoginImplementationView {
+public class MaterialLogin extends LoginDesign implements com.github.appreciated.quickstart.base.navigation.theme.LoginView {
 
     @Override
     public void initTitle(String title) {
@@ -20,13 +19,13 @@ public class MaterialLoginImplementation extends LoginDesign implements LoginImp
     }
 
     @Override
-    public MaterialLoginImplementation initWithAccessControl(AccessControl accessControl) {
+    public MaterialLogin initWithAccessControl(AccessControl accessControl) {
         loginView.initWithAccessControl(accessControl);
         return this;
     }
 
     @Override
-    public MaterialLoginImplementation initRegistrationControl(RegistrationControl registrationControl) {
+    public MaterialLogin initRegistrationControl(RegistrationControl registrationControl) {
         loginView.initRegistrationControl(registrationControl);
         return this;
     }
@@ -37,7 +36,7 @@ public class MaterialLoginImplementation extends LoginDesign implements LoginImp
     }
 
     @Override
-    public MaterialLoginImplementation initWithLoginListener(LoginListener loginListener) {
+    public MaterialLogin initWithLoginListener(LoginListener loginListener) {
         loginView.setAuthenticationListener(loginListener);
         return this;
     }
@@ -46,7 +45,7 @@ public class MaterialLoginImplementation extends LoginDesign implements LoginImp
         return bottomBarWrapper;
     }
 
-    public MaterialLoginImplementation withBottomBarWrapperContent(Component component) {
+    public MaterialLogin withBottomBarWrapperContent(Component component) {
         bottomBarWrapper.addComponent(component);
         return this;
     }

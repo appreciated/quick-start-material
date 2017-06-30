@@ -1,12 +1,12 @@
 package com.github.appreciated.quickstart.material.components;
 
 import com.github.appreciated.quickstart.base.components.Helper;
-import com.github.appreciated.quickstart.base.navigation.actions.Action;
-import com.github.appreciated.quickstart.base.navigation.actions.CustomAction;
-import com.github.appreciated.quickstart.base.navigation.interfaces.Finishable;
-import com.github.appreciated.quickstart.base.navigation.interfaces.base.Subpage;
-import com.github.appreciated.quickstart.base.navigation.interfaces.components.ProgressStepper;
-import com.github.appreciated.quickstart.base.navigation.interfaces.theme.ProgressStepperView;
+import com.github.appreciated.quickstart.base.navigation.theme.ProgressStepperView;
+import com.github.appreciated.quickstart.base.pages.Finishable;
+import com.github.appreciated.quickstart.base.pages.ProgressStepper;
+import com.github.appreciated.quickstart.base.pages.Subpage;
+import com.github.appreciated.quickstart.base.pages.actions.Action;
+import com.github.appreciated.quickstart.base.pages.actions.CustomAction;
 import com.github.appreciated.quickstart.base.ui.QuickStartUI;
 import com.github.appreciated.quickstart.material.component.MaterialProgressStepView;
 import com.vaadin.ui.Alignment;

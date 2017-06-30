@@ -2,7 +2,7 @@ package com.github.appreciated.quickstart.material.components;
 
 
 import com.github.appreciated.quickstart.base.components.Helper;
-import com.github.appreciated.quickstart.base.navigation.interfaces.base.ContainerSubpage;
+import com.github.appreciated.quickstart.base.pages.ContainerSubpage;
 import com.github.appreciated.quickstart.material.components.design.MaterialNavigationContainerDesign;
 
 /**

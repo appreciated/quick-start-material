@@ -1,14 +1,10 @@
 package com.github.appreciated.quickstart.material;
 
 import com.github.appreciated.quickstart.base.dialog.Dialog;
-import com.github.appreciated.quickstart.base.navigation.interfaces.base.ComponentSubpage;
-import com.github.appreciated.quickstart.base.navigation.interfaces.base.ContainerSubpage;
-import com.github.appreciated.quickstart.base.navigation.interfaces.components.Pager;
-import com.github.appreciated.quickstart.base.navigation.interfaces.components.ProgressStepper;
-import com.github.appreciated.quickstart.base.navigation.interfaces.components.SubpageNavigator;
-import com.github.appreciated.quickstart.base.navigation.interfaces.theme.LoginImplementationView;
-import com.github.appreciated.quickstart.base.navigation.interfaces.theme.NavigationView;
-import com.github.appreciated.quickstart.base.navigation.interfaces.theme.QuickStartDesignProvider;
+import com.github.appreciated.quickstart.base.navigation.theme.LoginView;
+import com.github.appreciated.quickstart.base.navigation.theme.NavigationView;
+import com.github.appreciated.quickstart.base.navigation.theme.QuickStartDesignProvider;
+import com.github.appreciated.quickstart.base.pages.*;
 import com.github.appreciated.quickstart.material.components.MaterialNavigationContainerView;
 import com.github.appreciated.quickstart.material.components.MaterialPagerView;
 import com.github.appreciated.quickstart.material.components.MaterialProgressStepper;
@@ -16,7 +12,7 @@ import com.github.appreciated.quickstart.material.components.MaterialSubpageNavi
 import com.github.appreciated.quickstart.material.design.MaterialDesktopView;
 import com.github.appreciated.quickstart.material.design.MaterialMobileView;
 import com.github.appreciated.quickstart.material.dialog.MaterialDialog;
-import com.github.appreciated.quickstart.material.login.MaterialLoginImplementation;
+import com.github.appreciated.quickstart.material.login.MaterialLogin;
 import com.vaadin.ui.Layout;
 import org.vaadin.leif.splashscreen.SplashScreen;
 
@@ -36,8 +32,8 @@ public class MaterialDesignProvider implements QuickStartDesignProvider {
     }
 
     @Override
-    public LoginImplementationView getLoginView() {
-        return new MaterialLoginImplementation();
+    public LoginView getLoginView() {
+        return new MaterialLogin();
     }
 
     @Override

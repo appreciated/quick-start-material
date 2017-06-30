@@ -1,12 +1,12 @@
 package com.github.appreciated.quickstart.material.components;
 
 import com.github.appreciated.quickstart.base.components.Helper;
-import com.github.appreciated.quickstart.base.navigation.actions.Action;
-import com.github.appreciated.quickstart.base.navigation.actions.CustomAction;
-import com.github.appreciated.quickstart.base.navigation.interfaces.attributes.HasContextActions;
-import com.github.appreciated.quickstart.base.navigation.interfaces.base.Subpage;
-import com.github.appreciated.quickstart.base.navigation.interfaces.components.SubpageNavigator;
-import com.github.appreciated.quickstart.base.navigation.interfaces.theme.SubpagerView;
+import com.github.appreciated.quickstart.base.navigation.theme.SubpagerView;
+import com.github.appreciated.quickstart.base.pages.Subpage;
+import com.github.appreciated.quickstart.base.pages.SubpageNavigator;
+import com.github.appreciated.quickstart.base.pages.actions.Action;
+import com.github.appreciated.quickstart.base.pages.actions.CustomAction;
+import com.github.appreciated.quickstart.base.pages.attributes.HasContextActions;
 import com.github.appreciated.quickstart.base.ui.QuickStartUI;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Component;

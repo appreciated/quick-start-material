@@ -2,9 +2,9 @@ package com.github.appreciated.quickstart.material.components;
 
 
 import com.github.appreciated.quickstart.base.components.Helper;
-import com.github.appreciated.quickstart.base.navigation.interfaces.base.Subpage;
-import com.github.appreciated.quickstart.base.navigation.interfaces.components.Pager;
-import com.github.appreciated.quickstart.base.navigation.interfaces.theme.PagerView;
+import com.github.appreciated.quickstart.base.navigation.theme.PagerView;
+import com.github.appreciated.quickstart.base.pages.Pager;
+import com.github.appreciated.quickstart.base.pages.Subpage;
 import com.github.appreciated.quickstart.base.ui.QuickStartUI;
 import com.github.appreciated.quickstart.material.components.design.MaterialPagerDesign;
 import com.vaadin.ui.Button;

@@ -1,6 +1,6 @@
 package com.github.appreciated.quickstart.base.components;
 
-import com.github.appreciated.quickstart.base.navigation.actions.DownloadAction;
+import com.github.appreciated.quickstart.base.pages.actions.DownloadAction;
 import com.github.appreciated.quickstart.base.ui.QuickStartUI;
 import com.vaadin.ui.Button;
 

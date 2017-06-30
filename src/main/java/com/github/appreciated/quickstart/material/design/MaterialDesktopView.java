@@ -6,16 +6,16 @@ import com.github.appreciated.quickstart.base.authentication.login.AccessControl
 import com.github.appreciated.quickstart.base.authentication.registration.RegistrationControl;
 import com.github.appreciated.quickstart.base.components.DownloadButton;
 import com.github.appreciated.quickstart.base.components.UploadButton;
-import com.github.appreciated.quickstart.base.navigation.WebAppDescription;
-import com.github.appreciated.quickstart.base.navigation.actions.*;
-import com.github.appreciated.quickstart.base.navigation.interfaces.attributes.HasContextActions;
-import com.github.appreciated.quickstart.base.navigation.interfaces.attributes.HasSearch;
-import com.github.appreciated.quickstart.base.navigation.interfaces.base.Subpage;
-import com.github.appreciated.quickstart.base.navigation.interfaces.theme.NavigationView;
+import com.github.appreciated.quickstart.base.navigation.description.WebAppDescription;
+import com.github.appreciated.quickstart.base.navigation.theme.NavigationView;
 import com.github.appreciated.quickstart.base.notification.QuickNotification;
+import com.github.appreciated.quickstart.base.pages.Subpage;
+import com.github.appreciated.quickstart.base.pages.actions.*;
+import com.github.appreciated.quickstart.base.pages.attributes.HasContextActions;
+import com.github.appreciated.quickstart.base.pages.attributes.HasSearch;
 import com.github.appreciated.quickstart.base.ui.QuickStartUI;
 import com.github.appreciated.quickstart.material.component.desktop.DesktopMenuBarAnimator;
-import com.github.appreciated.quickstart.material.login.LoginImplementationDialog;
+import com.github.appreciated.quickstart.material.login.LoginDialog;
 import com.vaadin.icons.VaadinIcons;
 import com.vaadin.ui.*;
 
@@ -77,8 +77,8 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Navi
     public void initUserFunctionality(WebAppDescription description) {
         user.removeItems();
         if (description.getLoginNavigable() == null) {
-            register.addClickListener(clickEvent -> new LoginImplementationDialog("Register").initWithAccessControl(accessControl).initRegistrationControl(registrationControl).withLoginVisible(false).initWithLoginListener(() -> showUser()).show());
-            signIn.addClickListener(clickEvent -> new LoginImplementationDialog("Sign-In").initWithAccessControl(accessControl).withLoginVisible(true).initWithLoginListener(() -> showUser()).show());
+            register.addClickListener(clickEvent -> new LoginDialog("Register").initWithAccessControl(accessControl).initRegistrationControl(registrationControl).withLoginVisible(false).initWithLoginListener(() -> showUser()).show());
+            signIn.addClickListener(clickEvent -> new LoginDialog("Sign-In").initWithAccessControl(accessControl).withLoginVisible(true).initWithLoginListener(() -> showUser()).show());
         } else if (QuickStartUI.isUserSignedIn()) {
             showUser();
         } else {

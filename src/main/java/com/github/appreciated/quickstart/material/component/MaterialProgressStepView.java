@@ -1,10 +1,10 @@
 package com.github.appreciated.quickstart.material.component;
 
 import com.github.appreciated.quickstart.base.listeners.LayoutLeftClickListener;
-import com.github.appreciated.quickstart.base.navigation.interfaces.Finishable;
-import com.github.appreciated.quickstart.base.navigation.interfaces.NavigationListener;
-import com.github.appreciated.quickstart.base.navigation.interfaces.attributes.HasFinishableSubpages;
-import com.github.appreciated.quickstart.base.navigation.interfaces.base.Subpage;
+import com.github.appreciated.quickstart.base.listeners.NavigationListener;
+import com.github.appreciated.quickstart.base.pages.Finishable;
+import com.github.appreciated.quickstart.base.pages.Subpage;
+import com.github.appreciated.quickstart.base.pages.attributes.HasFinishableSubpages;
 import com.github.appreciated.quickstart.material.components.design.MaterialProgressStepDesign;
 import com.vaadin.ui.HorizontalLayout;
 
