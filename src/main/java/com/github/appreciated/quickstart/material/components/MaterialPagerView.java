@@ -49,8 +49,8 @@ public class MaterialPagerView extends MaterialPagerDesign implements PagerView 
         currentPage = subpage;
 
         int index = subpages.indexOf(subpage);
-        setButtonVisible(getLast(), index != 0);
-        setButtonVisible(getNext(), index != subpages.size() - 1);
+        setButtonVisible(getLastWrapper(), index != 0);
+        setButtonVisible(getNextWrapper(), index != subpages.size() - 1);
         getContent().removeAllComponents();
 
         Component component = QuickStartUI.getProvider().getComponent(subpage);
