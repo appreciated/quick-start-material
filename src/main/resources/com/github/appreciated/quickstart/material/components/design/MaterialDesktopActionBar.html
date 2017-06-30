@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:true,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;material&quot;}">
+  <meta name="vaadin-version" content="8.0.5">
+ </head>
+ <body>
+  <vaadin-horizontal-layout style-name="min-width margin-t-30" width-full margin-top>
+   <vaadin-horizontal-layout width-full height="70px" margin-top _id="wrapper" :center :expand>
+    <vaadin-horizontal-layout height-full _id="containerLabelWrapper" :middle>
+     <vaadin-horizontal-layout height-full :middle>
+      <vaadin-label style-name="h3 qs-primary-contrast-color margin-r-20 margin-l-20" plain-text _id="containerLabel" :middle :center>
+        Label 
+      </vaadin-label>
+     </vaadin-horizontal-layout>
+    </vaadin-horizontal-layout>
+    <vaadin-horizontal-layout spacing="false" size-full _id="customActionWrapper" :expand></vaadin-horizontal-layout>
+    <vaadin-menu-bar visible="false" style-name="borderless custom" _id="contextButtons" :middle :center>
+     <menu>
+       File 
+      <menu>
+        Open 
+      </menu>
+      <menu>
+        Save 
+      </menu>
+      <menu>
+        Preferences 
+      </menu>
+      <menu separator></menu>
+      <menu>
+        Quit 
+      </menu>
+     </menu>
+     <menu>
+       Edit 
+     </menu>
+     <menu description="Some description">
+       About 
+     </menu>
+    </vaadin-menu-bar>
+    <vaadin-horizontal-layout visible="false" height-full>
+     <vaadin-horizontal-layout spacing="false" _id="searchBarWrapper" :middle>
+      <vaadin-text-field icon="fonticon://Vaadin-Icons/e805" style-name="custom inline-icon" placeholder="Search" _id="searchBar" :middle :right></vaadin-text-field>
+     </vaadin-horizontal-layout>
+    </vaadin-horizontal-layout>
+   </vaadin-horizontal-layout>
+  </vaadin-horizontal-layout>
+ </body>
+</html>

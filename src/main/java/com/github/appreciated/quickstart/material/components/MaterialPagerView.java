@@ -69,9 +69,6 @@ public class MaterialPagerView extends MaterialPagerDesign implements PagerView 
         setNewPage(subpages.get(subpages.indexOf(currentPage) - 1));
     }
 
-    public void onFinish() {
-    }
-
     private void setButtonVisible(Component component, boolean visible) {
         if (visible) {
             component.removeStyleName("invisible");

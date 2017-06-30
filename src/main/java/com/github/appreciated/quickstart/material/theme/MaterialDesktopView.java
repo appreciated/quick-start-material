@@ -15,6 +15,7 @@ import com.github.appreciated.quickstart.base.pages.attributes.HasContextActions
 import com.github.appreciated.quickstart.base.pages.attributes.HasSearch;
 import com.github.appreciated.quickstart.base.ui.QuickStartUI;
 import com.github.appreciated.quickstart.material.component.desktop.DesktopMenuBarAnimator;
+import com.github.appreciated.quickstart.material.components.design.MaterialDesktopActionBar;
 import com.github.appreciated.quickstart.material.login.LoginDialog;
 import com.github.appreciated.quickstart.material.theme.design.DesktopNavigationDesign;
 import com.vaadin.icons.VaadinIcons;
@@ -22,19 +23,17 @@ import com.vaadin.ui.*;
 
 import java.util.AbstractMap;
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import java.util.stream.StreamSupport;
 
 /**
  * Created by appreciated on 04.12.2016.
  */
 public class MaterialDesktopView extends DesktopNavigationDesign implements NavigationView {
-    public static final String CONFIGURATION_FULLHEIGHT_NAVIGATIONBAR = "full_height_navigationbar";
     public static final String CONFIGURATION_HIDE_ICON = "hide_icon";
     public static final String CONFIGURATION_HIDE_TITLE = "hide_title";
     private AccessControl accessControl;
     private RegistrationControl registrationControl;
+    private MaterialDesktopActionBar actionBar = null;
 
     public MaterialDesktopView() {
         DesktopMenuBarAnimator animator = new DesktopMenuBarAnimator();
@@ -107,65 +106,43 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Navi
 
     @Override
     public void disableLogout() {
-        //user.setVisible(false);
+        user.setVisible(false);
     }
 
     @Override
     public void setCurrentContainerLabel(String label) {
-        containerLabel.setValue(label);
+        actionBar.getContainerLabel().setValue(label);
     }
 
     @Override
     public void setCurrentActions(HasContextActions contextNavigable) {
         if (contextNavigable != null) {
-
-            /**
-             * Why so complicated you may ask? I did try to use the forEach Method, but it seem removing objects from the
-             * inside caused some issues
-             */
-            StreamSupport.stream(contextButtonWrapper.spliterator(), false).collect(Collectors.toList())
-                    .stream()
-                    .filter(component -> component != actionWrapper)
-                    .forEach(component -> contextButtonWrapper.removeComponent(component));
-
-            StreamSupport.stream(actionWrapper.spliterator(), false).collect(Collectors.toList())
-                    .stream()
-                    .filter(component -> component != contextButtons)
-                    .forEach(component -> actionWrapper.removeComponent(component));
-
             List<Action> actions = contextNavigable.getContextActions();
             if (actions != null && actions.size() > 0) {
-                contextButtons.removeItems();
+                actionBar.getContextButtons().removeItems();
                 actions.forEach(action -> {
                     if (action instanceof CustomAction) {
                         CustomAction cAction = (CustomAction) action;
-                        if (!cAction.insertLeft()) {
-                            contextButtonWrapper.addComponent(cAction.getDesktopComponent());
-                        } else {
-                            contextButtonWrapper.addComponentAsFirst(cAction.getDesktopComponent());
-                        }
-                        contextButtonWrapper.setComponentAlignment(cAction.getDesktopComponent(), cAction.getAlignment());
+                        actionBar.getCustomActionWrapper().addComponent(cAction.getDesktopComponent());
+                        actionBar.getCustomActionWrapper().setComponentAlignment(cAction.getDesktopComponent(), cAction.getAlignment());
                     } else if (action instanceof DownloadAction) {
                         DownloadButton download = new DownloadButton((DownloadAction) action);
                         download.setHeight(45, Unit.PIXELS);
-                        actionWrapper.addComponent(download);
-                        actionWrapper.setComponentAlignment(download, Alignment.MIDDLE_LEFT);
+                        actionBar.getCustomActionWrapper().addComponent(download);
+                        actionBar.getCustomActionWrapper().setComponentAlignment(download, Alignment.MIDDLE_LEFT);
                     } else if (action instanceof UploadAction) {
                         UploadButton upload = new UploadButton((UploadAction) action);
                         upload.setHeight(45, Unit.PIXELS);
-                        actionWrapper.addComponent(upload);
-                        actionWrapper.setComponentAlignment(upload, Alignment.MIDDLE_LEFT);
+                        actionBar.getCustomActionWrapper().addComponent(upload);
+                        actionBar.getCustomActionWrapper().setComponentAlignment(upload, Alignment.MIDDLE_LEFT);
                     } else if (action instanceof ClickAction) {
-                        contextButtons.addItem(action.getName(), action.getResource(), menuItem -> {
+                        actionBar.getContextButtons().addItem(action.getName(), action.getResource(), menuItem -> {
                             ((ClickAction) action).getListener().actionPerformed(null);
                         });
                     }
                 });
-                contextButtons.setVisible(actions.stream().filter(action -> action instanceof ClickAction).count() > 0);
+                actionBar.getContextButtons().setVisible(actions.stream().filter(action -> action instanceof ClickAction).count() > 0);
             }
-            contextButtonWrapper.removeStyleName("hidden");
-        } else {
-            contextButtonWrapper.addStyleName("hidden");
         }
     }
 
@@ -180,17 +157,17 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Navi
 
     @Override
     public void setPageTitleVisibility(boolean visiblity) {
-        containerLabel.setVisible(visiblity);
+        actionBar.getContainerLabel().setVisible(visiblity);
     }
 
     @Override
     public void setCurrentSearchNavigable(HasSearch navigable) {
         if (navigable == null) {
-            searchBarWrapper.setVisible(false);
+            actionBar.getSearchBarWrapper().setVisible(false);
         } else {
-            searchBar.setValue("");
-            searchBarWrapper.setVisible(true);
-            searchBar.addValueChangeListener(navigable);
+            actionBar.getSearchBar().setValue("");
+            actionBar.getSearchBarWrapper().setVisible(true);
+            actionBar.getSearchBar().addValueChangeListener(navigable);
         }
     }
 
@@ -226,6 +203,22 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Navi
 
     public HorizontalLayout getComponentHolder() {
         return componentHolder;
+    }
+
+    @Override
+    public void onNavigate(Subpage subpageComponent) {
+        initActionBar();
+    }
+
+    @Override
+    public void onNavigate(Component subpageComponent) {
+        initActionBar();
+    }
+
+    private void initActionBar() {
+        this.actionBar = new MaterialDesktopActionBar();
+        this.actionbarHolder.removeAllComponents();
+        this.actionbarHolder.addComponent(actionBar);
     }
 }
 
