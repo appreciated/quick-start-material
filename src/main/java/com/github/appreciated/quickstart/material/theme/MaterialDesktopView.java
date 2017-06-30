@@ -220,5 +220,10 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Navi
         this.actionbarHolder.removeAllComponents();
         this.actionbarHolder.addComponent(actionBar);
     }
+
+    @Override
+    public void onComponentAdded(Component currentComponent) {
+        this.componentHolder.setComponentAlignment(currentComponent, Alignment.TOP_CENTER);
+    }
 }
 
