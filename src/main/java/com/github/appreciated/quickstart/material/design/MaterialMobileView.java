@@ -224,6 +224,11 @@ public class MaterialMobileView extends MobileNavigationDesign implements QuickS
 
     }
 
+    @Override
+    public Layout getContainerView() {
+        return componentHolder;
+    }
+
     public Button getMenuButton() {
         return menuButton;
     }

@@ -1,13 +1,14 @@
 package com.github.appreciated.quickstart.material.components;
 
 
-import com.github.appreciated.quickstart.base.navigation.interfaces.attributes.HasPercentageHeight;
+import com.github.appreciated.quickstart.base.components.Helper;
 import com.github.appreciated.quickstart.base.navigation.interfaces.base.Subpage;
 import com.github.appreciated.quickstart.base.navigation.interfaces.components.Pager;
 import com.github.appreciated.quickstart.base.navigation.interfaces.theme.QuickStartPager;
 import com.github.appreciated.quickstart.base.ui.QuickStartUI;
 import com.github.appreciated.quickstart.material.components.design.MaterialPagerDesign;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.Component;
 
 import java.util.HashMap;
 import java.util.List;
@@ -16,7 +17,7 @@ import java.util.Map;
 /**
  * Created by appreciated on 09.12.2016.
  */
-public class MaterialPager extends MaterialPagerDesign implements QuickStartPager, HasPercentageHeight {
+public class MaterialPager extends MaterialPagerDesign implements QuickStartPager {
 
     private final List<Subpage> subpages;
 
@@ -46,11 +47,15 @@ public class MaterialPager extends MaterialPagerDesign implements QuickStartPage
         }
         navigablesMap.get(subpage).addStyleName("paging-indicator-active");
         currentPage = subpage;
+
         int index = subpages.indexOf(subpage);
         getLast().setVisible(index != 0);
         getNext().setVisible(index != subpages.size() - 1);
         getContent().removeAllComponents();
-        getContent().addComponent(QuickStartUI.getProvider().getComponent(subpage));
+
+        Component component = QuickStartUI.getProvider().getComponent(subpage);
+        Helper.prepareContainerForComponent(getContent(),component);
+        getContent().addComponent(component);
     }
 
     public void next() {

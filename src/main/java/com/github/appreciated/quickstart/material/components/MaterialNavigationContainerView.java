@@ -1,6 +1,7 @@
 package com.github.appreciated.quickstart.material.components;
 
 
+import com.github.appreciated.quickstart.base.components.Helper;
 import com.github.appreciated.quickstart.base.navigation.interfaces.base.ContainerSubpage;
 import com.github.appreciated.quickstart.material.components.design.MaterialNavigationContainerDesign;
 
@@ -10,6 +11,7 @@ import com.github.appreciated.quickstart.material.components.design.MaterialNavi
 public class MaterialNavigationContainerView extends MaterialNavigationContainerDesign {
 
     public MaterialNavigationContainerView(ContainerSubpage page) {
+        Helper.prepareContainerForComponent(this,page);
         this.addComponent(page);
         if (page.hasPadding()) {
             addStyleName("container-padding");

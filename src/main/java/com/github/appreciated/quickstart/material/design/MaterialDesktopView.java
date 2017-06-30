@@ -203,6 +203,11 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Quic
         this.registrationControl = registrationControl;
     }
 
+    @Override
+    public Layout getContainerView() {
+        return getComponentHolder();
+    }
+
     /*
      * To make the view more customizable allow every Property to be accessed
      */
