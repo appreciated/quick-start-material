@@ -6,7 +6,7 @@
   <meta name="vaadin-version" content="8.0.5">
  </head>
  <body>
-  <vaadin-vertical-layout style-name="absolute-overflow-visible" size-full>
+  <vaadin-vertical-layout style-name="absolute-overflow-visible" spacing="false" size-full>
    <vaadin-horizontal-layout size-full :expand>
     <vaadin-horizontal-layout height-full>
      <vaadin-button icon="fonticon://Vaadin-Icons/e7b0" style-name="floating-action fade-in pager-left-button" plain-text _id="last" :middle></vaadin-button>
@@ -18,8 +18,8 @@
      <vaadin-button icon="fonticon://Vaadin-Icons/e7b1" style-name="fade-in floating-action pager-right-button" plain-text _id="next" :middle :right></vaadin-button>
     </vaadin-horizontal-layout>
    </vaadin-horizontal-layout>
-   <vaadin-horizontal-layout width-full>
-    <vaadin-horizontal-layout spacing="false" _id="pagerDots" :middle :center>
+   <vaadin-horizontal-layout width-full height="40px">
+    <vaadin-horizontal-layout spacing="false" _id="pagerDots" :bottom :center>
      <vaadin-horizontal-layout spacing="false" height-full :middle :center>
       <vaadin-button style-name="borderless paging-indicator" height="30px" plain-text>
         • 

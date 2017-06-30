@@ -37,4 +37,5 @@ public class MaterialProgressStepDesign extends HorizontalLayout {
     public Label getStepName() {
         return stepName;
     }
+
 }
