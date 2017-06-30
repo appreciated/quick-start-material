@@ -1,6 +1,7 @@
 package com.github.appreciated.quickstart.material.components;
 
 
+import com.github.appreciated.material.MaterialTheme;
 import com.github.appreciated.quickstart.base.components.Helper;
 import com.github.appreciated.quickstart.base.pages.ContainerSubpage;
 import com.github.appreciated.quickstart.material.components.design.MaterialNavigationContainerDesign;
@@ -14,7 +15,7 @@ public class MaterialNavigationContainerView extends MaterialNavigationContainer
         Helper.prepareContainerForComponent(this,page);
         this.addComponent(page);
         if (!page.hasPadding()) {
-            addStyleName("card-no-padding");
+            addStyleName(MaterialTheme.CARD_NO_PADDING);
         }
     }
 }
