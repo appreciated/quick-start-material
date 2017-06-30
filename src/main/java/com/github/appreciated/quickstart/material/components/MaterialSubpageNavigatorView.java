@@ -49,6 +49,7 @@ public class MaterialSubpageNavigatorView extends VerticalLayout implements Subp
         Helper.prepareContainerForComponent(this, component);
         this.addComponent(component);
         updateContextActions();
+        this.setComponentAlignment(component,Alignment.TOP_CENTER);
         menuBarItems.forEach((subpage, menuItem) -> menuItem.setStyleName(page.equals(subpage) ? getStyleName() + "active" : standardStyle));
     }
 
