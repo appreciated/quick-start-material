@@ -13,8 +13,8 @@ public class MaterialNavigationContainerView extends MaterialNavigationContainer
     public MaterialNavigationContainerView(ContainerSubpage page) {
         Helper.prepareContainerForComponent(this,page);
         this.addComponent(page);
-        if (page.hasPadding()) {
-            addStyleName("container-padding");
+        if (!page.hasPadding()) {
+            addStyleName("card-no-padding");
         }
     }
 }
