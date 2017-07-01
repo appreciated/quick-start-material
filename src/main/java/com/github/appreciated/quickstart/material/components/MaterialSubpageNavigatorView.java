@@ -49,8 +49,8 @@ public class MaterialSubpageNavigatorView extends VerticalLayout implements Subp
         if (page instanceof HasContextActions && ((HasContextActions) page).getContextActions() != null) {
             subpageActions.addAll(((HasContextActions) page).getContextActions());
         }
-        QuickStartUI.getStateManager().setPageTitleVisibility(false);
         QuickStartUI.getStateManager().onNavigate(page);
+        QuickStartUI.getStateManager().setPageTitleVisibility(false);
         QuickStartUI.getStateManager().setContextActions(this);
         Component component = QuickStartUI.getProvider().getComponent(page);
         QuickStartUI.getStateManager().setComponent(component, true);
