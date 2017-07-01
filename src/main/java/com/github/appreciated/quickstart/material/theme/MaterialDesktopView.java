@@ -223,7 +223,9 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Navi
 
     @Override
     public void onComponentAdded(Component currentComponent) {
-        this.componentHolder.setComponentAlignment(currentComponent, Alignment.TOP_CENTER);
+        if (componentHolder.getComponentCount() > 0 && componentHolder.getComponent(0) == currentComponent) {
+            this.componentHolder.setComponentAlignment(currentComponent, Alignment.TOP_CENTER);
+        }
     }
 }
 

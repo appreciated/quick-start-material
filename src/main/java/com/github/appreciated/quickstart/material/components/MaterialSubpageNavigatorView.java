@@ -20,7 +20,7 @@ import java.util.List;
 /**
  * Created by appreciated on 01.04.2017.
  */
-public class MaterialSubpageNavigatorView extends VerticalLayout implements SubpagerView {
+public class MaterialSubpageNavigatorView extends VerticalLayout implements SubpagerView  {
 
     private MenuBar menuBar;
     private List<Action> subpageActions = new ArrayList<>();
@@ -38,8 +38,7 @@ public class MaterialSubpageNavigatorView extends VerticalLayout implements Subp
     }
 
     @Override
-    public void attach() {
-        super.attach();
+    public void onSubpageLoaded() {
         setCurrentSubpage(menuBarItems.entrySet().stream().map(entry -> entry.getKey()).findFirst().get());
     }
 
