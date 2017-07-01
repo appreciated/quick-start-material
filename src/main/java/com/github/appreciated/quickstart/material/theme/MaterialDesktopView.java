@@ -37,12 +37,14 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Page
     private AccessControl accessControl;
     private RegistrationControl registrationControl;
     private MaterialDesktopActionBarDesign actionBar = null;
+    private boolean pageTitleVisible;
+    private String containerLabelTitle;
+    private HasSearch hasSearch;
 
     public MaterialDesktopView() {
         DesktopMenuBarAnimator animator = new DesktopMenuBarAnimator();
         animator.addStyleName("visibility: collapse");
         navigationMenuWrapper.addComponent(animator);
-        reInitActionBar();
     }
 
     @Override
@@ -115,11 +117,17 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Page
 
     @Override
     public void setCurrentContainerLabel(String label) {
-        actionBar.getContainerLabel().setValue(label);
+        this.containerLabelTitle = label;
     }
 
     @Override
     public void setCurrentActions(HasContextActions contextNavigable) {
+        reInitActionBar();
+        if (hasSearch != null) {
+            actionBar.getSearchBar().setValue("");
+            actionBar.getSearchBarWrapper().setVisible(true);
+            actionBar.getSearchBar().addValueChangeListener(hasSearch);
+        }
         if (contextNavigable != null) {
             List<Action> actions = contextNavigable.getContextActions();
             if (actions != null && actions.size() > 0) {
@@ -148,6 +156,8 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Page
                 actionBar.getContextButtons().setVisible(actions.stream().filter(action -> action instanceof ClickAction).count() > 0);
             }
         }
+        actionBar.getContainerLabel().setVisible(pageTitleVisible);
+        actionBar.getContainerLabel().setValue(containerLabelTitle);
     }
 
     @Override
@@ -161,18 +171,12 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Page
 
     @Override
     public void setPageTitleVisibility(boolean visiblity) {
-        actionBar.getContainerLabel().setVisible(visiblity);
+        this.pageTitleVisible = visiblity;
     }
 
     @Override
     public void setCurrentSearchNavigable(HasSearch navigable) {
-        if (navigable == null) {
-            actionBar.getSearchBarWrapper().setVisible(false);
-        } else {
-            actionBar.getSearchBar().setValue("");
-            actionBar.getSearchBarWrapper().setVisible(true);
-            actionBar.getSearchBar().addValueChangeListener(navigable);
-        }
+        hasSearch = navigable;
     }
 
     @Override
