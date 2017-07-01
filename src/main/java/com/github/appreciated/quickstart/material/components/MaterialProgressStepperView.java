@@ -87,7 +87,7 @@ public class MaterialProgressStepperView extends VerticalLayout implements Progr
     }
 
     @Override
-    public void onSubpageFinish() {
+    public void onFinish() {
         progressStepView.next();
     }
 
