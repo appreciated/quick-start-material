@@ -2,12 +2,12 @@ package com.github.appreciated.quickstart.material.components;
 
 import com.github.appreciated.quickstart.base.components.Helper;
 import com.github.appreciated.quickstart.base.navigation.theme.ProgressStepperView;
-import com.github.appreciated.quickstart.base.pages.Finishable;
-import com.github.appreciated.quickstart.base.pages.ProgressStepper;
-import com.github.appreciated.quickstart.base.pages.Subpage;
+import com.github.appreciated.quickstart.base.pages.FinishablePage;
+import com.github.appreciated.quickstart.base.pages.Page;
 import com.github.appreciated.quickstart.base.pages.actions.Action;
 import com.github.appreciated.quickstart.base.pages.actions.CustomAction;
-import com.github.appreciated.quickstart.base.ui.QuickStartUI;
+import com.github.appreciated.quickstart.base.pages.attributes.PageManager;
+import com.github.appreciated.quickstart.base.pages.managed.ProgressStepper;
 import com.github.appreciated.quickstart.material.component.MaterialProgressStepView;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Component;
@@ -19,11 +19,11 @@ import java.util.List;
 /**
  * Created by appreciated on 09.03.2017.
  */
-public class MaterialProgressStepperView extends VerticalLayout implements ProgressStepperView {
+public class MaterialProgressStepperView extends VerticalLayout implements ProgressStepperView, PageManager {
 
     private final MaterialProgressStepView progressStepView;
     private ProgressStepper finishableSubpages;
-    private final List<Finishable> pages;
+    private final List<FinishablePage> pages;
     private final List<Action> actions;
 
     public MaterialProgressStepperView(ProgressStepper progressStepper) {
@@ -48,8 +48,8 @@ public class MaterialProgressStepperView extends VerticalLayout implements Progr
     }
 
     @Override
-    public void onNavigate(Subpage next) {
-        setNewContent((Finishable) next);
+    public void onNavigate(Page next) {
+        setNewContent((FinishablePage) next);
     }
 
     @Override
@@ -71,8 +71,8 @@ public class MaterialProgressStepperView extends VerticalLayout implements Progr
         return false;
     }
 
-    public void setNewContent(Finishable content) {
-        Component component = QuickStartUI.getProvider().getComponent(content);
+    public void setNewContent(FinishablePage content) {
+        Component component = content.getComponent();
         Helper.prepareContainerForComponent(this,component);
         this.removeAllComponents();
         this.addComponent(component);

@@ -4,16 +4,17 @@ package com.github.appreciated.quickstart.material.theme;
 import com.github.appreciated.quickstart.base.authentication.Util;
 import com.github.appreciated.quickstart.base.authentication.login.AccessControl;
 import com.github.appreciated.quickstart.base.authentication.registration.RegistrationControl;
+import com.github.appreciated.quickstart.base.components.Helper;
 import com.github.appreciated.quickstart.base.navigation.description.WebAppDescription;
-import com.github.appreciated.quickstart.base.navigation.theme.NavigationView;
-import com.github.appreciated.quickstart.base.pages.Subpage;
+import com.github.appreciated.quickstart.base.navigation.theme.PageHolder;
+import com.github.appreciated.quickstart.base.pages.Page;
 import com.github.appreciated.quickstart.base.pages.actions.*;
 import com.github.appreciated.quickstart.base.pages.attributes.HasContextActions;
 import com.github.appreciated.quickstart.base.pages.attributes.HasSearch;
 import com.github.appreciated.quickstart.material.component.DownloadButton;
 import com.github.appreciated.quickstart.material.component.UploadButton;
 import com.github.appreciated.quickstart.material.component.mobile.MobileMenuAnimator;
-import com.github.appreciated.quickstart.material.components.MaterialSubpageNavigatorView;
+import com.github.appreciated.quickstart.material.components.MaterialPageNavigatorView;
 import com.github.appreciated.quickstart.material.theme.design.MobileNavigationDesign;
 import com.vaadin.icons.VaadinIcons;
 import com.vaadin.ui.*;
@@ -26,7 +27,7 @@ import java.util.stream.Stream;
 /**
  * Created by appreciated on 10.12.2016.
  */
-public class MaterialMobileView extends MobileNavigationDesign implements NavigationView {
+public class MaterialMobileView extends MobileNavigationDesign implements PageHolder {
 
     public MaterialMobileView() {
         logout.addClickListener(event -> {
@@ -46,13 +47,13 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
     }
 
     @Override
-    public void initNavigationElements(Stream<Subpage> pages) {
+    public void initNavigationElements(Stream<Page> pages) {
         navigationElements.removeAllComponents();
         pages.forEach(element -> {
-            if (element instanceof MaterialSubpageNavigatorView) {
+            if (element instanceof MaterialPageNavigatorView) {
                 addMenuElement(element, true);
-                ((MaterialSubpageNavigatorView) element).getSubpages().forEach(subpage -> {
-                    addChildElement((MaterialSubpageNavigatorView) element, subpage, false);
+                ((MaterialPageNavigatorView) element).getSubpages().forEach(subpage -> {
+                    addChildElement((MaterialPageNavigatorView) element, subpage, false);
                 });
             } else {
                 addMenuElement(element, false);
@@ -60,7 +61,7 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
         });
     }
 
-    private void addChildElement(MaterialSubpageNavigatorView root, Subpage subpage, boolean hasChildren) {
+    private void addChildElement(MaterialPageNavigatorView root, Page page, boolean hasChildren) {
         // Wrapper for the Java script part at the attach() method to not override the vaadin on click events
         HorizontalLayout wrapper = new HorizontalLayout();
         wrapper.setHeight(50, Unit.PIXELS);
@@ -70,18 +71,18 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
         } else {
             wrapper.addStyleName("mobile-tab-wrapper");
         }
-        Button button = new Button(subpage.getNavigationName());
+        Button button = new Button(page.getNavigationName());
         button.addStyleName("mobile-tab borderless");
         button.setSizeFull();
         wrapper.addComponent(button);
         button.addClickListener(clickEvent -> {
             root.navigateTo();
-            root.setCurrentSubpage(subpage);
+            root.setNewSubpage(page);
         });
         navigationElements.addComponent(wrapper);
     }
 
-    private void addMenuElement(Subpage subpage, boolean hasChildren) {
+    private void addMenuElement(Page page, boolean hasChildren) {
         // Wrapper for the Java script part at the attach() method to not override the vaadin on click events
         HorizontalLayout wrapper = new HorizontalLayout();
         wrapper.setHeight(50, Unit.PIXELS);
@@ -91,12 +92,12 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
         } else {
             wrapper.addStyleName("mobile-tab-wrapper");
         }
-        Button button = new Button(subpage.getNavigationName());
+        Button button = new Button(page.getNavigationName());
         button.addStyleName("mobile-tab");
         button.addStyleName("mobile-tab borderless");
         button.setSizeFull();
         wrapper.addComponent(button);
-        button.addClickListener(clickEvent -> subpage.navigateTo());
+        button.addClickListener(clickEvent -> page.navigateTo());
         navigationElements.addComponent(wrapper);
     }
 
@@ -228,6 +229,16 @@ public class MaterialMobileView extends MobileNavigationDesign implements Naviga
     @Override
     public Layout getContainerView() {
         return componentHolder;
+    }
+
+    @Override
+    public void addPage(Page page) {
+        Component component = page.getComponent();
+        componentHolder.removeAllComponents();
+        allowPercentagePageHeight(Helper.requiresPercentageHeight(component));
+        Helper.prepareContainerForComponent(componentHolder, component);
+        componentHolder.addComponent(component);
+        componentHolder.setComponentAlignment(component, Alignment.TOP_CENTER);
     }
 
     public Button getMenuButton() {

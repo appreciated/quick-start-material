@@ -4,13 +4,16 @@ package com.github.appreciated.quickstart.material.theme;
 import com.github.appreciated.quickstart.base.authentication.Util;
 import com.github.appreciated.quickstart.base.authentication.login.AccessControl;
 import com.github.appreciated.quickstart.base.authentication.registration.RegistrationControl;
+import com.github.appreciated.quickstart.base.components.Helper;
 import com.github.appreciated.quickstart.base.navigation.description.WebAppDescription;
-import com.github.appreciated.quickstart.base.navigation.theme.NavigationView;
+import com.github.appreciated.quickstart.base.navigation.theme.PageHolder;
 import com.github.appreciated.quickstart.base.notification.QuickNotification;
-import com.github.appreciated.quickstart.base.pages.Subpage;
+import com.github.appreciated.quickstart.base.pages.Page;
 import com.github.appreciated.quickstart.base.pages.actions.*;
 import com.github.appreciated.quickstart.base.pages.attributes.HasContextActions;
 import com.github.appreciated.quickstart.base.pages.attributes.HasSearch;
+import com.github.appreciated.quickstart.base.pages.attributes.ManagedPage;
+import com.github.appreciated.quickstart.base.pages.attributes.PageManager;
 import com.github.appreciated.quickstart.base.ui.QuickStartUI;
 import com.github.appreciated.quickstart.material.component.DownloadButton;
 import com.github.appreciated.quickstart.material.component.UploadButton;
@@ -28,7 +31,7 @@ import java.util.stream.Stream;
 /**
  * Created by appreciated on 04.12.2016.
  */
-public class MaterialDesktopView extends DesktopNavigationDesign implements NavigationView {
+public class MaterialDesktopView extends DesktopNavigationDesign implements PageHolder {
     public static final String CONFIGURATION_HIDE_ICON = "hide_icon";
     public static final String CONFIGURATION_HIDE_TITLE = "hide_title";
     private AccessControl accessControl;
@@ -39,6 +42,7 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Navi
         DesktopMenuBarAnimator animator = new DesktopMenuBarAnimator();
         animator.addStyleName("visibility: collapse");
         navigationMenuWrapper.addComponent(animator);
+        reInitActionBar();
     }
 
     @Override
@@ -60,7 +64,7 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Navi
     }
 
     @Override
-    public void initNavigationElements(Stream<Subpage> pages) {
+    public void initNavigationElements(Stream<Page> pages) {
         navigationMenu.removeItems();
         pages.forEach(navigation -> {
             MenuBar.MenuItem item = this.navigationMenu.addItem(navigation.getNavigationName(), navigation.getNavigationIcon(), null);
@@ -186,6 +190,23 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Navi
         return getComponentHolder();
     }
 
+    @Override
+    public void addPage(Page page) {
+        Component component = null;
+        if (page instanceof ManagedPage) {
+            ManagedPage managedPage = (ManagedPage) page;
+            PageManager manager = managedPage.getPageManager();
+            component = manager.getComponent();
+        } else {
+            component = page.getComponent();
+        }
+        componentHolder.removeAllComponents();
+        allowPercentagePageHeight(Helper.requiresPercentageHeight(component));
+        Helper.prepareContainerForComponent(componentHolder, component);
+        componentHolder.addComponent(component);
+        componentHolder.setComponentAlignment(component, Alignment.TOP_CENTER);
+    }
+
     /*
      * To make the view more customizable allow every Property to be accessed
      */
@@ -205,27 +226,11 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Navi
         return componentHolder;
     }
 
-    @Override
-    public void onNavigate(Subpage subpageComponent) {
-        initActionBar();
-    }
-
-    @Override
-    public void onNavigate(Component subpageComponent) {
-        initActionBar();
-    }
-
-    private void initActionBar() {
+    private void reInitActionBar() {
         this.actionbarHolder.removeAllComponents();
         this.actionBar = new MaterialDesktopActionBarDesign();
         this.actionbarHolder.addComponent(actionBar);
     }
 
-    @Override
-    public void onComponentAdded(Component currentComponent) {
-        if (componentHolder.getComponentCount() > 0 && componentHolder.getComponent(0) == currentComponent) {
-            this.componentHolder.setComponentAlignment(currentComponent, Alignment.TOP_CENTER);
-        }
-    }
 }
 

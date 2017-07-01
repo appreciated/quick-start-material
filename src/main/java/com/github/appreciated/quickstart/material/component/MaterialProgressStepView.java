@@ -2,9 +2,9 @@ package com.github.appreciated.quickstart.material.component;
 
 import com.github.appreciated.quickstart.base.listeners.LayoutLeftClickListener;
 import com.github.appreciated.quickstart.base.listeners.NavigationListener;
-import com.github.appreciated.quickstart.base.pages.Finishable;
-import com.github.appreciated.quickstart.base.pages.Subpage;
-import com.github.appreciated.quickstart.base.pages.attributes.HasFinishableSubpages;
+import com.github.appreciated.quickstart.base.pages.FinishablePage;
+import com.github.appreciated.quickstart.base.pages.Page;
+import com.github.appreciated.quickstart.base.pages.attributes.HasFinishablePages;
 import com.github.appreciated.quickstart.material.components.design.MaterialProgressStepDesign;
 import com.vaadin.ui.HorizontalLayout;
 
@@ -17,14 +17,14 @@ import java.util.ListIterator;
  */
 public class MaterialProgressStepView extends HorizontalLayout {
 
-    private final List<Finishable> pages;
+    private final List<FinishablePage> pages;
     private boolean navigateable;
     private NavigationListener navigationListener;
     LinkedList<MaterialProgressStepDesign> stepperViews = new LinkedList<>();
     private ListIterator<MaterialProgressStepDesign> currentStepperIterator;
     private MaterialProgressStepDesign currentDesign;
 
-    public MaterialProgressStepView(HasFinishableSubpages pager, boolean navigatable) {
+    public MaterialProgressStepView(HasFinishablePages pager, boolean navigatable) {
         this.pages = pager.getPagingElements();
         for (int i = 0; i < pages.size(); i++) {
             MaterialProgressStepDesign view = new MaterialProgressStepDesign();
@@ -49,9 +49,9 @@ public class MaterialProgressStepView extends HorizontalLayout {
         setActiveStepper(stepperViews.getFirst());
     }
 
-    private void onNavigate(Subpage subpage) {
+    private void onNavigate(Page page) {
         if (navigationListener != null) {
-            navigationListener.onNavigate(subpage);
+            navigationListener.onNavigate(page);
         }
     }
 
@@ -92,7 +92,7 @@ public class MaterialProgressStepView extends HorizontalLayout {
         setActiveStepper(stepperViews.getFirst());
     }
 
-    public Finishable getCurrent() {
+    public FinishablePage getCurrent() {
         return pages.get(stepperViews.indexOf(currentDesign));
     }
 

@@ -3,9 +3,9 @@ package com.github.appreciated.quickstart.material.components;
 
 import com.github.appreciated.quickstart.base.components.Helper;
 import com.github.appreciated.quickstart.base.navigation.theme.PagerView;
-import com.github.appreciated.quickstart.base.pages.Pager;
-import com.github.appreciated.quickstart.base.pages.Subpage;
-import com.github.appreciated.quickstart.base.ui.QuickStartUI;
+import com.github.appreciated.quickstart.base.pages.Page;
+import com.github.appreciated.quickstart.base.pages.attributes.PageManager;
+import com.github.appreciated.quickstart.base.pages.managed.HorizontalScrollPage;
 import com.github.appreciated.quickstart.material.components.design.MaterialPagerDesign;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Component;
@@ -17,56 +17,56 @@ import java.util.Map;
 /**
  * Created by appreciated on 09.12.2016.
  */
-public class MaterialPagerView extends MaterialPagerDesign implements PagerView {
+public class MaterialPagerView extends MaterialPagerDesign implements PagerView, PageManager {
 
-    private final List<Subpage> subpages;
+    private final List<Page> pages;
 
-    private final Map<Subpage, Button> navigablesMap = new HashMap<>();
+    private final Map<Page, Button> navigablesMap = new HashMap<>();
 
-    private Subpage currentPage;
+    private Page currentPage;
 
-    public MaterialPagerView(Pager hasSubpages) {
+    public MaterialPagerView(HorizontalScrollPage hasSubpages) {
         getPagerDots().removeAllComponents();
-        subpages = hasSubpages.getPagingElements().getSubpages();
-        for (Subpage subpage : subpages) {
+        pages = hasSubpages.getPagingElements().getPages();
+        for (Page page : pages) {
             Button button = new Button();
             button.addStyleName("borderless paging-indicator");
-            button.addClickListener(event -> setNewPage(subpage));
+            button.addClickListener(event -> setNewPage(page));
             getPagerDots().addComponent(button);
-            navigablesMap.put(subpage, button);
+            navigablesMap.put(page, button);
         }
         getNext().addClickListener(event -> next());
         getLast().addClickListener(event -> last());
-        setNewPage(subpages.get(0));
-        navigablesMap.get(subpages.get(0)).addStyleName("paging-indicator-active");
+        setNewPage(pages.get(0));
+        navigablesMap.get(pages.get(0)).addStyleName("paging-indicator-active");
     }
 
-    private void setNewPage(Subpage subpage) {
+    private void setNewPage(Page page) {
         if (currentPage != null) {
             navigablesMap.get(currentPage).removeStyleName("paging-indicator-active");
         }
-        navigablesMap.get(subpage).addStyleName("paging-indicator-active");
-        currentPage = subpage;
+        navigablesMap.get(page).addStyleName("paging-indicator-active");
+        currentPage = page;
 
-        int index = subpages.indexOf(subpage);
+        int index = pages.indexOf(page);
         setButtonVisible(getLastWrapper(), index != 0);
-        setButtonVisible(getNextWrapper(), index != subpages.size() - 1);
+        setButtonVisible(getNextWrapper(), index != pages.size() - 1);
         getContent().removeAllComponents();
 
-        Component component = QuickStartUI.getProvider().getComponent(subpage);
+        Component component = page.getComponent();
         Helper.prepareContainerForComponent(getContent(), component);
         getContent().addComponent(component);
     }
 
     public void next() {
-        if (subpages.indexOf(currentPage) == subpages.size() - 1) {
+        if (pages.indexOf(currentPage) == pages.size() - 1) {
         } else {
-            setNewPage(subpages.get(subpages.indexOf(currentPage) + 1));
+            setNewPage(pages.get(pages.indexOf(currentPage) + 1));
         }
     }
 
     public void last() {
-        setNewPage(subpages.get(subpages.indexOf(currentPage) - 1));
+        setNewPage(pages.get(pages.indexOf(currentPage) - 1));
     }
 
     private void setButtonVisible(Component component, boolean visible) {

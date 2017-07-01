@@ -1,8 +1,8 @@
 package com.github.appreciated.quickstart.material.components;
 
 import com.github.appreciated.quickstart.base.navigation.theme.SubpagerView;
-import com.github.appreciated.quickstart.base.pages.Subpage;
-import com.github.appreciated.quickstart.base.pages.SubpageNavigator;
+import com.github.appreciated.quickstart.base.pages.Page;
+import com.github.appreciated.quickstart.base.pages.PageNavigator;
 import com.github.appreciated.quickstart.base.pages.actions.Action;
 import com.github.appreciated.quickstart.base.pages.actions.CustomAction;
 import com.github.appreciated.quickstart.base.pages.attributes.HasContextActions;
@@ -10,7 +10,6 @@ import com.github.appreciated.quickstart.base.ui.QuickStartUI;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.MenuBar;
-import com.vaadin.ui.VerticalLayout;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -20,40 +19,43 @@ import java.util.List;
 /**
  * Created by appreciated on 01.04.2017.
  */
-public class MaterialSubpageNavigatorView extends VerticalLayout implements SubpagerView  {
+public class MaterialPageNavigatorView implements SubpagerView {
 
     private MenuBar menuBar;
     private List<Action> subpageActions = new ArrayList<>();
-    private LinkedHashMap<Subpage, MenuBar.MenuItem> menuBarItems = new LinkedHashMap<>();
+    private LinkedHashMap<Page, MenuBar.MenuItem> menuBarItems = new LinkedHashMap<>();
     private String standardStyle;
-    private SubpageNavigator subpages;
+    private PageNavigator subpages;
+    private Page currentSubpage;
 
 
-    public MaterialSubpageNavigatorView(SubpageNavigator subpages) {
+    public MaterialPageNavigatorView(PageNavigator subpages) {
         this.subpages = subpages;
         menuBar = new MenuBar();
-        subpages.getPagingElements().getSubpages().forEach(subpage -> addSubpage(subpage));
-        this.setMargin(false);
+        subpages.getPagingElements().getPages().forEach(subpage -> addSubpage(subpage));
         menuBar.setStyleName("borderless custom");
     }
 
     @Override
-    public void onSubpageLoaded() {
-        setCurrentSubpage(menuBarItems.entrySet().stream().map(entry -> entry.getKey()).findFirst().get());
+    public Component getComponent() {
+        initNewSubpage(menuBarItems.entrySet().stream().map(entry -> entry.getKey()).findFirst().get());
+        return currentSubpage.getComponent();
     }
 
-    public void setCurrentSubpage(Subpage page) {
-        this.removeAllComponents();
+    public void initNewSubpage(Page page) {
+        currentSubpage = page;
         subpageActions.clear();
         if (page instanceof HasContextActions && ((HasContextActions) page).getContextActions() != null) {
             subpageActions.addAll(((HasContextActions) page).getContextActions());
         }
-        QuickStartUI.getStateManager().onNavigate(page);
         QuickStartUI.getStateManager().setPageTitleVisibility(false);
         QuickStartUI.getStateManager().setContextActions(this);
-        Component component = QuickStartUI.getProvider().getComponent(page);
-        QuickStartUI.getStateManager().setComponent(component, true);
-        menuBarItems.forEach((subpage, menuItem) -> menuItem.setStyleName(page.equals(subpage) ? getStyleName() + "active" : standardStyle));
+        menuBarItems.forEach((subpage, menuItem) -> menuItem.setStyleName(page.equals(subpage) ? menuItem.getStyleName() + "active" : standardStyle));
+    }
+
+    public void setNewSubpage(Page currentSubpage) {
+        initNewSubpage(currentSubpage);
+        QuickStartUI.getStateManager().getPageHolder().addPage(currentSubpage);
     }
 
     @Override
@@ -64,27 +66,29 @@ public class MaterialSubpageNavigatorView extends VerticalLayout implements Subp
     @Override
     public List<Action> getContextActions() {
         ArrayList<Action> list = new ArrayList<>();
-        list.add(new CustomAction(menuBar).withInsertLeft(true).withAlignment(Alignment.MIDDLE_LEFT));
+        list.add(new CustomAction(menuBar).insertLeft(true).withAlignment(Alignment.MIDDLE_LEFT));
         list.addAll(subpageActions);
         return list;
     }
 
-    public void addSubpage(Subpage page) {
-        MenuBar.MenuItem item = menuBar.addItem(page.getNavigationName(), page.getNavigationIcon(), (MenuBar.Command) menuItem -> setCurrentSubpage(page));
+    public void addSubpage(Page page) {
+        MenuBar.MenuItem item = menuBar.addItem(page.getNavigationName(), page.getNavigationIcon(), (MenuBar.Command) menuItem -> setNewSubpage(page));
         standardStyle = item.getStyleName();
         menuBarItems.put(page, item);
     }
 
-    public void removeSubpage(Subpage page) {
+    public void removeSubpage(Page page) {
         menuBar.removeItem(menuBarItems.get(page));
         menuBarItems.remove(page);
     }
 
-    public void setCaption(Subpage page, String name) {
+    public void setCaption(Page page, String name) {
         menuBarItems.get(page).setText(name);
     }
 
-    public LinkedList<Subpage> getSubpages() {
-        return subpages.getPagingElements().getSubpages();
+    public LinkedList<Page> getSubpages() {
+        return subpages.getPagingElements().getPages();
     }
+
+
 }
