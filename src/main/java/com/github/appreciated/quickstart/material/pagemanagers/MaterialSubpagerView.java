@@ -1,4 +1,4 @@
-package com.github.appreciated.quickstart.material.components;
+package com.github.appreciated.quickstart.material.pagemanagers;
 
 import com.github.appreciated.quickstart.base.navigation.theme.SubpagerView;
 import com.github.appreciated.quickstart.base.pages.Page;
@@ -19,7 +19,7 @@ import java.util.List;
 /**
  * Created by appreciated on 01.04.2017.
  */
-public class MaterialPageNavigatorView implements SubpagerView {
+public class MaterialSubpagerView implements SubpagerView {
 
     private MenuBar menuBar;
     private List<Action> subpageActions = new ArrayList<>();
@@ -29,7 +29,7 @@ public class MaterialPageNavigatorView implements SubpagerView {
     private Page currentSubpage;
 
 
-    public MaterialPageNavigatorView(PageNavigator subpages) {
+    public MaterialSubpagerView(PageNavigator subpages) {
         this.subpages = subpages;
         menuBar = new MenuBar();
         subpages.getPagingElements().getPages().forEach(subpage -> addSubpage(subpage));

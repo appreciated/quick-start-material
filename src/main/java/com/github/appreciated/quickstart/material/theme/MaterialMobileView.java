@@ -14,7 +14,7 @@ import com.github.appreciated.quickstart.base.pages.attributes.HasSearch;
 import com.github.appreciated.quickstart.material.component.DownloadButton;
 import com.github.appreciated.quickstart.material.component.UploadButton;
 import com.github.appreciated.quickstart.material.component.mobile.MobileMenuAnimator;
-import com.github.appreciated.quickstart.material.components.MaterialPageNavigatorView;
+import com.github.appreciated.quickstart.material.pagemanagers.MaterialSubpagerView;
 import com.github.appreciated.quickstart.material.theme.design.MobileNavigationDesign;
 import com.vaadin.icons.VaadinIcons;
 import com.vaadin.ui.*;
@@ -50,10 +50,10 @@ public class MaterialMobileView extends MobileNavigationDesign implements PageHo
     public void initNavigationElements(Stream<Page> pages) {
         navigationElements.removeAllComponents();
         pages.forEach(element -> {
-            if (element instanceof MaterialPageNavigatorView) {
+            if (element instanceof MaterialSubpagerView) {
                 addMenuElement(element, true);
-                ((MaterialPageNavigatorView) element).getSubpages().forEach(subpage -> {
-                    addChildElement((MaterialPageNavigatorView) element, subpage, false);
+                ((MaterialSubpagerView) element).getSubpages().forEach(subpage -> {
+                    addChildElement((MaterialSubpagerView) element, subpage, false);
                 });
             } else {
                 addMenuElement(element, false);
@@ -61,7 +61,7 @@ public class MaterialMobileView extends MobileNavigationDesign implements PageHo
         });
     }
 
-    private void addChildElement(MaterialPageNavigatorView root, Page page, boolean hasChildren) {
+    private void addChildElement(MaterialSubpagerView root, Page page, boolean hasChildren) {
         // Wrapper for the Java script part at the attach() method to not override the vaadin on click events
         HorizontalLayout wrapper = new HorizontalLayout();
         wrapper.setHeight(50, Unit.PIXELS);

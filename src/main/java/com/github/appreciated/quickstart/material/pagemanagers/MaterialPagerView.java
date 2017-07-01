@@ -1,12 +1,11 @@
-package com.github.appreciated.quickstart.material.components;
+package com.github.appreciated.quickstart.material.pagemanagers;
 
 
 import com.github.appreciated.quickstart.base.components.Helper;
 import com.github.appreciated.quickstart.base.navigation.theme.PagerView;
 import com.github.appreciated.quickstart.base.pages.Page;
-import com.github.appreciated.quickstart.base.pages.attributes.PageManager;
 import com.github.appreciated.quickstart.base.pages.managed.HorizontalScrollPage;
-import com.github.appreciated.quickstart.material.components.design.MaterialPagerDesign;
+import com.github.appreciated.quickstart.material.pagemanagers.design.MaterialPagerDesign;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Component;
 
@@ -17,7 +16,7 @@ import java.util.Map;
 /**
  * Created by appreciated on 09.12.2016.
  */
-public class MaterialPagerView extends MaterialPagerDesign implements PagerView, PageManager {
+public class MaterialPagerView extends MaterialPagerDesign implements PagerView {
 
     private final List<Page> pages;
 

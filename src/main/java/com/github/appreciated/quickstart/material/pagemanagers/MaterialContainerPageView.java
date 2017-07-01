@@ -1,20 +1,19 @@
-package com.github.appreciated.quickstart.material.components;
+package com.github.appreciated.quickstart.material.pagemanagers;
 
 
 import com.github.appreciated.material.MaterialTheme;
 import com.github.appreciated.quickstart.base.components.Helper;
-import com.github.appreciated.quickstart.base.pages.ComponentPage;
-import com.github.appreciated.quickstart.base.pages.attributes.PageManager;
+import com.github.appreciated.quickstart.base.navigation.theme.ContainerPageView;
 import com.github.appreciated.quickstart.base.pages.managed.ContainedPage;
-import com.github.appreciated.quickstart.material.components.design.MaterialNavigationContainerDesign;
+import com.github.appreciated.quickstart.material.pagemanagers.design.MaterialNavigationContainerDesign;
 import com.vaadin.ui.Component;
 
 /**
  * Created by appreciated on 11.12.2016.
  */
-public class MaterialNavigationContainerView extends MaterialNavigationContainerDesign implements ComponentPage, PageManager {
+public class MaterialContainerPageView extends MaterialNavigationContainerDesign implements ContainerPageView {
 
-    public MaterialNavigationContainerView(ContainedPage page) {
+    public MaterialContainerPageView(ContainedPage page) {
         Helper.prepareContainerForComponent(this, page);
         this.addComponent(page);
         if (!page.hasPadding()) {

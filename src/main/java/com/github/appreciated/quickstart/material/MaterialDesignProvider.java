@@ -9,12 +9,12 @@ import com.github.appreciated.quickstart.base.pages.attributes.PageManager;
 import com.github.appreciated.quickstart.base.pages.managed.ContainedPage;
 import com.github.appreciated.quickstart.base.pages.managed.HorizontalScrollPage;
 import com.github.appreciated.quickstart.base.pages.managed.ProgressStepper;
-import com.github.appreciated.quickstart.material.components.MaterialNavigationContainerView;
-import com.github.appreciated.quickstart.material.components.MaterialPageNavigatorView;
-import com.github.appreciated.quickstart.material.components.MaterialPagerView;
-import com.github.appreciated.quickstart.material.components.MaterialProgressStepperView;
 import com.github.appreciated.quickstart.material.dialog.MaterialDialog;
 import com.github.appreciated.quickstart.material.login.MaterialLogin;
+import com.github.appreciated.quickstart.material.pagemanagers.MaterialContainerPageView;
+import com.github.appreciated.quickstart.material.pagemanagers.MaterialPagerView;
+import com.github.appreciated.quickstart.material.pagemanagers.MaterialProgressStepperView;
+import com.github.appreciated.quickstart.material.pagemanagers.MaterialSubpagerView;
 import com.github.appreciated.quickstart.material.theme.MaterialDesktopView;
 import com.github.appreciated.quickstart.material.theme.MaterialMobileView;
 import org.vaadin.leif.splashscreen.SplashScreen;
@@ -41,12 +41,12 @@ public class MaterialDesignProvider implements QuickStartDesignProvider {
 
     @Override
     public PageManager getNavigationContainer(ContainedPage page) {
-        return new MaterialNavigationContainerView(page);
+        return new MaterialContainerPageView(page);
     }
 
     @Override
     public PageManager getSubpageNavigator(PageNavigator subpages) {
-        return new MaterialPageNavigatorView(subpages);
+        return new MaterialSubpagerView(subpages);
     }
 
     @Override

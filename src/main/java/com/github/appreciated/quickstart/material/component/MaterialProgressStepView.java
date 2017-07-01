@@ -5,7 +5,7 @@ import com.github.appreciated.quickstart.base.listeners.NavigationListener;
 import com.github.appreciated.quickstart.base.pages.FinishablePage;
 import com.github.appreciated.quickstart.base.pages.Page;
 import com.github.appreciated.quickstart.base.pages.attributes.HasFinishablePages;
-import com.github.appreciated.quickstart.material.components.design.MaterialProgressStepDesign;
+import com.github.appreciated.quickstart.material.pagemanagers.design.MaterialProgressStepDesign;
 import com.vaadin.ui.HorizontalLayout;
 
 import java.util.LinkedList;
