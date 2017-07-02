@@ -16,7 +16,9 @@ public class UploadButton extends Upload {
             setSizeFull();
             addStyleName("floating-action");
         } else {
-            addStyleName("upload-inline-icon");
+            if (action.getIconResource() != null) {
+                addStyleName("upload-inline-icon");
+            }
             addStyleName("borderless custom");
             setButtonCaption(action.getTitle());
         }
