@@ -6,7 +6,7 @@ import com.github.appreciated.quickstart.base.pages.FinishablePage;
 import com.github.appreciated.quickstart.base.pages.Page;
 import com.github.appreciated.quickstart.base.pages.actions.Action;
 import com.github.appreciated.quickstart.base.pages.actions.CustomAction;
-import com.github.appreciated.quickstart.base.pages.managed.ProgressStepper;
+import com.github.appreciated.quickstart.base.pages.managed.ProgressStepPage;
 import com.github.appreciated.quickstart.material.component.MaterialProgressStepView;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Component;
@@ -21,11 +21,11 @@ import java.util.List;
 public class MaterialProgressStepperView extends VerticalLayout implements ProgressStepperView {
 
     private final MaterialProgressStepView progressStepView;
-    private ProgressStepper finishableSubpages;
+    private ProgressStepPage finishableSubpages;
     private final List<FinishablePage> pages;
     private final List<Action> actions;
 
-    public MaterialProgressStepperView(ProgressStepper progressStepper) {
+    public MaterialProgressStepperView(ProgressStepPage progressStepper) {
         progressStepView = new MaterialProgressStepView(progressStepper, isNavigatable());
         this.finishableSubpages = progressStepper;
         progressStepView.setNavigationListener(this);
@@ -67,7 +67,7 @@ public class MaterialProgressStepperView extends VerticalLayout implements Progr
     }
 
     public boolean isNavigatable() {
-        return false;
+        return true;
     }
 
     public void setNewContent(FinishablePage content) {

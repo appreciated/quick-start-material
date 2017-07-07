@@ -76,8 +76,7 @@ public class MaterialMobileView extends MobileNavigationDesign implements PageHo
         button.setSizeFull();
         wrapper.addComponent(button);
         button.addClickListener(clickEvent -> {
-            root.navigateTo();
-            root.setNewSubpage(page);
+            root.navigateTo(page);
         });
         navigationElements.addComponent(wrapper);
     }
@@ -232,13 +231,12 @@ public class MaterialMobileView extends MobileNavigationDesign implements PageHo
     }
 
     @Override
-    public void addPage(Page page) {
-        Component component = page.getComponent();
+    public void addPage(Component page) {
         componentHolder.removeAllComponents();
-        allowPercentagePageHeight(Helper.requiresPercentageHeight(component));
-        Helper.prepareContainerForComponent(componentHolder, component);
-        componentHolder.addComponent(component);
-        componentHolder.setComponentAlignment(component, Alignment.TOP_CENTER);
+        allowPercentagePageHeight(Helper.requiresPercentageHeight(page));
+        Helper.prepareContainerForComponent(componentHolder, page);
+        componentHolder.addComponent(page);
+        componentHolder.setComponentAlignment(page, Alignment.TOP_CENTER);
     }
 
     public Button getMenuButton() {

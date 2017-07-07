@@ -12,8 +12,6 @@ import com.github.appreciated.quickstart.base.pages.Page;
 import com.github.appreciated.quickstart.base.pages.actions.*;
 import com.github.appreciated.quickstart.base.pages.attributes.HasContextActions;
 import com.github.appreciated.quickstart.base.pages.attributes.HasSearch;
-import com.github.appreciated.quickstart.base.pages.attributes.ManagedPage;
-import com.github.appreciated.quickstart.base.pages.attributes.PageManager;
 import com.github.appreciated.quickstart.base.ui.QuickStartUI;
 import com.github.appreciated.quickstart.material.component.DownloadButton;
 import com.github.appreciated.quickstart.material.component.UploadButton;
@@ -195,20 +193,12 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Page
     }
 
     @Override
-    public void addPage(Page page) {
-        Component component = null;
-        if (page instanceof ManagedPage) {
-            ManagedPage managedPage = (ManagedPage) page;
-            PageManager manager = managedPage.getPageManager();
-            component = manager.getComponent();
-        } else {
-            component = page.getComponent();
-        }
+    public void addPage(Component page) {
         componentHolder.removeAllComponents();
-        allowPercentagePageHeight(Helper.requiresPercentageHeight(component));
-        Helper.prepareContainerForComponent(componentHolder, component);
-        componentHolder.addComponent(component);
-        componentHolder.setComponentAlignment(component, Alignment.TOP_CENTER);
+        allowPercentagePageHeight(Helper.requiresPercentageHeight(page));
+        Helper.prepareContainerForComponent(componentHolder, page);
+        componentHolder.addComponent(page);
+        componentHolder.setComponentAlignment(page, Alignment.TOP_CENTER);
     }
 
     /*

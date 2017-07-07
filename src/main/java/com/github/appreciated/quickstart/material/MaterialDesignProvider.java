@@ -4,11 +4,11 @@ import com.github.appreciated.quickstart.base.dialog.Dialog;
 import com.github.appreciated.quickstart.base.navigation.theme.LoginView;
 import com.github.appreciated.quickstart.base.navigation.theme.PageHolder;
 import com.github.appreciated.quickstart.base.navigation.theme.QuickStartDesignProvider;
-import com.github.appreciated.quickstart.base.pages.PageNavigator;
+import com.github.appreciated.quickstart.base.pages.NavigatorPage;
 import com.github.appreciated.quickstart.base.pages.attributes.PageManager;
 import com.github.appreciated.quickstart.base.pages.managed.ContainedPage;
-import com.github.appreciated.quickstart.base.pages.managed.HorizontalScrollPage;
-import com.github.appreciated.quickstart.base.pages.managed.ProgressStepper;
+import com.github.appreciated.quickstart.base.pages.managed.Pager;
+import com.github.appreciated.quickstart.base.pages.managed.ProgressStepPage;
 import com.github.appreciated.quickstart.material.dialog.MaterialDialog;
 import com.github.appreciated.quickstart.material.login.MaterialLogin;
 import com.github.appreciated.quickstart.material.pagemanagers.MaterialContainerPageView;
@@ -45,17 +45,17 @@ public class MaterialDesignProvider implements QuickStartDesignProvider {
     }
 
     @Override
-    public PageManager getSubpageNavigator(PageNavigator subpages) {
+    public PageManager getSubpageNavigator(NavigatorPage subpages) {
         return new MaterialSubpagerView(subpages);
     }
 
     @Override
-    public PageManager getProgressStepper(ProgressStepper subpages) {
+    public PageManager getProgressStepper(ProgressStepPage subpages) {
         return new MaterialProgressStepperView(subpages);
     }
 
     @Override
-    public PageManager getPager(HorizontalScrollPage subpages) {
+    public PageManager getPager(Pager subpages) {
         return new MaterialPagerView(subpages);
     }
 

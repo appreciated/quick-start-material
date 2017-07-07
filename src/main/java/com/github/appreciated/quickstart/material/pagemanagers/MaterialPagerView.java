@@ -4,7 +4,9 @@ package com.github.appreciated.quickstart.material.pagemanagers;
 import com.github.appreciated.quickstart.base.components.Helper;
 import com.github.appreciated.quickstart.base.navigation.theme.PagerView;
 import com.github.appreciated.quickstart.base.pages.Page;
-import com.github.appreciated.quickstart.base.pages.managed.HorizontalScrollPage;
+import com.github.appreciated.quickstart.base.pages.actions.Action;
+import com.github.appreciated.quickstart.base.pages.attributes.HasContextActions;
+import com.github.appreciated.quickstart.base.pages.managed.Pager;
 import com.github.appreciated.quickstart.material.pagemanagers.design.MaterialPagerDesign;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Component;
@@ -16,7 +18,7 @@ import java.util.Map;
 /**
  * Created by appreciated on 09.12.2016.
  */
-public class MaterialPagerView extends MaterialPagerDesign implements PagerView {
+public class MaterialPagerView extends MaterialPagerDesign implements PagerView, HasContextActions {
 
     private final List<Page> pages;
 
@@ -24,7 +26,7 @@ public class MaterialPagerView extends MaterialPagerDesign implements PagerView 
 
     private Page currentPage;
 
-    public MaterialPagerView(HorizontalScrollPage hasSubpages) {
+    public MaterialPagerView(Pager hasSubpages) {
         getPagerDots().removeAllComponents();
         pages = hasSubpages.getPagingElements().getPages();
         for (Page page : pages) {
@@ -61,11 +63,13 @@ public class MaterialPagerView extends MaterialPagerDesign implements PagerView 
         if (pages.indexOf(currentPage) == pages.size() - 1) {
         } else {
             setNewPage(pages.get(pages.indexOf(currentPage) + 1));
+            onUpdate(); // to update the context Actions eventually
         }
     }
 
     public void last() {
         setNewPage(pages.get(pages.indexOf(currentPage) - 1));
+        onUpdate(); // to update the context Actions eventually
     }
 
     private void setButtonVisible(Component component, boolean visible) {
@@ -74,5 +78,24 @@ public class MaterialPagerView extends MaterialPagerDesign implements PagerView 
         } else {
             component.addStyleName("invisible");
         }
+    }
+
+    @Override
+    public List<Action> getContextActions() {
+        if (currentPage instanceof HasContextActions) {
+            return ((HasContextActions) currentPage).getContextActions();
+        } else {
+            return null;
+        }
+    }
+
+    @Override
+    public boolean showTitle() {
+        return currentPage.showTitle();
+    }
+
+    @Override
+    public String getNavigationName() {
+        return currentPage.getNavigationName();
     }
 }
