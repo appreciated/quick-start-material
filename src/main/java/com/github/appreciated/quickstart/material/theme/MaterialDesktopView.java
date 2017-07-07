@@ -123,6 +123,7 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Page
         reInitActionBar();
         if (hasSearch != null) {
             actionBar.getSearchBar().setValue("");
+            actionBar.getSearchBar().setPlaceholder(hasSearch.getPlaceholder());
             actionBar.getSearchBarWrapper().setVisible(true);
             actionBar.getSearchBar().addValueChangeListener(hasSearch);
         }
