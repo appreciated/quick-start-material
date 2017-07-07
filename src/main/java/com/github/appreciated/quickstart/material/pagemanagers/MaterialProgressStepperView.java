@@ -37,11 +37,6 @@ public class MaterialProgressStepperView extends VerticalLayout implements Progr
                 return false;
             }
         }.withAlignment(Alignment.MIDDLE_CENTER));
-    }
-
-    @Override
-    public void attach() {
-        super.attach();
         progressStepView.setNavigationListener(this);
         setNewContent(progressStepView.getCurrent());
     }
@@ -71,10 +66,11 @@ public class MaterialProgressStepperView extends VerticalLayout implements Progr
     }
 
     public void setNewContent(FinishablePage content) {
+        this.removeAllComponents();
         Component component = content.getComponent();
         Helper.prepareContainerForComponent(this,component);
-        this.removeAllComponents();
         this.addComponent(component);
+        onUpdate();
     }
 
     public void next() {
