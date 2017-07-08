@@ -6,6 +6,8 @@ import com.github.appreciated.quickstart.base.pages.Page;
 import com.github.appreciated.quickstart.base.pages.actions.Action;
 import com.github.appreciated.quickstart.base.pages.actions.CustomAction;
 import com.github.appreciated.quickstart.base.pages.attributes.HasContextActions;
+import com.github.appreciated.quickstart.base.pages.attributes.HasSearch;
+import com.vaadin.data.HasValue;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.MenuBar;
@@ -18,7 +20,7 @@ import java.util.List;
 /**
  * Created by appreciated on 01.04.2017.
  */
-public class MaterialSubpagerView implements SubpagerView {
+public class MaterialSubpagerView implements SubpagerView, HasSearch {
 
     private MenuBar menuBar;
     private List<Action> subpageActions = new ArrayList<>();
@@ -88,4 +90,15 @@ public class MaterialSubpagerView implements SubpagerView {
         return subpages.getPagingElements().getPages();
     }
 
+    @Override
+    public void valueChange(HasValue.ValueChangeEvent<String> valueChangeEvent) {
+        if (currentSubpage instanceof HasSearch) {
+            ((HasSearch) currentSubpage).valueChange(valueChangeEvent);
+        }
+    }
+
+    @Override
+    public boolean hasSearch() {
+        return currentSubpage instanceof HasSearch;
+    }
 }
