@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.appreciated</groupId>
     <artifactId>quick-start-material</artifactId>
-    <version>0.9.18</version>
+    <version>0.9.19</version>
     <packaging>jar</packaging>
     <properties>
         <vaadin.version>8.1.1</vaadin.version>
@@ -31,12 +31,12 @@
         <dependency>
             <groupId>com.github.appreciated</groupId>
             <artifactId>quick-start-base</artifactId>
-            <version>0.9.18</version>
+            <version>0.9.19</version>
         </dependency>
         <dependency>
             <groupId>com.github.appreciated</groupId>
             <artifactId>material</artifactId>
-            <version>1.0.2</version>
+            <version>1.0.5</version>
         </dependency>
     </dependencies>
     <build>
