@@ -13,6 +13,7 @@ import com.github.appreciated.quickstart.base.pages.actions.*;
 import com.github.appreciated.quickstart.base.pages.attributes.HasContextActions;
 import com.github.appreciated.quickstart.base.pages.attributes.HasSearch;
 import com.github.appreciated.quickstart.base.ui.QuickStartUI;
+import com.github.appreciated.quickstart.material.component.ClickActionButton;
 import com.github.appreciated.quickstart.material.component.DownloadButton;
 import com.github.appreciated.quickstart.material.component.UploadButton;
 import com.github.appreciated.quickstart.material.component.desktop.DesktopMenuBarAnimator;
@@ -130,7 +131,6 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Page
         if (contextNavigable != null) {
             List<Action> actions = contextNavigable.getContextActions();
             if (actions != null && actions.size() > 0) {
-                actionBar.getContextButtons().removeItems();
                 actions.forEach(action -> {
                     if (action instanceof CustomAction) {
                         CustomAction cAction = (CustomAction) action;
@@ -147,12 +147,11 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Page
                         actionBar.getCustomActionWrapper().addComponent(upload);
                         actionBar.getCustomActionWrapper().setComponentAlignment(upload, Alignment.MIDDLE_LEFT);
                     } else if (action instanceof ClickAction) {
-                        actionBar.getContextButtons().addItem(action.getTitle(), action.getIconResource(), menuItem -> {
-                            ((ClickAction) action).getListener().actionPerformed(null);
-                        });
+                        ClickActionButton download = new ClickActionButton((ClickAction) action);
+                        actionBar.getCustomActionWrapper().addComponent(download);
+                        actionBar.getCustomActionWrapper().setComponentAlignment(download, Alignment.MIDDLE_LEFT);
                     }
                 });
-                actionBar.getContextButtons().setVisible(actions.stream().filter(action -> action instanceof ClickAction).count() > 0);
             }
         }
         actionBar.getContainerLabel().setVisible(pageTitleVisible);
