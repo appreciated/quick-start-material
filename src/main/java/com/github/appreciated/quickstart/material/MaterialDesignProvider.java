@@ -8,12 +8,10 @@ import com.github.appreciated.quickstart.base.pages.NavigatorPage;
 import com.github.appreciated.quickstart.base.pages.attributes.PageManager;
 import com.github.appreciated.quickstart.base.pages.managed.ContainedPage;
 import com.github.appreciated.quickstart.base.pages.managed.Pager;
-import com.github.appreciated.quickstart.base.pages.managed.ProgressStepPage;
 import com.github.appreciated.quickstart.material.dialog.MaterialDialog;
 import com.github.appreciated.quickstart.material.login.MaterialLogin;
 import com.github.appreciated.quickstart.material.pagemanagers.MaterialContainerPageView;
 import com.github.appreciated.quickstart.material.pagemanagers.MaterialPagerView;
-import com.github.appreciated.quickstart.material.pagemanagers.MaterialProgressStepperView;
 import com.github.appreciated.quickstart.material.pagemanagers.MaterialSubpagerView;
 import com.github.appreciated.quickstart.material.theme.MaterialDesktopView;
 import com.github.appreciated.quickstart.material.theme.MaterialMobileView;
@@ -47,11 +45,6 @@ public class MaterialDesignProvider implements QuickStartDesignProvider {
     @Override
     public PageManager getSubpageNavigator(NavigatorPage subpages) {
         return new MaterialSubpagerView(subpages);
-    }
-
-    @Override
-    public PageManager getProgressStepper(ProgressStepPage subpages) {
-        return new MaterialProgressStepperView(subpages);
     }
 
     @Override
