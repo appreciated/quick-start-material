@@ -1,107 +1,108 @@
 @keyframes headerFrames {
-    0% {
-        opacity: 0;
-        transform: translate(0px, 150px);
-      margin-left: 0px;
-    }
-    3% {
-        opacity: 1;
-        transform: translate(0px, 150px);
-    }
-    25% {
-        transform: translate(0px, 150px);
-    }
-    50% {
-      margin-left: -60px;
-        transform: translate(0px, 0px);
-    }
-    100% {
-        opacity: 1;
-        transform: translate(0px, 0px);
-    }
+  0% {
+    opacity: 0;
+    transform: translate(0px, 150px);
+    margin-left: 0px;
+  }
+  3% {
+    opacity: 1;
+    transform: translate(0px, 150px);
+  }
+  25% {
+    transform: translate(0px, 150px);
+    margin-left: 0px;
+  }
+  50% {
+    margin-left: -60px;
+    transform: translate(0px, 0px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
 }
 
 @keyframes headerColorFrames {
-    0% {
-        color: white;
-    }
-    3% {
-        color: white;
-    }
-    25% {
-        color: white;
-    }
-    50% {
-        color: $qs-accent-color;
-    }
-    100% {
-        color: $qs-accent-color;
-    }
+  0% {
+    color: white;
+  }
+  3% {
+    color: white;
+  }
+  25% {
+    color: white;
+  }
+  50% {
+    color: $qs-accent-color;
+  }
+  100% {
+    color: $qs-accent-color;
+  }
 }
 
 @keyframes backgroundFrames {
-    0% {
-        background: $qs-primary-color;
-    }
-    30% {
-        background: $qs-primary-color;
-    }
-    100% {
-        background: transparent;
-    }
+  0% {
+    background: $qs-primary-color;
+  }
+  30% {
+    background: $qs-primary-color;
+  }
+  100% {
+    background: transparent;
+  }
 }
 
 @keyframes formFrames {
-    0% {
-        opacity: 0;
-        transform: translate(150px, 0px);
-    }
-    60% {
-        opacity: 0;
-        transform: translate(150px, 0px);
-    }
-    100% {
-        opacity: 1;
-        transform: translate(0px, 0px);
-    }
+  0% {
+    opacity: 0;
+    transform: translate(150px, 0px);
+  }
+  60% {
+    opacity: 0;
+    transform: translate(150px, 0px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
 }
 
 @mixin animations {
-    .background-animation {
-        animation: backgroundFrames ease 3s;
-        animation-iteration-count: 1;
-        transform-origin: 50% 50%;
-    }
-    .text-header-animation {
-        animation: headerColorFrames ease 3s;
-        animation-iteration-count: 1;
-        transform-origin: 50% 50%;
-        color: $qs-accent-color;
-    }
-    .header-animation {
-        animation: headerFrames ease 3s;
-        animation-iteration-count: 1;
-        transform-origin: 50% 50%;
-    }
-    .form-animation {
-        animation: formFrames ease 2s;
-        animation-iteration-count: 1;
-        transform-origin: 50% 50%;
-        animation-fill-mode: forwards;
-        /*when the spec is finished*/
-    }
-    .animate-in-slide-down {
-        animation: valo-animate-in-slide-down 1s;
-    }
-    .animate-in-fade {
-        animation: valo-animate-in-fade 1s;
-    }
-    .opacity-animation {
-        transition: opacity 0.3s;
-        opacity: 1.0;
-    }
-    .invisible{
-        pointer-events: none;
-        opacity: 0.0;
-    }
+  .background-animation {
+    animation: backgroundFrames ease 3s;
+    animation-iteration-count: 1;
+    transform-origin: 50% 50%;
+  }
+  .text-header-animation {
+    animation: headerColorFrames ease 3s;
+    animation-iteration-count: 1;
+    transform-origin: 50% 50%;
+    color: $qs-accent-color;
+  }
+  .header-animation {
+    animation: headerFrames ease 3s;
+    animation-iteration-count: 1;
+    transform-origin: 50% 50%;
+  }
+  .form-animation {
+    animation: formFrames ease 2s;
+    animation-iteration-count: 1;
+    transform-origin: 50% 50%;
+    animation-fill-mode: forwards;
+    /*when the spec is finished*/
+  }
+  .animate-in-slide-down {
+    animation: valo-animate-in-slide-down 1s;
+  }
+  .animate-in-fade {
+    animation: valo-animate-in-fade 1s;
+  }
+  .opacity-animation {
+    transition: opacity 0.3s;
+    opacity: 1.0;
+  }
+  .invisible {
+    pointer-events: none;
+    opacity: 0.0;
+  }
 }
