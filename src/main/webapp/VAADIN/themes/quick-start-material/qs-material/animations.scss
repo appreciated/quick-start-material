@@ -2,6 +2,7 @@
     0% {
         opacity: 0;
         transform: translate(0px, 150px);
+      margin-left: 0px;
     }
     3% {
         opacity: 1;
@@ -11,6 +12,7 @@
         transform: translate(0px, 150px);
     }
     50% {
+      margin-left: -60px;
         transform: translate(0px, 0px);
     }
     100% {

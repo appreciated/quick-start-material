@@ -5,7 +5,6 @@ import com.github.appreciated.quickstart.base.authentication.login.LoginListener
 import com.github.appreciated.quickstart.base.authentication.registration.RegistrationControl;
 import com.github.appreciated.quickstart.base.authentication.registration.RegistrationResult;
 import com.github.appreciated.quickstart.base.listeners.ShortcutKeyListener;
-import com.github.appreciated.quickstart.base.notification.QuickNotification;
 import com.vaadin.data.Binder;
 import com.vaadin.data.HasValue;
 import com.vaadin.event.ShortcutAction;
@@ -76,14 +75,14 @@ public class LoginView extends LoginViewDesign {
 
     private void tryLogin() {
         loginButton.setDisableOnClick(true);
-        if (accessControl.signIn(username.getValue(), password.getValue())) {
+        if (accessControl.checkCredentials(username.getValue(), password.getValue())) {
             if (loginListener != null) {
                 loginListener.loginSuccessful();
             }
         } else {
-            QuickNotification.showMessage("Login failed", "Please check your username and password and try again.");
             username.focus();
             loginButton.setEnabled(true);
+            accessControl.onInvalidCredentials();
         }
     }
 

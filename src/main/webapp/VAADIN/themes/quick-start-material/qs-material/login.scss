@@ -1,62 +1,64 @@
 @media (max-device-width: 500px) {
-    .login-background {
-        background-image: none !important;
-    }
-    .login-window {
-        box-shadow: none !important;
-        background-color: transparent !important;
-    }
-    .login-text {
-        text-shadow: none !important;
-        color: $qs-primary-color !important;
-    }
-    .login-icon {
-        box-shadow: none !important;
-    }
-    .login-window-wrapper {
-        width: 100% !important;
-    }
+  .login-background {
+    background-image: none !important;
+  }
+  .login-window {
+    box-shadow: none !important;
+    background-color: transparent !important;
+  }
+  .login-text {
+    text-shadow: none !important;
+    color: $qs-primary-color !important;
+  }
+  .login-icon {
+    box-shadow: none !important;
+  }
+  .login-window-wrapper {
+    width: 100% !important;
+  }
 }
 
 @mixin login {
-     .login-background {
-        background-image: unquote("#{$mat-background-image} ");
-        background-position: center;
-        background-size: cover;
-    }
-    .login-margin-bottom {
-        margin-bottom: 4vh;
-    }
-    .login-text {
-       text-shadow: 0 17px 13px rgba(0, 0, 0, 0.3);
-    }
-    .login-icon {
-        background-color: $qs-accent-color;
-        background-image: $mat-icon-image;
-        background-position: center;
-        background-size: cover;
-        box-shadow: 0 19px 38px rgba(0, 0, 0, 0.2), 0 10px 12px rgba(0, 0, 0, 0.22);
-        border-radius: 100%;
-    }
-    .register-button {
-        height: 40px;
-        line-height: 40px;
-        color: $qs-primary-color;
-        background: $qs-primary-contrast-color;
-        border-radius: 3px;
-        transition: background-color 0.3s ease;
-    }
-    .register-button:hover {
-        background: v-font-color($qs-primary-contrast-color, 1.0) !important;
-    }
-    .sign-in-button {
-        height: 40px;
-        line-height: 40px;
-        border-radius: 3px;
-        border: 1px solid $qs-primary-contrast-color;
-        transition: background-color 0.3s ease;
-    }
-    .sign-in-button:hover {
-        background: v-font-color($qs-primary-color, 1.0) !important;
-    }
+  .login-background {
+    background-image: unquote("#{$mat-background-image} ");
+    background-position: center;
+    background-size: cover;
+  }
+  .login-title {
+    margin-bottom: -96px;
+    margin-left: -60px;
+    position: relative;
+    z-index: 1;
+  }
+  .login-view {
+    padding-top: 100px !important;
+  }
+  .login-icon {
+    background-color: $qs-accent-color;
+    background-image: $mat-icon-image;
+    background-position: center;
+    background-size: cover;
+    border-radius: 100%;
+  }
+  .register-button {
+    height: 40px;
+    line-height: 40px;
+    color: $qs-primary-color;
+    background: $qs-primary-contrast-color;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+  }
+  .register-button:hover {
+    background: v-font-color($qs-primary-contrast-color, 1.0) !important;
+  }
+  .sign-in-button {
+    height: 40px;
+    line-height: 40px;
+    border-radius: 3px;
+    border: 1px solid $qs-primary-contrast-color;
+    transition: background-color 0.3s ease;
+  }
+  .sign-in-button:hover {
+    background: v-font-color($qs-primary-color, 1.0) !important;
+  }
 }
