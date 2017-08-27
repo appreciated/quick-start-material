@@ -1,4 +1,4 @@
-$qs-login-animation-time: 2.5s !default;
+$qs-login-animation-time: 2s !default;
 @keyframes headerFrames {
   0% {
     opacity: 0;
@@ -94,7 +94,6 @@ $qs-login-animation-time: 2.5s !default;
     animation-iteration-count: 1;
     transform-origin: 50% 50%;
     animation-fill-mode: forwards;
-    /*when the spec is finished*/
   }
   .animate-in-slide-down {
     animation: valo-animate-in-slide-down 1s;
