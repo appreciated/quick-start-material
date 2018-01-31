@@ -10,18 +10,18 @@ import com.vaadin.ui.Upload;
 public class UploadButton extends Upload {
 
     public UploadButton(UploadAction action) {
-        if (QuickStartUI.isMobile()) {
+       /* if (QuickStartUI.isMobile()) {
             setCaption("");
             setButtonCaption("");
             setSizeFull();
             addStyleName("floating-action");
-        } else {
+        } else {*/
             if (action.getIconResource() != null) {
                 addStyleName("upload-inline-icon");
             }
             addStyleName("borderless custom");
             setButtonCaption(action.getTitle());
-        }
+        //}
         getButtonCaption();
         setImmediateMode(true);
         setIcon(action.getIconResource());

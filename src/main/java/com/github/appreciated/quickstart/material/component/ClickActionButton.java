@@ -7,12 +7,12 @@ import com.vaadin.ui.Button;
 public class ClickActionButton extends Button {
     public ClickActionButton(ClickAction action) {
         setIcon(action.getIconResource());
-        if (QuickStartUI.isMobile()) {
+        /*if (QuickStartUI.isMobile()) {
             addStyleName("floating-action");
-        } else {
+        } else {*/
             addStyleName("borderless custom");
             setCaption(action.getTitle());
-        }
+        //}
         setIcon(action.getIconResource());
         addClickListener(clickEvent -> action.getListener().actionPerformed(null));
 

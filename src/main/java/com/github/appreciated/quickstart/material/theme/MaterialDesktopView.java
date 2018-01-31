@@ -12,6 +12,7 @@ import com.github.appreciated.quickstart.base.pages.Page;
 import com.github.appreciated.quickstart.base.pages.actions.*;
 import com.github.appreciated.quickstart.base.pages.attributes.HasContextActions;
 import com.github.appreciated.quickstart.base.pages.attributes.HasSearch;
+import com.github.appreciated.quickstart.base.session.QuickStartSession;
 import com.github.appreciated.quickstart.base.ui.QuickStartUI;
 import com.github.appreciated.quickstart.material.component.ClickActionButton;
 import com.github.appreciated.quickstart.material.component.DownloadButton;
@@ -84,7 +85,7 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Page
         if (description.getLoginNavigable() == null) {
             register.addClickListener(clickEvent -> new LoginDialog("Register").initWithAccessControl(accessControl).initRegistrationControl(registrationControl).withLoginVisible(false).initWithLoginListener(() -> showUser()).show());
             signIn.addClickListener(clickEvent -> new LoginDialog("Sign-In").initWithAccessControl(accessControl).withLoginVisible(true).initWithLoginListener(() -> showUser()).show());
-        } else if (QuickStartUI.isUserSignedIn()) {
+        } else if (QuickStartSession.isUserSignedIn()) {
             showUser();
         } else {
             Util.invalidateSession();
@@ -93,7 +94,7 @@ public class MaterialDesktopView extends DesktopNavigationDesign implements Page
 
     private void showUser() {
         userAuthWrapper.setVisible(false);
-        MenuBar.MenuItem item = user.addItem(QuickStartUI.getUsername(), VaadinIcons.USER, null);
+        MenuBar.MenuItem item = user.addItem(QuickStartSession.getUsername(), VaadinIcons.USER, null);
         item.addItem("Edit Profile", menuItem -> QuickNotification.showMessageError("This is currently not implemented"));
         item.addItem("Logout", menuItem -> Util.invalidateSession());
     }
