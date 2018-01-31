@@ -25,8 +25,8 @@ public class MaterialContainerPageView extends MaterialNavigationContainerDesign
         }
     }
 
-    @Override
-    public Component getComponent() {
+
+    public Component getViewComponent() {
         return this;
     }
 

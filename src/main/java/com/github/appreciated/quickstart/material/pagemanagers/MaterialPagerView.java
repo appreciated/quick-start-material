@@ -54,7 +54,7 @@ public class MaterialPagerView extends MaterialPagerDesign implements PagerView,
         setButtonVisible(getNextWrapper(), index != pages.size() - 1);
         getContent().removeAllComponents();
 
-        Component component = page.getComponent();
+        Component component = page.getViewComponent();
         Helper.prepareContainerForComponent(getContent(), component);
         getContent().addComponent(component);
     }

@@ -40,8 +40,8 @@ public class MaterialSubpagerView implements SubpagerView, HasSearch {
     }
 
     @Override
-    public Component getComponent() {
-        return currentSubpage.getComponent();
+    public Component getViewComponent() {
+        return currentSubpage.getViewComponent();
     }
 
     public void navigateTo(Page page) {
